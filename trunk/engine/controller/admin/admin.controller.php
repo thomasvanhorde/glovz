@@ -73,10 +73,7 @@ Class admin_controller {
             $data['types'][$i]['valeur'] = (string)$data['types'][$i]['valeur'];
         }
         unset($data['types']['type']);
-/*
-        var_dump($data);
-        exit();
-*/
+
         $this->_view->assign('typeList',$type);
         $this->_view->assign('struct',$data);
         $this->_view->addBlock('content', 'admin_ContentManager_contentEdit.tpl');
@@ -87,6 +84,9 @@ Class admin_controller {
         $collection = $this->_contentManager->getCollectioName($data['collection']);
         unset($data['collection']);
         $ContentManager = $this->_BBD->selectCollection($collection);
+        $data['date_create'] = time();
+        $data['date_update'] = time();
+    //    var_dump($data); exit();
         $ContentManager->insert($data);
         header('location: '.$_SERVER['REDIRECT_URL'].'../../');
     }
