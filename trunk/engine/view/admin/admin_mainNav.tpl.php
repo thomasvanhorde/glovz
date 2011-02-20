@@ -11,8 +11,8 @@
 					Content Manager
 					</a>
 					<ul style="display: block;">
-                        <li><a class="current" href="/[% $SYS_FOLDER%]admin/content-manager/structures/">Structures</a></li>
-                        <li><a href="/[% $SYS_FOLDER%]admin/content-manager/contenus/">Contenus</a></li>
+                        <li><a class="current" href="[% $SYS_FOLDER%]admin/content-manager/structures/">Structures</a></li>
+                        <li><a href="[% $SYS_FOLDER%]admin/content-manager/contenus/">Contenus</a></li>
 					</ul>
 				</li>
 

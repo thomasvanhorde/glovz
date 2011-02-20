@@ -3,12 +3,6 @@
 define('DEBUG', false);
 define('DEV', true);
 
-Define_once('BDD_TYPE', 'mysql');
-Define_once('BDD_LOGIN', 'root');
-Define_once('BDD_PWD', '');
-Define_once('BDD_SERVER', 'localhost');
-Define_once('BDD_BASE', 'sql');
-Define_once('BDD_DOCTRINE', BDD_TYPE.'://'.BDD_LOGIN.'@'.BDD_SERVER.'/'.BDD_BASE);
 
 /***
  * Using for String encode
@@ -30,9 +24,9 @@ else
 
 
 // Defaut config
-if($_SERVER['SCRIPT_FILENAME'] == 'D:/localhost/sel-cms/trunk/www/index.php'){ //Thomas
-	Define_once('SYS_FOLDER','www/');
-	Define_once('ENGINE_URL','D:/localhost/sel-cms/trunk/engine/');
+if($_SERVER['SCRIPT_FILENAME'] == 'D:/localhost/glovz/www/index.php'){ //Thomas
+	Define_once('SYS_FOLDER','/');
+	Define_once('ENGINE_URL','D:/localhost/glovz/engine/');
 }
 
 if($_SERVER['SCRIPT_FILENAME'] == 'C:/wwwroot/CMS/www/index.php'){  // Killian
