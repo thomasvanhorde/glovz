@@ -1,1 +1,0 @@
-This folder is specific usage for include page in Iframe as SqlBuddy.
