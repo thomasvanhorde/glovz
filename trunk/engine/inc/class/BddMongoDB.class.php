@@ -3,8 +3,8 @@
 class BddMongoDB{
     var $_connexion;
     function __construct(){
-        $connexion = new mongo("mongodb://lpcm:lpcm@flame.mongohq.com:27033/lpcm");
-        $this->_connexion = $connexion->selectDB('lpcm');
+        $connexion = new mongo(MONGO_HOST);
+        $this->_connexion = $connexion->selectDB(MONGO_BASE);
     }
 }
 

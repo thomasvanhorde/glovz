@@ -4,6 +4,16 @@ define('DEBUG', false);
 define('DEV', true);
 
 
+
+if($_SERVER['SERVER_ADDR'] == '127.0.0.1'){
+    Define_once('MONGO_HOST','localhost');
+    Define_once('MONGO_BASE','test');
+}else{
+    Define_once('MONGO_HOST','mongodb://lpcm:lpcm@flame.mongohq.com:27033/lpcm');
+    Define_once('MONGO_BASE','lpcm');    
+}
+
+
 /***
  * Using for String encode
  * */
