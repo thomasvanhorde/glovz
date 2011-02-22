@@ -44,7 +44,10 @@ if($_SERVER['SCRIPT_FILENAME'] == 'C:/wwwroot/CMS/www/index.php'){  // Killian
     Define_once('ENGINE_URL','C:/wwwroot/CMS/engine/');
 }
 
-
+if($_SERVER['SCRIPT_FILENAME'] == '/Users/aenyhm/Sites/www/glovz/trunk/www/index.php'){	// Fabien
+	Define_once('SYS_FOLDER','/www/glovz/trunk/www/');
+	Define_once('ENGINE_URL','/Users/aenyhm/Sites/www/glovz/trunk/engine/');
+}
 
 
 // mysql://utilisateur:motdepasse@serveur/base_de_donnees
