@@ -17,9 +17,9 @@ if($_SERVER['SERVER_ADDR'] == '127.0.0.1'){
 /***
  * Using for String encode
  * */
-//  En cas de changement, il faut régénérer les password <!>
+//  En cas de changement, il faut rï¿½gï¿½nï¿½rer les password <!>
 define('GRAIN_SEL', 'b4d6g6hZrt4treD4hrt68kuyki65hr');
-// Methode utilisé
+// Methode utilisï¿½
 define('ENCODE_METHOD', 'md5'); // sha1 | md5
 
 // Use OoCss, ex Tmargin auto create if use in html code
@@ -47,6 +47,11 @@ if($_SERVER['SCRIPT_FILENAME'] == 'C:/wwwroot/CMS/www/index.php'){  // Killian
 if($_SERVER['SCRIPT_FILENAME'] == '/Users/aenyhm/Sites/www/glovz/trunk/www/index.php'){	// Fabien
 	Define_once('SYS_FOLDER','/www/glovz/trunk/www/');
 	Define_once('ENGINE_URL','/Users/aenyhm/Sites/www/glovz/trunk/engine/');
+}
+
+if($_SERVER['SCRIPT_FILENAME'] == '/Applications/MAMP/htdocs/glovZ/trunk/www/index.php') { // JB
+	Define_once('SYS_FOLDER','/www/glovz/trunk/www/');
+	Define_once('ENGINE_URL','/Applications/MAMP/htdocs/glovZ/trunk/engine/');
 }
 
 
