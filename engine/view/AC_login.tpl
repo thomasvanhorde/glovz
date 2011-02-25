@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>[% $title %]</title>
-		<link href="[% $SYS_FOLDER %]themes/ac_login.css" type="text/css" media="screen" rel="stylesheet" />
+		<title>{ $title }</title>
+		<link href="{ $SYS_FOLDER }themes/ac_login.css" type="text/css" media="screen" rel="stylesheet" />
 	</head>
 	<body id="login">
 
@@ -12,7 +12,7 @@
                 <div id="content">
                     <div id="header">
                         try admin/admin <br />
-                        <span style="color:red;">[% $return_access %]</span>
+                        <span style="color:red;">{ $return_access }</span>
                     </div>
                     <div id="darkbanner" class="banner320">
                         <h2>Login</h2>
@@ -33,9 +33,9 @@
                             <input name="user_password" id="user_password" type="password" />
                         </p>
                         <button type="submit" class="positive" name="Submit">
-                            <img src="[% $SYS_FOLDER %]themes/ac_login/key.png" alt="Announcement"/>Login
+                            <img src="{ $SYS_FOLDER }themes/ac_login/key.png" alt="Announcement"/>Login
                         </button>
-                        <a href="[% $SYS_FOLDER %]ac_login/disconnect/">Disconnect</a>
+                        <a href="{ $SYS_FOLDER }ac_login/disconnect/">Disconnect</a>
                       </fieldset>
                     </form>
                 </div>

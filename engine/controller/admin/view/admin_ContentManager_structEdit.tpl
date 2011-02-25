@@ -1,15 +1,15 @@
-[%if $locked == 'true' && $clone != 'true' %]
+{if $locked == 'true' && $clone != 'true' }
     Structure verrouiller
-[%else %]
+{else }
 
-[%if $clone == 'true' %]<h3>Edition d'un clone de [% $struct.name %]</h3>[%/if %]
-<form method="post" [%if $clone == 'true' %]action="../"[%/if %] >
+{if $clone == 'true' }<h3>Edition d'un clone de { $struct.name }</h3>{/if }
+<form method="post" {if $clone == 'true' }action="../"{/if } >
     <input type="hidden" name="todo" value="admin[structEdit]" />
-    <input type="hidden" name="id" value="[%if $clone != 'true' %][% $structID %][%else %][%/if %]"/>
+    <input type="hidden" name="id" value="{if $clone != 'true' }{ $structID }{else }{/if }"/>
 
     
-    <label>Nom</label><input name="name" type="text" value="[% $struct.name %][%if $clone == 'true' %] - clone[%/if %]" />
-    <label>Description</label><textarea name="description">[% $struct.description %]</textarea>
+    <label>Nom</label><input name="name" type="text" value="{ $struct.name }{if $clone == 'true' } - clone{/if }" />
+    <label>Description</label><textarea name="description">{ $struct.description }</textarea>
 
     <strong>Elements</strong>
 
@@ -26,40 +26,40 @@
         </tr>
         
 
-        [%foreach from=$struct.data key=k item=element%]
+        {foreach from=$struct.data key=k item=element}
             <tr>
                 <td>
-                    <input type="text" name="data[[%$k%]][name]" value="[% $element.type.name %]" />
+                    <input type="text" name="data[{$k}][name]" value="{ $element.type.name }" />
                 </td>
                 <td>
-                    <input type="text" name="data[[%$k%]][id]" value="[% $element.type.id %]""/>
+                    <input type="text" name="data[{$k}][id]" value="{ $element.type.id }""/>
                 </td>
                 <td>
-                    <select name="data[[%$k%]][type]" onchange="lockLimit()">
-                    [%foreach from=$typeList key=kType item=type%]
-                        [%if $element.structId == $kType %]
-                        <option value="[% $kType %]" selected="selected">[% $type %]</option>
-                        [%/if%]
-                        [%if $element.structId != $kType %]
-                        <option value="[% $kType %]">[% $type %]</option>
-                        [%/if%]
-                    [%/foreach%]
+                    <select name="data[{$k}][type]" onchange="lockLimit()">
+                    {foreach from=$typeList key=kType item=type}
+                        {if $element.structId == $kType }
+                        <option value="{ $kType }" selected="selected">{ $type }</option>
+                        {/if}
+                        {if $element.structId != $kType }
+                        <option value="{ $kType }">{ $type }</option>
+                        {/if}
+                    {/foreach}
                     </select>
                 </td>
                 <td>
-                    <input class="valeur" type="text" name="data[[%$k%]][valeur]" value="[% $element.type.valeur %]"/>
+                    <input class="valeur" type="text" name="data[{$k}][valeur]" value="{ $element.type.valeur }"/>
                 </td>
                 <td>
-                    <input class="limit" type="text" name="data[[%$k%]][limit]" value="[% $element.type.limit %]" maxlength="3" size="3"/>
+                    <input class="limit" type="text" name="data[{$k}][limit]" value="{ $element.type.limit }" maxlength="3" size="3"/>
                 </td>
                 <td>
-                    <input type="checkbox" name="data[[%$k%]][index]" value="true" [% if $element.type.index =="true" %]checked="checked"[%/if%] />
+                    <input type="checkbox" name="data[{$k}][index]" value="true" { if $element.type.index =="true" }checked="checked"{/if} />
                 </td>
                 <td>
                     <a href="#" onclick="deleteElement(this);return false;">x</a>
                 </td>
             </tr>
-        [%/foreach%]
+        {/foreach}
     </table>
 
 
@@ -80,9 +80,9 @@
         </td>
         <td>
             <select nameTmp="data[keyId][type]" onchange="lockLimit()">
-            [%foreach from=$typeList key=kType item=type%]
-                <option value="[% $kType %]">[% $type %]</option>
-            [%/foreach%]
+            {foreach from=$typeList key=kType item=type}
+                <option value="{ $kType }">{ $type }</option>
+            {/foreach}
             </select>
         </td>
         <td>
@@ -98,7 +98,7 @@
 </table>
 
 <script type="text/javascript">
-    var k = "[%$k%]";   // Last keyID
+    var k = "{$k}";   // Last keyID
     function addElement(){
         k++;
         ElemenList = $('#elementList tr');
@@ -131,4 +131,4 @@
     lockLimit();
 </script>
 
-[%/if %]
+{/if }
