@@ -21,7 +21,7 @@ define('FOLDER_CONTENT_MANAGER','ContentManager/');
 /*
  * Template define
  */
-define('TEMPLATE_EXT','.php');
+define('TEMPLATE_EXT','');
 
 /*
  * Controller define
@@ -53,7 +53,7 @@ define('LISTENER_POST_TODO', 'todo');
 define('INFOS_XML_CORE_MESSAGE','coremessage.xml');
 define('INFOS_XML_CONTENT_TYPE','content_type.xml');
 define('INFOS_XML_CONTENT_STRUCT','content_struct.xml');
-define('INFOS_XML','arborescence.xml');
+define('INFOS_XML',FOLDER_INC.'arborescence.xml');
 define('INFOS_INDEX','index');
 define('INFOS_TITLE','title');
 define('INFOS_CONTROLLER','controller');

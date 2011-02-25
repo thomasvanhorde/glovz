@@ -29,8 +29,8 @@ class View extends Smarty{
 		$this->compile_check = true;
 		$this->force_compile = false;
 		$this->debugging = false;
-       	$this->left_delimiter = '[%';
-       	$this->right_delimiter = '%]';			
+       	$this->left_delimiter = '{';
+       	$this->right_delimiter = '}';
 	}
 
     /**

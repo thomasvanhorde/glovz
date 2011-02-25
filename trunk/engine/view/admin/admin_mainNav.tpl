@@ -1,7 +1,7 @@
 <ul id="main-nav">  <!-- Accordion Menu -->
 
 				<li>
-					<a href="/[% $SYS_FOLDER%]admin/" class="nav-top-item no-submenu"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
+					<a href="/{$SYS_FOLDER}admin/" class="nav-top-item no-submenu"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
 						Administration
 					</a>
 				</li>
@@ -11,8 +11,8 @@
 					Content Manager
 					</a>
 					<ul style="display: block;">
-                        <li><a class="current" href="[% $SYS_FOLDER%]admin/content-manager/structures/">Structures</a></li>
-                        <li><a href="[% $SYS_FOLDER%]admin/content-manager/contenus/">Contenus</a></li>
+                        <li><a class="current" href="{ $SYS_FOLDER}admin/content-manager/structures/">Structures</a></li>
+                        <li><a href="{ $SYS_FOLDER}admin/content-manager/contenus/">Contenus</a></li>
 					</ul>
 				</li>
 
@@ -61,4 +61,4 @@
 					</ul>
 				</li>
 
-			</ul> <!-- End #main-nav -->    
+			</ul> <!-- End #main-nav -->

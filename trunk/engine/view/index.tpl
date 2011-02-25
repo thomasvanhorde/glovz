@@ -1,6 +1,6 @@
-<title>[% $Title %]</title>
+<title>{ $Title }</title>
 
-TEMPLATE DE PAGE INDEX (view/index.tpl.php)
+TEMPLATE DE PAGE INDEX (view/index.tpl)
 <br /><br />
 voir page :
 <br />
@@ -12,9 +12,9 @@ et /articles/seconde
 <br />
 <br />
 
-[% $blk %]
+{ $blk }
 
 <br />
 <br />
 
-[%include file='view/footer.tpl.php'%]
+{include file='view/footer.tpl'}

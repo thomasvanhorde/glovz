@@ -11,6 +11,6 @@ RewriteRule ^(.*)$ index.php [L,QSA]
 </Files>
 
 # Pas d'acces au templates & layout
-<Files ~ "\.tpl.php$"> 
+<Files ~ "\.tpl$"> 
  Deny from all
 </Files>

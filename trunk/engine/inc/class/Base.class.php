@@ -205,11 +205,11 @@ Class Base {
          */
 
         // Xml from www/ folder
-        $XmlFileWeb = FOLDER_WEB.INFOS_XML;
+        $XmlFileWeb = INFOS_XML;
         $XmlDomWeb = simplexml_load_file($XmlFileWeb);
 
         // Xml from engine/ folder
-        $XmlFileEngine = ENGINE_URL.FOLDER_WEB.INFOS_XML;
+        $XmlFileEngine = ENGINE_URL.INFOS_XML;
         $XmlDomEngine = simplexml_load_file($XmlFileEngine);
 
         // Merge in unique object
@@ -270,14 +270,7 @@ Class Base {
      * @description display buffer
      */
     public function Display(){
-        if(CSS_OBJECT){
-            $CssObj = Base::Load(CLASS_CSS);
-            $CssObj->LoadHTML($this->_buffer);
-            $CssObj->compactStyleSheet();
-            $CssObj->display();
-        }
-        else
-            echo $this->_buffer;
+        echo $this->_buffer;
     }
 
 
