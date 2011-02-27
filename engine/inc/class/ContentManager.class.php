@@ -1,5 +1,7 @@
 <?php
 
+define('CONTENT_MANAGER_COLLECTION','ContentManager');
+
 include ENGINE_URL.FOLDER_CLASS.'ContentManager/ContentType.class.php';
 include ENGINE_URL.FOLDER_CLASS.'ContentManager/ContentStruct.class.php';
 
