@@ -4,9 +4,11 @@
         <br /><h4>{$type.name}</h4>
         <table>
             <tr>
-            {foreach from=$type.index key=kI item=dataI}
-                <th>{$dataI}</th>
-            {/foreach}
+                {foreach from=$type.index key=kI item=dataI}
+                    <th>{$dataI}</th>
+                {/foreach}
+                <th></th>
+                <th></th>
             </tr>
 
             {foreach from=$type.data key=k2 item=dataL}
@@ -16,6 +18,12 @@
                         <td>{$dataLI|truncate:100:'..':true:true}</td>
                     {/if}
                 {/foreach}
+                <td>
+                    <a href="{$k2}/">Editer</a>
+                </td>
+                <td>
+                    <a href="delete/{$k2}/">Supprimer</a>
+                </td>
             </tr>
             {/foreach}
         </table>

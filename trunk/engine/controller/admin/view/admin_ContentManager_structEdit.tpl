@@ -92,43 +92,16 @@
             <input class="limit" type="text" nameTmp="data[keyId][limit]" maxlength="3" size="3" />
         </td>
         <td>
+            <input type="checkbox" nameTmp="data[keyId][index]" value="true" />
+        </td>
+        <td>
             <a href="#" onclick="deleteElement(this);return false;">x</a>
         </td>        
     </tr>
 </table>
 
 <script type="text/javascript">
-    var k = "{$k}";   // Last keyID
-    function addElement(){
-        k++;
-        ElemenList = $('#elementList tr');
-        clone = ElemenList.clone();
-        $('#StructList').append(clone);
-        $('#StructList').find('tr:last-child').fadeIn();
-        $.each($('#StructList').find('tr:last-child').find('input, select'), function(i, item){
-            name = $(item).attr('nameTmp').replace("keyId", k);
-            $(item).attr('name', name).removeAttr('nameTmp');
-        });
-    }
-    
-    function deleteElement(elem){
-        $(elem).parents('tr').fadeOut(400, function(){ $(this).remove()});
-    }
-
-    function lockLimit(){
-        chmpTxt = $('#StructList tr select');
-        $.each(chmpTxt, function(i, item){
-           e = $(item).parents('tr').find('.limit');
-           val = item.value;
-           if(val == 10){
-            e.removeAttr('disabled');
-           }
-            else {
-            e.val('').attr('disabled', 'disabled');
-           }
-         });
-    }
-    lockLimit();
+    var kE = "{$k}";   // Last keyID
 </script>
 
 {/if }

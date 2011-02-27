@@ -45,7 +45,10 @@
 		<script type="text/javascript" src="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/js/admin/facebox.js"></script>
 
 		<!-- jQuery WYSIWYG Plugin -->
-		<script type="text/javascript" src="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/js/admin/jquery.js"></script>
+        <script type="text/javascript" src="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/js/admin/jquery.js"></script>
+
+
+        <script type="text/javascript" src="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/js/admin/contentManager.js"></script>
 
 
 	</head><body><div id="body-wrapper"> <!-- Wrapper for the radial gradient background -->

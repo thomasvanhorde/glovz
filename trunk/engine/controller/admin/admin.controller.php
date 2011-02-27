@@ -32,20 +32,20 @@ Class admin_controller {
         else {      // List
             $data = array();
             $struct = $this->_contentManager->getStructAll();
+            $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
+            $dataCM = $ContentManager->find();
+            
             foreach($struct as $idS => $strData){
                 $data[$idS]['locked'] = (string)$strData[@locked];
                 $data[$idS]['name'] = utf8_decode((string)$strData->name);
                 $data[$idS]['description'] = utf8_decode((string)$strData->description);
 
-
-                $collection = $this->_contentManager->getCollectioName($idS);
-                $ContentManager = $this->_BBD->selectCollection($collection);
-
-                foreach($ContentManager->find() as $d){
-                    $data[$idS]['data'][(string)$d['_id']] = $d;
-                    unset($data[$idS]['data'][(string)$d['_id']]['_id']);
+                foreach($dataCM as $d){
+                    if(isset($d['collection']) && $d['collection'] == $idS){
+                        $data[$idS]['data'][(string)$d['_id']] = $d;
+                        unset($data[$idS]['data'][(string)$d['_id']]['_id']);
+                    }
                 }
-
                 foreach($struct[$idS]->types->type as $chmp){
                     if(isset($chmp->index)){
                         $data[$idS]['index'][] = (string)$chmp->id;
@@ -58,6 +58,23 @@ Class admin_controller {
         }
 
     }
+
+    function deleteContent($id){
+        $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
+        $theObjId = new MongoId($id);
+        $ContentManager->remove(array('_id'=>$theObjId), true);
+        header('location: ../../');
+    }
+
+    function editContent($id){
+        $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
+        $theObjId = new MongoId($id);
+        $content = $ContentManager->findOne(array("_id"=>$theObjId));
+        $this->_view->assign('data',$content);
+        $this->_view->assign('id',$id);
+        $this->newContent($content['collection']);
+    }
+    
 
     function newContent($type){
         $struct = $this->_contentManager->getStruct($type);
@@ -81,14 +98,21 @@ Class admin_controller {
 
 
     function POST_contentEdit($data){
-        $collection = $this->_contentManager->getCollectioName($data['collection']);
-        unset($data['collection']);
-        $ContentManager = $this->_BBD->selectCollection($collection);
-        $data['date_create'] = time();
+        $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
         $data['date_update'] = time();
-    //    var_dump($data); exit();
-        $ContentManager->insert($data);
-        header('location: '.$_SERVER['REDIRECT_URL'].'../../');
+
+        if(empty($data['id'])){ // new
+            $data['date_create'] = time();
+            $ContentManager->insert($data);
+            header('location: '.$_SERVER['REDIRECT_URL'].'../../');
+        }
+            else {// update
+            $theObjId = new MongoId($data['id']);
+            unset($data['id']);
+            $ContentManager->update(array("_id"=>$theObjId), $data);
+            header('location: '.$_SERVER['REDIRECT_URL']);
+        }
+
     }
 
     /***
