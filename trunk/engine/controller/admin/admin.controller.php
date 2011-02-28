@@ -109,7 +109,9 @@ Class admin_controller {
             else {// update
             $theObjId = new MongoId($data['id']);
             unset($data['id']);
-            $ContentManager->update(array("_id"=>$theObjId), $data);
+            $ContentManager->update(array("_id"=>$theObjId), array('$set' => $data));
+
+
             header('location: '.$_SERVER['REDIRECT_URL']);
         }
 
