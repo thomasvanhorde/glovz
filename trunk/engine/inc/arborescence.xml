@@ -29,6 +29,10 @@
         <title>Administrator interface</title>
         <controller>admin</controller>
         <layout>admin.tpl</layout>
+        <accessControl>
+            <login>admin</login>
+            <password>a7cadb54ca75f2595c6a2a2139aa3e94</password> <!-- admin, voir site/encode/<<string>> -->
+        </accessControl>
         <content-manager>
             <structures>
                 <title>Gestion de structures</title>
