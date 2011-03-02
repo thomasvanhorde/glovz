@@ -1,13 +1,11 @@
 <?php
 
-//var_dump($_SERVER);
-//exit();
 /*
- * Système MVC by Thomas VH.
+ * SystÃ¨me MVC by Thomas VH.
  *
  * Param in inc/base.config.php
  *
- * PHP 5.3+ required
+ * PHP 5.2+ required
  */
 
 // Start Session
