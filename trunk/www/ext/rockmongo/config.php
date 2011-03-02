@@ -21,11 +21,11 @@ $MONGO["servers"] = array(
 		"username" => "lpcm", // MongoDB connection username
 		"password" => "lpcm", // MongoDB connection password
 		"auth_enabled" => true,//Enable authentication, set to "false" to disable authentication
-		"admins" => array(
+		/*"admins" => array(
 			"lpcm" => "lpcm", // Administrator's USERNAME => PASSWORD
 			//"iwind" => "123456",
 		),
-
+*/
 		// show only following databases (and also allow to pick custom db by name):
 		"show_dbs" => array(
 		    'lpcm'
