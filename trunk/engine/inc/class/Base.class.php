@@ -105,7 +105,7 @@ Class Base {
         // Access Control
         if(!empty($ControllerAccessControl)){
             $url_access = selEncode($Folder,'base64');
-            if(!isset($_SESSION[SESSION_ACCESS_CONTROL][(string)$ControllerName]) || !$_SESSION[SESSION_ACCESS_CONTROL][(string)$ControllerName]){    // Access denied ?
+            if(!isset($_SESSION[SESSION_ACCESS_CONTROL][$ControllerName[count($ControllerName)-1]]) || !$_SESSION[SESSION_ACCESS_CONTROL][$ControllerName[count($ControllerName)-1]]){    // Access denied ?
                 echo '<META HTTP-EQUIV="Refresh" CONTENT="3; URL='.SYS_FOLDER.'ac_login/">';
                 $_SESSION[SESSION_REDIRECT] = $url_access;
                 Base::Load(CLASS_CORE_MESSAGE)->Critic('MESS_ERR_ACCESS_CONTROL');
