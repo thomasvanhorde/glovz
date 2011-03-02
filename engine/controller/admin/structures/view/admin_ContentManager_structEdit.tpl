@@ -3,8 +3,8 @@
 {else }
 
 {if $clone == 'true' }<h3>Edition d'un clone de { $struct.name }</h3>{/if }
-<form method="post" {if $clone == 'true' }action="../"{/if } >
-    <input type="hidden" name="todo" value="admin[structEdit]" />
+<form method="post" {if $clone == 'true' }action="../../"{/if } >
+    <input type="hidden" name="todo" value="admin/structures[structEdit]" />
     <input type="hidden" name="id" value="{if $clone != 'true' }{ $structID }{else }{/if }"/>
 
     
@@ -56,7 +56,7 @@
                     <input type="checkbox" name="data[{$k}][index]" value="true" { if $element.type.index =="true" }checked="checked"{/if} />
                 </td>
                 <td>
-                    <a href="#" onclick="deleteElement(this);return false;">x</a>
+                    <a href="admin_ContentManager_structEdit.tpl#" onclick="deleteElement(this);return false;">x</a>
                 </td>
             </tr>
         {/foreach}
@@ -95,7 +95,7 @@
             <input type="checkbox" nameTmp="data[keyId][index]" value="true" />
         </td>
         <td>
-            <a href="#" onclick="deleteElement(this);return false;">x</a>
+            <a href="admin_ContentManager_structEdit.tpl#" onclick="deleteElement(this);return false;">x</a>
         </td>        
     </tr>
 </table>

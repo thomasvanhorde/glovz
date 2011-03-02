@@ -1,7 +1,7 @@
 <h3>Nouveau contenu { $struct.name }</h3>
 
 <form method="post">
-    <input type="hidden" name="todo" value="admin[contentEdit]" />
+    <input type="hidden" name="todo" value="admin/content[contentEdit]" />
     <input type="hidden" name="collection" value="{ $struct.id }" />
     <input type="hidden" name="id" value="{$id}" />
     {foreach from=$struct.types key=k item=element}
