@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head>
 
 
 
@@ -19,8 +19,11 @@
 		<!-- Main Stylesheet -->
 		<link rel="stylesheet" href="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/themes/admin/style.css" type="text/css" media="screen">
 
-		<!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
-		<link rel="stylesheet" href="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/themes/admin/invalid.css" type="text/css" media="screen">
+        <!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
+        <link rel="stylesheet" href="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/themes/admin/invalid.css" type="text/css" media="screen">
+
+        <!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
+        <link rel="stylesheet" href="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/themes/admin/datepicker/datepicker.css" type="text/css" media="screen">
 
 		<!-- Colour Schemes
 
@@ -48,7 +51,9 @@
         <script type="text/javascript" src="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/js/admin/jquery.js"></script>
 
 
-        <script type="text/javascript" src="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/js/admin/contentManager.js"></script>
+    <script type="text/javascript" src="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/js/admin/contentManager.js"></script>
+
+    <script type="text/javascript" src="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/js/admin/datepicker/datepicker.packed.js"></script>
 
 
 	</head><body><div id="body-wrapper"> <!-- Wrapper for the radial gradient background -->
