@@ -50,7 +50,7 @@ Class Base {
 			if($param && is_array($param))	// Insertion des parametres
 				call_user_func_array(array($objet, $ClassName), $param);
 			
-			$instance[$ClassName] = &$objet;	// Référence à l'objet pour le Singleton
+			$instance[$ClassName] = &$objet;	// Rï¿½fï¿½rence ï¿½ l'objet pour le Singleton
 			if(DEBUG)	Debug::log('Class '.$ClassName. ' loaded in normal mode');
 			if(DEBUG)	Debug::logMemory($instance[$ClassName], 'Instance of '.$ClassName);
 			
@@ -79,7 +79,7 @@ Class Base {
 		if(DEBUG)   Debug::log(Base::Load(CLASS_CORE_MESSAGE)->Generic('MESS_BASE_START'));
 
 		
-		// Assigne les constantes de config à View
+		// Assigne les constantes de config ï¿½ View
 		$this->ConstantAssign();
 
         // Parse URL & Load Xml infos
@@ -95,7 +95,7 @@ Class Base {
         $INFOS_ACCES_CONTROL = INFOS_ACCESS_CONTROL;
 
         // Assign values
-        $ControllerName = $Controller->$INFOS_CONTROLLER;
+        $ControllerName = explode('/', $Controller->$INFOS_CONTROLLER);
         $ControllerMethod = $Controller->$INFOS_METHOD;
         $ControllerTitle = $Controller->$INFOS_TITLE;
         $ControllerBlocks = $Controller->$INFOS_BLOCKS;
@@ -116,11 +116,13 @@ Class Base {
         $_GET['param'] = $Ctr['param'];
         $_GET['url'] = $Ctr['url'];
 
+//        exit(FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT);
+
 		// Include controller
-		if(file_exists(FOLDER_APPLICATION.$ControllerName.'/'.$ControllerName.CONTROLLER_EXT))
-			include FOLDER_APPLICATION.$ControllerName.'/'.$ControllerName.CONTROLLER_EXT;
-		elseif(file_exists(ENGINE_URL.FOLDER_APPLICATION.$ControllerName.'/'.$ControllerName.CONTROLLER_EXT))
-			include ENGINE_URL.FOLDER_APPLICATION.$ControllerName.'/'.$ControllerName.CONTROLLER_EXT;
+		if(file_exists(FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT))
+			include FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT;
+		elseif(file_exists(ENGINE_URL.FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT))
+			include ENGINE_URL.FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT;
 
 
 		// Class Component
@@ -128,12 +130,12 @@ Class Base {
 		// View implemente
 		$ComponentObj->_view = &$this->_view;
 		// Views controller path
-		$ComponentObj->_view->_folder = FOLDER_APPLICATION.$ControllerName.'/'.FOLDER_VIEW;
+		$ComponentObj->_view->_folder = FOLDER_APPLICATION.implode('/',$ControllerName).'/'.FOLDER_VIEW;
 
 
         // Listener $_POST
         if(isset($_POST[LISTENER_POST_TODO]))
-            $this->ListenerPost($ControllerName);
+            $this->ListenerPost($ControllerName[count($ControllerName)-1]);
 
 		// Blocks externe
 		if(isset($ControllerBlocks) && $ControllerBlocks->length != NULL){
@@ -144,9 +146,9 @@ Class Base {
 		}
         
 		if(isset($ControllerMethod))
-			Base::Load(CLASS_CONTROLLER,array($ControllerName,$ControllerMethod));
+			Base::Load(CLASS_CONTROLLER,array($ControllerName[count($ControllerName)-1],$ControllerMethod));
 		else
-			Base::Load(CLASS_CONTROLLER,array($ControllerName, false));
+			Base::Load(CLASS_CONTROLLER,array($ControllerName[count($ControllerName)-1], false));
 
 
 		// Assignation du Title de la page
@@ -176,7 +178,7 @@ Class Base {
                 $method = $_POST[LISTENER_POST_TODO];
             }
 
-            // Liberation de mémoire
+            // Liberation de mï¿½moire
             unset($_POST[LISTENER_POST_TODO]);
 
             Base::Load(CLASS_CONTROLLER,array($contr,CONTROLLER_POST_PREC.$method.'#(#'.serialize($_POST).'#)#'));
@@ -231,7 +233,7 @@ Class Base {
 
         if($Controller === $XmlDom){    // Si Homepage
             $defaut = INFOS_INDEX;
-            $Controller = $Controller->$defaut; // Controlleur pas défaut
+            $Controller = $Controller->$defaut; // Controlleur pas dï¿½faut
         }
 
         return array('controller' => $Controller, 'param' => $param, 'url' => $url);

@@ -32,14 +32,12 @@
         <content-manager>
             <structures>
                 <title>Gestion de structures</title>
-                <controller>admin</controller>
-                <method>structures</method>
+                <controller>admin/structures</controller>
                 <layout>admin.tpl</layout>
             </structures>
             <contenus>
                 <title>Gestion de contenu</title>
-                <controller>admin</controller>
-                <method>contenus</method>
+                <controller>admin/content</controller>
                 <layout>admin.tpl</layout>
             </contenus>
         </content-manager>
