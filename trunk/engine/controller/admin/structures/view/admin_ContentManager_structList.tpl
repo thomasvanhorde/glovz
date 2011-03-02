@@ -15,14 +15,18 @@
                 { $element.description|truncate:60:'..':true:true }
             </td>
             <td>
-                <a href="{ $k }/">Modifier</a>
+                {if $element.locked =="false"}
+                    <a href="{ $k }/">Modifier</a>
+                {else}
+                    verrouiller
+                {/if }
             </td>
             <td>
                 <a href="clone/{ $k }/">Cloner</a>
             </td>
             <td>
                 {if $element.locked =="false"}
-                <a href="delete/{ $k }/">Supprimer</a>
+                    <a href="delete/{ $k }/">Supprimer</a>
                 {else}
                     verrouiller
                 {/if }
