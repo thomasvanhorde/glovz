@@ -1,5 +1,12 @@
 <?xml version="1.0"?>
 
+<!DOCTYPE contentType [
+        <!ELEMENT contentType (type)*>
+        <!ELEMENT type (#PCDATA)>
+        <!ATTLIST type
+                id CDATA #REQUIRED>
+        ]>
+        
 <contentType>
     <type id="10">input</type>
     <type id="20">textarea simple</type>
