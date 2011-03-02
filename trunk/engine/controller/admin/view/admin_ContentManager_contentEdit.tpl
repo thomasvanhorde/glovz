@@ -30,7 +30,22 @@
 
         <!-- date -->
         {if $element.refType == '30'}
-            <input name="{$uid}" class="date" value="{$data.$uid}" />
+
+        <input type="text" class="w16em" id="{$uid}" name="{$uid}" value="{$data.$uid}" />
+
+        {literal}
+          <script type="text/javascript">
+          // <![CDATA[
+            var opts = {
+                    formElements:{"{/literal}{$uid}{literal}":"d-sl-m-sl-y"},
+                    // Show week numbers
+                    showWeeks:true
+            };
+            datePickerController.createDatePicker(opts);
+          // ]]>
+          </script>
+        {/literal}
+
         {/if }
 
         <!-- media -->
