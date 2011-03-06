@@ -45,7 +45,15 @@ Class structures_controller {
 
     function newStruct(){
         $type = $this->_contentManager->getType();
+        $structAll = $this->_contentManager->getStructAll();
+
+        foreach($structAll as $idS => $strData){
+            $dataStruct[$idS]['locked'] = (string)$strData[@locked];
+            $dataStruct[$idS]['name'] = utf8_decode((string)$strData->name);
+            $dataStruct[$idS]['description'] = utf8_decode((string)$strData->description);
+        }
         $this->_view->assign('typeList',$type);
+        $this->_view->assign('strucList',$dataStruct);
         $this->_view->addBlock('content', 'admin_ContentManager_structEdit.tpl');
     }
 
@@ -56,7 +64,6 @@ Class structures_controller {
     function editStruct($structID){
         $data = array();
         $struct = $this->_contentManager->getStructAll($structID);
-        $type = $this->_contentManager->getType();
 
         if(isset($struct->name))
             $data['name'] = utf8_decode((string)$struct->name);
@@ -77,9 +84,8 @@ Class structures_controller {
         $this->_view->assign('locked',$struct[@locked]);
         $this->_view->assign('structID',$structID);
         $this->_view->assign('struct',(array)$data);
-        $this->_view->assign('typeList',$type);
-        $this->_view->addBlock('content', 'admin_ContentManager_structEdit.tpl');
 
+        $this->newStruct();
     }
 
     function POST_structEdit($data){

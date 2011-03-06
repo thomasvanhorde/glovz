@@ -17,25 +17,5 @@ Class admin_controller {
 	function defaut(){}
 
 
-    /***
-     *  CONTENUS
-     * */
-
-
-    /***
-     *  /CONTENUS
-     * */
-
-
-
-
-    /***
-     *  STRUCTURES
-     * */
-
-    /***
-     *  /STRUCTURES
-     * */
-
 
 }

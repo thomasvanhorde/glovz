@@ -86,6 +86,7 @@ class ContentStruct {
             }
         }
 
+  
         $Xml->saveXML(FOLDER_INC.INFOS_XML_CONTENT_STRUCT);
 
         return $uid;
