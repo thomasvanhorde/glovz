@@ -14,4 +14,5 @@
     <type id="30">date</type>
     <type id="40">media</type>
     <type id="50">select</type>
+    <type id="60">contenu</type>
 </contentType>

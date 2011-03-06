@@ -1,5 +1,6 @@
 <h3>Nouveau contenu { $struct.name }</h3>
 
+
 <form method="post">
     <input type="hidden" name="todo" value="admin/content[contentEdit]" />
     <input type="hidden" name="collection" value="{ $struct.id }" />
@@ -50,19 +51,35 @@
 
         <!-- media -->
         {if $element.refType == '40'}
-            // media :: not include
+            // media :: not implemante
         {/if }
 
         <!-- select -->
         {if $element.refType == '50'}
+            {assign var=SelectValue value=","|explode:$element.valeur}
             <select name="{$uid}">
-                <option></option>
+                {foreach from=$SelectValue key=SelectK item=SelectItem}
+                    <option value="{$SelectK}" {if $data.$uid == $SelectK}selected="selected"{/if}>{$SelectItem}</option>
+                {/foreach}
             </select>
         {/if }
 
+        <!-- ContentRef -->
+        {if $element.refType == '60'}
+            {assign var="El" value=$element.contentRef}
+            {assign var="IndexEl" value=$index.$El}
+
+            <select name="{$uid}">
+                <option value=""></option>
+                {foreach from=$IndexEl key=kIndex item=dateItem}
+                    <option value="{$kIndex}" {if $data.$uid == $kIndex}selected="selected"{/if}>{$dateItem}</option>
+                {/foreach}
+            </select>
+        {/if }
     
     {/foreach}
 
+    <br /><br /><br />
     <input type="submit" value="enregistrer" />
 
 </form>

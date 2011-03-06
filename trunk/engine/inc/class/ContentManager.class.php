@@ -13,12 +13,20 @@ class ContentManager {
     function __construct(){
        $this->_type = new ContentType();
        $this->_struct = new ContentStruct();
+       $this->_BBD = Base::Load(CLASS_BDD)->_connexion;
     }
 
+    /***
+     * @return 
+     */
     function getType(){
         return $this->_type->get();
     }
 
+    /***
+     * @param bool $structID
+     * @return 
+     */
     function getStruct($structID = false){
         $structures =  $this->_struct->get();
         if($structID)
@@ -26,6 +34,10 @@ class ContentManager {
         return $structures;
     }
 
+    /***
+     * @param bool $structID
+     * @return 
+     */
     function getStructAll($structID = false){
         $structures =  $this->_struct->getAll();
         if($structID)
@@ -33,8 +45,32 @@ class ContentManager {
         return $structures;
     }
 
+    /***
+     * @param  $id
+     * @return string
+     */
     function getCollectioName($id){
         return 'ContentManager_'.$id;
+    }
+
+    /***
+     * @param bool $collection
+     * @return array
+     */
+    function getDataAll($collection = false){
+        $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
+
+        if($collection)
+            $dataCM = $ContentManager->find(array('collection' => $collection));
+        else
+            $dataCM = $ContentManager->find();
+
+        $data = array();
+        foreach($dataCM as $a){
+            $data[(string)$a['_id']] = $a;
+        }
+
+        return $data;
     }
 
 }

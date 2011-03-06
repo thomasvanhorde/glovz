@@ -50,9 +50,6 @@
 		<!-- jQuery WYSIWYG Plugin -->
         <script type="text/javascript" src="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/js/admin/jquery.js"></script>
 
-
-    <script type="text/javascript" src="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/js/admin/contentManager.js"></script>
-
     <script type="text/javascript" src="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/js/admin/datepicker/datepicker.packed.js"></script>
 
 

@@ -77,10 +77,32 @@ Class content_controller {
         foreach($data['types']['type'] as $i => $u){
             $data['types'][$i] = (array)$data['types']['type'][$i];
             $data['types'][$i]['refType'] = $data['types'][$i]['@attributes']['refType'];
+
+            if(isset($data['types'][$i]['valeur']))
             $data['types'][$i]['valeur'] = (string)$data['types'][$i]['valeur'];
         }
         unset($data['types']['type']);
 
+
+        // $this->_contentManager->getStructAll($rowData['collection']);
+        foreach($data['types'] as $t){
+            if(!empty($t['contentRef'])){
+                $ref = $t['contentRef'];
+                $ContentData = $this->_contentManager->getDataAll($ref);
+                foreach($ContentData  as $uidData => $u){
+                    $StrucData = $this->_contentManager->getStructAll($u['collection']);
+                    foreach($StrucData->types->type as $t){
+                        if($t->index){
+                            $index[$ref][$uidData] = $u[(string)$t->id];
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        if(isset($index))
+            $this->_view->assign('index',$index);
+    
         $this->_view->assign('typeList',$type);
         $this->_view->assign('struct',$data);
         $this->_view->addBlock('content', 'admin_ContentManager_contentEdit.tpl');
@@ -96,7 +118,7 @@ Class content_controller {
             $ContentManager->insert($data);
             header('location: '.$_SERVER['REDIRECT_URL'].'../../');
         }
-            else {// update
+        else {// update
             $theObjId = new MongoId($data['id']);
             unset($data['id']);
             $ContentManager->update(array("_id"=>$theObjId), array('$set' => $data));
