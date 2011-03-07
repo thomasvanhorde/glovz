@@ -25,7 +25,7 @@
             <th></th>
         </tr>
         
-
+        {assign var=k value=0}
         {foreach from=$struct.data key=k item=element}
             <tr>
                 <td>
