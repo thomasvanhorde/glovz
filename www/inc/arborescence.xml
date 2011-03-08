@@ -1,8 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <arborescence>
     <index>
-        <title>SelCMS</title>
+        <title>glovZ</title>
         <controller>home</controller>
         <layout>home.tpl</layout>
     </index>
+    <connect>
+        <title>Connexion</title>
+        <controller>user</controller>
+        <method>connect</method>
+        <layout>home.tpl</layout>
+    </connect>
+    <disconnect>
+        <title>Connexion</title>
+        <controller>user</controller>
+        <method>disconnect</method>
+        <layout>home.tpl</layout>
+    </disconnect>
+    <dashboard>
+        <title>Tableau de bord</title>
+        <controller>dashboard</controller>
+        <layout>home.tpl</layout>
+    </dashboard>
+    <project>
+        <title>Projets</title>
+        <controller>project</controller>
+        <layout>home.tpl</layout>
+        <new>
+            <title>Nouveau projet</title>
+            <controller>project</controller>
+            <method>new</method>
+            <layout>home.tpl</layout>
+        </new>
+        <archive>
+            <title>Anciens projet</title>
+            <controller>project</controller>
+            <method>old</method>
+            <layout>home.tpl</layout>
+        </archive>
+        <task>
+            <title>projets - tâches</title>
+            <controller>project</controller>
+            <method>task</method>
+            <layout>home.tpl</layout>
+        </task>
+        <milestone>
+            <title>Jalons</title>
+            <controller>project</controller>
+            <method>milestone</method>
+            <layout>home.tpl</layout>
+        </milestone>
+        <member>
+            <titles>Projet - membres</titles>
+            <controller>project</controller>
+            <method>member</method>
+            <layout>home.tpl</layout>
+        </member>
+    </project>
+    <profil>
+        <title>Mon profil</title>
+        <controller>user</controller>
+        <method>myprofil</method>
+        <layout>home.tpl</layout>
+    </profil>
 </arborescence>

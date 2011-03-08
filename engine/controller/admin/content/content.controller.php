@@ -22,8 +22,7 @@ Class content_controller {
         else {      // List
             $data = array();
             $struct = $this->_contentManager->getStructAll();
-            $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
-            $dataCM = $ContentManager->find();
+            $dataCM = $this->_contentManager->find();
 
             foreach($struct as $idS => $strData){
                 $data[$idS]['locked'] = (string)$strData[@locked];
@@ -57,9 +56,9 @@ Class content_controller {
     }
 
     function editContent($id){
-        $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
-        $theObjId = new MongoId($id);
-        $content = $ContentManager->findOne(array("_id"=>$theObjId));
+        $content = $this->_contentManager->findOne($id);
+
+       // echo '<pre>'; print_r($content); exit();
         $this->_view->assign('data',$content);
         $this->_view->assign('id',$id);
         $this->newContent($content['collection']);
@@ -106,6 +105,8 @@ Class content_controller {
         $this->_view->assign('typeList',$type);
         $this->_view->assign('struct',$data);
         $this->_view->addBlock('content', 'admin_ContentManager_contentEdit.tpl');
+
+        
     }
 
 
@@ -113,15 +114,19 @@ Class content_controller {
         $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
         $data['date_update'] = time();
 
+        
         if(empty($data['id'])){ // new
             $data['date_create'] = time();
             $ContentManager->insert($data);
             header('location: '.$_SERVER['REDIRECT_URL'].'../../');
         }
         else {// update
+            $data['date_create'] = (int)$data['date_create'];
             $theObjId = new MongoId($data['id']);
             unset($data['id']);
-            $ContentManager->update(array("_id"=>$theObjId), array('$set' => $data));
+
+            // $ContentManager->update(array("_id"=>$theObjId), array('$set' => $data));
+            $ContentManager->update(array("_id"=>$theObjId), $data);
 
 
             header('location: '.$_SERVER['REDIRECT_URL']);

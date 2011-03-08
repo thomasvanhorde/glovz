@@ -73,6 +73,28 @@ class ContentManager {
         return $data;
     }
 
+    /***
+     * @param  $id
+     * @return 
+     */
+    function findOne($id){
+        $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
+        $theObjId = new MongoId($id);
+
+        foreach($ContentManager->findOne(array("_id"=>$theObjId)) as $i => $d){
+            $content[$i] = utf8_decode($d);
+        }
+
+        return $content;
+    }
+
+    function find(){
+        $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
+        $dataCM = $ContentManager->find();
+
+        return $dataCM;
+    }
+
 }
 
 

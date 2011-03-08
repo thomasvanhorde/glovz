@@ -9,6 +9,7 @@
         
 <contentType>
     <type id="10">input</type>
+    <type id="15">checkbox</type>
     <type id="20">textarea simple</type>
     <type id="21">textarea wysiwyg</type>
     <type id="30">date</type>

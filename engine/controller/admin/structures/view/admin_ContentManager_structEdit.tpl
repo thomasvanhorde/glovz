@@ -29,7 +29,7 @@
         {foreach from=$struct.data key=k item=element}
             <tr>
                 <td>
-                    <input type="text" name="data[{$k}][name]" value="{ $element.type.name }" />
+                    <input type="text" name="data[{$k}][name]" value="{ $element.type.name|utf8_decode }" />
                 </td>
                 <td>
                     <input type="text" name="data[{$k}][id]" value="{ $element.type.id }""/>
@@ -57,7 +57,7 @@
                     </div>
                 </td>
                 <td>
-                    <input class="valeur" type="text" name="data[{$k}][valeur]" value="{ $element.type.valeur }"/>
+                    <input class="valeur" type="text" name="data[{$k}][valeur]" value="{ $element.type.valeur|utf8_decode }"/>
                     <div>{if $element.structId == 50 }séparé par ","{/if}</div>
                 </td>
                 <td>
