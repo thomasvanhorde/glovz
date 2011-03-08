@@ -78,7 +78,7 @@
             <select name="{$uid}">
                 <option value=""></option>
                 {foreach from=$IndexEl key=kIndex item=dateItem}
-                    <option value="{$kIndex}" {if $data.$uid == $kIndex}selected="selected"{/if}>{$dateItem}</option>
+                    <option value="{$kIndex}" {if $data.$uid == $kIndex}selected="selected"{/if}>{$dateItem|utf8_decode}</option>
                 {/foreach}
             </select>
         {/if }
