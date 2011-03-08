@@ -1,22 +1,28 @@
-<h3>Nouveau contenu { $struct.name }</h3>
+<h3>Nouveau contenu { $struct.name|utf8_decode }</h3>
 
 
 <form method="post">
     <input type="hidden" name="todo" value="admin/content[contentEdit]" />
     <input type="hidden" name="collection" value="{ $struct.id }" />
     <input type="hidden" name="id" value="{$id}" />
+    <input type="hidden" name="date_create" value="{$data.date_create}" />
     {foreach from=$struct.types key=k item=element}
 
         {assign var="uid" value=$element.id}
 
         <br /><br /><br />
-        {$element.name}
+        {$element.name|utf8_decode}
         { if $element.limit != '' }(limit :: {$element.limit} char){/if}
         <br /><br />
 
         <!-- Input -->
         {if $element.refType == '10'}
-            <input name="{$uid}" value="{$data.$uid}" { if $element.limit != '' }maxlength="{$element.limit}"{/if}/>
+            <input type="text" name="{$uid}" value="{$data.$uid}" { if $element.limit != '' }maxlength="{$element.limit}"{/if}/>
+        {/if }
+
+        <!-- Checkbox -->
+        {if $element.refType == '15'}
+            <input name="{$uid}" {if $data.$uid == "true"}checked="checked"{/if} value="true" type="checkbox"/>
         {/if }
 
         <!-- textarea simple -->
@@ -59,7 +65,7 @@
             {assign var=SelectValue value=","|explode:$element.valeur}
             <select name="{$uid}">
                 {foreach from=$SelectValue key=SelectK item=SelectItem}
-                    <option value="{$SelectK}" {if $data.$uid == $SelectK}selected="selected"{/if}>{$SelectItem}</option>
+                    <option value="{$SelectK}" {if $data.$uid == $SelectK}selected="selected"{/if}>{$SelectItem|utf8_decode}</option>
                 {/foreach}
             </select>
         {/if }
