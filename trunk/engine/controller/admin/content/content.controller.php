@@ -20,45 +20,45 @@ Class content_controller {
                 $this->editContent($_GET['param'][0]);   // Edit
         }
         else {      // List
-            $data = array();
-            $struct = $this->_contentManager->getStructAll();
-            $dataCM = $this->_contentManager->find();
-
-            foreach($struct as $idS => $strData){
-                $data[$idS]['locked'] = (string)$strData[@locked];
-                $data[$idS]['name'] = utf8_decode((string)$strData->name);
-                $data[$idS]['description'] = utf8_decode((string)$strData->description);
-
-                foreach($dataCM as $d){
-                    if(isset($d['collection']) && $d['collection'] == $idS){
-                        $data[$idS]['data'][(string)$d['_id']] = $d;
-                        unset($data[$idS]['data'][(string)$d['_id']]['_id']);
-                    }
-                }
-                foreach($struct[$idS]->types->type as $chmp){
-                    if(isset($chmp->index)){
-                        $data[$idS]['index'][] = (string)$chmp->id;
-                    }
-                }
-            }
-
-            $this->_view->assign('typeList',$data);
-            $this->_view->addBlock('content', 'admin_ContentManager_contentList.tpl');
+            $this->listAll();
         }
 
     }
 
+    function listAll(){
+        $data = array();
+        $struct = $this->_contentManager->getStructAll();
+        $dataCM = $this->_contentManager->find();
+
+        foreach($struct as $idS => $strData){
+            $data[$idS]['locked'] = (string)$strData[@locked];
+            $data[$idS]['name'] = utf8_decode((string)$strData->name);
+            $data[$idS]['description'] = utf8_decode((string)$strData->description);
+
+            foreach($dataCM as $d){
+                if(isset($d['collection']) && $d['collection'] == $idS){
+                    $data[$idS]['data'][(string)$d['_id']] = $d;
+                    unset($data[$idS]['data'][(string)$d['_id']]['_id']);
+                }
+            }
+            foreach($struct[$idS]->types->type as $chmp){
+                if(isset($chmp->index)){
+                    $data[$idS]['index'][] = (string)$chmp->id;
+                }
+            }
+        }
+
+        $this->_view->assign('typeList',$data);
+        $this->_view->addBlock('content', 'admin_ContentManager_contentList.tpl');
+    }
+
     function deleteContent($id){
-        $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
-        $theObjId = new MongoId($id);
-        $ContentManager->remove(array('_id'=>$theObjId), true);
-        header('location: ../../');
+        if($this->_contentManager->delete($id))
+            header('location: ../../');
     }
 
     function editContent($id){
         $content = $this->_contentManager->findOne($id);
-
-       // echo '<pre>'; print_r($content); exit();
         $this->_view->assign('data',$content);
         $this->_view->assign('id',$id);
         $this->newContent($content['collection']);
@@ -105,33 +105,19 @@ Class content_controller {
         $this->_view->assign('typeList',$type);
         $this->_view->assign('struct',$data);
         $this->_view->addBlock('content', 'admin_ContentManager_contentEdit.tpl');
-
-        
     }
 
 
     function POST_contentEdit($data){
-        $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
-        $data['date_update'] = time();
-
-        
         if(empty($data['id'])){ // new
-            $data['date_create'] = time();
-            $ContentManager->insert($data);
-            header('location: '.$_SERVER['REDIRECT_URL'].'../../');
+            if($this->_contentManager->save($data))
+                header('location: '.$_SERVER['REDIRECT_URL'].'../../');
         }
         else {// update
-            $data['date_create'] = (int)$data['date_create'];
-            $theObjId = new MongoId($data['id']);
-            unset($data['id']);
-
-            // $ContentManager->update(array("_id"=>$theObjId), array('$set' => $data));
-            $ContentManager->update(array("_id"=>$theObjId), $data);
-
-
-            header('location: '.$_SERVER['REDIRECT_URL']);
+            if($this->_contentManager->save($data, $data['id']))
+                header('location: '.$_SERVER['REDIRECT_URL']);
         }
-
+        exit();
     }
 }
 ?>

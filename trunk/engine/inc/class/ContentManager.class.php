@@ -14,6 +14,7 @@ class ContentManager {
        $this->_type = new ContentType();
        $this->_struct = new ContentStruct();
        $this->_BBD = Base::Load(CLASS_BDD)->_connexion;
+       $this->_collection = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
     }
 
     /***
@@ -71,6 +72,56 @@ class ContentManager {
         }
 
         return $data;
+    }
+
+    function save($data, $id = false){
+        if(!$id){ // new
+            if($this->insert($data))
+                return true;
+        }
+        else {// update
+            if($this->update($data, $id))
+                return true;
+        }
+        return false;
+    }
+
+    /***
+     * @param  $data
+     * @return bool
+     */
+    private function insert($data){
+        $data['date_create'] = time();
+        if($this->_collection->insert($data))
+            return true;
+        else
+            return false;
+    }
+
+
+    /***
+     * @param  $data
+     * @param  $id
+     * @return bool
+     */
+    private function update($data, $id){
+        $data['date_update'] = time();
+        $data['date_create'] = (int)$data['date_create'];
+        $theObjId = new MongoId($id);
+        unset($data['id']);
+        // $this->_collection->update(array("_id"=>$theObjId), array('$set' => $data));
+        if($this->_collection->update(array("_id"=>$theObjId), $data))
+            return true;
+        else
+            return false;
+    }
+
+    function delete($id){
+        $theObjId = new MongoId($id);
+        if($this->_collection->remove(array('_id'=>$theObjId), true))
+            return true;
+        else
+            return false;
     }
 
     /***
