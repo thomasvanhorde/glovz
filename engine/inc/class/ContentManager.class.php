@@ -116,7 +116,7 @@ class ContentManager {
             return false;
     }
 
-    function delete($id){
+    function remove($id){
         $theObjId = new MongoId($id);
         if($this->_collection->remove(array('_id'=>$theObjId), true))
             return true;

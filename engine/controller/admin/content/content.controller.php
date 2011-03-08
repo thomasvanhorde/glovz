@@ -13,11 +13,11 @@ Class content_controller {
     function defaut(){
         if(isset($_GET['param'][0])){
             if($_GET['param'][0] == 'ajouter')  // Ajouter
-                $this->newContent($_GET['param'][1]);
-            elseif($_GET['param'][0] == 'delete')  // Ajouter
-                $this->deleteContent($_GET['param'][1]);
+                $this->add($_GET['param'][1]);
+            elseif($_GET['param'][0] == 'delete')  // Supprimer
+                $this->remove($_GET['param'][1]);
             else
-                $this->editContent($_GET['param'][0]);   // Edit
+                $this->edit($_GET['param'][0]);   // Editer
         }
         else {      // List
             $this->listAll();
@@ -52,20 +52,21 @@ Class content_controller {
         $this->_view->addBlock('content', 'admin_ContentManager_contentList.tpl');
     }
 
-    function deleteContent($id){
-        if($this->_contentManager->delete($id))
+    function remove($id){
+        if($this->_contentManager->remove($id))
             header('location: ../../');
+        exit();
     }
 
-    function editContent($id){
+    function edit($id){
         $content = $this->_contentManager->findOne($id);
         $this->_view->assign('data',$content);
         $this->_view->assign('id',$id);
-        $this->newContent($content['collection']);
+        $this->add($content['collection']);
     }
 
 
-    function newContent($type){
+    function add($type){
         $struct = $this->_contentManager->getStruct($type);
         $type = $this->_contentManager->getType();
 
