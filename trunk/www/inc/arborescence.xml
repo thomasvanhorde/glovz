@@ -29,7 +29,7 @@
         <new>
             <title>Nouveau projet</title>
             <controller>project</controller>
-            <method>new</method>
+            <method>create</method>
             <layout>home.tpl</layout>
         </new>
         <archive>
@@ -60,7 +60,7 @@
     <profil>
         <title>Mon profil</title>
         <controller>user</controller>
-        <method>myprofil</method>
+        <method>myProfil</method>
         <layout>home.tpl</layout>
     </profil>
 </arborescence>
