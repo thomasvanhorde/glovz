@@ -1,6 +1,6 @@
 <?php
 
-class User {
+class user_controller {
     public function  __construct() {
         ;
     }

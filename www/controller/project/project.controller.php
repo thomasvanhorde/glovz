@@ -1,6 +1,6 @@
 <?php
 
-class Project {
+class project_controller {
 
     public  function __construct() {
         ;

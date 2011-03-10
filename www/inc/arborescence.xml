@@ -26,8 +26,6 @@
         <title>Projets</title>
         <controller>project</controller>
         <layout>home.tpl</layout>
-
-
         <task>
             <title>projets - tâches</title>
             <controller>project</controller>
@@ -46,20 +44,18 @@
             <method>member</method>
             <layout>home.tpl</layout>
         </member>
-        <administrateur>
-            <new>
-                <title>Nouveau projet</title>
-                <controller>project</controller>
-                <method>create</method>
-                <layout>home.tpl</layout>
-            </new>
-            <archive>
-                <title>Anciens projet</title>
-                <controller>project</controller>
-                <method>old</method>
-                <layout>home.tpl</layout>
-            </archive>
-        </administrateur>
+        <new>
+            <title>Nouveau projet</title>
+            <controller>project</controller>
+            <method>create</method>
+            <layout>home.tpl</layout>
+        </new>
+        <archive>
+            <title>Anciens projet</title>
+            <controller>project</controller>
+            <method>old</method>
+            <layout>home.tpl</layout>
+        </archive>
     </project>
     <profil>
         <title>Mon profil</title>
@@ -69,7 +65,9 @@
     </profil>
     <super-administrateur>
         <new-membre>
-
+            <title>Nouveau membre</title>
+            <controller>new-member</controller>
+            <layout>new-member.tpl</layout>
         </new-membre>
     </super-administrateur>
 </arborescence>
