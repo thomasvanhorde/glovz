@@ -1,7 +1,6 @@
 <?php
 
-
-class Home {
+class home_controller {
     public function __construct() {
         ;
     }
