@@ -1,14 +1,15 @@
 <?php
 
-Class home_controller {
+class home_controller {
 
-	function __construct(){ 
+    public  function __construct(){
 	}
 
-	function defaut(){
+    public  function defaut(){
         $bdd = Base::Load(CLASS_BDD);
-	}
+    }
 
 }
 
-?>
+
+

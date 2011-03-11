@@ -1,8 +1,8 @@
 <?php
 
-Class structures_controller {
+class structures_controller {
 
-    function __construct(){
+    public  function __construct(){
         $this->_view = Base::Load('Component')->_view;
         $this->_contentManager = Base::Load(CLASS_CONTENT_MANAGER);
         $this->_BBD = Base::Load(CLASS_BDD)->_connexion;
@@ -10,7 +10,7 @@ Class structures_controller {
         $this->_view->addBlock('mainNav', 'admin_mainNav.tpl', 'view/admin/');        
     }
 
-    function defaut(){
+    public  function defaut(){
         if(isset($_GET['param'][0])){
             if($_GET['param'][0] == 'ajouter')  // Ajouter
                 $this->newStruct();
@@ -37,13 +37,13 @@ Class structures_controller {
     }
 
 
-    function deleteStruct($uid){
+    public  function deleteStruct($uid){
         $uid = $this->_contentManager->_struct->delete($uid);
         header('location: '.$_SERVER['REDIRECT_URL'].'../../');
         exit();
     }
 
-    function newStruct(){
+    public  function newStruct(){
         $type = $this->_contentManager->getType();
         $structAll = $this->_contentManager->getStructAll();
 
@@ -57,11 +57,11 @@ Class structures_controller {
         $this->_view->addBlock('content', 'admin_ContentManager_structEdit.tpl');
     }
 
-    function cloneStruct($structID){
+    public  function cloneStruct($structID){
         $this->_view->assign('clone',true);
         $this->editStruct($structID);
     }
-    function editStruct($structID){
+    public  function editStruct($structID){
         $data = array();
         $struct = $this->_contentManager->getStructAll($structID);
 
@@ -88,7 +88,7 @@ Class structures_controller {
         $this->newStruct();
     }
 
-    function POST_structEdit($data){
+    public  function POST_structEdit($data){
         $uid = $this->_contentManager->_struct->save($data);
 
         if(isset($data['id']) && !empty($data['id']))
@@ -98,5 +98,6 @@ Class structures_controller {
 
         exit();
     }
-
 }
+
+

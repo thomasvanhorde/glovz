@@ -1,14 +1,13 @@
 <?php
 
-Class engine_controller {
+class engine_controller {
 
-	function engine_controller(){ 
+    public  function engine_controller(){
 		$this->_view = Base::Load('Component')->_view;	
 	}
 	
-	function defaut(){
+        public  function defaut(){
 	}
-
 }
 
-?>
+

@@ -5,11 +5,11 @@ class ContentStruct {
     private $_dataSite;
     private $_dataAll;
     
-    function __construct(){
+    public  function __construct(){
         $this->load();
     }
 
-    function load(){
+    public  function load(){
         foreach($this->loadXmlEngine()->children() as $k => $e){
             $this->_dataAll[(string)$e['id']] = $e;
         }
@@ -19,23 +19,23 @@ class ContentStruct {
         }
     }
 
-    function loadXmlEngine(){
+    public  function loadXmlEngine(){
         return simplexml_load_file(ENGINE_URL.FOLDER_INC.FOLDER_CONTENT_MANAGER.INFOS_XML_CONTENT_STRUCT, NULL, true);
     }
 
-    function loadXmlSite(){
+    public  function loadXmlSite(){
         return simplexml_load_file(FOLDER_INC.INFOS_XML_CONTENT_STRUCT, NULL, true);    
     }
 
-    function get(){
+    public  function get(){
         return $this->_dataSite;
     }
 
-    function getAll(){
+    public  function getAll(){
         return $this->_dataAll;
     }
 
-    function delete($uid){
+    public  function delete($uid){
         $out = $Xml = $this->loadXmlSite();
         $i = 0;
         foreach($Xml as $k => $d){
@@ -46,7 +46,7 @@ class ContentStruct {
         $out->saveXML(FOLDER_INC.INFOS_XML_CONTENT_STRUCT);
     }
 
-    function save($data){
+    public  function save($data){
         $Xml = $this->loadXmlSite();
         $xmlArray = $this->get();
 
@@ -93,3 +93,4 @@ class ContentStruct {
     }
 
 }
+

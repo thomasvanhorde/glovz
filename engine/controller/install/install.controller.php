@@ -1,19 +1,19 @@
 <?php
 
-Class install_controller{
+class install_controller{
 
-    var $_instance;
+    public $_instance;
 
-    function __construct(){
+    public  function __construct(){
         $this->_instance = Base::Load(CLASS_INSTALL);
     }
 
-    function defaut(){
+    public  function defaut(){
         echo 'Suppresion des tables : <br />';
         $this->_instance->dropTable();
         echo 'Installation des tables : <br />';
         $this->_instance->InitTable();
     }
-
 }
-?>
+
+

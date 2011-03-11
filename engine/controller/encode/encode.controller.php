@@ -1,13 +1,13 @@
 <?php
 
-Class encode_controller {
+class encode_controller {
 
-	function encode_controller(){}
+    public  function encode_controller(){}
 
-	function defaut(){
+    public  function defaut(){
        echo selEncode($_GET['param'][0], ENCODE_METHOD);
-	}
+    }
 
 }
 
-?>
+

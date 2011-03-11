@@ -1,16 +1,16 @@
 <?php
 
-Class access_control_controller {
+class access_control_controller {
 
     private $_view;
     
-	function access_control_controller(){
+    public  function  __construct(){
         $this->_view = Base::Load(CLASS_VUE);
     }
 
-	function defaut(){}
+    public  function defaut(){}
 
-    function POST_connect($data){
+    public  function POST_connect($data){
         if(isset($data['user_name']) && isset($data['user_password'])){
             // To redirect 
             $redirect = selDecode($_SESSION['redirect'], 'base64');
@@ -42,9 +42,8 @@ Class access_control_controller {
         }
     }
 
-    function disconnect(){
+    public  function disconnect(){
         unset($_SESSION[SESSION_ACCESS_CONTROL]);    
     }
 }
 
-?>
