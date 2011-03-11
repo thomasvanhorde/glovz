@@ -12,7 +12,7 @@ class Install {
 
     private $_bdd;
 
-    function __construct(){
+    public function __construct(){
         $this->_bdd = Base::Load(CLASS_BDD);
     }
 
@@ -20,14 +20,14 @@ class Install {
      * @return void
      * @description Init Table in Bdd
      */
-    function InitTable(){
+    public function InitTable(){
         foreach($this->getTableName() as $table){
             echo $table.'<br />';
             $this->_bdd->InitTable($table);
         }
     }
 
-    function dropTable(){
+    public function dropTable(){
         foreach($this->getTableName() as $table){
             if($this->_bdd->DropTable($table))
                 echo $table.'<br />';

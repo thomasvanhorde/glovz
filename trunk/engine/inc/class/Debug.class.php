@@ -8,13 +8,13 @@
 
 include ENGINE_URL.'inc/class/ext/pqp/index.php';
 
-Class Debug {
+class Debug {
 
     /**
      * @param  $data
      * @return void
      */
-	function log($data){
+	public function log($data){
 		Console::log($data);
 	}
 
@@ -22,7 +22,7 @@ Class Debug {
      * @param  $exception
      * @return void
      */
-	function logError($exception){
+	public function logError($exception){
 		Console::logError($exception);
 	}
 
@@ -31,14 +31,14 @@ Class Debug {
      * @param  $name
      * @return void
      */
-	function logMemory($var = null, $name = null){
+	public function logMemory($var = null, $name = null){
 		Console::logMemory($var, $name);
 	}
 
     /**
      * @return void
      */
-	function logSpeed(){
+	public function logSpeed(){
 		Console::logSpeed();
 	}
 
@@ -47,7 +47,7 @@ Class Debug {
      * @param  $start
      * @return void
      */
-	function logQuery($sql, $start){
+	public function logQuery($sql, $start){
 		Console::logQuery($sql, $start);
 	}
 
@@ -55,4 +55,3 @@ Class Debug {
 }
 
 
-?>

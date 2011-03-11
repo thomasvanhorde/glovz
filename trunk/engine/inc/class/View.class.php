@@ -23,7 +23,7 @@ class View extends Smarty{
     /**
      * @return void
      */
-	function View(){
+	function __construct(){
 		$this->template_dir = '';
 		$this->compile_dir = FOLDER_CACHE;  
 		$this->compile_check = true;
@@ -38,7 +38,7 @@ class View extends Smarty{
      * @param  $value
      * @return void
      */
-	 function assign($Name, $value){
+	 public function assign($Name, $value){
 		parent::assign($Name, $value);
 	//	if(DEBUG)	Debug::logMemory($value, 'Assign '.$Name.' to Smarty ');
 	 }
@@ -47,7 +47,7 @@ class View extends Smarty{
      * @param  $template
      * @return void
      */
-	function display($template){
+	public function display($template){
 		if(file_exists($template.TEMPLATE_EXT))
 			parent::display($template.TEMPLATE_EXT);
 		elseif(file_exists(ENGINE_URL.$template.TEMPLATE_EXT))
@@ -60,7 +60,7 @@ class View extends Smarty{
      * @param bool $folder
      * @return void
      */
-	function addBlock($blockName, $template, $folder = false){
+	public function addBlock($blockName, $template, $folder = false){
 		if(!$folder)
 			$folder = $this->_folder;
 		if(file_exists($folder.$template.TEMPLATE_EXT))
@@ -72,4 +72,3 @@ class View extends Smarty{
 	
 }
 
-?>
