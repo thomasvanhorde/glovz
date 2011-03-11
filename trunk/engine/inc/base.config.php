@@ -69,4 +69,3 @@ define('INFOS_ACCESS_CONTROL_PASSWORD','password');
  * Others define
  */
 define('HTTP_HOST',$_SERVER['HTTP_HOST']);
-Define_once('CSS_COMPRESSOR',true);
