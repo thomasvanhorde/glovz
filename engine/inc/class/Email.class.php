@@ -58,4 +58,3 @@ class Email extends PHPMailer{
 
 }
 
-?>
