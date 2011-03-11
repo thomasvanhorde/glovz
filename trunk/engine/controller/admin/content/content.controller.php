@@ -1,8 +1,8 @@
 <?php
 
-Class content_controller {
+class content_controller {
 
-    function __construct(){
+    public  function __construct(){
         $this->_view = Base::Load('Component')->_view;
         $this->_contentManager = Base::Load(CLASS_CONTENT_MANAGER);
         $this->_BBD = Base::Load(CLASS_BDD)->_connexion;
@@ -10,7 +10,7 @@ Class content_controller {
         $this->_view->addBlock('mainNav', 'admin_mainNav.tpl', 'view/admin/');
     }
 
-    function defaut(){
+    public  function defaut(){
         if(isset($_GET['param'][0])){
             if($_GET['param'][0] == 'ajouter')  // Ajouter
                 $this->add($_GET['param'][1]);
@@ -25,7 +25,7 @@ Class content_controller {
 
     }
 
-    function listAll(){
+    public  function listAll(){
         $data = array();
         $struct = $this->_contentManager->getStructAll();
         $dataCM = $this->_contentManager->find();
@@ -52,13 +52,13 @@ Class content_controller {
         $this->_view->addBlock('content', 'admin_ContentManager_contentList.tpl');
     }
 
-    function remove($id){
+    public  function remove($id){
         if($this->_contentManager->remove($id))
             header('location: ../../');
         exit();
     }
 
-    function edit($id){
+    public  function edit($id){
         $content = $this->_contentManager->findOne($id);
         $this->_view->assign('data',$content);
         $this->_view->assign('id',$id);
@@ -66,7 +66,7 @@ Class content_controller {
     }
 
 
-    function add($type){
+    public  function add($type){
         $struct = $this->_contentManager->getStruct($type);
         $type = $this->_contentManager->getType();
 
@@ -109,7 +109,7 @@ Class content_controller {
     }
 
 
-    function POST_contentEdit($data){
+    public  function POST_contentEdit($data){
         if(empty($data['id'])){ // new
             if($this->_contentManager->save($data))
                 header('location: '.$_SERVER['REDIRECT_URL'].'../../');
@@ -121,4 +121,3 @@ Class content_controller {
         exit();
     }
 }
-?>
