@@ -14,7 +14,7 @@ elseif(file_exists(ENGINE_URL.FOLDER_CLASS_EXT.CLASS_LOADER_FILE))
 else
     Base::Load(CLASS_CORE_MESSAGE)->Critic('ERR_LOAD_CLASS_LOADER'); 
 
-class Base {
+Class Base {
 
 	protected $_view;
 	protected $_bdd;
@@ -50,7 +50,7 @@ class Base {
 			if($param && is_array($param))	// Insertion des parametres
 				call_user_func_array(array($objet, $ClassName), $param);
 			
-			$instance[$ClassName] = &$objet;	// Référence à l'objet pour le Singleton
+			$instance[$ClassName] = &$objet;	// R�f�rence � l'objet pour le Singleton
 			if(DEBUG)	Debug::log('Class '.$ClassName. ' loaded in normal mode');
 			if(DEBUG)	Debug::logMemory($instance[$ClassName], 'Instance of '.$ClassName);
 			
@@ -278,3 +278,5 @@ class Base {
 
 }
 
+
+?>

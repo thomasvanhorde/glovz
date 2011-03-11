@@ -1,6 +1,8 @@
 <?php
 
 define('CONTENT_MANAGER_COLLECTION','ContentManager');
+define('COMPILED_DATA', 'compiled_data');
+define('ATTRIBUTE_ID','_id');
 
 include ENGINE_URL.FOLDER_CLASS.'ContentManager/ContentType.class.php';
 include ENGINE_URL.FOLDER_CLASS.'ContentManager/ContentStruct.class.php';
@@ -20,7 +22,7 @@ class ContentManager {
     /***
      * @return 
      */
-    function getType(){
+    public function getType(){
         return $this->_type->get();
     }
 
@@ -28,7 +30,7 @@ class ContentManager {
      * @param bool $structID
      * @return 
      */
-    function getStruct($structID = false){
+    public function getStruct($structID = false){
         $structures =  $this->_struct->get();
         if($structID)
             $structures = $structures[$structID];
@@ -39,7 +41,7 @@ class ContentManager {
      * @param bool $structID
      * @return 
      */
-    function getStructAll($structID = false){
+    public function getStructAll($structID = false){
         $structures =  $this->_struct->getAll();
         if($structID)
             $structures = $structures[$structID];
@@ -50,7 +52,7 @@ class ContentManager {
      * @param  $id
      * @return string
      */
-    function getCollectioName($id){
+    public function getCollectioName($id){
         return 'ContentManager_'.$id;
     }
 
@@ -58,7 +60,7 @@ class ContentManager {
      * @param bool $collection
      * @return array
      */
-    function getDataAll($collection = false){
+    public function getDataAll($collection = false){
         $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
 
         if($collection)
@@ -68,22 +70,27 @@ class ContentManager {
 
         $data = array();
         foreach($dataCM as $a){
-            $data[(string)$a['_id']] = $a;
+            $data[(string)$a[ATTRIBUTE_ID]] = $a;
         }
 
         return $data;
     }
 
-    function save($data, $id = false){
-        if(!$id){ // new
-            if($this->insert($data))
-                return true;
+    public function save($data, $id = false){
+        // Pas de sauvegarde d'objet compilé avec findOneWithChild()
+        if(isset($data[COMPILED_DATA]) && $data[COMPILED_DATA]){
+            Base::Load(CLASS_CORE_MESSAGE)->Critic('MESS_ERR_SAVE_COMPILED_OBJ');
+        }else {
+            if(!$id){ // new
+                if($this->insert($data))
+                    return true;
+            }
+            else {// update
+                if($this->update($data, $id))
+                    return true;
+            }
+            return false;
         }
-        else {// update
-            if($this->update($data, $id))
-                return true;
-        }
-        return false;
     }
 
     /***
@@ -110,15 +117,15 @@ class ContentManager {
         $theObjId = new MongoId($id);
         unset($data['id']);
         // $this->_collection->update(array("_id"=>$theObjId), array('$set' => $data));
-        if($this->_collection->update(array("_id"=>$theObjId), $data))
+        if($this->_collection->update(array(ATTRIBUTE_ID=>$theObjId), $data))
             return true;
         else
             return false;
     }
 
-    function remove($id){
+    public function remove($id){
         $theObjId = new MongoId($id);
-        if($this->_collection->remove(array('_id'=>$theObjId), true))
+        if($this->_collection->remove(array(ATTRIBUTE_ID=>$theObjId), true))
             return true;
         else
             return false;
@@ -128,18 +135,39 @@ class ContentManager {
      * @param  $id
      * @return 
      */
-    function findOne($id){
+    public function findOne($id){
         $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
         $theObjId = new MongoId($id);
+        $search = $ContentManager->findOne(array(ATTRIBUTE_ID=>$theObjId));
 
-        foreach($ContentManager->findOne(array("_id"=>$theObjId)) as $i => $d){
-            $content[$i] = utf8_decode($d);
+        if(is_array($search)){
+            foreach($search as $i => $d)
+                $content[$i] = utf8_decode($d);
         }
+        else
+            $content = null;
 
         return $content;
     }
 
-    function find(){
+    /***
+     * @param  $id
+     * @return null
+     */
+    function findOneWithChild($id){
+        $data = $this->findOne($id);
+        foreach($data as $ref => $value){
+            if(strlen($value) == strlen('4d76229711e18d9005000031') && $ref != ATTRIBUTE_ID){
+                $tryRef = $this->findOne($value);
+                if($tryRef != null)
+                    $data[$ref] = $tryRef;
+            }
+        }
+        $data[COMPILED_DATA] = true;
+        return $data;
+    }
+
+    public function find(){
         $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
         $dataCM = $ContentManager->find();
 
