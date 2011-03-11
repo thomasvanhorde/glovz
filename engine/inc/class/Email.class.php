@@ -29,7 +29,7 @@ class Email extends PHPMailer{
      * @param  $content
      * @return bool
      */
-    function SimpleMailHTML($FromMail, $FromName, $ToMail, $Subject, $content){
+    public function SimpleMailHTML($FromMail, $FromName, $ToMail, $Subject, $content){
         $this->IsHTML(true);
         return $this->SimpleMail($FromMail, $FromName, $ToMail, $Subject, $content);
     }
@@ -42,7 +42,7 @@ class Email extends PHPMailer{
      * @param  $content
      * @return bool
      */
-    function SimpleMail($FromMail, $FromName, $ToMail, $Subject, $content){
+    public function SimpleMail($FromMail, $FromName, $ToMail, $Subject, $content){
         $this->IsHTML(true);
         $this->CharSet="utf8";
         $this->From=$FromMail;
