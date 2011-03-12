@@ -64,7 +64,7 @@ class ContentManager {
         $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
 
         if($collection)
-            $dataCM = $ContentManager->find(array('collection' => $collection));
+            $dataCM = $ContentManager->find(array('collection' => (string)$collection));
         else
             $dataCM = $ContentManager->find();
 
@@ -155,21 +155,34 @@ class ContentManager {
      * @return null
      */
     function findOneWithChild($id){
-        $data = $this->findOne($id);
+        $data = (object)$this->findOne($id);
         foreach($data as $ref => $value){
             if(strlen($value) == strlen('4d76229711e18d9005000031') && $ref != ATTRIBUTE_ID){
                 $tryRef = $this->findOne($value);
                 if($tryRef != null)
-                    $data[$ref] = $tryRef;
+                    $data->$ref = (object)$tryRef;
             }
         }
-        $data[COMPILED_DATA] = true;
+        $lock = COMPILED_DATA;
+        $data->$lock = true;
         return $data;
     }
 
-    public function find(){
+    /***
+     * @return 
+     */
+    public function find($param = false){
         $ContentManager = $this->_BBD->selectCollection(CONTENT_MANAGER_COLLECTION);
-        $dataCM = $ContentManager->find();
+
+        if($param){
+            $tmp = $ContentManager->find($param);
+            foreach($tmp as $i=> $u){
+                $dataCM[$i] = $u;
+            }
+            $dataCM = (object)$dataCM;
+        }
+        else
+            $dataCM = $ContentManager->find();
 
         return $dataCM;
     }

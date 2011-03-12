@@ -1,7 +1,7 @@
 <h3>Liste des contenus</h3>
 {foreach from=$typeList key=k item=type}
     {if $type.locked == "false" }
-        <br /><h4>{$type.name}</h4>
+        <br /><h4 name="{$type.name}">{$type.name}</h4>
         <table>
             <tr>
                 {foreach from=$type.index key=kI item=dataI}

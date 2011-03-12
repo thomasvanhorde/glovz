@@ -66,7 +66,7 @@ class content_controller {
     }
 
 
-    public  function add($type){
+    public function add($type){
         $struct = $this->_contentManager->getStruct($type);
         $type = $this->_contentManager->getType();
 
