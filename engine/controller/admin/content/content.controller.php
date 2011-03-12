@@ -109,7 +109,7 @@ class content_controller {
     }
 
 
-    public  function POST_contentEdit($data){
+    public function POST_contentEdit($data){
         if(empty($data['id'])){ // new
             if($this->_contentManager->save($data))
                 header('location: '.$_SERVER['REDIRECT_URL'].'../../');
