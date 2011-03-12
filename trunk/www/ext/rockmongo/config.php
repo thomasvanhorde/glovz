@@ -14,7 +14,7 @@ $MONGO["features"] = array(
 /**
 * Configuration of MongoDB servers
 */
-$_serv['online'] = array(
+$MONGO["servers"] = array(
 	array(
 		"host" => "flame.mongohq.com", // Replace your MongoDB host ip or domain name here
 		"port" => "27033/lpcm", // MongoDB connection port
@@ -32,21 +32,6 @@ $_serv['online'] = array(
 		)
 		
 	),
-	
-	/**array(
-		"host" => "192.168.1.1",
-		"port" => "27017",
-		"username" => null,
-		"password" => null,
-		"auth_enabled" => true,
-		"admins" => array( 
-			"admin" => "admin"
-		)
-	),**/
-);
-
-
-$_serv['local'] = array(
 	array(
 		"host" => "localhost", // Replace your MongoDB host ip or domain name here
 		"port" => "27017", // MongoDB connection port
@@ -63,20 +48,17 @@ $_serv['local'] = array(
 		)
 
 	),
-
 	/**array(
 		"host" => "192.168.1.1",
 		"port" => "27017",
 		"username" => null,
 		"password" => null,
 		"auth_enabled" => true,
-		"admins" => array(
+		"admins" => array( 
 			"admin" => "admin"
 		)
 	),**/
 );
 
-
-$MONGO["servers"] = $_serv['local'];
 
 ?>
