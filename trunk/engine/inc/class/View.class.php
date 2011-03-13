@@ -39,7 +39,10 @@ class View extends Smarty{
      * @return void
      */
 	 public function assign($Name, $value){
-		parent::assign($Name, $value);
+        if(is_object($value))
+            parent::assign_by_ref($Name, $value);
+        else
+		    parent::assign($Name, $value);
 	//	if(DEBUG)	Debug::logMemory($value, 'Assign '.$Name.' to Smarty ');
 	 }
 
