@@ -67,6 +67,13 @@ Class Base {
 			$this->_view->assign($consName, $constValue);
 		}
 	}
+
+    private function baseURL(){
+        $baseUrl = HTTP_HOST.'/'.SYS_FOLDER.'/';
+        $baseUrl = str_replace('///','/',$baseUrl);
+        $baseUrl = str_replace('//','/',$baseUrl);
+        define('BASE_URL', 'http://'.$baseUrl);
+    }
 	
 	/**
      * @param  $Folder
@@ -78,6 +85,8 @@ Class Base {
 		if(DEBUG)	Debug::logSpeed();
 		if(DEBUG)   Debug::log(Base::Load(CLASS_CORE_MESSAGE)->Generic('MESS_BASE_START'));
 
+        // Create Base URL
+        $this->baseURL();
 		
 		// Assigne les constantes de config � View
 		$this->ConstantAssign();

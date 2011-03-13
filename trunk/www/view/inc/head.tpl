@@ -3,5 +3,6 @@
     <title>{ $title }</title>
     <link rel="stylesheet/less" media="screen" href="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/themes/glovz/soft-reset.css" />
     <link rel="stylesheet/less" media="screen" href="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/themes/glovz/global.less" />
+    <script type="text/javascript" src="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/js/glovz/jquery-1.5.1.min.js"></script>
     <script type="text/javascript" src="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/js/glovz/less.js"></script>
 </head>
