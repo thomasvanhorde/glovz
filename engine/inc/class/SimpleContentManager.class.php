@@ -6,7 +6,7 @@
  */
 
 
-class SimpleContentManager {
+abstract class SimpleContentManager {
 
     protected $_collection;
     protected $_contentManager;
