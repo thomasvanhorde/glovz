@@ -5,8 +5,8 @@
 
     <!-- Menu -->
     <ul id="menu">
-        <li><a href="#">Tableau de bord</a></li>
-        <li><a href="#">Projets</a></li>
+        <li><a href="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/dashboard/">Tableau de bord</a></li>
+        <li><a href="http://{ $HTTP_HOST }/{ $SYS_FOLDER }/project/">Projets</a></li>
         <li><a href="#" id="actif">Tâches</a></li>
         <li><a href="#">Jalons</a></li>
         <li><a href="#">Nouveau projet</a></li>
