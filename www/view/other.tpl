@@ -4,7 +4,7 @@
 	{include file='view/inc/head.tpl'}
 	<body>
 		<!-- BARRE LATÉRALE -->
-        {include file='view/menu/home.tpl'}
+        {include file='view/menu/other.tpl'}
 		<!-- CONTENU -->
 		<div id="contenu">
             {$content}

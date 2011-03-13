@@ -5,6 +5,11 @@
         <controller>home</controller>
         <layout>home.tpl</layout>
     </index>
+    <allBlocks>
+        <title>Ensemble des blocks</title>
+        <controller>allBlocks</controller>
+        <layout>other.tpl</layout>
+    </allBlocks>
     <connect>
         <title>Connexion</title>
         <controller>user</controller>
