@@ -5,7 +5,7 @@
 
     <!-- Menu -->
     <ul id="menu">
-        <li><a href="#" id="actif">Accueil</a></li>
+        <li><a href="#" class="actif">Accueil</a></li>
     </ul>
 
     <a href="#" class="bouton">Connexion</a>

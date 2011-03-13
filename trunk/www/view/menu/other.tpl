@@ -7,7 +7,7 @@
     <ul id="menu">
         <li><a href="{$BASE_URL}dashboard/">Tableau de bord</a></li>
         <li><a href="{$BASE_URL}project/">Projets</a></li>
-        <li><a href="#" id="actif">Tâches</a></li>
+        <li><a href="#">Tâches</a></li>
         <li><a href="#">Jalons</a></li>
         <li><a href="#">Nouveau projet</a></li>
         <li><a href="#">Projets clôturés</a></li>
