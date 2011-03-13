@@ -1,0 +1,115 @@
+// Appel du soft-reset
+@import 'style/soft-reset.css';
+
+
+// Style du site
+body {
+	width: 1000px;
+	background: url('../img/fond.png') repeat-y #eae5e5;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: #111;
+	
+	p, li {
+		line-height: 1.6em;
+	}
+	
+	li {
+		//list-style-type: none;
+	}
+	
+	a {
+		text-decoration: none;
+	}
+
+	#barre {
+		float: left;
+		width: 250px;
+		color: #ccc;
+		background: url('../img/en-tete.png') no-repeat;
+		
+		#menu {
+			padding: 30px 0 30px 0;
+			
+			li {
+				line-height: 1.9em;
+			}
+			
+			a {
+				color: #a0a0a0;
+				padding: 10px 40px 10px 40px;
+			
+				&:hover {
+					color: #d3d3d3;
+				}
+			}
+			
+			#actif {
+				display: block;
+				background: url('../img/lien_menu_actif.png') no-repeat;
+				color: #d3d3d3;
+				width: 275px;
+				padding: 5px 40px 5px 40px;
+			}
+		}
+	
+		.bouton {
+			color: #9d9494;
+			line-height: 3.2em;
+			text-align: center;
+			display: block;
+			height: 50px;
+			background: url('../img/bouton.png') no-repeat 50px;
+			
+			&:hover {
+				color: #a79d98;
+				background: url('../img/bouton_survole.png') no-repeat 50px;
+			}
+		}
+	}
+	
+	#contenu {
+		font-size: .9em;
+		padding: 50px;
+		margin-left: 250px;
+		
+		h2 {
+			font-size: 1.6em;
+			font-weight: bold;
+			margin-bottom: 20px;
+		}
+		
+		a {
+			color: #b71414;
+			font-weight: bold;
+			
+			&:hover {
+				border-bottom: 1px dashed #b71414;
+			}
+		}
+		
+		table {
+			width: 100%;
+			border: 1px solid #aaa;
+			
+			th {
+				padding: 7px;
+				background-color: #ccc;
+				border-bottom: 1px solid #aaa;
+			}
+			
+			tr {
+				background-color: #f6f3f3;
+				
+			}
+			
+			.alterne {
+				background-color: #e8e2e2;
+			}
+			
+			td {
+				padding: 7px;
+
+			}
+		}
+	}
+}
