@@ -68,12 +68,13 @@ abstract class SimpleContentManager {
     }
 
     /***
-     * @param  $projectID
+     * @param  $param
+     * @param  $value
      * @return object list
      */
-    public function findByProject($projectID){
+    public function findBy($param, $value){
         return $this->_contentManager->find(array(
-            "projet" => $projectID,
+            $param => $value,
             "collection" => (string)$this->_collection,
         ));
     }
