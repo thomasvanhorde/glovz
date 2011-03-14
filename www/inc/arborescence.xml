@@ -14,7 +14,7 @@
         <title>Connexion</title>
         <controller>user</controller>
         <method>connect</method>
-        <layout>other.tpl</layout>
+        <layout>home.tpl</layout>
     </connect>
     <disconnect>
         <title>Connexion</title>
@@ -68,6 +68,12 @@
         <method>myProfil</method>
         <layout>other.tpl</layout>
     </profil>
+    <members>
+        <title>Liste des membres</title>
+        <controller>user</controller>
+        <method>members</method>
+        <layout>other.tpl</layout>
+    </members>
     <super-administrateur>
         <new-membre>
             <title>Nouveau membre</title>
