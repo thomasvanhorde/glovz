@@ -12,6 +12,7 @@
 define('CLASS_PROJECT','Project');
 define('CLASS_JALON','Jalon');
 define('CLASS_TACHE','Tache');
+define('CLASS_USER','User');
 
 /*
  * From Engine

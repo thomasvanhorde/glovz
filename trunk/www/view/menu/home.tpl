@@ -5,8 +5,8 @@
 
     <!-- Menu -->
     <ul id="menu">
-        <li><a href="#" class="actif">Accueil</a></li>
+        <li><a href="{$BASE_URL}" class="actif">Accueil</a></li>
     </ul>
 
-    <a href="#" class="bouton">Connexion</a>
+    <a href="{$BASE_URL}connect/" class="bouton">Connexion</a>
 </div>

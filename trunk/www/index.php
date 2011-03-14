@@ -11,7 +11,7 @@
 // Start Session
 session_start();
 
-header('Content-type: text/html; charset=UTF-8');
+header("Pragma: no-cache"); header('Content-type: text/html; charset=utf-8');
 
 // Include base functions
 include 'inc/functions.php';

@@ -7,13 +7,10 @@
     <ul id="menu">
         <li><a href="{$BASE_URL}dashboard/">Tableau de bord</a></li>
         <li><a href="{$BASE_URL}project/">Projets</a></li>
-        <li><a href="#">Tâches</a></li>
-        <li><a href="#">Jalons</a></li>
-        <li><a href="#">Nouveau projet</a></li>
-        <li><a href="#">Projets clôturés</a></li>
-        <li><a href="#">Membres</a></li>
-        <li><a href="#">Profil</a></li>
+        <li><a href="{$BASE_URL}members/">Membres</a></li>
+        <li><a href="{$BASE_URL}profil/">Profil</a></li>
     </ul>
-
-    <a href="#" class="bouton">Déconnexion</a>
+ 
+    <a href="{$BASE_URL}disconnect/" class="bouton">Déconnexion</a>
 </div>
+ 
