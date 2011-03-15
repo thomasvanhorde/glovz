@@ -1,4 +1,11 @@
-<h2>Nouveau contenu { $structure->name|utf8_decode }</h2>
+<h2>
+{if $id==''}
+    Nouveau contenu
+{else}
+    Edition de contenu 
+{/if}
+{ $structure->name|utf8_decode }
+</h2>
 
 <form method="post">
     <input type="hidden" name="todo" value="{$action}" />
