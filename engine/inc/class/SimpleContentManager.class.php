@@ -13,6 +13,7 @@ abstract class SimpleContentManager {
 
     public function __construct(){
         $this->_contentManager = Base::Load(CLASS_CONTENT_MANAGER);
+        $this->_view = Base::Load('Component')->_view;
     }
 
     /***
@@ -63,7 +64,7 @@ abstract class SimpleContentManager {
      * @return bool
      */
     public function save($data){
-        $data['collection'] = self::COLLECTION;
+        $data['collection'] = (string)$this->_collection;
         return $this->_contentManager->save($data);
     }
 
@@ -77,6 +78,27 @@ abstract class SimpleContentManager {
             $param => $value,
             "collection" => (string)$this->_collection,
         ));
+    }
+
+    public function addForm($blockName, $action = 'defaut_add', $template = false){
+        $struct = $this->getStruct();
+        $this->_view->assign('structure', $struct);
+
+        $contentRef = array();
+        foreach($struct->types as $types){
+            foreach($types as $type){
+                if(isset($type->contentRef) && !empty($type->contentRef)){
+                    $ContentRefData = $this->_contentManager->getDataAll($type->contentRef);
+                    $contentRef[(int)$type->contentRef] = $ContentRefData;
+                }
+            }
+        }
+
+        $this->_view->assign('contentRef', $contentRef);
+        
+        $this->_view->assign('action', $action);
+
+        $this->_view->addBlock($blockName, 'contentManagerForm.tpl', 'inc/contentManager/');
     }
 
 }

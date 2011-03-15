@@ -11,8 +11,13 @@ class user_controller {
 
     public function members(){
         $allUser = $this->_userClass->getAll();
+        $this->_userClass->addForm('new_member');
+
+        
         $this->_view->assign('members', $allUser);
         $this->_view->addBlock('content','members.tpl');
+
+
     }
 
     public function myProfil() {
@@ -37,5 +42,18 @@ class user_controller {
             $this->_view->assign('erreur', true);
             $this->connect();
         }
+    }
+
+    public function POST_defaut_add($data){
+        if(empty($data['id'])){ // new
+            if($this->_userClass->save($data))
+                header('location: '.$_SERVER['REDIRECT_URL']);
+        }
+        else {// update
+            exit('update pas OK');
+            if($this->_userClass->update($data, $data['id']))
+                header('location: '.$_SERVER['REDIRECT_URL']);
+        }
+        exit();
     }
 }

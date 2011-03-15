@@ -17,3 +17,5 @@
         {/foreach}
     </tbody>
 </table>
+
+{$new_member}
