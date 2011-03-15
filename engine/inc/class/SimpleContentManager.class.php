@@ -80,7 +80,18 @@ abstract class SimpleContentManager {
         ));
     }
 
-    public function addForm($blockName, $action = 'defaut_add', $template = false){
+    public function editForm($blockName, $objectId, $action = false, $template = false){
+        $data = $this->get($objectId, true);
+        $this->_view->assign('data', $data);
+        $this->_view->assign('id', $objectId);
+        $this->addForm($blockName, $action, $template);
+    }
+
+    public function addForm($blockName, $action = false, $template = false){
+
+        if(!$action)
+            $action = 'defaut_add';
+
         $struct = $this->getStruct();
         $this->_view->assign('structure', $struct);
 
@@ -95,10 +106,13 @@ abstract class SimpleContentManager {
         }
 
         $this->_view->assign('contentRef', $contentRef);
-        
         $this->_view->assign('action', $action);
 
-        $this->_view->addBlock($blockName, 'contentManagerForm.tpl', 'inc/contentManager/');
+        if(!$template)
+            $this->_view->addBlock($blockName, 'contentManagerForm.tpl', 'inc/contentManager/');
+        else
+            $this->_view->addBlock($blockName, $template);
+
     }
 
 }
