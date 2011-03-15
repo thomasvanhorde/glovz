@@ -26,14 +26,12 @@
 		</tr>
 	</thead>
 	<tbody>
-		{foreach from=$project->jalon item=tableau_jalon}
-		{foreach from=$tableau_jalon item=jalon}
-		<tr>
-			<td>{$jalon->label}</td>
-			<td>{$jalon->description}</td>
-			<td>{$jalon->date}</td>
-		</tr>
-		{/foreach}{/foreach}
+		{foreach from=$project->jalon key=k item=jalon}
+            <tr>
+                <td>{$jalon.label}</td>
+                <td>{$jalon.description}</td>
+                <td>{$jalon.date}</td>
+            </tr>
+        {/foreach}
 	</tbody>
 </table>
-<pre>{$project|print_r}</pre>
