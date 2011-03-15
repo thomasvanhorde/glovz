@@ -1,9 +1,9 @@
-            <th>Chef de projet</th>
-            <th>Client</th>
-            <th>URL Dév.</th>
-            <th>URL Prod.</th>
+<th>Chef de projet</th>
+<th>Client</th>
+<th>URL Dév.</th>
+<th>URL Prod.</th>
 			
-                <td>{$current_project.cdp}</td>
-                <td>{$project.client}</td>
-                <td>{$project.url_dev}</td>
-                <td>{$project.url_prod}</td>
+<td>{$project->cdp->nom}</td>
+
+
+<pre>{$project|print_r}</pre>
