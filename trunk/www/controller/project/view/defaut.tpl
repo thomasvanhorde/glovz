@@ -23,4 +23,3 @@
         {/foreach}
     </tbody>
 </table>
-
