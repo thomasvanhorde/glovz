@@ -49,7 +49,7 @@ class User extends SimpleContentManager {
 
     public function isConnect(){
         if(isset($_SESSION['user']))
-            return true;
+            return $_SESSION['user'];
         else
             return false;
     }
@@ -59,6 +59,7 @@ class User extends SimpleContentManager {
         unset($_SESSION['user']);
         return true;
     }
+
 
 
     

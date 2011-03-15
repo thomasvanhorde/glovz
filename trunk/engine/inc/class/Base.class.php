@@ -111,25 +111,7 @@ Class Base {
         $ControllerLayout = $Controller->$INFOS_LAYOUT;
         $ControllerAccessControl = $Controller->$INFOS_ACCES_CONTROL;
 
-        // Access Control
-        if(!empty($ControllerAccessControl)){
-            $url_access = selEncode($Folder,'base64');
-            if(!isset($_SESSION[SESSION_ACCESS_CONTROL][$ControllerName[count($ControllerName)-1]]) || !$_SESSION[SESSION_ACCESS_CONTROL][$ControllerName[count($ControllerName)-1]]){    // Access denied ?
-                echo '<META HTTP-EQUIV="Refresh" CONTENT="3; URL='.SYS_FOLDER.'ac_login/">';
-                $_SESSION[SESSION_REDIRECT] = $url_access;
-                Base::Load(CLASS_CORE_MESSAGE)->Critic('MESS_ERR_ACCESS_CONTROL');
-            }
-        }
-        
-		// virtual $param to $_GET
-        $_GET['param'] = $Ctr['param'];
-        $_GET['url'] = $Ctr['url'];
 
-		// Include controller
-		if(file_exists(FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT))
-			include FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT;
-		elseif(file_exists(ENGINE_URL.FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT))
-			include ENGINE_URL.FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT;
 
 
 		// Class Component
@@ -138,6 +120,37 @@ Class Base {
 		$ComponentObj->_view = &$this->_view;
 		// Views controller path
 		$ComponentObj->_view->_folder = FOLDER_APPLICATION.implode('/',$ControllerName).'/'.FOLDER_VIEW;
+
+        
+        // Access Control
+        if(!empty($ControllerAccessControl)){
+
+            if(isset($ControllerAccessControl->login) && isset($ControllerAccessControl->password)) {
+                $url_access = selEncode($Folder,'base64');
+                if(!isset($_SESSION[SESSION_ACCESS_CONTROL][$ControllerName[count($ControllerName)-1]]) || !$_SESSION[SESSION_ACCESS_CONTROL][$ControllerName[count($ControllerName)-1]]){    // Access denied ?
+                    echo '<META HTTP-EQUIV="Refresh" CONTENT="3; URL='.SYS_FOLDER.'ac_login/">';
+                    $_SESSION[SESSION_REDIRECT] = $url_access;
+                    Base::Load(CLASS_CORE_MESSAGE)->Critic('MESS_ERR_ACCESS_CONTROL');
+                }
+            }
+
+            if(isset($ControllerAccessControl->$INFOS_CONTROLLER) && isset($ControllerAccessControl->$INFOS_METHOD)) {
+                Base::Load(CLASS_CONTROLLER,array($ControllerAccessControl->$INFOS_CONTROLLER,$ControllerAccessControl->$INFOS_METHOD));
+            }
+
+
+        }
+        
+		// virtual $param to $_GET
+        $_GET['param'] = $Ctr['param'];
+        $_GET['url'] = $Ctr['url'];
+
+		// Include controller
+		if(file_exists(FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT))
+			include_once FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT;
+		elseif(file_exists(ENGINE_URL.FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT))
+			include_once ENGINE_URL.FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT;
+
 
 
         // Listener $_POST
