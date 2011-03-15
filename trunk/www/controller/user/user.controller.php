@@ -43,8 +43,19 @@ class user_controller {
 
     public function POST_MemberData($data){
         if(empty($data['id'])){ // new
-            if($this->_userClass->save($data))
+            if($this->_userClass->save($data)) {
+
+                $contentMail = $this->_view->addBlock('content','mail_newMember.tpl');
+
+                Base::Load(CLASS_EMAIL)->SimpleMailHTML(
+                    'no-reply@glovz.com',
+                    'GlovZ Team',
+                    $data['mail'],
+                    'register',
+                    $contentMail);
+
                 header('location: '.$_SERVER['REDIRECT_URL']);
+            }
         }
         else {// update
             if($this->_userClass->update($data, $data['id']))

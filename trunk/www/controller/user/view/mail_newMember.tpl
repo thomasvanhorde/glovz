@@ -1,0 +1,1 @@
+Yeahhh vous êtes désormais inscrit à <a href="{$BASE_URL}">Glovz</a> !
