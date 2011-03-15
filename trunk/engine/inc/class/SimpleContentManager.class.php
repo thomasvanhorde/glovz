@@ -71,13 +71,32 @@ abstract class SimpleContentManager {
     /***
      * @param  $param
      * @param  $value
+     * @param bool $withRelation
      * @return object list
      */
-    public function findBy($param, $value){
-        return $this->_contentManager->find(array(
+    public function findBy($param, $value, $withRelation = false){
+        $data = $this->_contentManager->find(array(
             $param => $value,
             "collection" => (string)$this->_collection,
         ));
+
+        if($withRelation){
+            foreach($data as $i => $d){
+                foreach($d as $i2 => $d2){
+                    if(strlen($d2) == strlen('4d76229711e18d9005000031') && $i2 != ATTRIBUTE_ID){
+                        $data2[$i][$i2] = (object)$this->get($d2, false);
+                    }
+                    else {
+                        $data2[$i][$i2] = $d2;
+                    }
+
+                }
+            }
+            return $data2;
+        }
+        else
+            return $data;
+
     }
 
     public function editForm($blockName, $objectId, $action = false, $template = false){
