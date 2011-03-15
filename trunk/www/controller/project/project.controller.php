@@ -21,6 +21,7 @@ class project_controller {
         # Si l'url contient un paramètre (l'id du projet choisi) on redirige vers le détail de ce projet
         if (isset($_GET['param'][0])) {
         	$current_project = $this->_projectClass->get($_GET['param'][0], true);
+        	
         	$this->_view->assign('project', $current_project);
         	$this->_view->addBlock('content','detailled_project.tpl');
         }
