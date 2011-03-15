@@ -50,7 +50,7 @@ Class Base {
 			if($param && is_array($param))	// Insertion des parametres
 				call_user_func_array(array($objet, $ClassName), $param);
 			
-			$instance[$ClassName] = &$objet;	// R�f�rence � l'objet pour le Singleton
+			$instance[$ClassName] = &$objet;	// Référence à l'objet pour le Singleton
 			if(DEBUG)	Debug::log('Class '.$ClassName. ' loaded in normal mode');
 			if(DEBUG)	Debug::logMemory($instance[$ClassName], 'Instance of '.$ClassName);
 			
@@ -88,7 +88,7 @@ Class Base {
         // Create Base URL
         $this->baseURL();
 		
-		// Assigne les constantes de config � View
+		// Assigne les constantes de config à View
 		$this->ConstantAssign();
 
         // Parse URL & Load Xml infos
@@ -124,8 +124,6 @@ Class Base {
 		// virtual $param to $_GET
         $_GET['param'] = $Ctr['param'];
         $_GET['url'] = $Ctr['url'];
-
-//        exit(FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT);
 
 		// Include controller
 		if(file_exists(FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT))
@@ -187,7 +185,7 @@ Class Base {
                 $method = $_POST[LISTENER_POST_TODO];
             }
 
-            // Liberation de m�moire
+            // Liberation de mémoire
             unset($_POST[LISTENER_POST_TODO]);
 
             Base::Load(CLASS_CONTROLLER,array($contr,CONTROLLER_POST_PREC.$method.'#(#'.serialize($_POST).'#)#'));

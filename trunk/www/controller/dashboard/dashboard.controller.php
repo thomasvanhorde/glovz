@@ -3,7 +3,7 @@
 class dashboard_controller {
 
     function __construct(){
-        $this->_view = Base::Load('Component')->_view;
+        $this->_view = Base::Load(CLASS_COMPONENT)->_view;
     }
 
     function defaut(){
