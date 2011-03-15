@@ -71,6 +71,8 @@ class View extends Smarty{
 		elseif(file_exists(ENGINE_URL.$folder.$template.TEMPLATE_EXT))
 			$html = parent::fetch(ENGINE_URL.$folder.$template.TEMPLATE_EXT);
 		$this->assign($blockName,$html);
+
+        return $html;
 	}
 	
 }
