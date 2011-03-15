@@ -85,6 +85,12 @@
             <method>editMember</method>
             <layout>other.tpl</layout>
         </edit>
+        <pdf>
+            <title></title>
+            <controller>user</controller>
+            <method>membersPDF</method>
+            <layout>other.tpl</layout>
+        </pdf>
     </members>
     <super-administrateur>
         <new-membre>

@@ -14,10 +14,11 @@
                 <td>{$member.nom}</td>
                 <td>{$member.prenom}</td>
                 <td>{$member.mail}</td>
-                <td><a href="edit/{$member._id}/">Modifier</a></td>
+                <td><a href="edit/{$member._id}/#{$member.nom|strip}-{$member.prenom|strip}">Modifier</a></td>
             </tr>
         {/foreach}
     </tbody>
 </table>
 
 <a href="new/">Nouveau membre</a>
+<a href="pdf/">PDF</a>

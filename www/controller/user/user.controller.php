@@ -6,13 +6,18 @@ class user_controller {
         $this->_userClass = Base::Load(CLASS_USER);
     }
 
-    public function defaut() {
-    }
+    public function defaut() {}
 
     public function members(){
         $allUser = $this->_userClass->getAll();
         $this->_view->assign('members', $allUser);
         $this->_view->addBlock('content','members.tpl');
+    }
+
+    public function membersPDF(){
+        $allUser = $this->_userClass->getAll();
+        $this->_view->assign('members', $allUser);
+        Base::Load(CLASS_PDF)->simplePDF('members.tpl', 'exemple.pdf');
     }
 
     public function editMember(){
