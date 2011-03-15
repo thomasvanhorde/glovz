@@ -78,13 +78,14 @@ class user_controller {
         if($this->_userClass->isConnect()){
             $info = $this->_userClass->isConnect();
             if($info['role']['initial'] != 'DT')
-                $this->notAllow();
+                $this->notAllow('you should was DT');
         }
         else
-            $this->notAllow();
+            $this->notAllow('you should login');
     }
 
-    private function notAllow(){
+    private function notAllow($message){
+        $this->_view->assign('erreur', $message);
         Base::Load(CLASS_VUE)->addBlock('content','notAllow.tpl');
     }
     
