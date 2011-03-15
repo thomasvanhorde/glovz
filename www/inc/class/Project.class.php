@@ -17,8 +17,8 @@
     public function get($object_id, $withRelation = false){
         $data = parent::get($object_id, $withRelation);
         if($withRelation) {
-            $data->jalon = Base::Load(CLASS_JALON)->findBy('projet', $object_id);
-            $data->tache = Base::Load(CLASS_TACHE)->findBy('projet', $object_id);
+            $data->jalon = Base::Load(CLASS_JALON)->findBy('projet', $object_id, true);
+            $data->tache = Base::Load(CLASS_TACHE)->findBy('projet', $object_id, true);
         }
         return $data;
     }

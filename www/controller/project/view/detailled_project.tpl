@@ -59,7 +59,7 @@
 	            <tr>
 	                <td>{$tache.label}</td>
 	                <td>{$tache.description}</td>
-	                <td>{$tache.utilisateur}</td>
+	                <td>{$tache.utilisateur->nom} {$tache.utilisateur->prenom}</td>
 	                <td>{$tache.duree}</td>
 	            </tr>
 	        {/foreach}
@@ -68,5 +68,3 @@
 {else}
 	<p>Pas de tâches.</p>
 {/if}
-
-<br /><pre>{$project|print_r}</pre>
