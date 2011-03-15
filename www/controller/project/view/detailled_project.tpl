@@ -1,4 +1,4 @@
-<h2>Projet {$project->nom}</h2>
+<h2>{$project->nom}</h2>
 
 <!-- Informations du projet -->
 <ul>
