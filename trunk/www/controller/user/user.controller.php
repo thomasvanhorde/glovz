@@ -11,19 +11,16 @@ class user_controller {
 
     public function members(){
         $allUser = $this->_userClass->getAll();
-        $this->_userClass->addForm('new_member');
-
-        
         $this->_view->assign('members', $allUser);
         $this->_view->addBlock('content','members.tpl');
+    }
 
-
+    public function newMember(){
+        $this->_userClass->addForm('content', 'MemberData');
     }
 
     public function myProfil() {
-        $data = $this->_userClass->get($_SESSION['user']['uid'], true);
-        $this->_view->assign('data', $data);
-        $this->_view->addBlock('content','myprofil.tpl');
+        $this->_userClass->editForm('content', $_SESSION['user']['uid'], 'MemberData');
     }
 
     public function disconnect() {
@@ -44,13 +41,12 @@ class user_controller {
         }
     }
 
-    public function POST_defaut_add($data){
+    public function POST_MemberData($data){
         if(empty($data['id'])){ // new
             if($this->_userClass->save($data))
                 header('location: '.$_SERVER['REDIRECT_URL']);
         }
         else {// update
-            exit('update pas OK');
             if($this->_userClass->update($data, $data['id']))
                 header('location: '.$_SERVER['REDIRECT_URL']);
         }

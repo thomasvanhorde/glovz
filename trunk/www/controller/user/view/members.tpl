@@ -18,4 +18,4 @@
     </tbody>
 </table>
 
-{$new_member}
+<a href="new/">Nouveau membre</a>

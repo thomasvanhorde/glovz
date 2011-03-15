@@ -73,6 +73,12 @@
         <controller>user</controller>
         <method>members</method>
         <layout>other.tpl</layout>
+        <new>
+            <title>Ajouter un membre</title>
+            <controller>user</controller>
+            <method>newMember</method>
+            <layout>other.tpl</layout>
+        </new>
     </members>
     <super-administrateur>
         <new-membre>
