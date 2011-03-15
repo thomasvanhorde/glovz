@@ -18,7 +18,7 @@ Define_once('MONGO_BASE','lpcm');
 /***
  * Using for String encode
  * */
-//  En cas de changement, il faut r�g�n�rer les password <!>
+//  En cas de changement, il faut regénérer les password <!>
 define('GRAIN_SEL', 'b4d6g6hZrt4treD4hrt68kuyki65hr');
 // Methode utilis�
 define('ENCODE_METHOD', 'md5'); // sha1 | md5
@@ -26,7 +26,8 @@ define('ENCODE_METHOD', 'md5'); // sha1 | md5
 
 // Defaut config
 if($_SERVER['SCRIPT_FILENAME'] == 'D:/localhost/glovz/www/index.php'){ //Thomas
-	Define_once('SYS_FOLDER','/');
+    //Define_once('SYS_FOLDER','/www/');  //  http://glovztest.fr/www/
+    Define_once('SYS_FOLDER','/');
 	Define_once('ENGINE_URL','D:/localhost/glovz/engine/');
 }
 
