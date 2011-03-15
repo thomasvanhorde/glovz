@@ -73,6 +73,10 @@
         <controller>user</controller>
         <method>members</method>
         <layout>other.tpl</layout>
+    <!--    <accessControl>
+            <controller>user</controller>
+            <method>isDT</method>
+        </accessControl> -->
         <new>
             <title>Ajouter un membre</title>
             <controller>user</controller>

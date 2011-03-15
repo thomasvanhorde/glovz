@@ -64,15 +64,24 @@ class View extends Smarty{
      * @return void
      */
 	public function addBlock($blockName, $template, $folder = false){
-		if(!$folder)
-			$folder = $this->_folder;
-		if(file_exists($folder.$template.TEMPLATE_EXT))
-			$html = parent::fetch($folder.$template.TEMPLATE_EXT);
-		elseif(file_exists(ENGINE_URL.$folder.$template.TEMPLATE_EXT))
-			$html = parent::fetch(ENGINE_URL.$folder.$template.TEMPLATE_EXT);
-		$this->assign($blockName,$html);
+        static $instance;
 
-        return $html;
+        if(!isset($instance[$blockName])){
+            if(!$folder)
+                $folder = $this->_folder;
+            if(file_exists($folder.$template.TEMPLATE_EXT))
+                $html = parent::fetch($folder.$template.TEMPLATE_EXT);
+            elseif(file_exists(ENGINE_URL.$folder.$template.TEMPLATE_EXT))
+                $html = parent::fetch(ENGINE_URL.$folder.$template.TEMPLATE_EXT);
+            $this->assign($blockName,$html);
+
+            $instance[$blockName] = true;
+
+            return $html;
+        }
+        else {
+        //    exit($blockName.' deja existant');
+        }
 	}
 	
 }

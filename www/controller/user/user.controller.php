@@ -72,4 +72,20 @@ class user_controller {
         }
         exit();
     }
+
+
+    public function isDT(){
+        if($this->_userClass->isConnect()){
+            $info = $this->_userClass->isConnect();
+            if($info['role']['initial'] != 'DT')
+                $this->notAllow();
+        }
+        else
+            $this->notAllow();
+    }
+
+    private function notAllow(){
+        Base::Load(CLASS_VUE)->addBlock('content','notAllow.tpl');
+    }
+    
 }
