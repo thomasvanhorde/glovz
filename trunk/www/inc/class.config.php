@@ -28,6 +28,7 @@ define('CLASS_DEBUG','Debug');
 define('CLASS_INSTALL','Install');
 define('CLASS_CSS','Css');
 define('CLASS_CONTENT_MANAGER','ContentManager');
+define('CLASS_PDF','Pdf');
 
 
 
