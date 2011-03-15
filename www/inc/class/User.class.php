@@ -17,9 +17,12 @@ class User extends SimpleContentManager {
 
     public function connect($mail, $password){
         $user = $this->findBy('mail', $mail);
-        foreach($user as $id => $dataUser){
-            if($password == $dataUser['pwd']){
-                return $this->createSession($this->get($id,true));
+
+        if(is_object($user)){
+            foreach($user as $id => $dataUser){
+                if($password == $dataUser['pwd']){
+                    return $this->createSession($this->get($id,true));
+                }
             }
         }
         return false;

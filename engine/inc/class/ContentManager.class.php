@@ -77,7 +77,7 @@ class ContentManager {
     }
 
     public function save($data, $id = false){
-        // Pas de sauvegarde d'objet compilé avec findOneWithChild()
+        // Pas de sauvegarde d'objet compilï¿½ avec findOneWithChild()
         if(isset($data[COMPILED_DATA]) && $data[COMPILED_DATA]){
             Base::Load(CLASS_CORE_MESSAGE)->Critic('MESS_ERR_SAVE_COMPILED_OBJ');
         }else {
@@ -179,11 +179,13 @@ class ContentManager {
             foreach($tmp as $i=> $u){
                 $dataCM[$i] = $u;
             }
-            $dataCM = (object)$dataCM;
+            if(isset($dataCM) && is_array($dataCM))
+                $dataCM = (object)$dataCM;
+            else
+                return false;
         }
         else
             $dataCM = $ContentManager->find();
-
         return $dataCM;
     }
 
