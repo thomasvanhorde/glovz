@@ -253,7 +253,7 @@ Class Base {
 
         if($Controller === $XmlDom){    // Si Homepage
             $defaut = INFOS_INDEX;
-            $Controller = $Controller->$defaut; // Controlleur pas d�faut
+            $Controller = $Controller->$defaut; // Controlleur pas défaut
         }
 
         return array('controller' => $Controller, 'param' => $param, 'url' => $url);
