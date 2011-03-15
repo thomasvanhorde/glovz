@@ -8,9 +8,6 @@ class project_controller {
     }
 	
     public function defaut() {
-        $allProjects = $this->_projectClass->getAll();
-        $this->_view->assign('projects', $allProjects);
-        $this->_view->addBlock('content','defaut.tpl');
         /*
         	echo '<pre>';
         	print_r($allProjects);
@@ -24,6 +21,11 @@ class project_controller {
         	
         	$this->_view->assign('project', $current_project);
         	$this->_view->addBlock('content','detailled_project.tpl');
+        }
+        else {
+        	$allProjects = $this->_projectClass->getAll();
+        	$this->_view->assign('projects', $allProjects);
+        	$this->_view->addBlock('content','defaut.tpl');
         }
     }
 
