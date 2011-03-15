@@ -79,6 +79,12 @@
             <method>newMember</method>
             <layout>other.tpl</layout>
         </new>
+        <edit>
+            <title>Editer un membre</title>
+            <controller>user</controller>
+            <method>editMember</method>
+            <layout>other.tpl</layout>
+        </edit>
     </members>
     <super-administrateur>
         <new-membre>

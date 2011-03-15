@@ -5,6 +5,7 @@
             <th>Nom</th>
             <th>Prénom</th>
             <th>Email</th>
+            <th>Modifier</th>
         </tr>
     </thead>
     <tbody>
@@ -13,6 +14,7 @@
                 <td>{$member.nom}</td>
                 <td>{$member.prenom}</td>
                 <td>{$member.mail}</td>
+                <td><a href="edit/{$member._id}/">Modifier</a></td>
             </tr>
         {/foreach}
     </tbody>

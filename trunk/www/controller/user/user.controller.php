@@ -15,6 +15,10 @@ class user_controller {
         $this->_view->addBlock('content','members.tpl');
     }
 
+    public function editMember(){
+        $this->_userClass->editForm('content', $_GET['param'][0], 'MemberData');
+    }
+
     public function newMember(){
         $this->_userClass->addForm('content', 'MemberData');
     }
