@@ -81,18 +81,22 @@ abstract class SimpleContentManager {
         ));
 
         if($withRelation){
-            foreach($data as $i => $d){
-                foreach($d as $i2 => $d2){
-                    if(strlen($d2) == strlen('4d76229711e18d9005000031') && $i2 != ATTRIBUTE_ID){
-                        $data2[$i][$i2] = (object)$this->get($d2, false);
-                    }
-                    else {
-                        $data2[$i][$i2] = $d2;
-                    }
+            if(is_object($data)){
+                foreach($data as $i => $d){
+                    foreach($d as $i2 => $d2){
+                        if(strlen($d2) == strlen('4d76229711e18d9005000031') && $i2 != ATTRIBUTE_ID){
+                            $data2[$i][$i2] = (object)$this->get($d2, false);
+                        }
+                        else {
+                            $data2[$i][$i2] = $d2;
+                        }
 
+                    }
                 }
+                return $data2;
             }
-            return $data2;
+            else
+                return false;
         }
         else
             return $data;
