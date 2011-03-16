@@ -32,14 +32,14 @@ class project_controller {
 	
 	# Insertion des formulaires de création (projet|jalon|tâche)
     public function create() {
-        $this->_projectClass->addForm('content', 'ProjectData', 'form.tpl');
+        $this->_projectClass->addForm('content', 'ProjectData');
         $this->_projectClass->addForm('content', 'MilestoneData');
         $this->_projectClass->addForm('content', 'TaskData');
     }
     
     # Édition des formulaires précédemment créés
     public function editProject() {
-        $this->_projectClass->editForm('content', $_GET['param'][0], 'ProjectData', 'form.tpl');
+        $this->_projectClass->editForm('content', $_GET['param'][0], 'ProjectData');
     }
     
     public function editMilestone() {
