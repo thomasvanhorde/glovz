@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2011-03-16 21:11:22
+<?php /* Smarty version 2.6.26, created on 2011-03-16 23:05:10
          compiled from controller/project/view/detailled_project.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'date_format', 'controller/project/view/detailled_project.tpl', 5, false),array('modifier', 'print_r', 'controller/project/view/detailled_project.tpl', 77, false),)), $this); ?>
@@ -55,7 +55,8 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'date_format
 </td>
 	                <td><?php echo $this->_tpl_vars['jalon']['date']; ?>
 </td>
-	                <td><a href="#">Modifier</a></td>
+	                <td><a href="edit/<?php echo $this->_tpl_vars['jalon']['_id']; ?>
+">Modifier</a></td>
 	            </tr>
 	        <?php endforeach; endif; unset($_from); ?>
 		</tbody>
@@ -92,7 +93,8 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'date_format
 </td>
 	                <td><?php echo $this->_tpl_vars['tache']['duree']; ?>
 </td>
-	                <td><a href="#">Modifier</a></td>
+	                <td><a href="edit/<?php echo $this->_tpl_vars['tache']['_id']; ?>
+">Modifier</a></td>
 	            </tr>
 	        <?php endforeach; endif; unset($_from); ?>
 		</tbody>
