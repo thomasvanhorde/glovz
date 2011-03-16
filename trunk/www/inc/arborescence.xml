@@ -63,12 +63,24 @@
             <method>create</method>
             <layout>other.tpl</layout>
         </new>
-        <archive>
-            <title>Anciens projet</title>
+        <edit>
+            <title>Editer un projet</title>
             <controller>project</controller>
-            <method>old</method>
+            <method>editProject</method>
             <layout>other.tpl</layout>
-        </archive>
+        </edit>
+        <edit>
+            <title>Editer un jalon</title>
+            <controller>project</controller>
+            <method>editMilestone</method>
+            <layout>other.tpl</layout>
+        </edit>
+        <edit>
+            <title>Editer une tâche</title>
+            <controller>project</controller>
+            <method>editTask</method>
+            <layout>other.tpl</layout>
+        </edit>
     </project>
     <profil>
         <title>Mon profil</title>

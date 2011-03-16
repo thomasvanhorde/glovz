@@ -35,7 +35,7 @@
 	                <td>{$jalon.label}</td>
 	                <td>{$jalon.description}</td>
 	                <td>{$jalon.date}</td>
-	                <td><a href="#">Modifier</a></td>
+	                <td><a href="edit/{$jalon._id}">Modifier</a></td>	<!-- surcharger le parent::_collection avec le bon id de collection -->
 	            </tr>
 	        {/foreach}
 		</tbody>
@@ -65,7 +65,7 @@
 	                <td>{$tache.description}</td>
 	                <td>{$tache.utilisateur->nom} {$tache.utilisateur->prenom}</td>
 	                <td>{$tache.duree}</td>
-	                <td><a href="#">Modifier</a></td>
+	                <td><a href="edit/{$tache._id}">Modifier</a></td>
 	            </tr>
 	        {/foreach}
 		</tbody>
