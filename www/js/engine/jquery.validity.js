@@ -8,6 +8,8 @@
  *
  * Date: 2010-08-16 (Tuesday, 16 August 2010)
  * Revision: 134
+ *
+ * http://validity.thatscaptaintoyou.com/Demos/index.htm
  */
 (function($) {
     
