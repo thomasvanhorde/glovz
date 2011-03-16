@@ -15,12 +15,13 @@
 
     <table id="StructList">
 
-        <tr>
+        <tr> 
             <th>Label</th>
             <th>ID</th>
             <th>Type</th>
             <th>Valeur(s)</th>
             <th>Limite</th>
+            <th>Requis</th>
             <th>Index</th>
             <th></th>
         </tr>
@@ -62,6 +63,9 @@
                 </td>
                 <td>
                     <input class="limit" type="text" name="data[{$k}][limit]" value="{ $element.type.limit }" maxlength="3" size="3"/>
+                </td>
+                <td>
+                    <input class="requis" type="checkbox" name="data[{$k}][requis]" value="true" { if $element.type.requis =="true" }checked="checked"{/if} />
                 </td>
                 <td>
                     <input class="index" type="checkbox" name="data[{$k}][index]" value="true" { if $element.type.index =="true" }checked="checked"{/if} />
@@ -114,13 +118,16 @@
             <input class="limit" type="text" nameTmp="data[keyId][limit]" maxlength="3" size="3" />
         </td>
         <td>
+            <input class="requis" type="checkbox" nameTmp="data[keyId][requis]" value="true" />
+        </td>
+        <td>
             <input class="index" type="checkbox" nameTmp="data[keyId][index]" value="true" />
         </td>
         <td>
             <a href="admin_ContentManager_structEdit.tpl#" onclick="deleteElement(this);return false;">x</a>
         </td>        
     </tr>
-</table>
+</table> 
 
         <script type="text/javascript">
             var kE = {$k};   // Last keyID
