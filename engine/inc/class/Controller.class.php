@@ -25,11 +25,12 @@ class Controller {
                 $array = unserialize($b[0]);
             }
 
-            if(file_exists(FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT))
-                include_once FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT;
-            elseif(file_exists(ENGINE_URL.FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT))
-                include_once ENGINE_URL.FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT;
-
+            if(!class_exists($ControllerName[count($ControllerName)-1].CONTROLLER_NAME_EXT)) {
+                if(file_exists(FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT))
+                    include_once FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT;
+                elseif(file_exists(ENGINE_URL.FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT))
+                    include_once ENGINE_URL.FOLDER_APPLICATION.implode('/',$ControllerName).'/'.$ControllerName[count($ControllerName)-1].CONTROLLER_EXT;
+            }
             $ControllerName = $ControllerName[count($ControllerName)-1].CONTROLLER_NAME_EXT;
 
             $ControlerObj = new $ControllerName;
