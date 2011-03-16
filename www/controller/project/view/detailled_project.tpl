@@ -26,6 +26,7 @@
 				<th>Label</th>
 				<th>Description</th>
 				<th>Date</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -34,6 +35,7 @@
 	                <td>{$jalon.label}</td>
 	                <td>{$jalon.description}</td>
 	                <td>{$jalon.date}</td>
+	                <td><a href="#">Modifier</a></td>
 	            </tr>
 	        {/foreach}
 		</tbody>
@@ -41,6 +43,7 @@
 {else}
 	<p>Pas de jalons.</p>
 {/if}
+<br />
 
 <!-- Tâches du projet -->
 {if !empty($project->tache)}
@@ -52,6 +55,7 @@
 				<th>Description</th>
 				<th>Personne concernée</th>
 				<th>Durée (h)</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -61,6 +65,7 @@
 	                <td>{$tache.description}</td>
 	                <td>{$tache.utilisateur->nom} {$tache.utilisateur->prenom}</td>
 	                <td>{$tache.duree}</td>
+	                <td><a href="#">Modifier</a></td>
 	            </tr>
 	        {/foreach}
 		</tbody>
@@ -68,3 +73,5 @@
 {else}
 	<p>Pas de tâches.</p>
 {/if}
+
+<pre>{$project|print_r}</pre>
