@@ -124,11 +124,20 @@ abstract class SimpleContentManager {
             foreach($types as $type){
                 if(isset($type->contentRef) && !empty($type->contentRef)){
                     $ContentRefData = $this->_contentManager->getDataAll($type->contentRef);
+
                     $contentRef[(int)$type->contentRef] = $ContentRefData;
+
+                    foreach($this->_contentManager->getStructAll($type->contentRef)->types as $t){
+                        foreach($t as $t2){
+                            $t2 = (array)$t2;
+                            $ContentRefStruct[(int)$type->contentRef][$t2['id']] = (object)$t2;
+                        }
+                    }
                 }
             }
         }
 
+        $this->_view->assign('contentRefStruct', $ContentRefStruct);
         $this->_view->assign('contentRef', $contentRef);
         $this->_view->assign('action', $action);
 

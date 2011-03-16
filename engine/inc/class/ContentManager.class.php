@@ -44,7 +44,7 @@ class ContentManager {
     public function getStructAll($structID = false){
         $structures =  $this->_struct->getAll();
         if($structID)
-            $structures = $structures[$structID];
+            $structures = $structures[(string)$structID];
         return $structures;
     }
 

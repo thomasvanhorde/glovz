@@ -24,8 +24,9 @@ jQuery(function() {
 </h2>
 
 <form method="post" class="validity">
+    {assign var="strucId" value=$structure.id}
     <input type="hidden" name="todo" value="{$action}" />
-    <input type="hidden" name="collection" value="{$structure.id }" />
+    <input type="hidden" name="collection" value="{$strucId }" />
     <input type="hidden" name="id" value="{$id}" />
     <input type="hidden" name="date_create" value="{$data->date_create}" />
 
@@ -113,7 +114,17 @@ jQuery(function() {
                     {foreach from=$contentRef key=contentRefId item=contentRefElement}
                         {if $contentRefId == $ElementContentRef}
                             {foreach from=$contentRefElement key=contentRefId2 item=contentRefElement2}
-                                <option {if $contentRefId2 == $data->$uid->_id}selected="selected" {/if} value="{$contentRefId2}">{$contentRefElement2.label|utf8_decode}</option>
+                                <option {if $contentRefId2 == $data->$uid->_id}selected="selected" {/if} value="{$contentRefId2}">
+                                    {foreach from=$contentRefElement2 key=contentRefId3 item=contentRefElement3}
+                                        {foreach from=$contentRefStruct key=contentRefStructID item=contentRefStruct2}
+                                            {if $contentRefStructID == $ElementContentRef}
+                                                {if $contentRefStruct2.$contentRefId3->index == "true"}
+                                                    {$contentRefElement3|utf8_decode}
+                                                {/if}
+                                            {/if}
+                                        {/foreach}
+                                    {/foreach}
+                                </option>
                             {/foreach}
                         {/if}
                     {/foreach}
