@@ -7,6 +7,7 @@
             <th>Nom</th>
             <th>Durée (h)</th>
             <th>Clôturé</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +22,7 @@
                 		Non
                		{/if}
                 </td>
+                <td><a href="edit/{$project._id}/#{$project.nom|strip}">Modifier</a></td>
             </tr>
         {/foreach}
     </tbody>
