@@ -1,4 +1,6 @@
 <h2>Liste des Projets</h2>
+
+<p><a href="new/">Nouveau projet</a></p>
 <table>
     <thead>
         <tr>
