@@ -20,6 +20,16 @@
             <input type="text" name="{$uid}" value="{$data.$uid}" { if $element.limit != '' }maxlength="{$element.limit}"{/if}/>
         {/if }
 
+        <!-- Input password -->
+        {if $element.refType == '11'}
+            <input type="password" name="{$uid}" value="{$data.$uid}" { if $element.limit != '' }maxlength="{$element.limit}"{/if}/>
+        {/if }
+
+        <!-- Input email -->
+        {if $element.refType == '12'}
+            <input class="email" type="text" name="{$uid}" value="{$data.$uid}" { if $element.limit != '' }maxlength="{$element.limit}"{/if}/>
+        {/if }
+
         <!-- Checkbox -->
         {if $element.refType == '15'}
             <input name="{$uid}" {if $data.$uid == "true"}checked="checked"{/if} value="true" type="checkbox"/>
