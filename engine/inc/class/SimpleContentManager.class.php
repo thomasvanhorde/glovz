@@ -13,6 +13,7 @@ abstract class SimpleContentManager {
 
     public function __construct(){
         $this->_contentManager = Base::Load(CLASS_CONTENT_MANAGER);
+        $this->_bdd = Base::Load(CLASS_BDD)->_connexion->selectCollection(CONTENT_MANAGER_COLLECTION);
         $this->_view = Base::Load('Component')->_view;
     }
 

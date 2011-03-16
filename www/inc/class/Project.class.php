@@ -12,6 +12,7 @@
     public function __construct(){
         $this->_collection = self::COLLECTION;
         parent::__construct();
+        Base::Load(CLASS_JALON)->last();
     }
 
     public function get($object_id, $withRelation = false){
