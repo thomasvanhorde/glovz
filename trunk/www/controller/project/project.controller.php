@@ -32,14 +32,14 @@ class project_controller {
 	
 	# Insertion des formulaires de création (projet|jalon|tâche)
     public function create() {
-        $this->_projectClass->addForm('content', 'ProjectData');
+        $this->_projectClass->addForm('content', 'ProjectData', 'form.tpl');
         $this->_projectClass->addForm('content', 'MilestoneData');
         $this->_projectClass->addForm('content', 'TaskData');
     }
     
     # Édition des formulaires précédemment créés
     public function editProject() {
-        $this->_projectClass->editForm('content', $_GET['param'][0], 'ProjectData');
+        $this->_projectClass->editForm('content', $_GET['param'][0], 'ProjectData', 'form.tpl');
     }
     
     public function editMilestone() {
@@ -52,14 +52,38 @@ class project_controller {
     
     # Traitement des formulaires
     public function POST_ProjectData($data) {
+    	if (empty($data['id'])) { # Nouveau
+            $this->_projectClass->save($data);
+            header('location: '.$_SERVER['REDIRECT_URL']);
+        }
+        else { # Édition
+            if ($this->_projectClass->update($data, $data['id']))
+                header('location: '.$_SERVER['REDIRECT_URL']);
+        }
         exit();
     }
-
-    public function old() {
-        ;
+    
+   	public function POST_MilestoneData($data) {
+    	if (empty($data['id'])) { # Nouveau
+            $this->_projectClass->save($data);
+            header('location: '.$_SERVER['REDIRECT_URL']);
+        }
+        else { # Édition
+            if ($this->_projectClass->update($data, $data['id']))
+                header('location: '.$_SERVER['REDIRECT_URL']);
+        }
+        exit();
     }
-	
-    public function member() {
-        ;
+    
+    public function POST_TaskData($data) {
+    	if (empty($data['id'])) { # Nouveau
+            $this->_projectClass->save($data);
+            header('location: '.$_SERVER['REDIRECT_URL']);
+        }
+        else { # Édition
+            if ($this->_projectClass->update($data, $data['id']))
+                header('location: '.$_SERVER['REDIRECT_URL']);
+        }
+        exit();
     }
 }
