@@ -26,11 +26,19 @@
         <title>Tableau de bord</title>
         <controller>dashboard</controller>
         <layout>other.tpl</layout>
+        <accessControl>
+            <controller>user</controller>
+            <method>needConnect</method>
+        </accessControl>
     </dashboard>
     <project>
         <title>Projets</title>
         <controller>project</controller>
         <layout>other.tpl</layout>
+        <accessControl>
+            <controller>user</controller>
+            <method>needConnect</method>
+        </accessControl>
         <task>
             <title>projets - tâches</title>
             <controller>project</controller>
@@ -67,6 +75,10 @@
         <controller>user</controller>
         <method>myProfil</method>
         <layout>other.tpl</layout>
+        <accessControl>
+            <controller>user</controller>
+            <method>needConnect</method>
+        </accessControl>
     </profil>
     <members>
         <title>Liste des membres</title>
@@ -75,7 +87,7 @@
         <layout>other.tpl</layout>
         <accessControl>
             <controller>user</controller>
-            <method>isDT</method>
+            <method>needDT</method>
         </accessControl>
         <new>
             <title>Ajouter un membre</title>

@@ -15,7 +15,7 @@ class project_controller {
         	exit();
         */
         
-        # Si l'url contient un paramètre (l'id du projet choisi) on redirige vers le détail de ce projet
+        # Si l'url contient un paramï¿½tre (l'id du projet choisi) on redirige vers le dï¿½tail de ce projet
         if (isset($_GET['param'][0])) {
         	$current_project = $this->_projectClass->get($_GET['param'][0], true);
         	

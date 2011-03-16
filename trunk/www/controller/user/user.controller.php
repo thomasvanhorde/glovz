@@ -29,7 +29,8 @@ class user_controller {
     }
 
     public function myProfil() {
-        $this->_userClass->editForm('content', $_SESSION['user']['uid'], 'MemberData');
+        if($this->_userClass->isConnect())
+            $this->_userClass->editForm('content', $_SESSION['user']['uid'], 'MemberData');
     }
 
     public function disconnect() {
@@ -74,19 +75,24 @@ class user_controller {
     }
 
 
-    public function isDT(){
-        if($this->_userClass->isConnect()){
+    public function needConnect(){
+        if($this->_userClass->isConnect())
+            return true;
+        else
+            $this->notAllow('you should login');
+        //  header('location: '.BASE_URL);
+    }
+    public function needDT(){
+        if($this->needConnect()){
             $info = $this->_userClass->isConnect();
             if($info['role']['initial'] != 'DT')
                 $this->notAllow('you should was DT');
         }
-        else
-            $this->notAllow('you should login');
     }
 
     private function notAllow($message){
         $this->_view->assign('erreur', $message);
-        Base::Load(CLASS_VUE)->addBlock('content','notAllow.tpl');
+        Base::Load(CLASS_VUE)->addBlock('content','notAllow.tpl', 'controller/user/view/');
     }
     
 }
