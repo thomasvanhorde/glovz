@@ -61,6 +61,17 @@ class User extends SimpleContentManager {
     }
 
 
+    public function getProject($memberID){
+        $bdd = Base::Load(CLASS_BDD)->_connexion->selectCollection(self::DB_COLLECTION_PROJECT_USER);
+        $tmp = $bdd->find(array('member'=>$memberID));
+        foreach($tmp as $d){
+            $data[] = Base::Load(CLASS_USER)->get($d['projectID'], true);
+        }
+        if(isset($data))
+            return (object)$data;
+        else
+            return false;
+    }
 
     
 }
