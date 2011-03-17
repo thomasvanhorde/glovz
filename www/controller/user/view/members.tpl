@@ -5,7 +5,7 @@
             <th>Nom</th>
             <th>Prénom</th>
             <th>Email</th>
-            <th>Modifier</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -14,7 +14,11 @@
                 <td>{$member.nom}</td>
                 <td>{$member.prenom}</td>
                 <td>{$member.mail}</td>
-                <td><a href="edit/{$member._id}/#{$member.nom|strip}-{$member.prenom|strip}">Modifier</a></td>
+                <td>
+                    <a href="edit/{$member._id}/#{$member.nom|strip}-{$member.prenom|strip}">Modifier</a>
+                     - 
+                    <a href="delete/{$member._id}/#{$member.nom|strip}-{$member.prenom|strip}">Supprimer</a>
+                </td>
             </tr>
         {/foreach}
     </tbody>

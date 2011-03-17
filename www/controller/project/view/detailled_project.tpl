@@ -76,19 +76,27 @@
 <br />
 
 <!-- Membres du projet -->
+
 <table>
-	<caption>Membres | <a href="member/">Ajouter un membre</a></caption>
+	<caption>{$allUsersContent}</caption>
 	<thead>
 		<tr>
 			<th>Nom</th>
 			<th>Prénom</th>
-			<th>Fonction</th>
+            <th>Fonction</th>
+            <th>Action</th>
 		</tr>
 	</thead>
 	<tbody>
+    {if !empty($project->membre)}
+        {foreach from=$project->membre item=membre}
+            <tr>
+                <td>{$membre->nom}</td>
+                <td>{$membre->prenom}</td>
+                <td>{$membre->groupe->label}</td>
+                <td><a href="{$BASE_URL}project/remove-member/{$project->_id}/{$membre->_id}/">Supprimer</a></td>
+            </tr>
+        {/foreach}
+    {/if}
 	</tbody>
 </table>
-<br />
-
-
-<pre>{$project|print_r}</pre>

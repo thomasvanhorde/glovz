@@ -10,17 +10,15 @@ class project_controller {
 	
 	# Méthode appelée par défaut
     public function defaut() {
-        /*
-        	echo '<pre>';
-        	print_r($allProjects);
-       		echo '</pre>';
-        	exit();
-        */
-        
         # Si l'url contient un paramètre (l'id du projet choisi) on redirige vers le détail de ce projet
         if (isset($_GET['param'][0])) {
         	$current_project = $this->_projectClass->get($_GET['param'][0], true);
-        	$this->_view->assign('project', $current_project);
+
+            $allUsers = $this->_userClass->getAll();
+            $this->_view->assign('allUsers', $allUsers);
+            $this->_view->assign('project', $current_project);
+
+            $this->_view->addBlock('allUsersContent','list_user.tpl');
         	$this->_view->addBlock('content','detailled_project.tpl');
         }
         # Sinon on affiche la liste de tous les projets
@@ -30,19 +28,22 @@ class project_controller {
         	$this->_view->addBlock('content','defaut.tpl');
         }
     }
+
+    public function removeMember(){
+        if (isset($_GET['param'][0])) {
+            $this->_projectClass->removeMember($_GET['param'][0], $_GET['param'][1]);
+            header('location: '.$_SERVER['REDIRECT_URL'].'../../'.$_GET['param'][0].'/');
+        }
+    }
 	
 	# Insertion des formulaires de création (projet|jalon|tâche)
     public function create() {
         $this->_projectClass->addForm('content', 'ProjectData');
+    /*  Thomas : Pas possible ça
         $this->_projectClass->addForm('content', 'MilestoneData');
-        $this->_projectClass->addForm('content', 'TaskData');
+        $this->_projectClass->addForm('content', 'TaskData');*/
     }
-    
-    public function member() {
-        $allUsers = $this->_userClass->getAll();
-    	$this->_view->assign('users', $allUsers);
-    	$this->_view->addBlock('content', 'list_user.tpl');
-    }
+
     
     # Édition des formulaires précédemment créés
     public function editProject() {
@@ -93,4 +94,14 @@ class project_controller {
         }
         exit();
     }
+
+    // Lier un membre à un projet
+    //todo: envoi de mail
+    //todo: verifier que le membre n'es pas deja associé au projet
+    public function POST_addMember($data){
+        $this->_projectClass->addMember($data['projectID'], $data['member']);
+        header('location: '.$_SERVER['REDIRECT_URL']);
+        exit();
+    }
+
 }
