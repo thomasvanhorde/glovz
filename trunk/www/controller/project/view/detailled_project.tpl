@@ -73,5 +73,22 @@
 {else}
 	<p>Pas de tâches.</p>
 {/if}
+<br />
+
+<!-- Membres du projet -->
+<table>
+	<caption>Membres | <a href="member/">Ajouter un membre</a></caption>
+	<thead>
+		<tr>
+			<th>Nom</th>
+			<th>Prénom</th>
+			<th>Fonction</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+<br />
+
 
 <pre>{$project|print_r}</pre>
