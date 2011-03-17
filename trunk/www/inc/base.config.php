@@ -36,9 +36,9 @@ if($_SERVER['SCRIPT_FILENAME'] == '/Users/aenyhm/Sites/www/glovz/trunk/www/index
 	Define_once('ENGINE_URL','/Users/aenyhm/Sites/www/glovz/trunk/engine/');
 }
 
-if($_SERVER['SCRIPT_FILENAME'] == '/Applications/MAMP/htdocs/glovZ/trunk/www/index.php') { // JB
-	Define_once('SYS_FOLDER','/www/glovz/trunk/www/');
-	Define_once('ENGINE_URL','/Applications/MAMP/htdocs/glovZ/trunk/engine/');
+if($_SERVER['SCRIPT_FILENAME'] == '/Applications/MAMP/htdocs/glovz/www/index.php') { // JB
+	Define_once('SYS_FOLDER','/glovz/www/');
+	Define_once('ENGINE_URL','/Applications/MAMP/htdocs/glovz/engine/');
 }
 
 

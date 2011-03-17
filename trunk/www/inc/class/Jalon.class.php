@@ -15,7 +15,10 @@ class Jalon extends SimpleContentManager {
     }
 
     public function last(){
-        
+
+        // récupérer les id des projets auquel appartient l'utilisateur
+
+        // récupérer le dernier jalons parmis ces projets
         $tmp = $this->_bdd
                 ->find(array("collection" => (string)$this->_collection))
                 ->sort( array('date' => -1 ) )
@@ -23,7 +26,7 @@ class Jalon extends SimpleContentManager {
 
         foreach($tmp as $i => $data){}
 
-        return $data;
+        return (object)$data;
     }
 }
 
