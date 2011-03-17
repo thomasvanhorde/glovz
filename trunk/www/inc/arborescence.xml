@@ -51,12 +51,6 @@
             <method>milestone</method>
             <layout>other.tpl</layout>
         </milestone>
-        <member>
-            <titles>Projet - membres</titles>
-            <controller>project</controller>
-            <method>member</method>
-            <layout>other.tpl</layout>
-        </member>
         <new>
             <title>Nouveau projet</title>
             <controller>project</controller>
@@ -69,18 +63,12 @@
             <method>editProject</method>
             <layout>other.tpl</layout>
         </edit>
-        <edit>
-            <title>Editer un jalon</title>
+        <remove-member>
+            <title>Retirer un membre</title>
             <controller>project</controller>
-            <method>editMilestone</method>
+            <method>removeMember</method>
             <layout>other.tpl</layout>
-        </edit>
-        <edit>
-            <title>Editer une tâche</title>
-            <controller>project</controller>
-            <method>editTask</method>
-            <layout>other.tpl</layout>
-        </edit>
+        </remove-member>
     </project>
     <profil>
         <title>Mon profil</title>
@@ -106,13 +94,31 @@
             <controller>user</controller>
             <method>newMember</method>
             <layout>other.tpl</layout>
+            <accessControl>
+                <controller>user</controller>
+                <method>needDT</method>
+            </accessControl>
         </new>
         <edit>
             <title>Editer un membre</title>
             <controller>user</controller>
-            <method>editMember</method>
+            <method>edit</method>
             <layout>other.tpl</layout>
+            <accessControl>
+                <controller>user</controller>
+                <method>needDT</method>
+            </accessControl>
         </edit>
+        <delete>
+            <title>Editer un membre</title>
+            <controller>user</controller>
+            <method>delete</method>
+            <layout>other.tpl</layout>
+            <accessControl>
+                <controller>user</controller>
+                <method>needDT</method>
+            </accessControl>
+        </delete>
         <pdf>
             <title></title>
             <controller>user</controller>

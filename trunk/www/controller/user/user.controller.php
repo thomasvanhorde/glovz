@@ -20,8 +20,13 @@ class user_controller {
         Base::Load(CLASS_PDF)->simplePDF('members.tpl', 'exemple.pdf');
     }
 
-    public function editMember(){
+    public function edit(){
         $this->_userClass->editForm('content', $_GET['param'][0], 'MemberData');
+    }
+
+    public function delete(){
+        if($this->_userClass->remove($_GET['param'][0]))
+            header('location: '.$_SERVER['REDIRECT_URL'].'../../');
     }
 
     public function newMember(){
