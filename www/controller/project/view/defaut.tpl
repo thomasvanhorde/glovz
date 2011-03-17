@@ -1,6 +1,6 @@
 <h2>Liste des Projets</h2>
 
-<p><a href="new/">Nouveau projet</a></p>
+<p><a href="new/">Nouveau projet</a> | <a href="member/">Nouveau membre</a></p>
 <table>
     <thead>
         <tr>

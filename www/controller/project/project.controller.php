@@ -5,6 +5,7 @@ class project_controller {
     public  function __construct() {
         $this->_view = Base::Load(CLASS_COMPONENT)->_view;
         $this->_projectClass = Base::Load(CLASS_PROJECT);
+        $this->_userClass = Base::Load(CLASS_USER);
     }
 	
 	# Méthode appelée par défaut
@@ -35,6 +36,12 @@ class project_controller {
         $this->_projectClass->addForm('content', 'ProjectData');
         $this->_projectClass->addForm('content', 'MilestoneData');
         $this->_projectClass->addForm('content', 'TaskData');
+    }
+    
+    public function member() {
+        $allUsers = $this->_userClass->getAll();
+    	$this->_view->assign('users', $allUsers);
+    	$this->_view->addBlock('content', 'list_user.tpl');
     }
     
     # Édition des formulaires précédemment créés
