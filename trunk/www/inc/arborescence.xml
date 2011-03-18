@@ -70,6 +70,21 @@
             <layout>other.tpl</layout>
         </remove-member>
     </project>
+    <client>
+    	<title>Clients</title>
+        <controller>client</controller>
+        <layout>other.tpl</layout>
+        <accessControl>
+            <controller>user</controller>
+            <method>needConnect</method>
+        </accessControl>
+        <new>
+            <title>Nouveau client</title>
+            <controller>client</controller>
+            <method>create</method>
+            <layout>other.tpl</layout>
+        </new>
+    </client>
     <profil>
         <title>Mon profil</title>
         <controller>user</controller>

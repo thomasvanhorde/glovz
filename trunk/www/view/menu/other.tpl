@@ -7,6 +7,7 @@
     <ul id="menu">
         <li><a href="{$BASE_URL}dashboard/">Tableau de bord</a></li>
         <li><a href="{$BASE_URL}project/">Projets</a></li>
+        <li><a href="{$BASE_URL}client/">Clients</a></li>
         <li><a href="{$BASE_URL}members/">Membres</a></li>
         <li><a href="{$BASE_URL}profil/">Profil</a></li>
     </ul>
