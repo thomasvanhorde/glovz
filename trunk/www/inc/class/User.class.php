@@ -8,6 +8,7 @@
 class User extends SimpleContentManager {
 
     const COLLECTION = 3;
+    const DB_COLLECTION_PROJECT_USER = 'projectUser';
 
     public function __construct(){
         $this->_collection = self::COLLECTION;
