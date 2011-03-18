@@ -12,21 +12,41 @@ class Jalon extends SimpleContentManager {
     public function __construct(){
         $this->_collection = self::COLLECTION;
         parent::__construct();
+
+        $this->_userClass = Base::Load(CLASS_USER);
+
+        if ($this->_userClass->isConnect()) {
+            $this->_userInfo = $this->_userClass->isConnect();
+        }
+        
     }
 
-    public function last(){
-
-        // récupérer les id des projets auquel appartient l'utilisateur
-
-        // récupérer le dernier jalons parmis ces projets
+    public function myLast(){
+        $projectList = $this->_userClass->getProject($this->_userInfo['uid']);
+        foreach($projectList as $project){ $projectID[] = $project->_id;}
         $tmp = $this->_bdd
-                ->find(array("collection" => (string)$this->_collection))
+                ->find(array("collection" => (string)$this->_collection, 'projet' => array('$in' => $projectID)))
                 ->sort( array('date' => -1 ) )
                 ->limit(1);
 
         foreach($tmp as $i => $data){}
-
         return (object)$data;
     }
+
+    public function myFirst(){
+        $projectList = $this->_userClass->getProject($this->_userInfo['uid']);
+        foreach($projectList as $project){ $projectID[] = $project->_id;}
+        $tmp = $this->_bdd
+                ->find(array("collection" => (string)$this->_collection, 'projet' => array('$in' => $projectID)))
+                ->sort( array('date' => 1 ) )
+                ->limit(1);
+
+        foreach($tmp as $i => $data){
+            $data['projet'] = (object)Base::Load(CLASS_PROJECT)->get($data['projet']);
+        }
+        return (object)$data;
+    }
+
+
 }
 
