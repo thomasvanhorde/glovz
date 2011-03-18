@@ -7,11 +7,11 @@ mes projets en cours?<br />
 mes fiches de temps a jour?<br />
 les dernières tâches sur lequelles j'ai travaillé</p>
 
-<h3>Votre prochain jalon est le {$jalonDate}</h3>
+<h3>Votre prochain jalon est le {$jalon->date}</h3>
 <p class="details">
     Cette date concerne :<br />
-{$jalonDesc}<br />
-Il s'agit du projet {$jalonProjetNom}
+{$jalon->description}<br />
+Il s'agit du projet {$jalon->projet->nom}
 </p>
 
 <h3>Vos projets en cours</h3>
