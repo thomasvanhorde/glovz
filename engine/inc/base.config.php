@@ -16,7 +16,7 @@ define('FOLDER_VIEW','view/');
 define('FOLDER_CACHE','cache/');
 define('FOLDER_THEME',SYS_FOLDER.'themes/');
 define('FOLDER_MEDIA_IMAGE',SYS_FOLDER.'media/images/');
-define('FOLDER_CONTENT_MANAGER','ContentManager/');
+define('FOLDER_CONTENT_MANAGER','contentManager/');
 
 /*
  * Template define
