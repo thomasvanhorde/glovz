@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ALL);
 /*
  * Système MVC by Thomas VH.
  *
