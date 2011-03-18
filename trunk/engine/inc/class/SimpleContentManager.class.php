@@ -136,8 +136,9 @@ abstract class SimpleContentManager {
                 }
             }
         }
-
-        $this->_view->assign('contentRefStruct', $ContentRefStruct);
+        if(isset($ContentRefStruct))
+            $this->_view->assign('contentRefStruct', $ContentRefStruct);
+        
         $this->_view->assign('contentRef', $contentRef);
         $this->_view->assign('action', $action);
 
