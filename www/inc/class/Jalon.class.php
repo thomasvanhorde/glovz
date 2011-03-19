@@ -36,7 +36,7 @@ class Jalon extends SimpleContentManager {
     public function myFirst(){
         $projectList = $this->_userClass->getProject($this->_userInfo['uid']);
 
-        if(is_array($projectList)){
+        if(is_object($projectList)){
         foreach($projectList as $project){ $projectID[] = $project->_id;}
         $tmp = $this->_bdd
                 ->find(array("collection" => (string)$this->_collection, 'projet' => array('$in' => $projectID)))
