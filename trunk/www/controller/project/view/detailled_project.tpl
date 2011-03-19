@@ -80,7 +80,6 @@
 <br />
 
 <!-- Membres du projet -->
-
 <table>
 	<caption>{$allUsersContent}</caption>
 	<thead>

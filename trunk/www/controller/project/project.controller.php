@@ -20,14 +20,18 @@
 		 		- Récupération des classes MongoDB nécessaires
 		 *
 		 *	@author Fabien Nouaillat
-		 *	@version: 1.0
+		 *	@version: 1.1
 		 *	@see: CLASS_COMPONENT
 		 *	@see: CLASS_PROJECT
+		 *	@see: CLASS_MILESTONE
+		 *	@see: CLASS_TASK
 		 *	@see: CLASS_USER
 		 */
 		public function __construct() {
 			$this->_view			= Base::Load(CLASS_COMPONENT)->_view;
 			$this->_projectClass	= Base::Load(CLASS_PROJECT);
+			$this->_milestoneClass	= Base::Load(CLASS_JALON);
+			$this->_taskClass		= Base::Load(CLASS_TACHE);
 			$this->_userClass		= Base::Load(CLASS_USER);
 		}
 		
@@ -81,6 +85,17 @@
 		}
 		
 		/**
+		 *	Suppression d'un projet
+		 *
+		 *	@author Fabien Nouaillat
+		 *	@version: 1.0
+		 */
+		public function deleteProject() {
+			$this->_projectClass->remove(array('projectID' => $_GET['param'][0]));
+			header('location: '.$_SERVER['REDIRECT_URL'].'../../');
+		}
+		
+		/**
 		 *	Enregistrement d'un projet
 		 *
 		 *	@author Thomas Van Horde
@@ -90,7 +105,7 @@
 			if (empty($data['id'])) { // Création
 				$this->_projectClass->save($data);
 				header('location: '.$_SERVER['REDIRECT_URL']);
-			}	
+			}
 			else { // Édition
 				if ($this->_projectClass->update($data, $data['id']))
 				header('location: '.$_SERVER['REDIRECT_URL']);
@@ -108,7 +123,7 @@
 		 *	@version: 1.0
 		 */
 		public function createMilestone() {
-			$this->_projectClass->addForm('content', 'MilestoneData');
+			$this->_milestoneClass->addForm('content', 'MilestoneData');
 		}
 		
 		/**
@@ -118,7 +133,7 @@
 		 *	@version: 1.0
 		 */
 		public function editMilestone() {
-			$this->_projectClass->editForm('content', $_GET['param'][0], 'MilestoneData');
+			$this->_milestoneClass->editForm('content', $_GET['param'][0], 'MilestoneData');
 		}
 		
 		/**
@@ -129,7 +144,7 @@
 		 */
 		public function deleteMilestone() {
 			if (isset($_GET['param'][0])) {
-				$this->_projectClass->supprimerJalon($_GET['param'][0], $_GET['param'][1]);
+				$this->_milestoneClass->deleteMilestone($_GET['param'][0], $_GET['param'][1]);
 				header('location: '.$_SERVER['REDIRECT_URL'].'../../'.$_GET['param'][0].'/');
 			}
 		}
@@ -142,11 +157,11 @@
 		 */
 		public function POST_MilestoneData($data) {
 			if (empty($data['id'])) { // Création
-				$this->_projectClass->save($data);
+				$this->_milestoneClass->save($data);
 				header('location: '.$_SERVER['REDIRECT_URL']);
 			}
 			else { // Édition
-				if ($this->_projectClass->update($data, $data['id']))
+				if ($this->_milestoneClass->update($data, $data['id']))
 				header('location: '.$_SERVER['REDIRECT_URL']);
 			}
 			exit();
@@ -162,7 +177,7 @@
 		 *	@version: 1.0
 		 */
 		public function createTask() {
-			$this->_projectClass->addForm('content', 'TaskData');
+			$this->_taskClass->addForm('content', 'TaskData');
 		}
 		
 		/**
@@ -172,7 +187,7 @@
 		 *	@version: 1.0
 		 */
 		public function editTask() {
-			$this->_projectClass->editForm('content', $_GET['param'][0], 'TaskData');
+			$this->_taskClass->editForm('content', $_GET['param'][0], 'TaskData');
 		}
 
 		/**
@@ -183,11 +198,11 @@
 		 */
 		public function POST_TaskData($data) {
 			if (empty($data['id'])) { // Création
-				$this->_projectClass->save($data);
+				$this->_taskClass->save($data);
 				header('location: '.$_SERVER['REDIRECT_URL']);
 			}
 			else { // Édition
-				if ($this->_projectClass->update($data, $data['id']))
+				if ($this->_taskClass->update($data, $data['id']))
 				header('location: '.$_SERVER['REDIRECT_URL']);
 			}
 			exit();
@@ -217,7 +232,7 @@
 		 */
 		public function removeMember() {
 			if (isset($_GET['param'][0])) {
-				$this->_projectClass->retirerMembre($_GET['param'][0], $_GET['param'][1]);
+				$this->_projectClass->removeMember($_GET['param'][0], $_GET['param'][1]);
 				header('location: '.$_SERVER['REDIRECT_URL'].'../../'.$_GET['param'][0].'/');
 			}
 		}

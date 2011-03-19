@@ -52,6 +52,12 @@
 			<method>editProject</method>
 			<layout>other.tpl</layout>
 		</edit-project>
+		<delete-project>
+			<title>Supprimer un projet</title>
+			<controller>project</controller>
+			<method>deleteProject</method>
+			<layout>other.tpl</layout>
+		</delete-project>
 		<!-- Opérations sur les jalons -->
 		<create-milestone>
 			<title>Créer un nouveau jalon</title>
