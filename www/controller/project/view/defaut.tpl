@@ -23,7 +23,10 @@
         		Non
        		{/if}
             </td>
-            <td><a href="edit-project/{$project._id}/">Modifier</a></td>
+            <td>
+            	<a href="edit-project/{$project._id}/">Modifier</a>
+            	<a href="delete-project/{$project._id}/">Supprimer</a>
+            </td>
         </tr>
     {/foreach}
     </tbody>
