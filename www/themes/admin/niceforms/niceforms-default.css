@@ -6,8 +6,8 @@
 .niceform label {font-size:11px; font-weight:bold; color:#666;}
 .niceform label.opt {font-weight:normal;}
 .niceform dl {margin-left: 10px;clear:both;}
-.niceform dt {float:left; text-align:right; width:130px; line-height:25px; margin:0 10px 10px 0;margin-right:15px!important;}
-.niceform dd {float:left; line-height:25px; margin:0 0 10px 0;}
+.niceform dt {float:left; text-align:right; width:130px; line-height:25px; margin:0 10px 10px 0;margin-right:15px!important;margin-top:-5px;}
+.niceform dd {float:left; line-height:0px; margin:0 0 10px 0;}
 
 /*##########################################
 Script: Niceforms 2.0
