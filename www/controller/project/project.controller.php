@@ -91,7 +91,7 @@
 		 *	@version: 1.0
 		 */
 		public function deleteProject() {
-			$this->_projectClass->remove(array('projectID' => $_GET['param'][0]));
+			$this->_projectClass->remove($_GET['param'][0]);
 			header('location: '.$_SERVER['REDIRECT_URL'].'../../');
 		}
 		
