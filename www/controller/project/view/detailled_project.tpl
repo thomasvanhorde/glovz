@@ -5,28 +5,29 @@
 	<li>Date de création : {$project->date_create|date_format:"%d/%m/%Y"}</li>
 	<li>Chef de projet : {$project->cdp->prenom} {$project->cdp->nom} &lt;{$project->cdp->mail}&gt;</li>
 	<li>Client : {$project->client->prenom} {$project->client->nom} &lt;{$project->client->mail}&gt;</li>
-	<li>URL du serveur de développement : {$project->url_dev}</li>
-	<li>URL du serveur de production : {$project->url_prod}</li>
+	<li>URL du serveur de développement : <a href="{$project->url_dev}">{$project->url_dev}</a></li>
+	<li>URL du serveur de production : <a href="{$project->url_prod}">{$project->url_prod}</a></li>
 	<li>Durée estimée : {$project->duree} heures</li>
 	<li>Clôturé :
-		{if $project->cloture eq 'true'}
-        	Oui
-    	{else}
-    		Non
-   		{/if}
+	{if $project->cloture eq 'true'}
+    	Oui
+	{else}
+		Non
+	{/if}
    	</li>
 </ul>
 
 <!-- Jalons du projet -->
+<p><a href="create-milestone/">Créer un nouveau jalon</a></p>
 {if !empty($project->jalon)}
 	<table>
-		<caption>Jalons</caption>
+		<caption>-- Jalons --</caption>
 		<thead>
 			<tr>
 				<th>Label</th>
 				<th>Description</th>
 				<th>Date</th>
-				<th>Action</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -35,20 +36,22 @@
 	                <td>{$jalon.label}</td>
 	                <td>{$jalon.description}</td>
 	                <td>{$jalon.date}</td>
-	                <td><a href="edit/{$jalon._id}">Modifier</a></td>	<!-- surcharger le parent::_collection avec le bon id de collection -->
+	                <td>
+	                	<a href="edit-milestone/{$jalon._id}">Modifier</a> |
+						<a href="{$BASE_URL}project/remove-milestone/{$project->_id}/{$jalon._id}/">Supprimer</a>
+	                </td>
 	            </tr>
 	        {/foreach}
 		</tbody>
 	</table>
-{else}
-	<p>Pas de jalons.</p>
 {/if}
 <br />
 
 <!-- Tâches du projet -->
+<p><a href="create-task/">Créer une nouvelle tâche</a></p>
 {if !empty($project->tache)}
 	<table>
-		<caption>Tâches</caption>
+		<caption>-- Tâches --</caption>
 		<thead>
 			<tr>
 				<th>Label</th>
@@ -65,13 +68,14 @@
 	                <td>{$tache.description}</td>
 	                <td>{$tache.utilisateur->nom} {$tache.utilisateur->prenom}</td>
 	                <td>{$tache.duree}</td>
-	                <td><a href="edit/{$tache._id}">Modifier</a></td>
+	                <td>
+	                	<a href="edit-task/{$tache._id}">Modifier</a>
+	                	<a href="{$BASE_URL}project/remove-task/{$project->_id}/{$tache._id}/">Supprimer</a>
+	                </td>
 	            </tr>
 	        {/foreach}
 		</tbody>
 	</table>
-{else}
-	<p>Pas de tâches.</p>
 {/if}
 <br />
 
