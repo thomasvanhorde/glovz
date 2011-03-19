@@ -3,9 +3,16 @@
     <title>{ $title }</title>
     <link rel="stylesheet/less" media="screen" href="{$BASE_URL}themes/jquery.validity.css" />
     <link rel="stylesheet/less" media="screen" href="{$BASE_URL}themes/admin/niceforms/niceforms-default.css" />
+    <link rel="stylesheet" href="{$BASE_URL}/themes/admin/datepicker/datepicker.css" type="text/css" media="screen">
     <link rel="stylesheet/less" media="screen" href="{$BASE_URL}themes/glovz/soft-reset.css" />
     <link rel="stylesheet/less" media="screen" href="{$BASE_URL}themes/glovz/global.less" />
+
+
     <script type="text/javascript" src="{$BASE_URL}js/glovz/jquery-1.5.1.min.js"></script>
     <script type="text/javascript" src="{$BASE_URL}js/glovz/less.js"></script>
+    <script type="text/javascript" src="{$BASE_URL}/js/admin/datepicker/datepicker.packed.js"></script>
+
     <script type="text/javascript" src="{$BASE_URL}js/glovz/defaut.js"></script>
+
+
 </head>
