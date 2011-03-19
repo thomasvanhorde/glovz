@@ -23,30 +23,34 @@ class Jalon extends SimpleContentManager {
 
     public function myLast(){
         $projectList = $this->_userClass->getProject($this->_userInfo['uid']);
-        foreach($projectList as $project){ $projectID[] = $project->_id;}
-        $tmp = $this->_bdd
-                ->find(array("collection" => (string)$this->_collection, 'projet' => array('$in' => $projectID)))
-                ->sort( array('date' => -1 ) )
-                ->limit(1);
 
-        foreach($tmp as $i => $data){}
-        return (object)$data;
+        if(is_object($projectList)){
+            foreach($projectList as $project){ $projectID[] = $project->_id;}
+            $tmp = $this->_bdd
+                    ->find(array("collection" => (string)$this->_collection, 'projet' => array('$in' => $projectID)))
+                    ->sort( array('date' => -1 ) )
+                    ->limit(1);
+
+            foreach($tmp as $i => $data){}
+            return (object)$data;
+        }
+        else return false;
     }
 
     public function myFirst(){
         $projectList = $this->_userClass->getProject($this->_userInfo['uid']);
 
         if(is_object($projectList)){
-        foreach($projectList as $project){ $projectID[] = $project->_id;}
-        $tmp = $this->_bdd
-                ->find(array("collection" => (string)$this->_collection, 'projet' => array('$in' => $projectID)))
-                ->sort( array('date' => 1 ) )
-                ->limit(1);
+            foreach($projectList as $project){ $projectID[] = $project->_id;}
+            $tmp = $this->_bdd
+                    ->find(array("collection" => (string)$this->_collection, 'projet' => array('$in' => $projectID)))
+                    ->sort( array('date' => 1 ) )
+                    ->limit(1);
 
-        foreach($tmp as $i => $data){
-            $data['projet'] = (object)Base::Load(CLASS_PROJECT)->get($data['projet']);
-        }
-        return (object)$data;
+            foreach($tmp as $i => $data){
+                $data['projet'] = (object)Base::Load(CLASS_PROJECT)->get($data['projet']);
+            }
+            return (object)$data;
         }
         else return false;
     }
