@@ -37,7 +37,7 @@
 	                <td>{$jalon.description}</td>
 	                <td>{$jalon.date}</td>
 	                <td>
-	                	<a href="edit-milestone/{$jalon._id}">Modifier</a> |
+	                	<a href="{$BASE_URL}project/edit-milestone/{$jalon._id}">Modifier</a> |
 						<a href="{$BASE_URL}project/remove-milestone/{$project->_id}/{$jalon._id}/">Supprimer</a>
 	                </td>
 	            </tr>
@@ -69,7 +69,7 @@
 	                <td>{$tache.utilisateur->nom} {$tache.utilisateur->prenom}</td>
 	                <td>{$tache.duree}</td>
 	                <td>
-	                	<a href="edit-task/{$tache._id}">Modifier</a>
+	                	<a href="{$BASE_URL}project/edit-task/{$tache._id}">Modifier</a>
 	                	<a href="{$BASE_URL}project/remove-task/{$project->_id}/{$tache._id}/">Supprimer</a>
 	                </td>
 	            </tr>

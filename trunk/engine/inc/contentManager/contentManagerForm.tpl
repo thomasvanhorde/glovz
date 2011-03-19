@@ -54,18 +54,18 @@
 
                         <!-- textarea simple -->
                         {if $element.refType == '20'}
-                            <textarea class="{if $element->requis}require{/if}" name="{$uid}">{$data->$uid}</textarea>
+                            <textarea rows="5" cols="60" class="{if $element->requis}require{/if}" id="{$uid}" name="{$uid}">{$data->$uid}</textarea>
                         {/if }
 
                         <!-- textarea wysiwyg -->
                         {if $element.refType == '21'}
-                            <textarea class="{if $element->requis}require{/if}" name="{$uid}" class="wysiwyg">{$data->$uid}</textarea>
+                            <textarea rows="5" cols="60" class="{if $element->requis}require{/if}" id="{$uid}" name="{$uid}" id="{$uid}" class="wysiwyg">{$data->$uid}</textarea>
                         {/if }
 
                         <!-- date -->
                         {if $element.refType == '30'}
 
-                        <input type="text" class="w16em {if $element->requis}require{/if}" id="{$uid}" name="{$uid}" value="{$data->$uid}" />
+                        <input type="text" class="w16em {if $element->requis}require{/if}" name="{$uid}" value="{$data->$uid}" />
 
                         {literal}
                           <script type="text/javascript">
