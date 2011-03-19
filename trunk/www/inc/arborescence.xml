@@ -31,45 +31,73 @@
             <method>needConnect</method>
         </accessControl>
     </dashboard>
-    <project>
-        <title>Projets</title>
-        <controller>project</controller>
-        <layout>other.tpl</layout>
-        <accessControl>
-            <controller>user</controller>
-            <method>needConnect</method>
-        </accessControl>
-        <task>
-            <title>projets - tâches</title>
-            <controller>project</controller>
-            <method>task</method>
-            <layout>other.tpl</layout>
-        </task>
-        <milestone>
-            <title>Jalons</title>
-            <controller>project</controller>
-            <method>milestone</method>
-            <layout>other.tpl</layout>
-        </milestone>
-        <new>
-            <title>Nouveau projet</title>
-            <controller>project</controller>
-            <method>create</method>
-            <layout>other.tpl</layout>
-        </new>
-        <edit>
-            <title>Editer un projet</title>
-            <controller>project</controller>
-            <method>editProject</method>
-            <layout>other.tpl</layout>
-        </edit>
-        <remove-member>
-            <title>Retirer un membre</title>
-            <controller>project</controller>
-            <method>removeMember</method>
-            <layout>other.tpl</layout>
-        </remove-member>
-    </project>
+	<project>
+		<title>Projets</title>
+		<controller>project</controller>
+		<layout>other.tpl</layout>
+		<accessControl>
+			<controller>user</controller>
+			<method>needConnect</method>
+		</accessControl>
+		<!-- Opérations sur les projets -->
+		<create-project>
+			<title>Créer un nouveau projet</title>
+			<controller>project</controller>
+			<method>createProject</method>
+			<layout>other.tpl</layout>
+		</create-project>
+		<edit-project>
+			<title>Modifier un projet</title>
+			<controller>project</controller>
+			<method>editProject</method>
+			<layout>other.tpl</layout>
+		</edit-project>
+		<!-- Opérations sur les jalons -->
+		<create-milestone>
+			<title>Créer un nouveau jalon</title>
+			<controller>project</controller>
+			<method>createMilestone</method>
+			<layout>other.tpl</layout>
+		</create-milestone>
+		<edit-milestone>
+			<title>Modifier un jalon</title>
+			<controller>project</controller>
+			<method>editMilestone</method>
+			<layout>other.tpl</layout>
+		</edit-milestone>
+		<delete-milestone>
+			<title>Supprimer un jalon</title>
+			<controller>project</controller>
+			<method>deleteMilestone</method>
+			<layout>other.tpl</layout>
+		</delete-milestone>
+		<!-- Opérations sur les tâches -->
+		<create-task>
+			<title>Créer un nouvelle tâche</title>
+			<controller>project</controller>
+			<method>createTask</method>
+			<layout>other.tpl</layout>
+		</create-task>
+		<edit-task>
+			<title>Modifier une tâche</title>
+			<controller>project</controller>
+			<method>editTask</method>
+			<layout>other.tpl</layout>
+		</edit-task>
+		<delete-task>
+			<title>Supprimer une tâche</title>
+			<controller>project</controller>
+			<method>deleteTask</method>
+			<layout>other.tpl</layout>
+		</delete-task>
+		<!-- Opérations sur les membres -->
+		<remove-member>
+			<title>Retirer un membre du projet</title>
+			<controller>project</controller>
+			<method>removeMember</method>
+			<layout>other.tpl</layout>
+		</remove-member>
+	</project>
     <client>
     	<title>Clients</title>
         <controller>client</controller>
