@@ -44,7 +44,7 @@ if($_SERVER['SCRIPT_FILENAME'] == '/Applications/MAMP/htdocs/glovz/www/index.php
 // Defaut config
 if($_SERVER['SCRIPT_FILENAME'] == '/var/www/lpcm/glovz/trunk/www/index.php'){ // Serveur Thomas
     //Define_once('SYS_FOLDER','/www/');  //  http://glovztest.fr/www/
-    Define_once('SYS_FOLDER','/lpcm/glovz/trunk/www/');
+    Define_once('SYS_FOLDER','/');
 	Define_once('ENGINE_URL','/var/www/lpcm/glovz/trunk/engine/');
 }
 
