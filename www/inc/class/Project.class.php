@@ -50,17 +50,5 @@
         $bdd->remove(array('projectID' => $projectId, 'member' => $memberID));
     }
 
-    /*       NON => on doit passer par le simpleCM pour ça 
-    public function addMislestone($projectId, $milestoneID){
-        $bdd = Base::Load(CLASS_BDD)->_connexion->selectCollection(self::DB_COLLECTION_PROJECT_JALON);
-       	return ($bdd->insert(array('projectID' => $projectId, 'milestone' => $milestoneID)));
-    }
-
-    public function removeMilestone($projectId, $milestoneID) {
-        $bdd = Base::Load(CLASS_BDD)->_connexion->selectCollection(self::DB_COLLECTION_PROJECT_JALON);
-        $bdd->remove(array('projectID' => $projectId, 'milestone' => $milestoneID));
-    }
-     */
-
 
 }
