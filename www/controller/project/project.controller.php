@@ -159,11 +159,11 @@
 		public function POST_MilestoneData($data) {
 			if (empty($data['id'])) { // Création
 				$this->_milestoneClass->save($data);
-				header('location: '.$_SERVER['REDIRECT_URL'].'../');
+				header('location: '.Base::getUrl(3));
 			}
 			else { // Édition
 				if ($this->_milestoneClass->update($data, $data['id']))
-				header('location: '.$_SERVER['REDIRECT_URL'].'../');
+				header('location: '.Base::getUrl(3));
 			}
 			exit();
 		}
@@ -200,11 +200,11 @@
 		public function POST_TaskData($data) {
 			if (empty($data['id'])) { // Création
 				$this->_taskClass->save($data);
-				header('location: '.$_SERVER['REDIRECT_URL'].'../');
+				header('location: '.Base::getUrl(3));
 			}
 			else { // Édition
 				if ($this->_taskClass->update($data, $data['id']))
-				header('location: '.$_SERVER['REDIRECT_URL'].'../');
+				header('location: '.Base::getUrl(3));
 			}
 			exit();
 		}
