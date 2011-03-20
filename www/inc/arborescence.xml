@@ -104,21 +104,33 @@
 			<layout>other.tpl</layout>
 		</remove-member>
 	</project>
-    <client>
-    	<title>Clients</title>
-        <controller>client</controller>
-        <layout>other.tpl</layout>
-        <accessControl>
-            <controller>user</controller>
-            <method>needConnect</method>
-        </accessControl>
-        <new>
-            <title>Nouveau client</title>
-            <controller>client</controller>
-            <method>create</method>
-            <layout>other.tpl</layout>
-        </new>
-    </client>
+	<client>
+		<title>Clients</title>
+		<controller>client</controller>
+		<layout>other.tpl</layout>
+		<accessControl>
+			<controller>user</controller>
+			<method>needConnect</method>
+		</accessControl>
+		<create-client>
+			<title>Nouveau client</title>
+			<controller>client</controller>
+			<method>createClient</method>
+			<layout>other.tpl</layout>
+		</create-client>
+		<edit-client>
+			<title>Modifier client</title>
+			<controller>client</controller>
+			<method>editClient</method>
+			<layout>other.tpl</layout>
+		</edit-client>
+		<delete-client>
+			<title>Supprimer un client</title>
+			<controller>client</controller>
+			<method>deleteClient</method>
+			<layout>other.tpl</layout>
+		</delete-client>
+	</client>
     <profil>
         <title>Mon profil</title>
         <controller>user</controller>

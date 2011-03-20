@@ -18,10 +18,10 @@
 </ul>
 
 <!-- Jalons du projet -->
-<p><a href="create-milestone/">Créer un nouveau jalon</a></p>
+<h3>-- Jalons --</h3>
+<a class="btnNouveau" href="create-milestone/"><input type="button" value="Créer un nouveau jalon" /></a>
 {if !empty($project->jalon)}
 	<table>
-		<caption>-- Jalons --</caption>
 		<thead>
 			<tr>
 				<th>Label</th>
@@ -38,7 +38,7 @@
 	                <td>{$jalon.date}</td>
 	                <td>
 	                	<a href="{$BASE_URL}project/edit-milestone/{$jalon._id}">Modifier</a> |
-						<a href="{$BASE_URL}project/remove-milestone/{$project->_id}/{$jalon._id}/">Supprimer</a>
+						<a href="{$BASE_URL}project/delete-milestone/{$project->_id}/{$jalon._id}/">Supprimer</a>
 	                </td>
 	            </tr>
 	        {/foreach}
@@ -48,29 +48,31 @@
 <br />
 
 <!-- Tâches du projet -->
-<p><a href="create-task/">Créer une nouvelle tâche</a></p>
+<h3>-- Tâches --</h3>
+<a class="btnNouveau" href="create-task/"><input type="button" value="Créer une nouvelle tâche" /></a>
 {if !empty($project->tache)}
 	<table>
-		<caption>-- Tâches --</caption>
 		<thead>
 			<tr>
 				<th>Label</th>
+				<th>Type</th>
 				<th>Description</th>
 				<th>Personne concernée</th>
 				<th>Durée (h)</th>
-				<th>Action</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
 			{foreach from=$project->tache item=tache}
 	            <tr>
 	                <td>{$tache.label}</td>
+	                <td>{$tache.type}</td>
 	                <td>{$tache.description}</td>
 	                <td>{$tache.utilisateur->nom} {$tache.utilisateur->prenom}</td>
 	                <td>{$tache.duree}</td>
 	                <td>
-	                	<a href="{$BASE_URL}project/edit-task/{$tache._id}">Modifier</a>
-	                	<a href="{$BASE_URL}project/remove-task/{$project->_id}/{$tache._id}/">Supprimer</a>
+	                	<a href="{$BASE_URL}project/edit-task/{$tache._id}">Modifier</a> |
+	                	<a href="{$BASE_URL}project/delete-task/{$project->_id}/{$tache._id}/">Supprimer</a>
 	                </td>
 	            </tr>
 	        {/foreach}
@@ -80,8 +82,8 @@
 <br />
 
 <!-- Membres du projet -->
+<h3>{$allUsersContent}</h3>
 <table>
-	<caption>{$allUsersContent}</caption>
 	<thead>
 		<tr>
 			<th>Nom</th>
@@ -103,3 +105,5 @@
     {/if}
 	</tbody>
 </table>
+
+<pre>{$project->tache|print_r}</pre>
