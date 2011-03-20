@@ -2,6 +2,8 @@
  * Fonctions de base
  */
 
+
+/*
 var Base = {
     SelectMenu: function (){
         URL_en_cour = document.location.href;
@@ -15,9 +17,7 @@ var Base = {
 }
 
 
-/***
- * On document loaded
- */
 jQuery(document).ready(function() {
     Base.SelectMenu();
 });
+*/

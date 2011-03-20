@@ -61,6 +61,13 @@ class User extends SimpleContentManager {
         return true;
     }
 
+    public function isDT(){
+        $info = $this->isConnect();
+        if($info['role']['initial'] == 'DT')
+            return true;
+        else
+            return false;
+    }
 
     public function getProject($memberID){
         $bdd = Base::Load(CLASS_BDD)->_connexion->selectCollection(self::DB_COLLECTION_PROJECT_USER);
