@@ -28,11 +28,13 @@ class User extends SimpleContentManager {
         }
         return false;
     }
-
+	
     private function createSession($user){
         $this->disconnect();
         
         $data['uid'] = $user->_id;
+        $data['nom']	= utf8_encode($user->nom);
+        $data['prenom']	= utf8_encode($user->prenom);
         $data['mail'] = $user->mail;
 
         $data['role']['id'] = $user->role->_id;

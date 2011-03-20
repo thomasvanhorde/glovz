@@ -11,6 +11,9 @@
         <layout>other.tpl</layout>
         <blocks>
             <block>
+                <controller>userbar</controller>
+            </block>
+            <block>
                 <controller>menu</controller>
             </block>
         </blocks>
@@ -37,6 +40,9 @@
         </accessControl>
         <blocks>
             <block>
+                <controller>userbar</controller>
+            </block>
+            <block>
                 <controller>menu</controller>
             </block>
         </blocks>
@@ -50,6 +56,9 @@
 			<method>needConnect</method>
 		</accessControl>
         <blocks>
+        	<block>
+                <controller>userbar</controller>
+            </block>
             <block>
                 <controller>menu</controller>
             </block>
@@ -61,6 +70,9 @@
 			<method>createProject</method>
 			<layout>other.tpl</layout>
             <blocks>
+            	<block>
+                	<controller>userbar</controller>
+            	</block>
                 <block>
                     <controller>menu</controller>
                 </block>
@@ -72,6 +84,9 @@
 			<method>editProject</method>
 			<layout>other.tpl</layout>
             <blocks>
+            	<block>
+                	<controller>userbar</controller>
+            	</block>
                 <block>
                     <controller>menu</controller>
                 </block>
@@ -83,6 +98,9 @@
 			<method>deleteProject</method>
 			<layout>other.tpl</layout>
             <blocks>
+            	<block>
+            		<controller>userbar</controller>
+            	</block>
                 <block>
                     <controller>menu</controller>
                 </block>
@@ -95,6 +113,9 @@
 			<method>createMilestone</method>
 			<layout>other.tpl</layout>
             <blocks>
+            	<block>
+	                <controller>userbar</controller>
+	            </block>
                 <block>
                     <controller>menu</controller>
                 </block>
@@ -106,6 +127,9 @@
 			<method>editMilestone</method>
 			<layout>other.tpl</layout>
             <blocks>
+            	<block>
+	                <controller>userbar</controller>
+	            </block>
                 <block>
                     <controller>menu</controller>
                 </block>
@@ -117,6 +141,9 @@
 			<method>deleteMilestone</method>
 			<layout>other.tpl</layout>
             <blocks>
+            	<block>
+	                <controller>userbar</controller>
+	            </block>
                 <block>
                     <controller>menu</controller>
                 </block>
@@ -129,6 +156,9 @@
 			<method>createTask</method>
 			<layout>other.tpl</layout>
             <blocks>
+            	<block>
+	                <controller>userbar</controller>
+	            </block>
                 <block>
                     <controller>menu</controller>
                 </block>
@@ -140,6 +170,9 @@
 			<method>editTask</method>
 			<layout>other.tpl</layout>
             <blocks>
+            	<block>
+	                <controller>userbar</controller>
+	            </block>
                 <block>
                     <controller>menu</controller>
                 </block>
@@ -151,6 +184,9 @@
 			<method>deleteTask</method>
 			<layout>other.tpl</layout>
             <blocks>
+            	<block>
+	                <controller>userbar</controller>
+	            </block>
                 <block>
                     <controller>menu</controller>
                 </block>
@@ -163,6 +199,9 @@
 			<method>removeMember</method>
 			<layout>other.tpl</layout>
             <blocks>
+            	<block>
+	                <controller>userbar</controller>
+	            </block>
                 <block>
                     <controller>menu</controller>
                 </block>
@@ -178,6 +217,9 @@
 			<method>needConnect</method>
 		</accessControl>
         <blocks>
+        	<block>
+                <controller>userbar</controller>
+            </block>
             <block>
                 <controller>menu</controller>
             </block>
@@ -188,6 +230,9 @@
 			<method>createClient</method>
 			<layout>other.tpl</layout>
             <blocks>
+            	<block>
+	                <controller>userbar</controller>
+	            </block>
                 <block>
                     <controller>menu</controller>
                 </block>
@@ -199,6 +244,9 @@
 			<method>editClient</method>
 			<layout>other.tpl</layout>
             <blocks>
+            	<block>
+	                <controller>userbar</controller>
+	            </block>
                 <block>
                     <controller>menu</controller>
                 </block>
@@ -210,6 +258,9 @@
 			<method>deleteClient</method>
 			<layout>other.tpl</layout>
             <blocks>
+            	<block>
+	                <controller>userbar</controller>
+	            </block>
                 <block>
                     <controller>menu</controller>
                 </block>
@@ -226,6 +277,9 @@
             <method>needConnect</method>
         </accessControl>
         <blocks>
+        	<block>
+                <controller>userbar</controller>
+            </block>
             <block>
                 <controller>menu</controller>
             </block>
@@ -241,6 +295,9 @@
             <method>needDT</method>
         </accessControl>
         <blocks>
+        	<block>
+                <controller>userbar</controller>
+            </block>
             <block>
                 <controller>menu</controller>
             </block>
@@ -255,6 +312,9 @@
                 <method>needDT</method>
             </accessControl>
             <blocks>
+            	<block>
+	                <controller>userbar</controller>
+	            </block>
                 <block>
                     <controller>menu</controller>
                 </block>
@@ -270,7 +330,10 @@
                 <method>needDT</method>
             </accessControl>
             <blocks>
-                <block>
+            	<block>
+	                <controller>userbar</controller>
+	            </block>
+	            <block>
                     <controller>menu</controller>
                 </block>
             </blocks>
@@ -285,6 +348,9 @@
                 <method>needDT</method>
             </accessControl>
             <blocks>
+            	<block>
+	                <controller>userbar</controller>
+	            </block>
                 <block>
                     <controller>menu</controller>
                 </block>

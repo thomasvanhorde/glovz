@@ -6,9 +6,6 @@
 		<!-- BARRE LATÉRALE -->
         {include file='view/menu/home.tpl'}
         
-        <!-- EN-TÊTE -->
-        {include file='view/menu/userbar.tpl'}
-        
 		<!-- CONTENU -->
 		<div id="contenu">
             {$content}
