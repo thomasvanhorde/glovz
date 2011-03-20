@@ -11,6 +11,7 @@ class dashboard_controller {
         
         $this->_dashboardClass = Base::Load(CLASS_DASHBOARD);
         $this->_jalonClass = Base::Load(CLASS_JALON);
+        $this->_tacheClass = Base::Load(CLASS_TACHE);
         $this->_userClass = Base::Load(CLASS_USER);
         $this->_userData = $this->_userClass->isConnect();
     }
@@ -22,6 +23,10 @@ class dashboard_controller {
         $myProject = $this->_userClass->getProject($this->_userData['uid']);
         $this->_view->assign('projects', $myProject);
 
+        $myLastTache = $this->_tacheClass->myLast(2);
+        $this->_view->assign('lastTask', $myLastTache);
+        //  echo '<pre>';print_r($myLastTache); exit();
+        
         $this->_view->addBlock('content','defaut.tpl');
         $this->_view->assign('info', $this->_userInfo);
     }

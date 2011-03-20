@@ -21,7 +21,7 @@ class Jalon extends SimpleContentManager {
         
     }
     
-    public function myLast(){
+    public function myLast($limit = 1){
         if(isset($this->_userInfo['uid'])){
             $projectList = $this->_userClass->getProject($this->_userInfo['uid']);
 
@@ -30,16 +30,21 @@ class Jalon extends SimpleContentManager {
                 $tmp = $this->_bdd
                         ->find(array("collection" => (string)$this->_collection, 'projet' => array('$in' => $projectID)))
                         ->sort( array('date' => -1 ) )
-                        ->limit(1);
-
-                foreach($tmp as $i => $data){}
-                return (object)$data;
+                        ->limit($limit);
+                $return = array();
+                foreach($tmp as $i => $data){
+                    if($limit == 1)
+                        $return = $data;
+                    else
+                        $return[$i] = $data;
+                }
+                return (object)$return;
             }
             else return false;
         } else return false;
     }
 
-    public function myFirst(){
+    public function myFirst($limit = 1){
         if(isset($this->_userInfo['uid'])){
             $projectList = $this->_userClass->getProject($this->_userInfo['uid']);
 
@@ -48,12 +53,19 @@ class Jalon extends SimpleContentManager {
                 $tmp = $this->_bdd
                         ->find(array("collection" => (string)$this->_collection, 'projet' => array('$in' => $projectID)))
                         ->sort( array('date' => 1 ) )
-                        ->limit(1);
-
+                        ->limit($limit);
+                
+                $return = array();
                 foreach($tmp as $i => $data){
                     $data['projet'] = (object)Base::Load(CLASS_PROJECT)->get($data['projet']);
+
+                    if($limit == 1)
+                        $return = $data;
+                    else
+                        $return[$i] = $data;
                 }
-                return (object)$data;
+
+                return (object)$return;
             }
             else return false;
         } else return false;
