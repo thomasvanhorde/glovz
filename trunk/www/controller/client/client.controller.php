@@ -83,7 +83,7 @@
 			}
 			else { // Édition
 				if ($this->_clientClass->update($data, $data['id']))
-				header('location: '.$_SERVER['REDIRECT_URL'].'../');
+				header('location: '.Base::getUrl(3));
 			}
 			exit();
 		}
