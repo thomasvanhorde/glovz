@@ -100,7 +100,10 @@ abstract class SimpleContentManager {
 
                     }
                 }
-                return $data2;
+                if(isset($data2) && is_array($data2))
+                    return $data2;
+                else
+                    return false;
             }
             else
                 return false;
