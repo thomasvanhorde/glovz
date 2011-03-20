@@ -5,6 +5,10 @@
 	<body>
 		<!-- BARRE LATÉRALE -->
         {$menu}
+        
+        <!-- EN-TÊTE -->
+        {$userbar}
+        
 		<!-- CONTENU -->
 		<div id="contenu">
             {$content}
