@@ -19,7 +19,9 @@
 
 <!-- Jalons du projet -->
 <h3>-- Jalons --</h3>
+{if $isDT }
 <a class="btnNouveau" href="create-milestone/"><input type="button" value="Créer un nouveau jalon" /></a>
+{/if}
 {if !empty($project->jalon)}
 	<table>
 		<thead>
@@ -49,7 +51,9 @@
 
 <!-- Tâches du projet -->
 <h3>-- Tâches --</h3>
-<a class="btnNouveau" href="create-task/"><input type="button" value="Créer une nouvelle tâche" /></a>
+{if $isDT }
+    <a class="btnNouveau" href="create-task/"><input type="button" value="Créer une nouvelle tâche" /></a>
+{/if}
 {if !empty($project->tache)}
     <table>
         <thead>
@@ -90,7 +94,8 @@
 <br />
 
 <!-- Membres du projet -->
-<h3>{$allUsersContent}</h3>
+<h3>-- Membres --</h3>
+{if $isDT }<h3>{$allUsersContent}</h3>{/if}
 <table>
 	<thead>
 		<tr>

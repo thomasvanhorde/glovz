@@ -44,6 +44,8 @@
 		 *	@version: 1.0
 		 */
 		public function defaut() {
+            $this->_view->assign('isDT',$this->_userClass->isDT());
+            
 			// Si l'URL contient un paramètre (l'id du projet choisi), on redirige vers le détail de ce projet
 			if (isset($_GET['param'][0])) {
 				$current_project = $this->_projectClass->get($_GET['param'][0], true);
