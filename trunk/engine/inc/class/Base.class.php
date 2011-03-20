@@ -28,6 +28,24 @@ Class Base {
         $this->_view = Base::Load(CLASS_VUE);
 	}
 
+    /***
+     * @static
+     * @param  $url
+     * @return void
+     */
+    private static function storeUrl($url){
+        $_SESSION['location'][] = $url;
+    }
+
+    /***
+     * @static
+     * @param  $number
+     * @return url
+     */
+    public static function getUrl($number){
+        return $_SESSION['location'][count($_SESSION['location']) - $number];
+    }
+
     /**
      * @param  $ClassName
      * @param bool $param
@@ -87,6 +105,9 @@ Class Base {
 
         // Create Base URL
         $this->baseURL();
+
+        // Store URL
+        $this->storeUrl($Folder);
 		
 		// Assigne les constantes de config à View
 		$this->ConstantAssign();
