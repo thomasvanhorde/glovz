@@ -30,6 +30,11 @@
             <input class="email" type="text" name="{$uid}" value="{$data.$uid}" { if $element.limit != '' }maxlength="{$element.limit}"{/if}/>
         {/if }
 
+        <!-- Input number -->
+        {if $element.refType == '13'}
+            <input class="number" type="text" name="{$uid}" value="{$data.$uid}" { if $element.limit != '' }maxlength="{$element.limit}"{/if}/>
+        {/if }
+
         <!-- Checkbox -->
         {if $element.refType == '15'}
             <input name="{$uid}" {if $data.$uid == "true"}checked="checked"{/if} value="true" type="checkbox"/>
