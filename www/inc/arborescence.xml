@@ -9,6 +9,11 @@
         <title>Ensemble des blocks</title>
         <controller>allBlocks</controller>
         <layout>other.tpl</layout>
+        <blocks>
+            <block>
+                <controller>menu</controller>
+            </block>
+        </blocks>
     </allBlocks>
     <connect>
         <title>Connexion</title>
@@ -30,6 +35,11 @@
             <controller>user</controller>
             <method>needConnect</method>
         </accessControl>
+        <blocks>
+            <block>
+                <controller>menu</controller>
+            </block>
+        </blocks>
     </dashboard>
 	<project>
 		<title>Projets</title>
@@ -39,24 +49,44 @@
 			<controller>user</controller>
 			<method>needConnect</method>
 		</accessControl>
+        <blocks>
+            <block>
+                <controller>menu</controller>
+            </block>
+        </blocks>
 		<!-- Opérations sur les projets -->
 		<create-project>
 			<title>Créer un nouveau projet</title>
 			<controller>project</controller>
 			<method>createProject</method>
 			<layout>other.tpl</layout>
+            <blocks>
+                <block>
+                    <controller>menu</controller>
+                </block>
+            </blocks>
 		</create-project>
 		<edit-project>
 			<title>Modifier un projet</title>
 			<controller>project</controller>
 			<method>editProject</method>
 			<layout>other.tpl</layout>
+            <blocks>
+                <block>
+                    <controller>menu</controller>
+                </block>
+            </blocks>
 		</edit-project>
 		<delete-project>
 			<title>Supprimer un projet</title>
 			<controller>project</controller>
 			<method>deleteProject</method>
 			<layout>other.tpl</layout>
+            <blocks>
+                <block>
+                    <controller>menu</controller>
+                </block>
+            </blocks>
 		</delete-project>
 		<!-- Opérations sur les jalons -->
 		<create-milestone>
@@ -64,18 +94,33 @@
 			<controller>project</controller>
 			<method>createMilestone</method>
 			<layout>other.tpl</layout>
+            <blocks>
+                <block>
+                    <controller>menu</controller>
+                </block>
+            </blocks>
 		</create-milestone>
 		<edit-milestone>
 			<title>Modifier un jalon</title>
 			<controller>project</controller>
 			<method>editMilestone</method>
 			<layout>other.tpl</layout>
+            <blocks>
+                <block>
+                    <controller>menu</controller>
+                </block>
+            </blocks>
 		</edit-milestone>
 		<delete-milestone>
 			<title>Supprimer un jalon</title>
 			<controller>project</controller>
 			<method>deleteMilestone</method>
 			<layout>other.tpl</layout>
+            <blocks>
+                <block>
+                    <controller>menu</controller>
+                </block>
+            </blocks>
 		</delete-milestone>
 		<!-- Opérations sur les tâches -->
 		<create-task>
@@ -83,18 +128,33 @@
 			<controller>project</controller>
 			<method>createTask</method>
 			<layout>other.tpl</layout>
+            <blocks>
+                <block>
+                    <controller>menu</controller>
+                </block>
+            </blocks>
 		</create-task>
 		<edit-task>
 			<title>Modifier une tâche</title>
 			<controller>project</controller>
 			<method>editTask</method>
 			<layout>other.tpl</layout>
+            <blocks>
+                <block>
+                    <controller>menu</controller>
+                </block>
+            </blocks>
 		</edit-task>
 		<delete-task>
 			<title>Supprimer une tâche</title>
 			<controller>project</controller>
 			<method>deleteTask</method>
 			<layout>other.tpl</layout>
+            <blocks>
+                <block>
+                    <controller>menu</controller>
+                </block>
+            </blocks>
 		</delete-task>
 		<!-- Opérations sur les membres -->
 		<remove-member>
@@ -102,6 +162,11 @@
 			<controller>project</controller>
 			<method>removeMember</method>
 			<layout>other.tpl</layout>
+            <blocks>
+                <block>
+                    <controller>menu</controller>
+                </block>
+            </blocks>
 		</remove-member>
 	</project>
 	<client>
@@ -112,23 +177,43 @@
 			<controller>user</controller>
 			<method>needConnect</method>
 		</accessControl>
+        <blocks>
+            <block>
+                <controller>menu</controller>
+            </block>
+        </blocks>
 		<create-client>
 			<title>Nouveau client</title>
 			<controller>client</controller>
 			<method>createClient</method>
 			<layout>other.tpl</layout>
+            <blocks>
+                <block>
+                    <controller>menu</controller>
+                </block>
+            </blocks>
 		</create-client>
 		<edit-client>
 			<title>Modifier client</title>
 			<controller>client</controller>
 			<method>editClient</method>
 			<layout>other.tpl</layout>
+            <blocks>
+                <block>
+                    <controller>menu</controller>
+                </block>
+            </blocks>
 		</edit-client>
 		<delete-client>
 			<title>Supprimer un client</title>
 			<controller>client</controller>
 			<method>deleteClient</method>
 			<layout>other.tpl</layout>
+            <blocks>
+                <block>
+                    <controller>menu</controller>
+                </block>
+            </blocks>
 		</delete-client>
 	</client>
     <profil>
@@ -140,6 +225,11 @@
             <controller>user</controller>
             <method>needConnect</method>
         </accessControl>
+        <blocks>
+            <block>
+                <controller>menu</controller>
+            </block>
+        </blocks>
     </profil>
     <members>
         <title>Liste des membres</title>
@@ -150,6 +240,11 @@
             <controller>user</controller>
             <method>needDT</method>
         </accessControl>
+        <blocks>
+            <block>
+                <controller>menu</controller>
+            </block>
+        </blocks>
         <new>
             <title>Ajouter un membre</title>
             <controller>user</controller>
@@ -159,6 +254,11 @@
                 <controller>user</controller>
                 <method>needDT</method>
             </accessControl>
+            <blocks>
+                <block>
+                    <controller>menu</controller>
+                </block>
+            </blocks>
         </new>
         <edit>
             <title>Editer un membre</title>
@@ -169,6 +269,11 @@
                 <controller>user</controller>
                 <method>needDT</method>
             </accessControl>
+            <blocks>
+                <block>
+                    <controller>menu</controller>
+                </block>
+            </blocks>
         </edit>
         <delete>
             <title>Editer un membre</title>
@@ -179,6 +284,11 @@
                 <controller>user</controller>
                 <method>needDT</method>
             </accessControl>
+            <blocks>
+                <block>
+                    <controller>menu</controller>
+                </block>
+            </blocks>
         </delete>
         <pdf>
             <title></title>
@@ -187,11 +297,4 @@
             <layout>other.tpl</layout>
         </pdf>
     </members>
-    <super-administrateur>
-        <new-membre>
-            <title>Nouveau membre</title>
-            <controller>new-member</controller>
-            <layout>other.tpl</layout>
-        </new-membre>
-    </super-administrateur>
 </arborescence>

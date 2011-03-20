@@ -5,7 +5,7 @@
 	<body>
         <script type="text/javascript">BASE_URL = "{$BASE_URL}";</script>
 		<!-- BARRE LATÉRALE -->
-        {include file='view/menu/other.tpl'}
+        {$menu}
 		<!-- CONTENU -->
 		<div id="contenu">
             {$content}

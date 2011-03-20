@@ -89,8 +89,7 @@ class user_controller {
     }
     public function needDT(){
         if($this->needConnect()){
-            $info = $this->_userClass->isConnect();
-            if($info['role']['initial'] != 'DT')
+            if(!$this->_userClass->isDT())
                 $this->notAllow('you should was DT');
         }
     }
@@ -99,5 +98,6 @@ class user_controller {
         $this->_view->assign('erreur', $message);
         Base::Load(CLASS_VUE)->addBlock('content','notAllow.tpl', 'controller/user/view/');
     }
+
     
 }
