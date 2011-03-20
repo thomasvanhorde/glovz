@@ -39,7 +39,7 @@ Il s'agit du projet {$jalon->projet->nom}
             <tr>
                 <th>Label</th>
                 <th>Description</th>
-                <th>Personne concernée</th>
+                <th>Projet</th>
                 <th>Durée (h)</th>
                 <th>Date</th>
                 <th>Actions</th>
@@ -47,10 +47,10 @@ Il s'agit du projet {$jalon->projet->nom}
         </thead>
         <tbody>
         {foreach from=$lastTask item=tache}
-            <tr>
+                <tr>
                 <td>{$tache.label|utf8_decode}</td>
                 <td>{$tache.description|utf8_decode|truncate:30}</td>
-                <td>{$tache.utilisateur->nom} {$tache.utilisateur->prenom}</td>
+                <td>{$tache.projet->nom}</td>
                 <td>{$tache.duree}</td>
                 <td>{$tache.date_create|date_format:"%d/%m/%Y"}</td>
                 <td>
