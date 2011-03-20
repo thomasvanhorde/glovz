@@ -59,7 +59,7 @@
           <script type="text/javascript">
           // <![CDATA[
             var opts = {
-                    formElements:{"{/literal}{$uid}{literal}":"d-sl-m-sl-y"},
+                    formElements:{"{/literal}{$uid}{literal}":"y-sl-m-sl-d"},
                     // Show week numbers
                     showWeeks:true
             };
