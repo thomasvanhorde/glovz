@@ -3,7 +3,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 	{include file='view/inc/head.tpl'}
 	<body>
-        <script type="text/javascript">BASE_URL = "{$BASE_URL}";</script>
 		<!-- BARRE LATÉRALE -->
         {$menu}
 		<!-- CONTENU -->
