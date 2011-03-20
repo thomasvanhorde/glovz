@@ -49,6 +49,11 @@
                             <input class="email {if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
                         {/if }
 
+                        <!-- Input number-->
+                        {if $element.refType == '13'}
+                            <input class="number {if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
+                        {/if }
+
                         <!-- Checkbox -->
                         {if $element.refType == '15'}
                             <input class="{if $element->requis}require{/if}"name="{$uid}" {if $data->$uid == "true"}checked="checked"{/if} value="true" type="checkbox"/>
@@ -147,6 +152,7 @@
             jQuery("form.validity").validity(function() {
                 jQuery(".require").require('necessaire');
                 jQuery(".email").match("email");
+                jQuery(".number").match("number");
             });
         });
     </script>

@@ -105,11 +105,11 @@
 		public function POST_ProjectData($data) {
 			if (empty($data['id'])) { // Création
 				$this->_projectClass->save($data);
-				header('location: '.$_SERVER['REDIRECT_URL'].'../');
+				header('location: '.Base::getUrl(3));
 			}
 			else { // Édition
 				if ($this->_projectClass->update($data, $data['id']))
-				header('location: '.$_SERVER['REDIRECT_URL'].'../');
+				header('location: '.Base::getUrl(3));
 			}
 			exit();
 		}
