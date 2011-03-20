@@ -18,8 +18,19 @@
     public function get($object_id, $withRelation = false){
         $data = parent::get($object_id, $withRelation);
         if($withRelation) {
-            $data->jalon = Base::Load(CLASS_JALON)->findBy('projet', $object_id, true);
-            $data->tache = Base::Load(CLASS_TACHE)->findBy('projet', $object_id, true);
+            // récupération des jalons
+            $data->jalon = Base::Load(CLASS_JALON)->findBy('projet', $object_id, true, array('date',1 ));
+
+            // Récuparation des tâches et tri par type
+            $taches = Base::Load(CLASS_TACHE)->findBy('projet', $object_id, true);
+            if(is_array($taches)){
+                $tacheArray = array();
+                foreach($taches as $tID => $tache){
+                    $tacheArray[$tache['type']][$tID] = $tache;
+                }
+                $data->tache = $tacheArray;
+            }
+
             $data->membre = $this->getMember($object_id);
         }
         return $data;

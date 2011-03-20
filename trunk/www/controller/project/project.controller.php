@@ -47,7 +47,6 @@
 			// Si l'URL contient un paramètre (l'id du projet choisi), on redirige vers le détail de ce projet
 			if (isset($_GET['param'][0])) {
 				$current_project = $this->_projectClass->get($_GET['param'][0], true);
-				
 				$allUsers = $this->_userClass->getAll();
 				$this->_view->assign('allUsers', $allUsers);
 				$this->_view->assign('project', $current_project);

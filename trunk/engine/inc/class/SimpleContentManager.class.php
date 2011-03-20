@@ -75,11 +75,17 @@ abstract class SimpleContentManager {
      * @param bool $withRelation
      * @return object list
      */
-    public function findBy($param, $value, $withRelation = false){
-        $data = $this->_contentManager->find(array(
-            $param => $value,
-            "collection" => (string)$this->_collection,
-        ));
+    public function findBy($param, $value, $withRelation = false, $sort = false){
+        if($sort && is_array($sort)){
+            $data = $this->_bdd
+                    ->find(array("collection" => (string)$this->_collection, $param => $value))
+                    ->sort( array($sort[0] => $sort[1]) );
+        }else {
+            $data = $this->_contentManager->find(array(
+                $param => $value,
+                "collection" => (string)$this->_collection,
+            ));
+        }
 
         if($withRelation){
             if(is_object($data)){

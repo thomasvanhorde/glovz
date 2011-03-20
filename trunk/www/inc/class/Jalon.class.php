@@ -20,7 +20,7 @@ class Jalon extends SimpleContentManager {
         }
         
     }
-
+    
     public function myLast(){
         if(isset($this->_userInfo['uid'])){
             $projectList = $this->_userClass->getProject($this->_userInfo['uid']);
