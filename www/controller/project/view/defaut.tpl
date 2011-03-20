@@ -1,6 +1,6 @@
 <h2>Liste des projets</h2>
 
-<a class="btnNouveau" href="create-project/"><input type="button" value="Créer un nouveau projet" /></a>
+<a class="btnNouveau" href="create-project/"><input type="button" value="Créer un nouveau projet" /></a>
 <table>
     <thead>
         <tr>
@@ -13,7 +13,7 @@
     <tbody>
     {foreach from=$projects key=id item=project}
         <tr>
-            <td><a href="{$BASE_URL}project/{$id}/">{$project.nom}</a></td>
+            <td><a href="{$BASE_URL}project/{$id}/">{$project.nom|utf8_decode}</a></td>
             <td>{$project.duree}</td>
             <td>
         	{if $project.cloture eq 'true'}
