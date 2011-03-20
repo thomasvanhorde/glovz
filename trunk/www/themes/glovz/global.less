@@ -1,6 +1,6 @@
 // Style du site
 body {
-	width: 1000px;
+	//width: 1000px;
 	background: url('img/fond.png') repeat-y #eae5e5;
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	color: #111;
@@ -74,6 +74,15 @@ body {
 			margin-bottom: 20px;
 		}
 		
+		h3 {
+			text-align: center;
+			color: #666;
+			font-size: 1.4em;
+			font-style: italic;
+			font-weight: bold;
+			margin-top: 30px;
+		}
+		
 		a {
 			color: #b71414;
 			font-weight: bold;
@@ -86,15 +95,6 @@ body {
 		table {
 			width: 100%;
 			border: 1px solid #aaa;
-			
-			caption {
-				text-align: center;
-				color: #999;
-				font-size: 1.3em;
-				font-style: italic;
-				font-weight: bold;
-				margin-top: 10px;
-			}
 			
 			th {
 				padding: 7px;
@@ -114,6 +114,15 @@ body {
 			td {
 				padding: 7px;
 
+			}
+		}
+			
+		.btnNouveau {
+			margin-bottom: 10px;
+			float: right;
+			
+			&:hover {
+				border: none;
 			}
 		}
 	}

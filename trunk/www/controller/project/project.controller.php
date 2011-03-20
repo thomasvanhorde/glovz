@@ -11,6 +11,8 @@
 		// Attributs de la classe
 		private $_view,
 				$_projectClass,
+				$_milestoneClass,
+				$_taskClass,
 				$_userClass;
 		
 		/**
@@ -23,8 +25,8 @@
 		 *	@version: 1.1
 		 *	@see: CLASS_COMPONENT
 		 *	@see: CLASS_PROJECT
-		 *	@see: CLASS_MILESTONE
-		 *	@see: CLASS_TASK
+		 *	@see: CLASS_JALON
+		 *	@see: CLASS_TACHE
 		 *	@see: CLASS_USER
 		 */
 		public function __construct() {
@@ -104,11 +106,11 @@
 		public function POST_ProjectData($data) {
 			if (empty($data['id'])) { // Création
 				$this->_projectClass->save($data);
-				header('location: '.$_SERVER['REDIRECT_URL']);
+				header('location: '.$_SERVER['REDIRECT_URL'].'../');
 			}
 			else { // Édition
 				if ($this->_projectClass->update($data, $data['id']))
-				header('location: '.$_SERVER['REDIRECT_URL']);
+				header('location: '.$_SERVER['REDIRECT_URL'].'../');
 			}
 			exit();
 		}
@@ -158,11 +160,11 @@
 		public function POST_MilestoneData($data) {
 			if (empty($data['id'])) { // Création
 				$this->_milestoneClass->save($data);
-				header('location: '.$_SERVER['REDIRECT_URL']);
+				header('location: '.$_SERVER['REDIRECT_URL'].'../');
 			}
 			else { // Édition
 				if ($this->_milestoneClass->update($data, $data['id']))
-				header('location: '.$_SERVER['REDIRECT_URL']);
+				header('location: '.$_SERVER['REDIRECT_URL'].'../');
 			}
 			exit();
 		}
@@ -199,11 +201,11 @@
 		public function POST_TaskData($data) {
 			if (empty($data['id'])) { // Création
 				$this->_taskClass->save($data);
-				header('location: '.$_SERVER['REDIRECT_URL']);
+				header('location: '.$_SERVER['REDIRECT_URL'].'../');
 			}
 			else { // Édition
 				if ($this->_taskClass->update($data, $data['id']))
-				header('location: '.$_SERVER['REDIRECT_URL']);
+				header('location: '.$_SERVER['REDIRECT_URL'].'../');
 			}
 			exit();
 		}

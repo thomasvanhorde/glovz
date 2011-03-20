@@ -1,14 +1,13 @@
 <h2>Liste des projets</h2>
 
-<p><a href="create-project/">Créer un nouveau projet</a></p>
-<br />
+<a class="btnNouveau" href="create-project/"><input type="button" value="Créer un nouveau projet" /></a>
 <table>
     <thead>
         <tr>
             <th>Nom</th>
             <th>Durée (h)</th>
             <th>Clôturé</th>
-            <th>Action</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -24,7 +23,7 @@
        		{/if}
             </td>
             <td>
-            	<a href="edit-project/{$project._id}/">Modifier</a>
+        		<a href="edit-project/{$project._id}/">Modifier</a> |
             	<a href="delete-project/{$project._id}/">Supprimer</a>
             </td>
         </tr>
