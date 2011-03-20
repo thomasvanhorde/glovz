@@ -1,3 +1,5 @@
+<script type="text/javascript" src="{$BASE_URL}/js/admin/datepicker/datepicker.js"></script>
+
 <form method="post" class="validity niceform">
     <fieldset>
         <legend>
@@ -65,7 +67,7 @@
                         <!-- date -->
                         {if $element.refType == '30'}
 
-                        <input type="text" class="w16em {if $element->requis}require{/if}" name="{$uid}" value="{$data->$uid}" />
+                        <input type="text" class="date w16em {if $element->requis}require{/if}" name="{$uid}" id="{$uid}" value="{$data->$uid}" />
 
                         {literal}
                           <script type="text/javascript">
