@@ -71,6 +71,5 @@ class Jalon extends SimpleContentManager {
         } else return false;
     }
 
-
 }
 

@@ -19,6 +19,7 @@ class dashboard_controller {
     function defaut(){
         $firstJalon = $this->_jalonClass->myFirst();
         $this->_view->assign('jalon', $firstJalon);
+        $this->_view->assign('info', $this->_userInfo);
 
         $myProject = $this->_userClass->getProject($this->_userData['uid']);
         $this->_view->assign('projects', $myProject);
@@ -28,6 +29,5 @@ class dashboard_controller {
         //  echo '<pre>';print_r($myLastTache); exit();
         
         $this->_view->addBlock('content','defaut.tpl');
-        $this->_view->assign('info', $this->_userInfo);
     }
 }
