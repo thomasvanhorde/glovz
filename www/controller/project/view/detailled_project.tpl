@@ -33,11 +33,11 @@
 		<tbody>
 			{foreach from=$project->jalon item=jalon}
 	            <tr>
-	                <td>{$jalon.label}</td>
-	                <td>{$jalon.description}</td>
+	                <td>{$jalon.label|utf8_decode|truncate:15}</td>
+	                <td>{$jalon.description|utf8_decode|truncate:20}</td>
 	                <td>{$jalon.date}</td>
 	                <td>
-	                	<a href="{$BASE_URL}project/edit-milestone/{$jalon._id}">Modifier</a> |
+	                	<a href="{$BASE_URL}project/edit-milestone/{$jalon._id}/">Modifier</a> |
 						<a href="{$BASE_URL}project/delete-milestone/{$project->_id}/{$jalon._id}/">Supprimer</a>
 	                </td>
 	            </tr>
@@ -51,33 +51,41 @@
 <h3>-- Tâches --</h3>
 <a class="btnNouveau" href="create-task/"><input type="button" value="Créer une nouvelle tâche" /></a>
 {if !empty($project->tache)}
-	<table>
-		<thead>
-			<tr>
-				<th>Label</th>
-				<th>Type</th>
-				<th>Description</th>
-				<th>Personne concernée</th>
-				<th>Durée (h)</th>
-				<th>Actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			{foreach from=$project->tache item=tache}
-	            <tr>
-	                <td>{$tache.label}</td>
-	                <td>{$tache.type}</td>
-	                <td>{$tache.description}</td>
-	                <td>{$tache.utilisateur->nom} {$tache.utilisateur->prenom}</td>
-	                <td>{$tache.duree}</td>
-	                <td>
-	                	<a href="{$BASE_URL}project/edit-task/{$tache._id}">Modifier</a> |
-	                	<a href="{$BASE_URL}project/delete-task/{$project->_id}/{$tache._id}/">Supprimer</a>
-	                </td>
-	            </tr>
-	        {/foreach}
-		</tbody>
-	</table>
+    <table>
+        <thead>
+            <tr>
+                <th>Label</th>
+                <th>Description</th>
+                <th>Personne concernée</th>
+                <th>Durée (h)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {foreach from=$project->tache key=taskType item=task}
+            <tr>
+                <th colspan="10">
+                    {if $taskType == 0}Maquette{/if}
+                    {if $taskType == 1}Intégration{/if}
+                    {if $taskType == 2}Développement{/if}
+                    {if $taskType == 3}Test{/if}
+                </th>
+            </tr>
+            {foreach from=$task item=tache}
+                <tr>
+                    <td>{$tache.label|utf8_decode}</td>
+                    <td>{$tache.description|utf8_decode|truncate:20}</td>
+                    <td>{$tache.utilisateur->nom} {$tache.utilisateur->prenom}</td>
+                    <td>{$tache.duree}</td>
+                    <td>
+                        <a href="{$BASE_URL}project/edit-task/{$tache._id}/">Modifier</a> |
+                        <a href="{$BASE_URL}project/delete-task/{$project->_id}/{$tache._id}/">Supprimer</a>
+                    </td>
+                </tr>
+            {/foreach}
+        {/foreach}
+        </tbody>
+    </table>
 {/if}
 <br />
 
@@ -105,5 +113,3 @@
     {/if}
 	</tbody>
 </table>
-
-<pre>{$project->tache|print_r}</pre>
