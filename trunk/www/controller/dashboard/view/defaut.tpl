@@ -1,7 +1,4 @@
-<h2>Dashboard</h2>
-
-<p>les dernières tâches sur lequelles j'ai travaillé</p>
-
+<h2>Tableau de bord</h2>
 
 {include file='controller/dashboard/view/mileston_next.tpl'}
 

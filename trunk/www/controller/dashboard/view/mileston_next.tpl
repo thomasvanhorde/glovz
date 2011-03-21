@@ -1,7 +1,10 @@
 {assign var=date value="/"|explode:$jalon->date}
-<h3>Votre prochain jalon est le {$date.2}/{$date.1}/{$date.0}</h3>
-<p class="details">
-    Cette date concerne :<br />
-{$jalon->description}<br />
-Il s'agit du projet {$jalon->projet->nom}
-</p>
+
+<div id="bloc_etape">
+	<p>
+		La prochaine étape importante concernant<br />le projet
+		{* URL du projet à récupérer *}
+		<a href="{$BASE_URL}project/{$project->_id}/">{$jalon->projet->nom|utf8_decode}</a>
+		se déroulera le <strong>{$date.2}/{$date.1}/{$date.0}</strong>.
+	</p>
+</div>
