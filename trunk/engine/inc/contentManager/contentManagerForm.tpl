@@ -25,6 +25,7 @@
                 {assign var="uid" value=$element->id}
                 {assign var="refT" value=$element.refType}
                 {assign var="hidden" value=false}
+                {assign var="valueDefaut" value=false}
 
                 {* PARAMETRES *}
                 {foreach from=$formParamFied key=fieldKeys item=fieldValues}
@@ -34,6 +35,11 @@
                         {* champs invisible *}
                         {if $filedKey == 'hidden' && $fieldValue == true}
                             {assign var="hidden" value=true}
+                        {/if}
+
+                        {* defaut value *}
+                        {if $filedKey == 'value'}
+                            {assign var="valueDefaut" value=$fieldValue}
                         {/if}
 
                     {/foreach}
@@ -56,22 +62,22 @@
                     <dd>
                         <!-- Input -->
                         {if $refT == '10'}
-                            <input {if $hidden}style="display:none;"{/if} class="{if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
+                            <input {if $hidden}style="display:none;"{/if} class="{if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
                         {/if }
 
                         <!-- Input password -->
                         {if $refT == '11'}
-                            <input {if $hidden}style="display:none;"{/if} class="{if $element->requis}require{/if}" type="password" name="{$uid}" value="{$data->$uid}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
+                            <input {if $hidden}style="display:none;"{/if} class="{if $element->requis}require{/if}" type="password" name="{$uid}" value="{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
                         {/if }
 
                         <!-- Input email-->
                         {if $refT == '12'}
-                            <input {if $hidden}style="display:none;"{/if} class="email {if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
+                            <input {if $hidden}style="display:none;"{/if} class="email {if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
                         {/if }
 
                         <!-- Input number-->
                         {if $refT == '13'}
-                            <input {if $hidden}style="display:none;"{/if} class="number {if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
+                            <input {if $hidden}style="display:none;"{/if} class="number {if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
                         {/if }
 
                         <!-- Checkbox -->
@@ -81,18 +87,18 @@
 
                         <!-- textarea simple -->
                         {if $refT == '20'}
-                            <textarea {if $hidden}style="display:none;"{/if} rows="5" cols="60" class="{if $element->requis}require{/if}" id="{$uid}" name="{$uid}">{$data->$uid}</textarea>
+                            <textarea {if $hidden}style="display:none;"{/if} rows="5" cols="60" class="{if $element->requis}require{/if}" id="{$uid}" name="{$uid}">{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}</textarea>
                         {/if }
 
                         <!-- textarea wysiwyg -->
                         {if $refT == '21'}
-                            <textarea {if $hidden}style="display:none;"{/if} rows="5" cols="60" class="{if $element->requis}require{/if}" id="{$uid}" name="{$uid}" id="{$uid}" class="wysiwyg">{$data->$uid}</textarea>
+                            <textarea {if $hidden}style="display:none;"{/if} rows="5" cols="60" class="{if $element->requis}require{/if}" id="{$uid}" name="{$uid}" id="{$uid}" class="wysiwyg">{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}</textarea>
                         {/if }
 
                         <!-- date -->
                         {if $refT == '30'}
 
-                        <input {if $hidden}style="display:none;"{/if} type="text" class="date w16em {if $element->requis}require{/if}" name="{$uid}" id="{$uid}" value="{$data->$uid}" />
+                        <input {if $hidden}style="display:none;"{/if} type="text" class="date w16em {if $element->requis}require{/if}" name="{$uid}" id="{$uid}" value="{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}" />
 
                         {literal}
                           <script type="text/javascript">
@@ -119,7 +125,7 @@
                             {assign var=SelectValue value=","|explode:$element->valeur}
                             <select {if $hidden}style="display:none;"{/if} size="1" class="{if $element->requis}require{/if}" name="{$uid}">
                                 {foreach from=$SelectValue key=SelectK item=SelectItem}
-                                    <option value="{$SelectK}" {if $data->$uid == $SelectK}selected="selected"{/if}>{$SelectItem|utf8_decode}</option>
+                                    <option value="{$SelectK}" {if $data->$uid == $SelectK || $valueDefaut == $SelectK}selected="selected"{/if}>{$SelectItem|utf8_decode}</option>
                                 {/foreach}
                             </select>
                         {/if }
@@ -132,7 +138,7 @@
                                 {foreach from=$contentRef key=contentRefId item=contentRefElement}
                                     {if $contentRefId == $ElementContentRef}
                                         {foreach from=$contentRefElement key=contentRefId2 item=contentRefElement2}
-                                            <option {if $contentRefId2 == $data->$uid->_id}selected="selected" {/if} value="{$contentRefId2}">
+                                            <option {if $contentRefId2 == $data->$uid->_id || $valueDefaut == $contentRefId2}selected="selected" {/if} value="{$contentRefId2}">
                                                 {foreach from=$contentRefElement2 key=contentRefId3 item=contentRefElement3}
                                                     {foreach from=$contentRefStruct key=contentRefStructID item=contentRefStruct2}
                                                         {if $contentRefStructID == $ElementContentRef}

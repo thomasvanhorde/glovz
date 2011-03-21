@@ -180,6 +180,21 @@
 		 *	@version: 1.0
 		 */
 		public function createTask() {
+
+            $param = array(
+              'field' => array(
+                  'projet' => array(
+                      'value' => $_GET['param'][0],
+                      'hidden' => true
+                  ),
+                  'utilisateur' => array(
+                      'value' => $_SESSION['user']['uid'],
+                      'hidden' => true
+                  )
+              )
+            );
+            $this->_view->assign('formParam', $param);
+
 			$this->_taskClass->addForm('content', 'TaskData');
 		}
 		
