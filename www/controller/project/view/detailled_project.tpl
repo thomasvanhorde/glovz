@@ -31,7 +31,7 @@
 <!-- Jalons du projet -->
 <h3>-- Jalons --</h3>
 {if $isDT }
-<a class="btnNouveau" href=""><input type="button" value="Créer un nouveau jalon" id="nouveauJalon"/></a>
+<input type="button" value="Créer un nouveau jalon" id="nouveauJalon"/>
 {/if}
 {if !empty($project->jalon)}
 <table>
