@@ -21,7 +21,7 @@
     <script type="text/javascript" src="{$BASE_URL}js/cufon/Harabara_700.font.js"></script>
     <script type="text/javascript" src="{$BASE_URL}js/cufon/Opificio_400.font.js"></script>
     <script type="text/javascript" src="{$BASE_URL}js/glovz/defaut.js"></script>
-	
+	<script type="text/javascript">var BASE_URL = '{$BASE_URL}'</script>
 	<!-- Typographies -->
     {literal}
     <script>
