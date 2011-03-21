@@ -34,8 +34,21 @@ class user_controller {
     }
 
     public function myProfil() {
-        if($this->_userClass->isConnect())
+        if($this->_userClass->isConnect()) {
+
+            $param = array(
+              'field' => array(
+                  'role' => array(
+                      'hidden' => true
+                  ),
+                  'groupe' => array(
+                      'hidden' => true
+                  )
+              )
+            );
+            $this->_view->assign('formParam', $param);
             $this->_userClass->editForm('content', $_SESSION['user']['uid'], 'MemberData');
+        }
     }
 
     public function disconnect() {
