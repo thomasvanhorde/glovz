@@ -17,62 +17,82 @@
         <input type="hidden" name="id" value="{$id}" />
         <input type="hidden" name="date_create" value="{$data->date_create}" />
 
+        {assign var="formParamFied" value=$formParam.field}
 
         {foreach from=$structure->types key=tmp item=e}
             {foreach from=$e key=k item=element}
 
                 {assign var="uid" value=$element->id}
+                {assign var="refT" value=$element.refType}
+                {assign var="hidden" value=false}
+
+                {* PARAMETRES *}
+                {foreach from=$formParamFied key=fieldKeys item=fieldValues}
+                    {if $fieldKeys == $uid}
+                    {foreach from=$fieldValues key=filedKey item=fieldValue}
+
+                        {* champs invisible *}
+                        {if $filedKey == 'hidden' && $fieldValue == true}
+                            {assign var="hidden" value=true}
+                        {/if}
+
+                    {/foreach}
+                    {/if}
+                {/foreach}
+                {* /PARAMETRES *}
+
 
                 <dl>
-                    <dt>
-                        <label for="{$uid}">
-                            {$element->name|utf8_decode}
-                            {if $element->limit != '' }(limit :: {$element->limit} char){/if}
-                        </label>
-                    </dt>
 
-
+                    {if $hidden == false}
+                        <dt>
+                            <label for="{$uid}">
+                                {$element->name|utf8_decode}
+                                {if $element->limit != '' }(limit :: {$element->limit} char){/if}
+                            </label>
+                        </dt>
+                    {/if}
+                    
                     <dd>
-
                         <!-- Input -->
-                        {if $element.refType == '10'}
-                            <input class="{if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
+                        {if $refT == '10'}
+                            <input {if $hidden}style="display:none;"{/if} class="{if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
                         {/if }
 
                         <!-- Input password -->
-                        {if $element.refType == '11'}
-                            <input class="{if $element->requis}require{/if}" type="password" name="{$uid}" value="{$data->$uid}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
+                        {if $refT == '11'}
+                            <input {if $hidden}style="display:none;"{/if} class="{if $element->requis}require{/if}" type="password" name="{$uid}" value="{$data->$uid}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
                         {/if }
 
                         <!-- Input email-->
-                        {if $element.refType == '12'}
-                            <input class="email {if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
+                        {if $refT == '12'}
+                            <input {if $hidden}style="display:none;"{/if} class="email {if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
                         {/if }
 
                         <!-- Input number-->
-                        {if $element.refType == '13'}
-                            <input class="number {if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
+                        {if $refT == '13'}
+                            <input {if $hidden}style="display:none;"{/if} class="number {if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
                         {/if }
 
                         <!-- Checkbox -->
-                        {if $element.refType == '15'}
-                            <input class="{if $element->requis}require{/if}"name="{$uid}" {if $data->$uid == "true"}checked="checked"{/if} value="true" type="checkbox"/>
+                        {if $refT == '15'}
+                            <input {if $hidden}style="display:none;"{/if} class="{if $element->requis}require{/if}"name="{$uid}" {if $data->$uid == "true"}checked="checked"{/if} value="true" type="checkbox"/>
                         {/if }
 
                         <!-- textarea simple -->
-                        {if $element.refType == '20'}
-                            <textarea rows="5" cols="60" class="{if $element->requis}require{/if}" id="{$uid}" name="{$uid}">{$data->$uid}</textarea>
+                        {if $refT == '20'}
+                            <textarea {if $hidden}style="display:none;"{/if} rows="5" cols="60" class="{if $element->requis}require{/if}" id="{$uid}" name="{$uid}">{$data->$uid}</textarea>
                         {/if }
 
                         <!-- textarea wysiwyg -->
-                        {if $element.refType == '21'}
-                            <textarea rows="5" cols="60" class="{if $element->requis}require{/if}" id="{$uid}" name="{$uid}" id="{$uid}" class="wysiwyg">{$data->$uid}</textarea>
+                        {if $refT == '21'}
+                            <textarea {if $hidden}style="display:none;"{/if} rows="5" cols="60" class="{if $element->requis}require{/if}" id="{$uid}" name="{$uid}" id="{$uid}" class="wysiwyg">{$data->$uid}</textarea>
                         {/if }
 
                         <!-- date -->
-                        {if $element.refType == '30'}
+                        {if $refT == '30'}
 
-                        <input type="text" class="date w16em {if $element->requis}require{/if}" name="{$uid}" id="{$uid}" value="{$data->$uid}" />
+                        <input {if $hidden}style="display:none;"{/if} type="text" class="date w16em {if $element->requis}require{/if}" name="{$uid}" id="{$uid}" value="{$data->$uid}" />
 
                         {literal}
                           <script type="text/javascript">
@@ -90,14 +110,14 @@
                         {/if }
 
                         <!-- media -->
-                        {if $element.refType == '40'}
+                        {if $refT == '40'}
                             // media :: not implemante
                         {/if }
 
                         <!-- select -->
-                        {if $element.refType == '50'}
+                        {if $refT == '50'}
                             {assign var=SelectValue value=","|explode:$element->valeur}
-                            <select size="1" class="{if $element->requis}require{/if}" name="{$uid}">
+                            <select {if $hidden}style="display:none;"{/if} size="1" class="{if $element->requis}require{/if}" name="{$uid}">
                                 {foreach from=$SelectValue key=SelectK item=SelectItem}
                                     <option value="{$SelectK}" {if $data->$uid == $SelectK}selected="selected"{/if}>{$SelectItem|utf8_decode}</option>
                                 {/foreach}
@@ -105,9 +125,9 @@
                         {/if }
 
                         <!-- ContentRef -->
-                        {if $element.refType == '60'}
+                        {if $refT == '60'}
                             {assign var="ElementContentRef" value=$element->contentRef}
-                            <select size="1" class="{if $element->requis}require{/if}" name="{$uid}">
+                            <select {if $hidden}style="display:none;"{/if} size="1" class="{if $element->requis}require{/if}" name="{$uid}">
                                 <option value=""></option>
                                 {foreach from=$contentRef key=contentRefId item=contentRefElement}
                                     {if $contentRefId == $ElementContentRef}
@@ -128,6 +148,8 @@
                                 {/foreach}
                             </select>
                         {/if }
+
+                        
                     </dd>
                 </dl>
             {/foreach}
