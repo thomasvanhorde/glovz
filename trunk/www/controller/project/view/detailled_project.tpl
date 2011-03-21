@@ -40,21 +40,22 @@
             <th>Label</th>
             <th>Description</th>
             <th>Date</th>
-            <th>Actions</th>
+            {if $isDT }<th>Actions</th>{/if}
         </tr>
     </thead>
     <tbody>
-			{foreach from=$project->jalon item=jalon}
-        <tr>
-            <td>{$jalon.label|utf8_decode|truncate:15}</td>
-            <td>{$jalon.description|utf8_decode|truncate:20}</td>
-            <td>{$jalon.date}</td>
-            <td>
-                <a href="{$BASE_URL}project/edit-milestone/{$jalon._id}/">Modifier</a> |
-                <a href="{$BASE_URL}project/delete-milestone/{$project->_id}/{$jalon._id}/">Supprimer</a>
-            </td>
-        </tr>
-	        {/foreach}
+        {foreach from=$project->jalon item=jalon}
+        {assign var=date value="/"|explode:$jalon.date}
+            <tr>
+                <td>{$jalon.label|utf8_decode|truncate:15}</td>
+                <td>{$jalon.description|utf8_decode|truncate:20}</td>
+                <td>{$date.2}/{$date.1}/{$date.0}</td>
+                {if $isDT }<td>
+                    <a href="{$BASE_URL}project/edit-milestone/{$jalon._id}/">Modifier</a> |
+                    <a href="{$BASE_URL}project/delete-milestone/{$project->_id}/{$jalon._id}/">Supprimer</a>
+                </td>{/if}
+            </tr>
+        {/foreach}
     </tbody>
 </table>
 <div id="dialog-form">
@@ -160,7 +161,7 @@
             <th>Description</th>
             <th>Personne concernée</th>
             <th>Durée (h)</th>
-            <th>Actions</th>
+            {if $isDT }<th>Actions</th>{/if}
         </tr>
     </thead>
     <tbody>
@@ -179,10 +180,10 @@
             <td>{$tache.description|utf8_decode|truncate:20}</td>
             <td>{$tache.utilisateur->nom} {$tache.utilisateur->prenom}</td>
             <td>{$tache.duree}</td>
-            <td>
+            {if $isDT }<td>
                 <a href="{$BASE_URL}project/edit-task/{$tache._id}/">Modifier</a> |
                 <a href="{$BASE_URL}project/delete-task/{$project->_id}/{$tache._id}/">Supprimer</a>
-            </td>
+            </td>{/if}
         </tr>
             {/foreach}
         {/foreach}
@@ -200,7 +201,7 @@
             <th>Nom</th>
             <th>Prénom</th>
             <th>Fonction</th>
-            <th>Action</th>
+            {if $isDT }<th>Action</th>{/if}
         </tr>
     </thead>
     <tbody>
@@ -210,7 +211,7 @@
             <td>{$membre->nom}</td>
             <td>{$membre->prenom}</td>
             <td>{$membre->groupe->label}</td>
-            <td><a href="{$BASE_URL}project/remove-member/{$project->_id}/{$membre->_id}/">Supprimer</a></td>
+            {if $isDT }<td><a href="{$BASE_URL}project/remove-member/{$project->_id}/{$membre->_id}/">Supprimer</a></td>{/if}
         </tr>
         {/foreach}
     {/if}
