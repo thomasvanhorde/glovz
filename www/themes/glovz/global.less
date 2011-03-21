@@ -1,3 +1,15 @@
+// Variables
+@rouge: #c10000;
+
+
+// Mixins
+.arrondi (@radius: 5px) {
+	border-radius: @radius;
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+}
+
+
 // Style du site
 body {
 	//width: 1000px;
@@ -18,8 +30,10 @@ body {
 	}
 	
 	#barre {
+		position: relative;
+		z-index: 1;
 		float: left;
-		width: 250px;
+		width: 260px;
 		color: #ccc;
 		background: url('img/en-tete.png') no-repeat;
 		
@@ -67,10 +81,49 @@ body {
 	}
 	
 	#en_tete {
+		height: 64px;
+		margin-left: 260px;
+		background-color: #e5dddd;
+		color: #736666;
+		border-bottom: 1px solid #d7d3d3;
 		
+		
+		p {
+			float: left;
+			font-size: 1.1em;
+			padding: 20px 0 0 15px;
+		}
+		
+		ul {
+			margin: 0;
+			padding-top: 17px;
+			text-align: right;
+			font-size: .9em;
+			
+			li {
+				list-style-type: none;
+				display: inline;
+				margin-right: 30px;
+				
+				a {
+					color: #736666;
+					
+					&:hover {
+						color: @rouge;
+					}
+					
+					img {
+						margin-right: 5px;
+						vertical-align: -10px;
+					}
+				}
+			}
+				
+		}
 	}
 	
 	#contenu {
+		clear: top;
 		font-size: .9em;
 		padding: 50px;
 		margin-left: 250px;
@@ -78,11 +131,23 @@ body {
 		h2 {
 			font-size: 1.6em;
 			font-weight: bold;
-			margin-bottom: 20px;
+			margin-bottom: 40px;
+		}
+		
+		#bloc_etape {
+			background: url('img/drapeau.png') no-repeat #f8f4f4 30px 20px;
+			padding: 15px;
+			border: 1px solid #e1dede;
+			.arrondi(10px);
+			
+			p {
+				line-height: 2em;
+				margin-left: 100px;
+			}
 		}
 		
 		h3 {
-			text-align: right;
+			text-align: center;
 			color: #666;
 			font-size: 1.4em;
 			font-style: italic;
