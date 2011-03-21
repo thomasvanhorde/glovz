@@ -3,7 +3,7 @@
  */
 
 
-/*
+
 var Base = {
     SelectMenu: function (){
         URL_en_cour = document.location.href;
@@ -16,8 +16,8 @@ var Base = {
     }
 }
 
-
 jQuery(document).ready(function() {
     Base.SelectMenu();
 });
-*/
+
+
