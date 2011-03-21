@@ -1,4 +1,4 @@
-<h2>{$project->nom}</h2>
+<h2>{$project->nom}<div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all"></span></h2>
 
 <!-- Informations du projet -->
 <ul>
@@ -16,7 +16,7 @@
 	{/if}
     </li>
 </ul>
-<div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all"></div>
+
 <script type="text/javascript">
     {literal}
     $(function() {
@@ -72,12 +72,7 @@
         height: 300,
         width: 350,
         modal: true,
-        closeOnEscape: true,
-        buttons: {
-            Ok: function() {
-                $( this ).dialog( "close" );
-            }
-        }
+        closeOnEscape: true
     });
     {/literal}
 </script>
