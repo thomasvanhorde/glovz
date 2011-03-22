@@ -1,4 +1,7 @@
-<h2>{$project->nom}<div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all"></div></h2>
+<h2>
+    {$project->nom}
+    <div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all"></div>
+</h2>
 
 <!-- Informations du projet -->
 <ul>
@@ -8,6 +11,7 @@
     <li>URL du serveur de développement : <a href="{$project->url_dev}">{$project->url_dev}</a></li>
     <li>URL du serveur de production : <a href="{$project->url_prod}">{$project->url_prod}</a></li>
     <li>Durée estimée : {$project->duree} heures</li>
+    <li>Durée passé : {$project->tacheTotalH} heures</li>
     <li>Clôturé :
 	{if $project->cloture eq 'true'}
     	Oui
@@ -21,8 +25,7 @@
     {literal}
     $(function() {
         $( "#progressbar" ).progressbar({
-                value: 59
-                    // TODO mettre la bonne valeur de progression
+                value: {/literal}{$project->avancement}{literal}
         });
     });
     {/literal}

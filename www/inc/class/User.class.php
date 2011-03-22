@@ -75,7 +75,7 @@ class User extends SimpleContentManager {
         $bdd = Base::Load(CLASS_BDD)->_connexion->selectCollection(self::DB_COLLECTION_PROJECT_USER);
         $tmp = $bdd->find(array('member'=>$memberID));
         foreach($tmp as $d){
-            $data[] = Base::Load(CLASS_USER)->get($d['projectID'], true);
+            $data[] = Base::Load(CLASS_PROJECT)->get($d['projectID'], true);
         }
         if(isset($data))
             return (object)$data;
