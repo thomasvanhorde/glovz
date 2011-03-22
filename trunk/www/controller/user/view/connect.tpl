@@ -1,5 +1,5 @@
 <form method="post" action="">
-	<input type="hidden" name="todo" value="User[connect]" />
+	<input type="hidden" name="todo" value="user[connect]" />
     <p>
         <label for="user_email">Courriel</label>
         <input class="saisie" name="user_email" id="user_email" type="text" value="" size="35" />
