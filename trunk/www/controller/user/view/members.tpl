@@ -25,7 +25,7 @@
 </table>
 
 <a id="newMember" href="new/">Nouveau membre</a>
-<div id="dialogFormNewMember" class="dialogForm ui-dialog" title="Nouveau membre">{$formNewMember}</div>
+<div style="display: none;" id="dialogFormNewMember" class="dialogForm ui-dialog" title="Nouveau membre">{$formNewMember}</div>
 <script type="text/javascript">
     {literal}
     $("#newMember").click(function(){

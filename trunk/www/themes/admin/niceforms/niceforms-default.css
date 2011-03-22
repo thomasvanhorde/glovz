@@ -55,9 +55,12 @@ URL: http://www.emblematiq.com/
 .NFFileNew {position:absolute; top:0px; left:0px; z-index:1;}
 /*Selects*/
 .NFSelect {height:21px; position:absolute; border:1px solid transparent;}
+form.niceform .visible .NFSelect {position: static; width:auto!important;}
+form.niceform .hidden .NFSelect {display:none;}
 .NFSelectLeft {float:left; width:3px; height:21px; background:url(img/select-left.png) no-repeat 0 0; vertical-align:middle;}
 .NFSelectRight {height:21px; width:auto; background:url(img/select-right.png) no-repeat 100% 0; cursor:pointer; font:12px/21px Arial, Helvetica, sans-serif; color:#fff; padding-left:3px; margin-left:3px;}
 .NFSelectTarget {position:absolute; background:none; margin-left:-13px; margin-top:18px; z-index:3; left:0; top:0; padding-bottom:13px;}
+form.niceform .visible .NFSelectTarget {margin-top:0px; position:static;}
 .NFSelectOptions {position:relative; background:#707175; margin-left:16px; margin-top:0; list-style:none; padding:4px 0; color:#fff; font:11px/13px Arial, Helvetica, sans-serif; z-index:4; max-height:200px; overflow-y:auto; overflow-x:hidden; left:0; top:0;}
 .NFSelectOptions li {padding-bottom:1px;}
 .NFSelectOptions a {display:block; text-decoration:none; color:#ccc!important; padding:2px 3px; background:none;}

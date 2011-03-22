@@ -50,7 +50,7 @@
                 {* /PARAMETRES *}
 
 
-                <dl>
+                <dl class="{if $hidden == true}hidden{else}visible{/if}">
 
                     {if $hidden == false}
                         <dt>
@@ -135,7 +135,7 @@
                         <!-- ContentRef -->
                         {if $refT == '60'}
                             {assign var="ElementContentRef" value=$element->contentRef}
-                            <select {if $hidden}style="display:none;"{/if} size="1" class="{if $hidden}hidden {/if}{if $element->requis}require{/if}" name="{$uid}">
+                            <select {if $hidden != false}style="display:none;"{/if} size="1" class="{if $hidden}hidden {/if}{if $element->requis}require{/if}" name="{$uid}">
                                 <option value=""></option>
                                 {foreach from=$contentRef key=contentRefId item=contentRefElement}
                                     {if $contentRefId == $ElementContentRef}
@@ -181,6 +181,7 @@
 
 {literal}
     <script>
+        var niceFormID = 'form_{/literal}{$formUID}{literal}';
         jQuery(function() {
             jQuery("form#form_{/literal}{$formUID}{literal}.validity").validity(function() {
                 jQuery("form#form_{/literal}{$formUID}{literal} .require").require('necessaire');
