@@ -52,15 +52,14 @@
                     http://matis.glovz.fr/napster
                 </td>
                 <td>
-                    <div id="slider"></div>
-
+                    3 heures et 45 minutes
                 </td>
                 <td>
                     <input type="checkbox" id="" name=""/>
 
                 </td>
                 <td>
-
+                    une incompatibilité des float m'a fait prendre beaucoup de retard
                 </td>
             </tr>
             <tr>
@@ -86,15 +85,25 @@
     });
     $(function() {
         $( "#slider" ).slider({
-            value:100,
-            min: 0,
-            max: 500,
-            step: 50,
+            value:15,
+            min: 15,
+            max: 1440,
+            step: 15,
             slide: function( event, ui ) {
-                $( "#amount" ).val( "$" + ui.value );
+                var heures = Math.round(ui.value/60);
+                var minutes = ui.value%60;
+                var inputTexte = heures +"heures";
+                if(minutes != 0) {
+                    inputTexte += " et "+ minutes +" minutes";
+                }
+                $( "#inputSlider" ).val( inputTexte );
             }
         });
-        $( "#amount" ).val( "$" + $( "#slider" ).slider( "value" ) );
+        var inputStartTexte = Math.round($( "#slider" ).slider( "value" )/60);
+        if($( "#slider" ).slider( "value" )%60 != 0) {
+            inputStartTexte += " et "+ $( "#slider" ).slider( "value" )%60 +" minutes";
+        }
+        $( "#inputSlider" ).val(  inputStartTexte  );
     });
         {/literal}
     

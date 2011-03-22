@@ -16,12 +16,12 @@ class timesheet_controller {
     public function __construct() {
         $this->_view = Base::Load(CLASS_COMPONENT)->_view;
         $this->_userClass = Base::Load(CLASS_USER);
-        $this->_timesheet = Base::Load(CLASS_TIMESHEET);
+//        $this->_timesheet = Base::Load(CLASS_TIMESHEET);
     }
 
     public function defaut() {
-        $this->_view->addBlock('content', 'default.tpl');
         $this->_view->addBlock('formNewTache', 'formNewTache.tpl');
+        $this->_view->addBlock('content', 'default.tpl');
     }
 
     
@@ -29,7 +29,7 @@ class timesheet_controller {
 }
 
 /*
-  Fin du fichier : project.controller.php
+  Fin du fichier : timesheet.controller.php
   Chemin du fichier : /www/controller/timesheet/
  */
 
