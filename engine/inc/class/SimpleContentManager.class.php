@@ -122,6 +122,12 @@ abstract class SimpleContentManager {
 
     public function addForm($blockName, $action = false, $template = false){
 
+        global $formCompteur;
+
+        // Compte form
+        $formCompteur++;
+        $this->_view->assign('formCompteur', $formCompteur);
+
         if(!$action)
             $action = 'defaut_add';
 

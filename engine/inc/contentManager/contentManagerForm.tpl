@@ -1,4 +1,6 @@
+{if $formCompteur == 1}
 <script type="text/javascript" src="{$BASE_URL}/js/admin/datepicker/datepicker.js"></script>
+{/if}
 
 <form method="post" class="validity niceform" id="form_{$formUID}">
     <fieldset>
@@ -172,10 +174,10 @@
 
 
 
-
-<script type="text/javascript" src="{$BASE_URL}js/engine/jquery.validity.pack.js"></script>
-
-<script type="text/javascript" src="{$BASE_URL}js/engine/niceforms.js"></script>
+{if $formCompteur == 1}
+    <script type="text/javascript" src="{$BASE_URL}js/engine/jquery.validity.pack.js"></script>
+    <script type="text/javascript" src="{$BASE_URL}js/engine/niceforms.js"></script>
+{/if}
 
 {literal}
     <script>
