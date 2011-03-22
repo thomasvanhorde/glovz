@@ -6,8 +6,10 @@
         <caption>
             Feuille de temps
 
-            <select>
-                <option>Napster</option>
+            <select name="projects">
+                {foreach from=$projects key=id item=project}
+                <option value="{id}"{$project.nom|utf8_decode}>{$project.nom|utf8_decode}</option>
+                {/foreach}
             </select>
 
 
@@ -76,6 +78,7 @@
 <script type="text/javascript">
     
     {literal}
+    $( ".dialogFormNouvelleTache" ).dialog( "destroy" );
     $( ".dialogFormNouvelleTache" ).dialog({
         autoOpen: false,
         width: 700,
