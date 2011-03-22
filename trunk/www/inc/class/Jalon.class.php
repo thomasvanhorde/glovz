@@ -50,7 +50,7 @@ class Jalon extends SimpleContentManager {
 
             if(is_object($projectList)){
                 foreach($projectList as $project){ $projectID[] = $project->_id;}
-                $now = (string)date('y/m/d');
+                $now = (string)date('y/m/d', time() - 3600 * 24);
                 $filter = array(
                     "collection" => (string)$this->_collection,
                     'projet' => array('$in' => $projectID),
