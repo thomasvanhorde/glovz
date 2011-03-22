@@ -17,7 +17,7 @@
 </div>
 
 
-<div id="dialogFormMyProfil" class="dialogForm ui-dialog" title="Mes informations">{$formMyProfil}</div>
+<div style="display: none;" id="dialogFormMyProfil" class="dialogForm ui-dialog" title="Mes informations">{$formMyProfil}</div>
 <script type="text/javascript">
     {literal}
     $("#editMyProfil").click(function(){
