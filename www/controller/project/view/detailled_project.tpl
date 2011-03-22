@@ -1,6 +1,8 @@
+
+
+<div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all"></div>
 <h2>
     {$project->nom}
-    <div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all"></div>
 </h2>
 
 <!-- Informations du projet -->
@@ -11,12 +13,12 @@
     <li>URL du serveur de développement : <a href="{$project->url_dev}">{$project->url_dev}</a></li>
     <li>URL du serveur de production : <a href="{$project->url_prod}">{$project->url_prod}</a></li>
     <li>Durée estimée : {$project->duree} heures</li>
-    <li>Durée passé : {$project->tacheTotalH} heures</li>
+    <li>Durée passée : {$project->tacheTotalH} heures, soit {$project->avancement}% du projet</li>
     <li>Clôturé :
 	{if $project->cloture eq 'true'}
-    	Oui
+            Oui
 	{else}
-		Non
+            Non
 	{/if}
     </li>
 </ul>
@@ -27,28 +29,31 @@
         $( "#progressbar" ).progressbar({
                 value: {/literal}{$project->avancement}{literal}
         });
+            $( "#progressbar.ui-progressbar-value" ).html("{/literal}{$project->avancement}{literal}");
     });
     {/literal}
 </script>
 
 <!-- Jalons du projet -->
-<h3>-- Jalons --</h3>
 
-{if $isDT }
-<input type="button" value="Créer un nouveau jalon" id="nouveauJalon"/>
 
-<div id="dialogFormNouveauJalon" class="dialogForm ui-dialog" title="Nouveau jalon">{$formNewJalon}</div>
-<script type="text/javascript">
-    {literal}
-    $("#nouveauJalon").click(function(){
-        $( "#dialogFormNouveauJalon" ).dialog( "open" );
-    });
-    {/literal}
-</script>
-{/if}
 
 {if !empty($project->jalon)}
 <table>
+    <caption>Jalons
+    {if $isDT }
+        <input type="button" value="Créer un nouveau jalon" id="nouveauJalon" class="buttonRight" />
+
+        <div id="dialogFormNouveauJalon" class="dialogForm ui-dialog" title="Nouveau jalon">{$formNewJalon}</div>
+        <script type="text/javascript">
+            {literal}
+            $("#nouveauJalon").click(function(){
+                $( "#dialogFormNouveauJalon" ).dialog( "open" );
+            });
+            {/literal}
+        </script>
+    {/if}
+    </caption>
     <thead>
         <tr>
             <th>Label</th>
@@ -77,22 +82,26 @@
 
 <br />
 
-<!-- Tâches du projet -->
-<h3>-- Tâches --</h3>
-{if $isDT }
-<input type="button" value="Créer une nouvelle tâche" id="nouvelleTache"/>
+<!--Tâches du projet -->
 
-<div id="dialogFormNouvelleTache" class="dialogForm ui-dialog" title="Nouvelle tâche">{$formNewTache}</div>
-<script type="text/javascript">
-    {literal}
-    $("#nouvelleTache").click(function(){
-        $( "#dialogFormNouvelleTache" ).dialog( "open" );
-    });
-    {/literal}
-</script>
-{/if}
 {if !empty($project->tache)}
 <table>
+    <caption>
+        Tâches
+
+        {if $isDT }
+        <input type="button" value="Créer une nouvelle tâche" id="nouvelleTache" class="buttonRight" />
+
+        <div id="dialogFormNouvelleTache" class="dialogForm ui-dialog" title="Nouvelle tâche">{$formNewTache}</div>
+        <script type="text/javascript">
+            {literal}
+            $("#nouvelleTache").click(function(){
+                $( "#dialogFormNouvelleTache" ).dialog( "open" );
+            });
+            {/literal}
+        </script>
+        {/if}
+    </caption>
     <thead>
         <tr>
             <th>Label</th>
@@ -131,9 +140,12 @@
 <br />
 
 <!-- Membres du projet -->
-<h3>-- Membres --</h3>
-{if $isDT }<h3>{$allUsersContent}</h3>{/if}
+
 <table>
+    <caption>
+        Membres
+        {if $isDT }{$allUsersContent}{/if}
+    </caption>
     <thead>
         <tr>
             <th>Nom</th>
