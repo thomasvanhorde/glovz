@@ -12,12 +12,7 @@ class home_controller {
             header('location: dashboard/');
         }
         else {
-            $this->_view->addBlock('content','content.tpl');
+            $this->_view->addBlock('content','connect.tpl', 'controller/user/view/');
         }
-
-        /** Exemple */
-        $data = Base::Load(CLASS_PROJECT)->get('4d76229711e18d9005000031',true);
-        $this->_view->assign('foo', $data);
-        /*  {$foo|var_dump} */
     }
 }

@@ -56,16 +56,13 @@ class user_controller {
             header('location: '.SYS_FOLDER);
     }
 
-    public function connect() {
-        $this->_view->addBlock('content','connect.tpl');
-    }
 
     public function POST_connect($data){
-        if($this->_userClass->connect($data['user_email'], $data['user_password']))
-            header('location: '.$_SERVER['REDIRECT_URL'].'../');
+        if($this->_userClass->connect($data['user_email'], $data['user_password'])){
+            header('location: '.$_SERVER['REQUEST_URI'].'../');
+            }
         else {
             $this->_view->assign('erreur', true);
-            $this->connect();
         }
     }
 

@@ -1,19 +1,18 @@
-{if $erreur == "true" }
-    erreur de login
-{/if}
-
 <form method="post" action="">
-    <fieldset class="form">
-        <input type="hidden" name="todo" value="User[connect]" />
-        <p>
-            <label for="user_email">email:</label>
-            <input name="user_email" id="user_email" type="text" value="" />
-
-        </p>
-        <p>
-            <label for="user_password">Password:</label>
-            <input name="user_password" id="user_password" type="password" />
-        </p>
-        <input type="submit" value="connexion" />
-    </fieldset>
+	<input type="hidden" name="todo" value="User[connect]" />
+    <p>
+        <label for="user_email">Courriel</label>
+        <input class="saisie" name="user_email" id="user_email" type="text" value="" size="35" />
+    </p>
+    <p>
+        <label for="user_password">Mot de passe</label>
+        <input class="saisie" name="user_password" id="user_password" type="password" size="35" />
+    </p>
+    <p id="bouton">
+    	<input type="submit" value="Connexion" />
+    </p>
 </form>
+
+{if $erreur == "true" }
+<p id="erreur">La connexion a échouée.</p>
+{/if}
