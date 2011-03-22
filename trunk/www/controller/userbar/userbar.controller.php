@@ -27,7 +27,26 @@
 			$this->_view		= Base::Load(CLASS_COMPONENT)->_view;
 			$this->_userClass	= Base::Load(CLASS_USER);
 		}
-		
+
+        /***
+         * @return void
+         */
+        public function myProfil() {
+            $param = array(
+              'field' => array(
+                  'role' => array(
+                      'hidden' => true
+                  ),
+                  'groupe' => array(
+                      'hidden' => true
+                  )
+              )
+            );
+            $this->_view->assign('formParam', $param);
+            Base::Load(CLASS_USER)->editForm('formMyProfil', $_SESSION['user']['uid'], 'user[MemberData]');
+        }
+
+
 		/**
 		 *	Récupération et envoi des données de l'utilisateur à la vue
 		 *
@@ -36,6 +55,7 @@
 		 */
 		function defaut() {
 			if ($userData = $this->_userClass->isConnect()) {
+                $this->myProfil();
 				$this->_view->assign('user', $userData);
 				$this->_view->assign('myURL',$_GET['url']);
 				$this->_view->addBlock('userbar', 'other.tpl','view/userbar/');

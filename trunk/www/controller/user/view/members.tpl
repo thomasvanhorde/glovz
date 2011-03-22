@@ -24,5 +24,18 @@
     </tbody>
 </table>
 
-<a href="new/">Nouveau membre</a>
+<a id="newMember" href="new/">Nouveau membre</a>
+<div id="dialogFormNewMember" class="dialogForm ui-dialog" title="Nouveau membre">{$formNewMember}</div>
+<script type="text/javascript">
+    {literal}
+    $("#newMember").click(function(){
+        $( "#dialogFormNewMember" ).dialog( "open" );
+        return false;
+    });
+    {/literal}
+</script>
+
+
+
+
 <a href="pdf/">PDF</a>

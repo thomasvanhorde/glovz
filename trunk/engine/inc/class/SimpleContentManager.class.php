@@ -114,6 +114,9 @@ abstract class SimpleContentManager {
     }
 
     public function editForm($blockName, $objectId, $action = false, $template = false){
+        global $editForm;
+
+        $editForm = true;
         $data = $this->get($objectId, true);
         $this->_view->assign('data', $data);
         $this->_view->assign('id', $objectId);
@@ -121,8 +124,12 @@ abstract class SimpleContentManager {
     }
 
     public function addForm($blockName, $action = false, $template = false){
+        global $formCompteur, $editForm;
 
-        global $formCompteur;
+        if(!$editForm){
+            $this->_view->assign('id', null);
+            $this->_view->assign('data', null);
+        }
 
         // Compte form
         $formCompteur++;
@@ -164,6 +171,9 @@ abstract class SimpleContentManager {
             $this->_view->addBlock($blockName, 'contentManagerForm.tpl', 'inc/contentManager/');
         else
             $this->_view->addBlock($blockName, $template);
+
+
+        $editForm = false;
 
     }
 
