@@ -2,6 +2,7 @@
 
 <coremessage>
     <message id="ERR_LOAD_CLASS">Impossible de charger la class</message>
+    <message id="ERR_LOAD_CLASS_LESS">Impossible de charger la class Less PHP</message>
     <message id="ERR_LOAD_CLASS_PHPMAILER">Impossible d'inclure la class PhpMailer</message>
     <message id="ERR_LOAD_CLASS_LOADER">Impossible d'inclure la class ClassLoader</message>
     <message id="ERR_LOAD_CLASS_SMARTY">Impossible d'inclure Smarty</message>
