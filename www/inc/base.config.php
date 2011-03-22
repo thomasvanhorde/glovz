@@ -1,6 +1,7 @@
 <?php
 
-
+Define_once('MONGO_HOST','localhost');
+Define_once('MONGO_BASE','test');
 // Defaut config
 if($_SERVER['SCRIPT_FILENAME'] == '/var/www/lpcm/glovz/trunk/www/index.php'){ // Serveur Thomas
     Define_once('SYS_FOLDER','/');

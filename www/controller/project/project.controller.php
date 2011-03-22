@@ -35,7 +35,11 @@
 			$this->_milestoneClass	= Base::Load(CLASS_JALON);
 			$this->_taskClass		= Base::Load(CLASS_TACHE);
 			$this->_userClass		= Base::Load(CLASS_USER);
-		}
+
+            if ($this->_userClass->isConnect()) {
+                $this->_userInfo = $this->_userClass->isConnect();
+            }
+        }
 		
 		/**
 		 *	Choix de la vue à afficher selon l'URL
@@ -80,7 +84,11 @@
 			}
 			// Sinon on affiche la liste de tous les projets
 			else {
-				$allProjects = $this->_projectClass->getAll();
+                if($this->_userClass->isDT())
+				    $allProjects = $this->_projectClass->getAll();
+                else
+                    $allProjects = $this->_userClass->getProject($this->_userInfo['uid']);
+
 				$this->_view->assign('projects', $allProjects);
 				$this->_view->addBlock('content','defaut.tpl');
 			}

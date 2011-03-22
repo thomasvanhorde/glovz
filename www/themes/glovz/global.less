@@ -2,6 +2,8 @@
 @rouge: #c10000;
 
 
+
+
 // Mixins
 .arrondi (@radius: 5px) {
 	border-radius: @radius;
@@ -15,15 +17,15 @@ body {
 	background: url('../../themes/glovz/img/fond.png') repeat-y #eae5e5;
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	color: #111;
-	
+
 	p, li {
 		line-height: 1.6em;
 	}
-	
+
 	a {
 		text-decoration: none;
 	}
-	
+
 	#barre {
 		position: relative;
 		z-index: 1;
@@ -31,17 +33,17 @@ body {
 		width: 260px;
 		color: #ccc;
 		background: url('../../themes/glovz/img/en-tete.png') no-repeat;
-		
+
 		#menu {
 			padding: 30px 0 30px 0;
-			
+
 			li {
                                 margin: 0;
                                 padding: 0;
                                 list-style-type: none;
 				line-height: 1.8em;
 			}
-			
+
 			a {
 				color: #a0a0a0;
 				padding: 0 0 0 40px;
@@ -52,7 +54,7 @@ body {
 					color: #d3d3d3;
 				}
 			}
-			
+
 			.actif {
 				display: block;
 				background: url('../../themes/glovz/img/lien_menu_actif.png') no-repeat;
@@ -62,7 +64,7 @@ body {
                 height: 30px;
 			}
 		}
-	
+
 		.bouton {
 			color: #9d9494;
 			line-height: 3.2em;
@@ -70,45 +72,45 @@ body {
 			display: block;
 			height: 50px;
 			background: url('../../themes/glovz/img/bouton.png') no-repeat 50px;
-			
+
 			&:hover {
 				color: #a79d98;
 				background: url('../../themes/glovz/img/bouton_survole.png') no-repeat 50px;
 			}
 		}
 	}
-	
+
 	#en_tete {
 		height: 64px;
 		margin-left: 260px;
 		background-color: #e5dddd;
 		color: #736666;
 		border-bottom: 1px solid #d7d3d3;
-		
+
 		p {
 			float: left;
 			font-size: 1.1em;
 			padding: 20px 0 0 15px;
 		}
-		
+
 		ul {
 			margin: 0;
 			padding-top: 17px;
 			text-align: right;
 			font-size: .9em;
-			
+
 			li {
 				list-style-type: none;
 				display: inline;
 				margin-right: 30px;
-				
+
 				a {
 					color: #736666;
-					
+
 					&:hover {
 						color: @rouge;
 					}
-					
+
 					img {
 						margin-right: 5px;
 						vertical-align: -10px;
@@ -117,78 +119,78 @@ body {
 			}
 		}
 	}
-	
+
 	#contenu {
 		clear: top;
 		font-size: .9em;
 		padding: 50px;
 		margin-left: 250px;
-		
+
 		h2 {
 			font-size: 1.6em;
 			font-weight: bold;
 			margin-bottom: 40px;
 		}
-		
+
 		#bloc_etape {
 			margin-bottom: 30px;
 			padding: 15px;
 			background: url('../../themes/glovz/img/drapeau.png') no-repeat #f8f4f4 30px 20px;
 			border: 1px solid #e1dede;
 			.arrondi(10px);
-			
+
 			p {
 				line-height: 2em;
 				margin-left: 100px;
 			}
 		}
-		
+
 		a {
 			color: #b71414;
 			font-weight: bold;
-			
+
 			&:hover {
 				border-bottom: 1px dashed #b71414;
 			}
 		}
-		
+
 		table {
 			width: 100%;
 			margin-bottom: 30px;
 			border: 1px solid #aaa;
-			
+
 			caption {
                                 padding: 5px;
 				color: #555;
 				font-size: 1.4em;
 				font-weight: bold;
 			}
-			
+
 			th {
 				padding: 7px;
 				background-color: #ccc;
 				border-bottom: 1px solid #aaa;
 			}
-			
+
 			tr {
 				background-color: #f6f3f3;
-				
+
 			}
-			
+
 			.alterne {
 				background-color: #e8e2e2;
 			}
-			
+
 			td {
 				padding: 7px;
 
 			}
 		}
-			
+
 		.btnNouveau {
 			margin-bottom: 10px;
 			float: right;
-			
+
 			&:hover {
 				border: none;
 			}
@@ -210,7 +212,7 @@ body {
             background: #000;
         }
         .ui-widget-header {
-            
+
         }
         .buttonRight {
             float: right;

@@ -174,6 +174,7 @@ abstract class SimpleContentManager {
 
 
         $editForm = false;
+        $this->_view->assign('formParam', null);
 
     }
 

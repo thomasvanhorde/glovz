@@ -212,7 +212,7 @@ function inputCheck(el) { //extend Checkboxes
 	el.init = function() {
 		this.parentNode.insertBefore(this.dummy, this);
 		el.className = "NFhidden";
-        jQuery(this).parents('dl').css('display','none');
+    //    jQuery(this).parents('dl').css('display','none');
 	} 
 	el.unload = function() {
 		this.parentNode.removeChild(this.dummy);
@@ -406,7 +406,6 @@ function selects(el) { //extend Selects
 		this.dummy.style.zIndex = 999 - pos;
 		this.parentNode.insertBefore(this.dummy, this);
 		this.className = "NFhidden";
-        jQuery(this).parents('dl').css('display','none');
 	}
 	el.unload = function() {
 		this.parentNode.removeChild(this.dummy);
