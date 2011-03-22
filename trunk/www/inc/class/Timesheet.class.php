@@ -4,7 +4,7 @@
  * Date: 22/03/11
  * Time: 20:42
  */
-
+exit ('test');
  class Timesheet extends SimpleContentManager {
 
     public function __construct(){
