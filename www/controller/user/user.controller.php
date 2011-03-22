@@ -10,6 +10,9 @@ class user_controller {
 
     public function members(){
         $allUser = $this->_userClass->getAll();
+
+        $this->_userClass->addForm('formNewMember', 'MemberData');
+        
         $this->_view->assign('members', $allUser);
         $this->_view->addBlock('content','members.tpl');
     }
@@ -31,24 +34,6 @@ class user_controller {
 
     public function newMember(){
         $this->_userClass->addForm('content', 'MemberData');
-    }
-
-    public function myProfil() {
-        if($this->_userClass->isConnect()) {
-
-            $param = array(
-              'field' => array(
-                  'role' => array(
-                      'hidden' => true
-                  ),
-                  'groupe' => array(
-                      'hidden' => true
-                  )
-              )
-            );
-            $this->_view->assign('formParam', $param);
-            $this->_userClass->editForm('content', $_SESSION['user']['uid'], 'MemberData');
-        }
     }
 
     public function disconnect() {

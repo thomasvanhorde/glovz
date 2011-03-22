@@ -2,22 +2,14 @@
  * Fonctions de base
  */
 
-
-
-var Base = {
-    SelectMenu: function (){
-        URL_en_cour = document.location.href;
-        $.each(jQuery('#menu a'), function(index, value) {
-            element = jQuery(value);
-            url = element.attr('href');
-            if(url == URL_en_cour)
-                element.addClass('actif');
-        });
-    }
-}
-
-jQuery(document).ready(function() {
-    Base.SelectMenu();
+$(document).ready(function () {
+    $( ".dialogForm" ).dialog({
+        autoOpen: false,
+        width: 650,
+        modal: true,
+        closeOnEscape: true
+    });
 });
+
 
 
