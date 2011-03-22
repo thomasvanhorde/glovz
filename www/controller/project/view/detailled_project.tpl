@@ -1,4 +1,4 @@
-<h2>{$project->nom}<div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all"></span></h2>
+<h2>{$project->nom}<div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all"></div></h2>
 
 <!-- Informations du projet -->
 <ul>
