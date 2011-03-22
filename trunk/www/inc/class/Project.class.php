@@ -27,8 +27,10 @@
 
             // Durée total des tâches associé
             $duree = 0;
+            if(is_array($taches)){
             foreach($taches as $tache)
                 $duree += (int)$tache['duree'];
+            }
             $data->tacheTotalH = $duree;
             if((int)$duree > 0)
                 $data->avancement = $data->duree / (int)$duree;
