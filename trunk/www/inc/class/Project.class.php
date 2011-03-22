@@ -23,6 +23,19 @@
 
             // Récuparation des tâches et tri par type
             $taches = Base::Load(CLASS_TACHE)->findBy('projet', $object_id, true);
+
+
+            // Durée total des tâches associé
+            $duree = 0;
+            foreach($taches as $tache)
+                $duree += (int)$tache['duree'];
+            $data->tacheTotalH = $duree;
+            if((int)$duree > 0)
+                $data->avancement = $data->duree / (int)$duree;
+            else
+                $data->avancement = 0;
+
+            
             if(is_array($taches)){
                 $tacheArray = array();
                 foreach($taches as $tID => $tache){
@@ -33,6 +46,7 @@
 
             $data->membre = $this->getMember($object_id);
         }
+
         return $data;
     }
 

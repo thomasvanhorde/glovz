@@ -12,7 +12,7 @@
         <tr>
             <td><a href="{$BASE_URL}project/{$project->_id}/">{$project->nom|utf8_decode}</a></td>
             <td>{$project->cdp->nom} {$project->cdp->prenom }</td>
-             <td>x %</td>
+             <td>{$project->avancement} %</td>
         </tr>
     {/foreach}
     </tbody>
