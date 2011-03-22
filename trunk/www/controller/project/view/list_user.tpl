@@ -1,14 +1,13 @@
-<h2>Ajouter un membre au projet</h2>
-
-<form method="post">
-    <input type="hidden" value="addMember" name="todo">
-    <input type="hidden" value="{$project->_id}" name="projectID">
-    <select name="member">
+<form method="post" class="buttonRight" >
+    <p>
+        <input type="hidden" value="addMember" name="todo">
+        <input type="hidden" value="{$project->_id}" name="projectID">
+        <select name="member">
         {foreach from=$allUsers key=id item=user}
-        <option value="{$id}">{$user.nom} {$user.prenom}</option>
+            <option value="{$id}">{$user.nom} {$user.prenom}</option>
         {/foreach}
-    </select>
+        </select>
 
-    <input type="submit" value="Ajouter ce membre" />
-
+        <input type="submit" value="Ajouter ce membre" />
+    </p>
 </form>
