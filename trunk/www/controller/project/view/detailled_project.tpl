@@ -71,6 +71,7 @@
 </table>
 {/if}
 
+
 <br />
 
 <!-- Tâches du projet -->
