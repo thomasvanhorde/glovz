@@ -1,0 +1,46 @@
+.arrondi {
+  border-radius:5px;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+}
+.center { text-align:center; }
+body {
+  width:420px;
+  margin:auto;
+  background:url('../../themes/glovz/img/fond_accueil.png') repeat #1f1f1f;
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+  color:#eae3d6;
+}
+body h1 {
+  padding:50px;
+  text-align:center;
+}
+body #contenu p { line-height:3em; }
+body #contenu label {
+  float:left;
+  width:140px;
+  text-indent:10px;
+}
+body #contenu .saisie {
+  border-radius:5px;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  padding:2px;
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size:1em;
+}
+body #contenu #bouton {
+  margin-top:20px;
+  text-align:center;
+}
+body #contenu #bouton input {
+  width:140px;
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size:1em;
+}
+body #contenu #erreur {
+  text-align:center;
+  color:#c32222;
+  font-size:.8em;
+  font-style:italic;
+}
