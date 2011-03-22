@@ -69,8 +69,8 @@
                 $this->_view->assign('formParam', $param);
                 
                 // Load mileston form
-                $this->createMilestone();
-                $this->createTask();
+                $this->_milestoneClass->addForm('formNewJalon', 'MilestoneData');
+                $this->_taskClass->addForm('formNewTache', 'TaskData');
 
 				$this->_view->assign('allUsers', $allUsers);
 				$this->_view->assign('project', $current_project);
@@ -148,7 +148,7 @@
 		 *	@version: 1.0
 		 */
 		public function createMilestone() {
-			$this->_milestoneClass->addForm('formNewJalon', 'MilestoneData');
+			$this->_milestoneClass->addForm('content', 'MilestoneData');
 		}
 		
 		/**
@@ -202,7 +202,7 @@
 		 *	@version: 1.0
 		 */
 		public function createTask() {
-			$this->_taskClass->addForm('formNewTache', 'TaskData');
+			$this->_taskClass->addForm('content', 'TaskData');
 		}
 		
 		/**
