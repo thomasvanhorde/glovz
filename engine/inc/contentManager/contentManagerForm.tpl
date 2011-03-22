@@ -1,6 +1,6 @@
 <script type="text/javascript" src="{$BASE_URL}/js/admin/datepicker/datepicker.js"></script>
 
-<form method="post" class="validity niceform">
+<form method="post" class="validity niceform" id="form_{$formUID}">
     <fieldset>
         <legend>
             {if $id==''}
@@ -180,10 +180,10 @@
 {literal}
     <script>
         jQuery(function() {
-            jQuery("form.validity").validity(function() {
-                jQuery(".require").require('necessaire');
-                jQuery(".email").match("email");
-                jQuery(".number").match("number");
+            jQuery("form#form_{/literal}{$formUID}{literal}.validity").validity(function() {
+                jQuery("form#form_{/literal}{$formUID}{literal} .require").require('necessaire');
+                jQuery("form#form_{/literal}{$formUID}{literal} .email").match("email");
+                jQuery("form#form_{/literal}{$formUID}{literal} .number").match("number");
             });
 
         });

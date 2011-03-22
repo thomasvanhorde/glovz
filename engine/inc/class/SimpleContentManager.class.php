@@ -128,6 +128,9 @@ abstract class SimpleContentManager {
         $struct = $this->getStruct();
         $this->_view->assign('structure', $struct);
 
+        $formUId = uniqid();
+        $this->_view->assign('formUID', $formUId);
+
         $contentRef = array();
         foreach($struct->types as $types){
             foreach($types as $type){
