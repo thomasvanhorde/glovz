@@ -9,8 +9,8 @@
 	    <title>{ $title|utf8_decode }</title>
 	    
 	    {* Feuilles de style *}
-	    <link rel="stylesheet/less" media="screen" href="{$BASE_URL}themes/glovz/soft-reset.css" />
-	    <link rel="stylesheet/less" media="screen" href="{$BASE_URL}themes/glovz/accueil.less" />
+	    <link rel="stylesheet" media="screen" href="{$BASE_URL}themes/glovz/soft-reset.css" />
+	    <link rel="stylesheet" media="screen" href="{$BASE_URL}themes/package/accueil.css" />
 	
 		{* Scripts JS *}
 	    <script type="text/javascript" src="{$BASE_URL}js/glovz/less.js"></script>

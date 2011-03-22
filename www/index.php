@@ -44,4 +44,9 @@ $SiteObj = Base::Load(CLASS_BASE);
 $SiteObj->Start($_SERVER['REQUEST_URI']);
 $SiteObj->Display();
 
+// Less PHP
+if(DEV){
+    Base::Load(CLASS_LESS)->Load('themes/glovz/global.less', 'themes/package/global.css');
+    Base::Load(CLASS_LESS)->Load('themes/glovz/accueil.less', 'themes/package/accueil.css');
+}
 ?>

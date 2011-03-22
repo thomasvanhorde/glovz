@@ -31,6 +31,7 @@ define('CLASS_INSTALL','Install');
 define('CLASS_CSS','Css');
 define('CLASS_CONTENT_MANAGER','ContentManager');
 define('CLASS_PDF','Pdf');
+define('CLASS_LESS','Less_php');
 
 
 

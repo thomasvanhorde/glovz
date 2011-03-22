@@ -1,9 +1,5 @@
 <?php
 
-define('DEBUG', false);
-define('DEV', true);
-
-
 
 Define_once('MONGO_HOST','mongodb://10.70.224.118');
 Define_once('MONGO_BASE','test');
@@ -47,9 +43,13 @@ if($_SERVER['SCRIPT_FILENAME'] == '/Applications/MAMP/htdocs/glovz/www/index.php
 
 // Defaut config
 if($_SERVER['SCRIPT_FILENAME'] == '/var/www/lpcm/glovz/trunk/www/index.php'){ // Serveur Thomas
-    //Define_once('SYS_FOLDER','/www/');  //  http://glovztest.fr/www/
     Define_once('SYS_FOLDER','/');
 	Define_once('ENGINE_URL','/var/www/lpcm/glovz/trunk/engine/');
+    Define_once('DEV', false);
 }
+
+
+Define_once('DEBUG', false);
+Define_once('DEV', true);
 
 ?>
