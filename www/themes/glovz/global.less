@@ -12,17 +12,12 @@
 
 // Style du site
 body {
-	//width: 1000px;
 	background: url('img/fond.png') repeat-y #eae5e5;
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	color: #111;
 	
 	p, li {
 		line-height: 1.6em;
-	}
-	
-	li {
-		//list-style-type: none;
 	}
 	
 	a {
@@ -41,14 +36,14 @@ body {
 			padding: 30px 0 30px 0;
 			
 			li {
-				line-height: 1.9em;
+				line-height: 1.8em;
 			}
 			
 			a {
 				color: #a0a0a0;
-				padding: 0px 0px 0px 40px;
-                                height : 30px;
-                                display: block;
+				padding: 0 0 0 40px;
+                height: 30px;
+                display: block;
 
 				&:hover {
 					color: #d3d3d3;
@@ -61,7 +56,7 @@ body {
 				color: #d3d3d3;
 				width: 195px;
 				padding: 5px 40px 5px 40px;
-                                height: 30px;
+                height: 30px;
 			}
 		}
 	
@@ -86,7 +81,6 @@ body {
 		background-color: #e5dddd;
 		color: #736666;
 		border-bottom: 1px solid #d7d3d3;
-		
 		
 		p {
 			float: left;
@@ -118,7 +112,6 @@ body {
 					}
 				}
 			}
-				
 		}
 	}
 	
@@ -135,8 +128,9 @@ body {
 		}
 		
 		#bloc_etape {
-			background: url('img/drapeau.png') no-repeat #f8f4f4 30px 20px;
+			margin-bottom: 30px;
 			padding: 15px;
+			background: url('img/drapeau.png') no-repeat #f8f4f4 30px 20px;
 			border: 1px solid #e1dede;
 			.arrondi(10px);
 			
@@ -144,15 +138,6 @@ body {
 				line-height: 2em;
 				margin-left: 100px;
 			}
-		}
-		
-		h3 {
-			text-align: center;
-			color: #666;
-			font-size: 1.4em;
-			font-style: italic;
-			font-weight: bold;
-			margin-top: 30px;
 		}
 		
 		a {
@@ -166,7 +151,16 @@ body {
 		
 		table {
 			width: 100%;
+			margin-bottom: 30px;
 			border: 1px solid #aaa;
+			
+			caption {
+				padding: 5px;
+				text-align: center;
+				color: #555;
+				font-size: 1.4em;
+				font-weight: bold;
+			}
 			
 			th {
 				padding: 7px;

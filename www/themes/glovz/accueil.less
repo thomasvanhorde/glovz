@@ -1,0 +1,63 @@
+// Mixins
+.arrondi (@radius: 5px) {
+	border-radius: @radius;
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+}
+
+.center {
+	text-align: center;
+}
+
+
+// Style du site
+body {
+	width: 420px;
+	margin: auto;
+	background: url('img/fond_accueil.png') repeat #1f1f1f;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: #eae3d6;
+		
+	h1 {
+		padding: 50px;
+		.center;
+	}
+	
+	#contenu {
+		
+		p {
+			line-height: 3em;
+		}
+		
+		label {
+			float: left;
+			width: 140px;
+			text-indent: 10px;
+		}
+		
+		.saisie {
+			.arrondi;
+			padding: 2px;
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			font-size: 1em;
+		}
+		
+		#bouton {
+			margin-top: 20px;
+			.center;
+			
+			input {
+				width: 140px;
+				font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+				font-size: 1em;
+			}
+		}
+		
+		#erreur {
+			text-align: center;
+			color: #c32222;
+			font-size: .8em;
+			font-style: italic;
+		}
+	}
+}

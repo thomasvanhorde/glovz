@@ -1,9 +1,10 @@
-<h3>Vos projets en cours</h3>
 <table>
+	<caption>Projets en cours</caption>
     <thead>
         <tr>
             <th>Nom</th>
             <th>Chef de projet</th>
+            <th>Avancement</th>
         </tr>
     </thead>
     <tbody>
@@ -11,6 +12,7 @@
         <tr>
             <td><a href="{$BASE_URL}project/{$project->_id}/">{$project->nom|utf8_decode}</a></td>
             <td>{$project->cdp->nom} {$project->cdp->prenom }</td>
+             <td>x %</td>
         </tr>
     {/foreach}
     </tbody>
