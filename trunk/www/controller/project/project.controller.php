@@ -50,6 +50,28 @@
 			if (isset($_GET['param'][0])) {
 				$current_project = $this->_projectClass->get($_GET['param'][0], true);
 				$allUsers = $this->_userClass->getAll();
+
+                $param = array(
+                  'field' => array(
+                      'projet' => array(
+                          'value' => $_GET['param'][0],
+                          'hidden' => true
+                      ),
+                      'utilisateur' => array(
+                          'value' => $_SESSION['user']['uid'],
+                          'hidden' => true
+                      ),
+                      'cloture' => array(
+                          'hidden' => true
+                      )
+                  )
+                );
+                $this->_view->assign('formParam', $param);
+                
+                // Load mileston form
+                $this->createMilestone();
+                $this->createTask();
+
 				$this->_view->assign('allUsers', $allUsers);
 				$this->_view->assign('project', $current_project);
 				
@@ -126,7 +148,7 @@
 		 *	@version: 1.0
 		 */
 		public function createMilestone() {
-			$this->_milestoneClass->addForm('content', 'MilestoneData');
+			$this->_milestoneClass->addForm('formNewJalon', 'MilestoneData');
 		}
 		
 		/**
@@ -161,7 +183,7 @@
 		public function POST_MilestoneData($data) {
 			if (empty($data['id'])) { // Création
 				$this->_milestoneClass->save($data);
-				header('location: '.Base::getUrl(3));
+				header('location: '.Base::getUrl(1));
 			}
 			else { // Édition
 				if ($this->_milestoneClass->update($data, $data['id']))
@@ -180,22 +202,7 @@
 		 *	@version: 1.0
 		 */
 		public function createTask() {
-
-            $param = array(
-              'field' => array(
-                  'projet' => array(
-                      'value' => $_GET['param'][0],
-                      'hidden' => true
-                  ),
-                  'utilisateur' => array(
-                      'value' => $_SESSION['user']['uid'],
-                      'hidden' => true
-                  )
-              )
-            );
-            $this->_view->assign('formParam', $param);
-
-			$this->_taskClass->addForm('content', 'TaskData');
+			$this->_taskClass->addForm('formNewTache', 'TaskData');
 		}
 		
 		/**

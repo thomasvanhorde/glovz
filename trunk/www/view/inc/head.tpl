@@ -30,7 +30,7 @@
     <script type="text/javascript">
 	    Cufon.replace('h2', {fontFamily: 'Harabara'});
 	    Cufon.replace('caption', {fontFamily: 'Harabara'});
-	    Cufon.replace('#menu a, legend, #en_tete p, #en_tete a', {fontFamily: 'Opificio'});
+	    Cufon.replace('#menu a, legend, #en_tete p, #en_tete a, .ui-dialog-title', {fontFamily: 'Opificio'});
     </script>
     {/literal}
 </head>

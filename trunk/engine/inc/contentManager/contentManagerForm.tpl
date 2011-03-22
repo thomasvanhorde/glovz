@@ -133,7 +133,7 @@
                         <!-- ContentRef -->
                         {if $refT == '60'}
                             {assign var="ElementContentRef" value=$element->contentRef}
-                            <select {if $hidden}style="display:none;"{/if} size="1" class="{if $element->requis}require{/if}" name="{$uid}">
+                            <select {if $hidden}style="display:none;"{/if} size="1" class="{if $hidden}hidden {/if}{if $element->requis}require{/if}" name="{$uid}">
                                 <option value=""></option>
                                 {foreach from=$contentRef key=contentRefId item=contentRefElement}
                                     {if $contentRefId == $ElementContentRef}
@@ -174,6 +174,9 @@
 
 
 <script type="text/javascript" src="{$BASE_URL}js/engine/jquery.validity.pack.js"></script>
+
+<script type="text/javascript" src="{$BASE_URL}js/engine/niceforms.js"></script>
+
 {literal}
     <script>
         jQuery(function() {
@@ -182,7 +185,8 @@
                 jQuery(".email").match("email");
                 jQuery(".number").match("number");
             });
+
         });
     </script>
 {/literal}
-<script type="text/javascript" src="{$BASE_URL}js/engine/niceforms.js"></script>
+
