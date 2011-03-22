@@ -13,7 +13,7 @@
     <li>URL du serveur de développement : <a href="{$project->url_dev}">{$project->url_dev}</a></li>
     <li>URL du serveur de production : <a href="{$project->url_prod}">{$project->url_prod}</a></li>
     <li>Durée estimée : {$project->duree} heures</li>
-    <li>Durée passée :  {if $project->tacheTotalH <= 100} {$project->tacheTotalH} heures, soit {$project->avancement}% du projet
+    <li>Durée passée :  {if $project->tacheTotalH <= 100} {$project->tacheTotalH} heures, soit {$project->avancement|ceil}% du projet
                         {else} Durée estimée dépassée ({$project->tacheTotalH} heures)
                         {/if} </li>
     <li>Clôturé :
