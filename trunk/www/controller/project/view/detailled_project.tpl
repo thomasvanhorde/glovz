@@ -44,7 +44,7 @@
     {if $isDT }
         <a href="create-milestone/"><input type="button" value="Créer un nouveau jalon" id="nouveauJalon" class="buttonRight" /></a>
 
-        <div id="dialogFormNouveauJalon" class="dialogForm ui-dialog" title="Nouveau jalon">{$formNewJalon}</div>
+        <div style="display: none;" id="dialogFormNouveauJalon" class="dialogForm ui-dialog" title="Nouveau jalon">{$formNewJalon}</div>
         <script type="text/javascript">
             {literal}
             $("#nouveauJalon").click(function(){
@@ -93,7 +93,7 @@
         {if $isDT }
         <a href="create-task/"><input type="button" value="Créer une nouvelle tâche" id="nouvelleTache" class="buttonRight" /></a>
 
-        <div id="dialogFormNouvelleTache" class="dialogForm ui-dialog" title="Nouvelle tâche">{$formNewTache}</div>
+        <div style="display: none;" id="dialogFormNouvelleTache" class="dialogForm ui-dialog" title="Nouvelle tâche">{$formNewTache}</div>
         <script type="text/javascript">
             {literal}
             $("#nouvelleTache").click(function(){

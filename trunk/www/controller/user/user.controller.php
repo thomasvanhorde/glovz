@@ -93,6 +93,23 @@ class user_controller {
         $this->_view->assign('erreur', $message);
         Base::Load(CLASS_VUE)->addBlock('content','notAllow.tpl', 'controller/user/view/');
     }
+    
+    public function myProfil() {
+        if($this->_userClass->isConnect()) {
 
+            $param = array(
+              'field' => array(
+                  'role' => array(
+                      'hidden' => true
+                  ),
+                  'groupe' => array(
+                      'hidden' => true
+                  )
+              )
+            );
+            $this->_view->assign('formParam', $param);
+            $this->_userClass->editForm('content', $_SESSION['user']['uid'], 'MemberData');
+        }
+    }
     
 }
