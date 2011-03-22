@@ -108,6 +108,7 @@ function niceform(nf) {
 		for(w = 0; w < this._select.length; w++) {this._select[w].unload();}
 		for(w = 0; w < this._multiselect.length; w++) {this._multiselect[w].unload();}
 	}
+
 }
 function inputText(el) { //extent Text inputs
 	el.oldClassName = el.className;
@@ -211,11 +212,13 @@ function inputCheck(el) { //extend Checkboxes
 	el.init = function() {
 		this.parentNode.insertBefore(this.dummy, this);
 		el.className = "NFhidden";
+        jQuery(this).parents('dl').css('display','none');
 	} 
 	el.unload = function() {
 		this.parentNode.removeChild(this.dummy);
 		this.className = this.oldClassName;
 	}
+
 }
 function inputSubmit(el) { //extend Buttons
 	el.oldClassName = el.className;
@@ -403,6 +406,7 @@ function selects(el) { //extend Selects
 		this.dummy.style.zIndex = 999 - pos;
 		this.parentNode.insertBefore(this.dummy, this);
 		this.className = "NFhidden";
+        jQuery(this).parents('dl').css('display','none');
 	}
 	el.unload = function() {
 		this.parentNode.removeChild(this.dummy);
@@ -564,12 +568,12 @@ function getInputsByName(name) {
 var existingLoadEvent = window.onload || function () {};
 var existingResizeEvent = window.onresize || function() {};
 window.onload = function () {
-    existingLoadEvent();
+ //   existingLoadEvent();
     NFInit();
 }
 window.onresize = function() {
 	if(resizeTest != document.documentElement.clientHeight) {
-		existingResizeEvent();
+	/*	existingResizeEvent();*/
 		NFFix();
 	}
 	resizeTest = document.documentElement.clientHeight;

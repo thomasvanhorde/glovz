@@ -30,9 +30,20 @@
 
 <!-- Jalons du projet -->
 <h3>-- Jalons --</h3>
+
 {if $isDT }
 <input type="button" value="Créer un nouveau jalon" id="nouveauJalon"/>
+
+<div id="dialogFormNouveauJalon" class="dialogForm ui-dialog" title="Nouveau jalon">{$formNewJalon}</div>
+<script type="text/javascript">
+    {literal}
+    $("#nouveauJalon").click(function(){
+        $( "#dialogFormNouveauJalon" ).dialog( "open" );
+    });
+    {/literal}
+</script>
 {/if}
+
 {if !empty($project->jalon)}
 <table>
     <thead>
@@ -58,31 +69,23 @@
         {/foreach}
     </tbody>
 </table>
-<div id="dialogForm" class="ui-dialog" title="exemple de pop-in"></div>
-<script type="text/javascript">
-    {literal}
-    $("#nouveauJalon").click(function(){
-            
-        $( "#dialogForm" ).dialog( "open" );
-    });
-
-
-    $( "#dialogForm" ).dialog({
-        autoOpen: false,
-        height: 300,
-        width: 350,
-        modal: true,
-        closeOnEscape: true
-    });
-    {/literal}
-</script>
 {/if}
+
 <br />
 
 <!-- Tâches du projet -->
 <h3>-- Tâches --</h3>
 {if $isDT }
-<a class="btnNouveau" href="create-task/"><input type="button" value="Créer une nouvelle tâche" /></a>
+<input type="button" value="Créer une nouvelle tâche" id="nouvelleTache"/>
+
+<div id="dialogFormNouvelleTache" class="dialogForm ui-dialog" title="Nouvelle tâche">{$formNewTache}</div>
+<script type="text/javascript">
+    {literal}
+    $("#nouvelleTache").click(function(){
+        $( "#dialogFormNouvelleTache" ).dialog( "open" );
+    });
+    {/literal}
+</script>
 {/if}
 {if !empty($project->tache)}
 <table>
@@ -148,3 +151,14 @@
     {/if}
     </tbody>
 </table>
+
+<script>
+    {literal}
+    $( ".dialogForm" ).dialog({
+        autoOpen: false,
+        width: 650,
+        modal: true,
+        closeOnEscape: true
+    });
+    {/literal}
+</script>
