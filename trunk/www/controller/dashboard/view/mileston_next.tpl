@@ -2,9 +2,12 @@
 
 <div id="bloc_etape">
 	<p>
+        {if $jalon->projet->_id}
 		La prochaine étape importante concernant<br />le projet
-		{* TODO: rajouter l'URL du projet à récupérer *}
-		<a href="{$BASE_URL}project/{$project->_id}/">{$jalon->projet->nom|utf8_decode}</a>
+		<a href="{$BASE_URL}project/{$jalon->projet->_id}/">{$jalon->projet->nom|utf8_decode}</a>
 		se déroulera le <strong>{$date.2}/{$date.1}/{$date.0}</strong>.
+        {else}
+            <br />Aucun jalon à venir.<br />
+        {/if}
 	</p>
 </div>
