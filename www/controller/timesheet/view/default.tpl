@@ -64,7 +64,9 @@
             </tr>
             <tr>
                 <td colspan="7">
-                    <button type="button" title="ajouter une tâche" id="nouvelleTache">Nouvelle tâche</button>
+                    <a href="" title="">
+                        <button type="button" title="ajouter une tâche" id="nouvelleTache">Nouvelle tâche</button>
+                    </a>
                 </td>
             </tr>
         </tbody>
@@ -76,32 +78,53 @@
     {literal}
     $( ".dialogFormNouvelleTache" ).dialog({
         autoOpen: false,
-        width: 650,
+        width: 700,
         modal: true,
         closeOnEscape: true
     });
     $("#nouvelleTache").click(function(){
         $( "#dialogFormNouvelleTache" ).dialog( "open" );
+            return false;
     });
     $(function() {
         $( "#slider" ).slider({
-            value:15,
+            range: "min",
+            value: 15,
             min: 15,
             max: 1440,
             step: 15,
             slide: function( event, ui ) {
-                var heures = Math.round(ui.value/60);
+                var heures = Math.floor(ui.value/60);
                 var minutes = ui.value%60;
-                var inputTexte = heures +"heures";
-                if(minutes != 0) {
-                    inputTexte += " et "+ minutes +" minutes";
+                var inputTexte = "";
+                if (heures != 0) {
+                    inputTexte += heures +" heure";
+                    if (heures != 1) {
+                        inputTexte += "s";
+                    }
+                    if(minutes != 0) {
+                        inputTexte += " et "+ minutes +" minutes";
+                    }
+                } else if(minutes != 0) {
+                    inputTexte += minutes +" minutes";
                 }
                 $( "#inputSlider" ).val( inputTexte );
             }
         });
-        var inputStartTexte = Math.round($( "#slider" ).slider( "value" )/60);
-        if($( "#slider" ).slider( "value" )%60 != 0) {
-            inputStartTexte += " et "+ $( "#slider" ).slider( "value" )%60 +" minutes";
+        var inputStartTexte = "";
+        var startHeures = Math.floor( $( "#slider" ).slider( "value" ) /60 );
+        var startMinutes = $( "#slider" ).slider( "value" )%60;
+
+        if (startHeures != 0 ) {
+            inputStartTexte = startHeures +" heure";
+            if (startHeures != 1) {
+                inputStartTexte += "s";
+            }
+            if(startMinutes != 0) {
+                inputStartTexte += " et "+ startMinutes +" minutes";
+            }
+        } else if(startMinutes != 0) {
+            inputStartTexte += startMinutes +" minutes";
         }
         $( "#inputSlider" ).val(  inputStartTexte  );
     });
