@@ -42,13 +42,14 @@
 <table>
     <caption>Jalons
     {if $isDT }
-        <input type="button" value="Créer un nouveau jalon" id="nouveauJalon" class="buttonRight" />
+        <a href="create-milestone/"><input type="button" value="Créer un nouveau jalon" id="nouveauJalon" class="buttonRight" /></a>
 
         <div id="dialogFormNouveauJalon" class="dialogForm ui-dialog" title="Nouveau jalon">{$formNewJalon}</div>
         <script type="text/javascript">
             {literal}
             $("#nouveauJalon").click(function(){
                 $( "#dialogFormNouveauJalon" ).dialog( "open" );
+                return false;
             });
             {/literal}
         </script>
@@ -90,13 +91,14 @@
         Tâches
 
         {if $isDT }
-        <input type="button" value="Créer une nouvelle tâche" id="nouvelleTache" class="buttonRight" />
+        <a href="create-task/"><input type="button" value="Créer une nouvelle tâche" id="nouvelleTache" class="buttonRight" /></a>
 
         <div id="dialogFormNouvelleTache" class="dialogForm ui-dialog" title="Nouvelle tâche">{$formNewTache}</div>
         <script type="text/javascript">
             {literal}
             $("#nouvelleTache").click(function(){
                 $( "#dialogFormNouvelleTache" ).dialog( "open" );
+                return false;
             });
             {/literal}
         </script>
