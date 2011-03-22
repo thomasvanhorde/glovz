@@ -8,7 +8,7 @@
 
             <select name="projects">
                 {foreach from=$projects key=id item=project}
-                <option value="{id}"{$project.nom|utf8_decode}>{$project.nom|utf8_decode}</option>
+                <option value="{$id}"{$project.nom|utf8_decode}>{$project.nom|utf8_decode}</option>
                 {/foreach}
             </select>
 
@@ -74,19 +74,20 @@
         </tbody>
     </table>
 </form>
-<div id="dialogFormNouvelleTache" class="dialogForm ui-dialog" title="Nouvelle tâche">{$formNewTache}</div>
+
+<div id="dialFormNewTask" class="dialogForm ui-dialog" title="Nouvelle tache">{$formNewTache}</div>
 <script type="text/javascript">
-    
     {literal}
-    $( ".dialogFormNouvelleTache" ).dialog( "destroy" );
-    $( ".dialogFormNouvelleTache" ).dialog({
+
+    $( "#dialog:ui-dialog" ).dialog( "destroy" );
+    $( "#dialFormNewTask" ).dialog( "destroy" );
+    $( "#dialFormNewTask" ).dialog({
         autoOpen: false,
-        width: 700,
-        modal: true,
-        closeOnEscape: true
+        width: 750,
+        modal: true
     });
     $("#nouvelleTache").click(function(){
-        $( "#dialogFormNouvelleTache" ).dialog( "open" );
+        $( "#dialFormNewTask" ).dialog( "open" );
             return false;
     });
     $(function() {

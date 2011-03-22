@@ -24,7 +24,6 @@ class timesheet_controller {
     public function defaut() {
         $allProjects = $this->_projectClass->getAll();
         $this->_view->assign('projects', $allProjects);
-        $this->_view->addBlock('content','defaut.tpl');
 
         $this->_view->addBlock('formNewTache', 'formNewTache.tpl');
         $this->_view->addBlock('content', 'default.tpl');
