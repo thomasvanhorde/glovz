@@ -38,7 +38,7 @@
 
 
 
-{if !empty($project->jalon)}
+
 <table>
     <caption>Jalons
     {if $isDT }
@@ -55,6 +55,7 @@
         </script>
     {/if}
     </caption>
+    {if !empty($project->jalon)}
     <thead>
         <tr>
             <th>Label</th>
@@ -77,15 +78,16 @@
             </tr>
         {/foreach}
     </tbody>
+    {/if}
 </table>
-{/if}
+
 
 
 <br />
 
 <!--Tâches du projet -->
 
-{if !empty($project->tache)}
+
 <table>
     <caption>
         Tâches
@@ -104,6 +106,7 @@
         </script>
         {/if}
     </caption>
+    {if !empty($project->tache)}
     <thead>
         <tr>
             <th>Label</th>
@@ -136,9 +139,9 @@
         </tr>
             {/foreach}
         {/foreach}
-    </tbody>
+    </tbody>{/if}
 </table>
-{/if}
+
 <br />
 
 <!-- Membres du projet -->
