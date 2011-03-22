@@ -15,6 +15,7 @@ define('CLASS_TACHE','Tache');
 define('CLASS_USER','User');
 define('CLASS_CLIENT','Client');
 define('CLASS_DASHBOARD','Dashboard');
+define('CLASS_TIMESHEET','Timesheet');
 
 /*
  * From Engine

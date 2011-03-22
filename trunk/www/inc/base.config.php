@@ -10,7 +10,7 @@ if($_SERVER['SCRIPT_FILENAME'] == '/var/www/lpcm/glovz/trunk/www/index.php'){ //
     Define_once('MONGO_BASE','lpcm');
 }
 
-
+/*
 /*
 Define_once('MONGO_HOST','mongodb://10.70.224.118');
 Define_once('MONGO_BASE','test');

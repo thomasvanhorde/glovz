@@ -13,7 +13,9 @@
     <li>URL du serveur de développement : <a href="{$project->url_dev}">{$project->url_dev}</a></li>
     <li>URL du serveur de production : <a href="{$project->url_prod}">{$project->url_prod}</a></li>
     <li>Durée estimée : {$project->duree} heures</li>
-    <li>Durée passée : {$project->tacheTotalH} heures, soit {$project->avancement|ceil}% du projet</li>
+    <li>Durée passée :  {if $project->tacheTotalH <= 100} {$project->tacheTotalH} heures, soit {$project->avancement}% du projet
+                        {else} Durée estimée dépassée ({$project->tacheTotalH} heures)
+                        {/if} </li>
     <li>Clôturé :
 	{if $project->cloture eq 'true'}
             Oui
@@ -27,9 +29,12 @@
     {literal}
     $(function() {
         $( "#progressbar" ).progressbar({
-                value: {/literal}{$project->avancement}{literal}
+            value: {/literal}{$project->avancement}{literal},
+            complete: function(event, ui) {
+                console.log('test');
+            }
         });
-            $( "#progressbar.ui-progressbar-value" ).html("{/literal}{$project->avancement}{literal}");
+            $( "#progressbar.ui-progressbar-value" ).html({/literal}{$project->avancement}{literal});
     });
     {/literal}
 </script>
