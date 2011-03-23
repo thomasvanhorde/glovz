@@ -1,7 +1,15 @@
+/**
+ *	Thème général du site
+ *	@author Fabien Nouaillat
+ */
+
 // Variables
-@rouge: #c10000;
-
-
+@fondBody: #eae5e5;
+@fondEnTete: #e5dddd;
+@grisTHead: #ccc;
+@fondTBody: #f8f4f4;
+@rougeLien: #b71414;
+@couleurTexte: #111;
 
 
 // Mixins
@@ -11,13 +19,12 @@
 	-moz-border-radius: @radius;
 }
 
-
-// Style du site
+// Style
 body {
-	background: url('../../themes/glovz/img/fond.png') repeat-y #eae5e5;
+	background: url('../../themes/glovz/img/fond.png') repeat-y @fondBody;
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	color: #111;
-
+	@couleurTexte;
+	
 	p, li {
 		line-height: 1.6em;
 	}
@@ -27,8 +34,6 @@ body {
 	}
 
 	#barre {
-		position: relative;
-		z-index: 1;
 		float: left;
 		width: 260px;
 		color: #ccc;
@@ -38,9 +43,9 @@ body {
 			padding: 30px 0 30px 0;
 
 			li {
-                                margin: 0;
-                                padding: 0;
-                                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
 				line-height: 1.8em;
 			}
 
@@ -83,7 +88,7 @@ body {
 	#en_tete {
 		height: 64px;
 		margin-left: 260px;
-		background-color: #e5dddd;
+		background-color: @fondEnTete;
 		color: #736666;
 		border-bottom: 1px solid #d7d3d3;
 
@@ -108,7 +113,7 @@ body {
 					color: #736666;
 
 					&:hover {
-						color: @rouge;
+						color: @rougeLien;
 					}
 
 					img {
@@ -135,7 +140,7 @@ body {
 		#bloc_etape {
 			margin-bottom: 30px;
 			padding: 15px;
-			background: url('../../themes/glovz/img/drapeau.png') no-repeat #f8f4f4 30px 20px;
+			background: url('../../themes/glovz/img/drapeau.png') no-repeat @fondTBody 30px 20px;
 			border: 1px solid #e1dede;
 			.arrondi(10px);
 
@@ -146,11 +151,11 @@ body {
 		}
 
 		a {
-			color: #b71414;
+			color: @rougeLien;
 			font-weight: bold;
 
 			&:hover {
-				border-bottom: 1px dashed #b71414;
+				border-bottom: 1px dashed @rougeLien;
 			}
 		}
 
@@ -160,7 +165,7 @@ body {
 			border: 1px solid #aaa;
 
 			caption {
-                                padding: 5px;
+                padding: 5px;
 				color: #555;
 				font-size: 1.4em;
 				font-weight: bold;
@@ -168,12 +173,12 @@ body {
 
 			th {
 				padding: 7px;
-				background-color: #ccc;
+				background-color: @grisTHead;
 				border-bottom: 1px solid #aaa;
 			}
 
 			tr {
-				background-color: #f6f3f3;
+				background-color: @fondTBody;
 
 			}
 
@@ -183,7 +188,6 @@ body {
 
 			td {
 				padding: 7px;
-
 			}
 		}
 
@@ -196,39 +200,52 @@ body {
 			}
 		}
 	}
-        #progressbar {
-            margin: 10px 0px 0 0;
-            float: right;
-            height: 20px;
-            width: 400px;
-            text-align: center;
-            font-size: 0.5em;
-            .ui-progressbar-value {
-                background-image: url(../../themes/glovz/img/pbar-ani-red.gif);
-                margin: 0;
-            }
+	
+	/**
+	 *	Style des composants jQuery UI
+	 *	@author Jean-Baptiste Crestot
+	 */
+    #progressbar {
+        margin: 10px 0 0 0;
+        float: right;
+        height: 20px;
+        width: 400px;
+        text-align: center;
+        font-size: 0.5em;
+        
+        .ui-progressbar-value {
+            background-image: url('../../themes/glovz/img/pbar-ani-red.gif');
+            margin: 0;
         }
-        .ui-widget-overlay {
-            opacity : 0.5;
-            background: #000;
-        }
-        .ui-widget-header {
-            border: none;
-            background-image: none;
-            background-color: #CCCCCC;
-        }
-        .ui-dialog-titlebar {
-            background-color: #CCCCCC;
-        }
+    }
+    
+    .ui-widget-overlay {
+        opacity : 0.5;
+        background: #000;
+    }
+    
+    .ui-widget-header {
+        border: none;
+        background-image: none;
+        background-color: #CCCCCC;
+    }
+    
+    .ui-dialog-titlebar {
+        background-color: #CCCCCC;
+    }
         .ui-dialog .ui-dialog-content {
             background-color: #F6F3F3;
         }
         .ui-widget-content {
             border : none;
         }
+        .ui-dialog .ui-dialog-titlebar {
+            background-color: #CCCCCC;
+        }
         .ui-dialog {
             padding: 0;
             background-color: #F6F3F3;
+            border: 0;
         }
         .buttonRight {
             float: right;
