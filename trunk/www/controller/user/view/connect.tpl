@@ -8,7 +8,7 @@
         <input class="saisie" name="user_password" id="user_password" type="password" size="35" />
     </p>
     <p id="bouton">
-    	<input type="hidden" name="todo" value="User[connect]" />
+    	<input type="hidden" name="todo" value="user[connect]" />
     	<input type="submit" value="Connexion" />
     </p>
 </form>
