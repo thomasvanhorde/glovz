@@ -56,22 +56,28 @@
 				$current_project = $this->_projectClass->get($_GET['param'][0], true);
 				$allUsers = $this->_userClass->getAll();
 
-                                $param = array(
-                                  'field' => array(
-                                      'projet' => array(
-                                          'value' => $_GET['param'][0],
-                                          'hidden' => true
-                                      ),
-                                      'utilisateur' => array(
-                                          'value' => $_SESSION['user']['uid'],
-                                          'hidden' => true
-                                      ),
-                                      'cloture' => array(
-                                          'hidden' => true
-                                      )
-                                  )
-                                );
-                                $this->_view->assign('formParam', $param);
+                $param = array(
+                  'field' => array(
+                      'projet' => array(
+                          'value' => $_GET['param'][0],
+                          'hidden' => true
+                      ),
+                      'utilisateur' => array(
+                          'value' => $_SESSION['user']['uid'],
+                          'hidden' => true
+                      ),
+                      'cloture' => array(
+                          'hidden' => true
+                      )
+                  )
+                );
+
+                // Load mileston form
+                $this->_view->assign('formParam', $param);
+                $this->_milestoneClass->addForm('formNewJalon', 'MilestoneData');
+                
+                $this->_view->assign('formParam', $param);
+                $this->_taskClass->addForm('formNewTache', 'TaskData');
 
                                 // Load mileston form
                                 $this->_milestoneClass->addForm('formNewJalon', 'MilestoneData');

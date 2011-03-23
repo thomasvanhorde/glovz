@@ -26,7 +26,7 @@ URL: http://www.emblematiq.com/
 .NFRadio {cursor:pointer; position:absolute; display:block; width:13px; height:13px; border:1px solid transparent; background:url(img/radio.png) no-repeat 0 0; z-index:2;}
 /*Checkbox*/
 .NFCheck {cursor:pointer; position:absolute; width:12px; height:12px; border:1px solid transparent; background:url(img/checkbox.png) no-repeat 0 0; z-index:2;}
-.dialogForm .NFCheck {position:static!important;}
+.NFCheck {position:static!important;}
 
 /*Buttons*/
 .NFButton {width:auto; height:26px; color:#fff; padding:0 2px; background:url(img/button.png) repeat-x 0 0; cursor:pointer; border:none; font:10px/26px Tahoma, Arial, Helvetica, sans-serif; font-weight:bold; text-transform:uppercase; letter-spacing:1px; vertical-align:middle;}
@@ -56,7 +56,7 @@ URL: http://www.emblematiq.com/
 /*Selects*/
 .NFSelect {height:21px; position:absolute; border:1px solid transparent;}
 form.niceform .visible .NFSelect {position: static; width:auto!important;}
-form.niceform .hidden .NFSelect {display:none;}
+form.niceform .hidden .NFSelect, form.niceform .hidden .NFCheck {display:none;}
 .NFSelectLeft {float:left; width:3px; height:21px; background:url(img/select-left.png) no-repeat 0 0; vertical-align:middle;}
 .NFSelectRight {height:21px; width:auto; background:url(img/select-right.png) no-repeat 100% 0; cursor:pointer; font:12px/21px Arial, Helvetica, sans-serif; color:#fff; padding-left:3px; margin-left:3px;}
 .NFSelectTarget {position:absolute; background:none; margin-left:-13px; margin-top:18px; z-index:3; left:0; top:0; padding-bottom:13px;}
