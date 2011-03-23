@@ -380,4 +380,14 @@
             </block>
             </blocks>
     </timesheet>
+    <!-- Export du rapport PDF -->
+        <report>
+            <title>Editer un rapport en PDF</title>
+            <controller>report</controller>
+            <layout>other.tpl</layout>
+            <accessControl>
+                <controller>user</controller>
+                <method>needCP</method>
+            </accessControl>
+        </report>
 </arborescence>

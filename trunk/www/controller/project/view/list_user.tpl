@@ -4,7 +4,10 @@
         <input type="hidden" value="{$project->_id}" name="projectID">
         <select name="member">
         {foreach from=$allUsers key=id item=user}
-            <option value="{$id}">{$user.nom} {$user.prenom}</option>
+
+            {if !in_array($id, $listIdMembres)}
+                <option value="{$id}">{$user.nom} {$user.prenom}</option>
+            {/if}
         {/foreach}
         </select>
 

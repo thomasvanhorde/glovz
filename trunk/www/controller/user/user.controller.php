@@ -82,10 +82,22 @@ class user_controller {
             $this->notAllow('you should login');
         //  header('location: '.BASE_URL);
     }
+
+
     public function needDT(){
         if($this->needConnect()){
             if(!$this->_userClass->isDT())
-                $this->notAllow('you should was DT');
+                $this->notAllow('you should be Directeur Technique');
+        }
+    }
+
+    /**
+     * 
+     */
+    public function needCP(){
+        if($this->needConnect()){
+            if(!$this->_userClass->isCP())
+                $this->notAllow('you should be Chef de Projet');
         }
     }
 
