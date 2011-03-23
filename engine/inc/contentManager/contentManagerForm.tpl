@@ -165,9 +165,9 @@
 
 
     </fieldset>
-    <fieldset class="action">
-    	<input type="submit" name="submit" id="submit" value="enregistrer" />
-    </fieldset>
+
+    <input type="submit" name="submit" id="submit" value="enregistrer" />
+
 
 
 </form>
