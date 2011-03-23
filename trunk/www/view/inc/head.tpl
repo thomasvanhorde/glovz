@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <!-- Titre -->
-    <title>{ $title|utf8_decode }</title>
+    <title>{ $title }</title>
     
     <!-- Feuilles de style -->
     <link rel="stylesheet" media="screen" href="{$BASE_URL}themes/defaut.css" />

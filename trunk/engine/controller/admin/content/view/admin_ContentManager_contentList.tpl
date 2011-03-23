@@ -15,7 +15,7 @@
             <tr>
                 {foreach from=$dataL key=k3 item=dataLI}
                     {if in_array($k3, $type.index)}
-                        <td>{$dataLI|utf8_decode|truncate:100:'..':true:true}</td>
+                        <td>{$dataLI|truncate:100:'..':true:true}</td>
                     {/if}
                 {/foreach}
                 <td>

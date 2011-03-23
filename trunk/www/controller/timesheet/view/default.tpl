@@ -8,7 +8,7 @@
 
             <select name="projects">
                 {foreach from=$projects key=id item=project}
-                <option value="{$id}"{$project.nom|utf8_decode}>{$project.nom|utf8_decode}</option>
+                <option value="{$id}"{$project.nom}>{$project.nom}</option>
                 {/foreach}
             </select>
 
