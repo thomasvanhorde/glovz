@@ -13,8 +13,8 @@
     <tbody>
         {foreach from=$clients item=client}
         <tr>
-            <td>{$client.nom|utf8_decode}</td>
-            <td>{$client.prenom|utf8_decode}</td>
+            <td>{$client.nom}</td>
+            <td>{$client.prenom}</td>
             <td>{$client.mail}</td>
             <td>
            		<a href="edit-client/{$client._id}/">Modifier</a> |

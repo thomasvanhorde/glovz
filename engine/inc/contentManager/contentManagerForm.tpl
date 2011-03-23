@@ -10,7 +10,7 @@
             {else}
                 Edition de contenu
             {/if}
-            { $structure->name|utf8_decode }
+            { $structure->name }
         </legend>
 
         {assign var="strucId" value=$structure.id}
@@ -55,7 +55,7 @@
                     {if $hidden == false}
                         <dt>
                             <label for="{$uid}">
-                                {$element->name|utf8_decode}
+                                {$element->name}
                                 {if $element->limit != '' }(limit :: {$element->limit} char){/if}
                             </label>
                         </dt>
@@ -127,7 +127,7 @@
                             {assign var=SelectValue value=","|explode:$element->valeur}
                             <select {if $hidden}style="display:none;"{/if} size="1" class="{if $element->requis}require{/if}" name="{$uid}">
                                 {foreach from=$SelectValue key=SelectK item=SelectItem}
-                                    <option value="{$SelectK}" {if $data->$uid == $SelectK || $valueDefaut == $SelectK}selected="selected"{/if}>{$SelectItem|utf8_decode}</option>
+                                    <option value="{$SelectK}" {if $data->$uid == $SelectK || $valueDefaut == $SelectK}selected="selected"{/if}>{$SelectItem}</option>
                                 {/foreach}
                             </select>
                         {/if }
@@ -145,7 +145,7 @@
                                                     {foreach from=$contentRefStruct key=contentRefStructID item=contentRefStruct2}
                                                         {if $contentRefStructID == $ElementContentRef}
                                                             {if $contentRefStruct2.$contentRefId3->index == "true"}
-                                                                {$contentRefElement3|utf8_decode}
+                                                                {$contentRefElement3}
                                                             {/if}
                                                         {/if}
                                                     {/foreach}

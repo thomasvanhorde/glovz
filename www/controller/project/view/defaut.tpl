@@ -16,7 +16,7 @@
     <tbody>
     {foreach from=$projects key=id item=project}
         <tr>
-            <td><a href="{$BASE_URL}project/{$id}/">{$project.nom|utf8_decode}</a></td>
+            <td><a href="{$BASE_URL}project/{$id}/">{$project.nom}</a></td>
             <td>{$project.duree}</td>
             <td>
         	{if $project.cloture eq 'true'}

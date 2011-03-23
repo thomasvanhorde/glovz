@@ -1,4 +1,4 @@
-<h3>Nouveau contenu { $struct.name|utf8_decode }</h3>
+<h3>Nouveau contenu { $struct.name }</h3>
 
 
 <form method="post">
@@ -11,7 +11,7 @@
         {assign var="uid" value=$element.id}
 
         <br /><br /><br />
-        {$element.name|utf8_decode}
+        {$element.name}
         { if $element.limit != '' }(limit :: {$element.limit} char){/if}
         <br /><br />
 
@@ -80,7 +80,7 @@
             {assign var=SelectValue value=","|explode:$element.valeur}
             <select name="{$uid}">
                 {foreach from=$SelectValue key=SelectK item=SelectItem}
-                    <option value="{$SelectK}" {if $data.$uid == $SelectK}selected="selected"{/if}>{$SelectItem|utf8_decode}</option>
+                    <option value="{$SelectK}" {if $data.$uid == $SelectK}selected="selected"{/if}>{$SelectItem}</option>
                 {/foreach}
             </select>
         {/if }
@@ -93,7 +93,7 @@
             <select name="{$uid}">
                 <option value=""></option>
                 {foreach from=$IndexEl key=kIndex item=dateItem}
-                    <option value="{$kIndex}" {if $data.$uid == $kIndex}selected="selected"{/if}>{$dateItem|utf8_decode}</option>
+                    <option value="{$kIndex}" {if $data.$uid == $kIndex}selected="selected"{/if}>{$dateItem}</option>
                 {/foreach}
             </select>
         {/if }

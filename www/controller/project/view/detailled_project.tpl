@@ -73,8 +73,8 @@
         {foreach from=$project->jalon item=jalon}
         {assign var=date value="/"|explode:$jalon.date}
             <tr>
-                <td>{$jalon.label|utf8_decode|truncate:15}</td>
-                <td>{$jalon.description|utf8_decode|truncate:20}</td>
+                <td>{$jalon.label|truncate:15}</td>
+                <td>{$jalon.description|truncate:20}</td>
                 <td>{$date.2}/{$date.1}/{$date.0}</td>
                 {if $isDT }<td>
                     <a href="{$BASE_URL}project/edit-milestone/{$jalon._id}/">Modifier</a> |
@@ -133,8 +133,8 @@
         </tr>
             {foreach from=$task item=tache}
         <tr>
-            <td>{$tache.label|utf8_decode}</td>
-            <td>{$tache.description|utf8_decode|truncate:20}</td>
+            <td>{$tache.label}</td>
+            <td>{$tache.description|truncate:20}</td>
             <td>{$tache.utilisateur->nom} {$tache.utilisateur->prenom}</td>
             <td>{$tache.duree}</td>
             {if $isDT }<td>

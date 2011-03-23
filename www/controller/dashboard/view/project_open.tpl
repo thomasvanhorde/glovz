@@ -11,7 +11,7 @@
     <tbody>
     {foreach from=$projects key=id item=project}
         <tr>
-            <td><a href="{$BASE_URL}project/{$project->_id}/">{$project->nom|utf8_decode}</a></td>
+            <td><a href="{$BASE_URL}project/{$project->_id}/">{$project->nom}</a></td>
             <td>{$project->cdp->nom} {$project->cdp->prenom }</td>
              <td>{$project->avancement|ceil} %</td>
              <td><a href="{$BASE_URL}report/{$project->_id}/" title="cliquez pour editer un rapport">Editer</a></td>
