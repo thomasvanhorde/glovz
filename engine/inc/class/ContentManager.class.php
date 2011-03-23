@@ -84,7 +84,7 @@ class ContentManager {
             if(!$id){ // new
                 $save = $this->insert($data);
                 if($save)
-                    return $save;
+                    return $data;
             }
             else {// update
                 if($this->update($data, $id))
