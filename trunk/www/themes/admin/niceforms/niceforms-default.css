@@ -37,6 +37,11 @@ URL: http://www.emblematiq.com/
 .NFTextarea {border:none; background:none; font:12px/12px Arial, Helvetica, sans-serif; margin:0;}
 .NFTextareaTop, .NFTextareaBottom {height:5px; clear:both; float:none; padding-right:10px;}
 .NFTextareaTop {background:url(img/textarea-tr.png) no-repeat 100% 0;}
+
+form.niceform .visible .NFTextareaTop{margin-left:4px!important;padding-right:6px!important;}
+form.niceform .visible .NFTextareaTopLeft{margin-left:-4px;}
+form.niceform .visible .NFTextareaLeft {height:100%!important;}
+
 .NFTextareaBottom {background:url(img/textarea-br.png) no-repeat 100% 0; margin-bottom:5px;}
 .NFTextareaTopLeft, .NFTextareaBottomLeft {width:5px; height:5px;}
 .NFTextareaTopLeft {background:#f2f2e6 url(img/textarea-tl.png) no-repeat 0 0;}
