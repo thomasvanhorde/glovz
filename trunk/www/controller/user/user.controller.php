@@ -79,8 +79,8 @@ class user_controller {
         if($this->_userClass->isConnect())
             return true;
         else
-            $this->notAllow('you should login');
-        //  header('location: '.BASE_URL);
+        //    $this->notAllow('you should login');
+          header('location: '.BASE_URL);
     }
 
 
