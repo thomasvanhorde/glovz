@@ -90,9 +90,7 @@
                                 //exit ();
                                 
                                 foreach ($current_project->membre as $key) {
-                                    if ($key->role->label != "chef de projet") {
-                                        $this->_listIdMembres[] = $key->_id;
-                                    }
+                                    $this->_listIdMembres[] = $key->_id;
                                 }
                                 $this->_view->assign('listIdMembres', $this->_listIdMembres);
 				
@@ -152,11 +150,15 @@
 		 *	@version: 1.0
 		 */
 		public function POST_ProjectData($data) {
-			if (empty($data['id'])) { // CrÃ©ation
-				$this->_projectClass->save($data);
-				header('location: '.Base::getUrl(3));
-			}
-			else { // Ã‰dition
+			if (empty($data['id'])) { // Création
+                            echo "<pre>";
+                            var_dump($this->_projectClass->save($data));
+                            exit ();
+                                // ajout du CP automatiquemetn
+                                $this->POST_addMember($data);
+
+                                header('location: '.Base::getUrl(3));
+			} else { // édition
 				if ($this->_projectClass->update($data, $data['id']))
 				header('location: '.Base::getUrl(3));
 			}
@@ -251,7 +253,7 @@
 				$this->_taskClass->save($data);
 				header('location: '.Base::getUrl(3));
 			}
-			else { // Ã‰dition
+			else { // édition
 				if ($this->_taskClass->update($data, $data['id']))
 				header('location: '.Base::getUrl(3));
 			}
@@ -262,12 +264,12 @@
 		// OPÃ‰RATIONS SUR LES MEMBRES
 		
 		/**
-		 *	Liaison d'un membre Ã  un projet
+		 *	Liaison d'un membre à un projet
 		 *
 		 *	@author Thomas Van Horde
 		 *	@version: 1.0
 		 */
-		// TODO : envoi de mail & vÃ©rifier que le membre n'est pas dÃ©jÃ  associÃ© au projet
+		// TODO : envoi de mail & vérifier que le membre n'est pas déjà  associé au projet
 		public function POST_addMember($data) {
 			$this->_projectClass->addMember($data['projectID'], $data['member']);
 			header('location: '.$_SERVER['REDIRECT_URL']);
