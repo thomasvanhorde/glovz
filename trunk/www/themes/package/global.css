@@ -147,6 +147,17 @@ body .ui-widget-overlay {
   opacity:0.5;
   background:#000000;
 }
+body .ui-widget-header {
+  border:none;
+  background-image:none;
+  background-color:#cccccc;
+}
+body .ui-dialog-titlebar { background-color:#cccccc; }
+body .ui-widget-content { border:none; }
+body .ui-dialog {
+  padding:0;
+  background-color:#f6f3f3;
+}
 body .buttonRight { float:right; }
 body .buttonRight p { line-height:1em; }
 body #buttonHistorique {
@@ -154,3 +165,8 @@ body #buttonHistorique {
   margin-bottom:-20px;
 }
 body #dialogFormNouvelleTache p { margin-bottom:10px; }
+body .niceform fieldset {
+  background-image:none;
+  background-color:#f6f3f3;
+  border:0;
+}
