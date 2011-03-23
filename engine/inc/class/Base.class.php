@@ -288,6 +288,7 @@ Class Base {
      */
     private function buffer($layout){
         ob_start();
+        ob_implicit_flush(0);
 		$this->_view->display($layout);
 		$this->_buffer = $this->encode(ob_get_contents());
 		ob_end_clean();
@@ -298,12 +299,10 @@ Class Base {
      * @param string $encode
      * @return string
      */
-    public static function encode($html, $encode = 'utf8'){
-        switch($encode){
-            case 'utf8' :
-                $html = utf8_encode($html);
-                break;
-        }
+    public static function encode($html){
+        if(FORCE_ENCODE_UTF8)
+            $html = utf8_encode($html);
+
         return $html;
     }
 

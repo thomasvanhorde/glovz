@@ -3,11 +3,11 @@
 <div id="bloc_etape">
 	<p>
         {if $jalon->projet->_id}
-		La prochaine étape importante concernant<br />le projet
+		La prochaine Ã©tape importante concernant<br />le projet
 		<a href="{$BASE_URL}project/{$jalon->projet->_id}/">{$jalon->projet->nom|utf8_decode}</a>
-		se déroulera le <strong>{$date.2}/{$date.1}/{$date.0}</strong>.
+		se dÃ©roulera le <strong>{$date.2}/{$date.1}/{$date.0}</strong>.
         {else}
-            <br />Aucun jalon à venir.<br />
+            <br />Aucun jalon Ã  venir.<br />
         {/if}
 	</p>
 </div>

@@ -60,7 +60,7 @@ if($_SERVER['SCRIPT_FILENAME'] == '/Applications/MAMP/htdocs/glovz/www/index.php
 	Define_once('ENGINE_URL','/Applications/MAMP/htdocs/glovz/engine/');
 }
 
-
+Define_once('FORCE_ENCODE_UTF8', false);
 Define_once('DEBUG', false);
 Define_once('DEV', true);
 
