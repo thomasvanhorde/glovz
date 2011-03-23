@@ -27,8 +27,9 @@
             </td>
             {if $isDT}
             <td>
-        		<a href="edit-project/{$project._id}/">Modifier</a> |
-            	<a href="delete-project/{$project._id}/">Supprimer</a>
+                <a href="edit-project/{$project._id}/">Modifier</a> |
+            	<a href="delete-project/{$project._id}/">Supprimer</a> |
+            	<a href="edit-report/{$project._id}/">Editer un Rapport</a>
             </td>
             {/if}
         </tr>

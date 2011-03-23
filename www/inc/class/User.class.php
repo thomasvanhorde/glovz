@@ -71,6 +71,14 @@ class User extends SimpleContentManager {
             return false;
     }
 
+    public function isCP(){
+        $info = $this->isConnect();
+        if($info['role']['initial'] == 'CP')
+            return true;
+        else
+            return false;
+    }
+
     public function getProject($memberID){
         $bdd = Base::Load(CLASS_BDD)->_connexion->selectCollection(self::DB_COLLECTION_PROJECT_USER);
         $tmp = $bdd->find(array('member'=>$memberID));

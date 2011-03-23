@@ -75,7 +75,7 @@
     </table>
 </form>
 
-<div id="dialFormNewTask" class="dialogForm ui-dialog" title="Nouvelle tache">{$formNewTache}</div>
+<div id="dialFormNewTask" class="ui-dialog" title="Nouvelle tache">{$formNewTache}</div>
 <script type="text/javascript">
     {literal}
 

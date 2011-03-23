@@ -13,7 +13,8 @@
 				$_projectClass,
 				$_milestoneClass,
 				$_taskClass,
-				$_userClass;
+				$_userClass,
+                                $_listIdMembres;
 		
 		/**
 		 *	Constructeur :
@@ -55,29 +56,39 @@
 				$current_project = $this->_projectClass->get($_GET['param'][0], true);
 				$allUsers = $this->_userClass->getAll();
 
-                $param = array(
-                  'field' => array(
-                      'projet' => array(
-                          'value' => $_GET['param'][0],
-                          'hidden' => true
-                      ),
-                      'utilisateur' => array(
-                          'value' => $_SESSION['user']['uid'],
-                          'hidden' => true
-                      ),
-                      'cloture' => array(
-                          'hidden' => true
-                      )
-                  )
-                );
-                $this->_view->assign('formParam', $param);
-                
-                // Load mileston form
-                $this->_milestoneClass->addForm('formNewJalon', 'MilestoneData');
-                $this->_taskClass->addForm('formNewTache', 'TaskData');
+                                $param = array(
+                                  'field' => array(
+                                      'projet' => array(
+                                          'value' => $_GET['param'][0],
+                                          'hidden' => true
+                                      ),
+                                      'utilisateur' => array(
+                                          'value' => $_SESSION['user']['uid'],
+                                          'hidden' => true
+                                      ),
+                                      'cloture' => array(
+                                          'hidden' => true
+                                      )
+                                  )
+                                );
+                                $this->_view->assign('formParam', $param);
+
+                                // Load mileston form
+                                $this->_milestoneClass->addForm('formNewJalon', 'MilestoneData');
+                                $this->_taskClass->addForm('formNewTache', 'TaskData');
 
 				$this->_view->assign('allUsers', $allUsers);
 				$this->_view->assign('project', $current_project);
+                                //echo '<pre>';
+                                //var_dump($current_project);
+                                //exit ();
+                                
+                                foreach ($current_project->membre as $key) {
+                                    if ($key->role->label != "chef de projet") {
+                                        $this->_listIdMembres[] = $key->_id;
+                                    }
+                                }
+                                $this->_view->assign('listIdMembres', $this->_listIdMembres);
 				
 				$this->_view->addBlock('allUsersContent','list_user.tpl');
 				$this->_view->addBlock('content','detailled_project.tpl');
@@ -269,6 +280,7 @@
 				header('location: '.$_SERVER['REDIRECT_URL'].'../../'.$_GET['param'][0].'/');
 			}
 		}
+
 	}
 
 /*
