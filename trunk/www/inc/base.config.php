@@ -1,17 +1,32 @@
 <?php
 
-/*
+
+
+// Defaut config
+if($_SERVER['SCRIPT_FILENAME'] == '/var/www/lpcm/glovz/trunk/www/index.php'){ // Serveur Thomas
+    Define_once('SYS_FOLDER','/');
+	Define_once('ENGINE_URL','/var/www/lpcm/glovz/trunk/engine/');
+    Define_once('DEV', false);
+    Define_once('MONGO_HOST','localhost');
+    Define_once('MONGO_BASE','test');
+}
+
+
+
+/*  En local pour les autres => Uniquement si Thomas es là (Thomas's local)
 Define_once('MONGO_HOST','mongodb://10.70.224.118');
 Define_once('MONGO_BASE','test');
+*/
 
-
+/*  En local pour Thomas à la fac
 Define_once('MONGO_HOST','localhost');
 Define_once('MONGO_BASE','test');
 */
 
+/*  Ne plus utiliser
 Define_once('MONGO_HOST','mongodb://lpcm:lpcm@flame.mongohq.com:27033/lpcm');
 Define_once('MONGO_BASE','lpcm');
-
+*/
 
 
 /***
@@ -38,13 +53,6 @@ if($_SERVER['SCRIPT_FILENAME'] == '/Users/aenyhm/Sites/www/glovz/trunk/www/index
 if($_SERVER['SCRIPT_FILENAME'] == '/Applications/MAMP/htdocs/glovz/www/index.php') { // JB
 	Define_once('SYS_FOLDER','/glovz/www/');
 	Define_once('ENGINE_URL','/Applications/MAMP/htdocs/glovz/engine/');
-}
-
-// Defaut config
-if($_SERVER['SCRIPT_FILENAME'] == '/var/www/lpcm/glovz/trunk/www/index.php'){ // Serveur Thomas
-    Define_once('SYS_FOLDER','/');
-	Define_once('ENGINE_URL','/var/www/lpcm/glovz/trunk/engine/');
-    Define_once('DEV', false);
 }
 
 
