@@ -6,7 +6,7 @@
 if($_SERVER['SCRIPT_FILENAME'] == '/var/www/lpcm/glovz/trunk/www/index.php'){ // Serveur Thomas
     Define_once('SYS_FOLDER','/');
 	Define_once('ENGINE_URL','/var/www/lpcm/glovz/trunk/engine/');
-    Define_once('DEV', false);
+    Define_once('DEV', true);
     Define_once('MONGO_HOST','localhost');
     Define_once('MONGO_BASE','test');
 }
