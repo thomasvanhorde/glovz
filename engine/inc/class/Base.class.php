@@ -289,6 +289,7 @@ Class Base {
     private function buffer($layout){
         ob_start();
         ob_implicit_flush(0);
+
 		$this->_view->display($layout);
 		$this->_buffer = $this->encode(ob_get_contents());
 		ob_end_clean();
@@ -312,10 +313,44 @@ Class Base {
      * @description display buffer
      */
     public function Display(){
-        echo $this->_buffer;
+        if(GZIP_COMPRESS)
+            echo compress_output_option($this->_buffer);
+        else
+            echo $this->_buffer;
     }
 
 
+}
+
+
+
+
+
+
+function compress_output_option($output)
+{
+    // Compress the data into a new var.
+    $compressed_out = gzencode($output);
+
+    // Don't compress any pages less than 1000 bytes
+    // as it's not worth the overhead at either side.
+    if(strlen($output) >= 1000)
+    {
+        error_log('compression.php Gzipd Output'."\n"
+                 .'Before compression size '
+                 .strlen($output).' bytes'."\n"
+                 .' After compression size '
+                 .strlen($compressed_out).' bytes');
+        // Tell the browser the content is compressed with gzip
+        header("Content-Encoding: gzip");
+        return $compressed_out;
+    }
+    else
+    {
+        // No compression
+        error_log('compression.php Standard Output.');
+        return $output;
+    }
 }
 
 

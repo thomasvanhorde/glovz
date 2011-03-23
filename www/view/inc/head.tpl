@@ -8,24 +8,11 @@
     <!-- Feuilles de style -->
     <link rel="stylesheet" media="screen" href="{$BASE_URL}themes/defaut.css" />
 
-	<!-- Scripts JS -->
+    <!-- Scripts JS -->
     <script type="text/javascript" src="{$BASE_URL}js/glovz/jquery-1.5.1.min.js"></script>
     <script type="text/javascript" src="{$BASE_URL}js/glovz/jquery-ui.min.js"></script>
-
-    <script type="text/javascript" src="{$BASE_URL}js/cufon/cufon-yui.js"></script>
-    <script type="text/javascript" src="{$BASE_URL}js/cufon/Harabara_700.font.js"></script>
-    <script type="text/javascript" src="{$BASE_URL}js/cufon/Opificio_400.font.js"></script>
-    <script type="text/javascript" src="{$BASE_URL}js/glovz/defaut.js"></script>
-	<script type="text/javascript">
-		var BASE_URL = '{$BASE_URL}';
-	</script>
-	
-	<!-- Typographies -->
-    {literal}
     <script type="text/javascript">
-	    Cufon.replace('h2', {fontFamily: 'Harabara'});
-	    Cufon.replace('caption', {fontFamily: 'Harabara'});
-	    Cufon.replace('h3, #menu a, legend, #en_tete p, #en_tete a, .ui-dialog-title', {fontFamily: 'Opificio'});
+    var BASE_URL = '{$BASE_URL}';
     </script>
-    {/literal}
+    
 </head>
