@@ -13,5 +13,7 @@
 		<div id="contenu">
             {$content}
 		</div>
+    {include file='view/inc/bottomJs.tpl'}
 	</body>
+
 </html>

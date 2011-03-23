@@ -11,5 +11,10 @@ $(document).ready(function () {
     });
 });
 
+<!-- Typographies -->
+Cufon.replace('h2', {fontFamily: 'Harabara'});
+Cufon.replace('caption', {fontFamily: 'Harabara'});
+Cufon.replace('h3, #menu a, legend, #en_tete p, #en_tete a, .ui-dialog-title', {fontFamily: 'Opificio'});
+
 
 

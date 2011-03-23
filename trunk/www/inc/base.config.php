@@ -61,6 +61,7 @@ if($_SERVER['SCRIPT_FILENAME'] == '/Applications/MAMP/htdocs/glovz/www/index.php
 }
 
 Define_once('FORCE_ENCODE_UTF8', false);
+Define_once('GZIP_COMPRESS', true);
 Define_once('DEBUG', false);
 Define_once('DEV', true);
 
