@@ -82,8 +82,9 @@ class ContentManager {
             Base::Load(CLASS_CORE_MESSAGE)->Critic('MESS_ERR_SAVE_COMPILED_OBJ');
         }else {
             if(!$id){ // new
-                if($this->insert($data))
-                    return true;
+                $save = $this->insert($data);
+                if($save)
+                    return $save;
             }
             else {// update
                 if($this->update($data, $id))
