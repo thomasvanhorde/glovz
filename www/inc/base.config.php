@@ -18,6 +18,11 @@ Define_once('MONGO_BASE','test');
 */
 
 
+Define_once('MONGO_HOST','mongodb://192.168.0.23');
+Define_once('MONGO_BASE','test');
+
+
+
 Define_once('MONGO_HOST','localhost');
 Define_once('MONGO_BASE','test');
 
