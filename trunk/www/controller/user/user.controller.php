@@ -43,7 +43,9 @@ class user_controller {
 
 
     public function POST_connect($data){
+        var_dump($data);
         if($this->_userClass->connect($data['user_email'], $data['user_password'])){
+            exit('OK!');
             header('location: '.$_SERVER['REQUEST_URI'].'../');
             }
         else {
