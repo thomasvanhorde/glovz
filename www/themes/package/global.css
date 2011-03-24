@@ -1,0 +1,177 @@
+.arrondi {
+  border-radius:5px;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+}
+body {
+  background:url('../../themes/glovz/img/fond.png') repeat-y #eae5e5;
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+body p, body li { line-height:1.6em; }
+body a { text-decoration:none; }
+body #barre {
+  float:left;
+  width:260px;
+  color:#cccccc;
+  background:url('../../themes/glovz/img/en-tete.png') no-repeat;
+}
+body #barre #menu { padding:30px 0 30px 0; }
+body #barre #menu li {
+  margin:0;
+  padding:0;
+  list-style-type:none;
+  line-height:1.8em;
+}
+body #barre #menu a {
+  color:#a0a0a0;
+  padding:0 0 0 40px;
+  height:30px;
+  display:block;
+}
+body #barre #menu a:hover { color:#d3d3d3; }
+body #barre #menu .actif {
+  display:block;
+  background:url('../../themes/glovz/img/lien_menu_actif.png') no-repeat;
+  color:#d3d3d3;
+  width:195px;
+  padding:5px 40px 5px 40px;
+  height:30px;
+}
+body #barre .bouton {
+  color:#9d9494;
+  line-height:3.2em;
+  text-align:center;
+  display:block;
+  height:50px;
+  background:url('../../themes/glovz/img/bouton.png') no-repeat 50px;
+}
+body #barre .bouton:hover {
+  color:#a79d98;
+  background:url('../../themes/glovz/img/bouton_survole.png') no-repeat 50px;
+}
+body #en_tete {
+  height:64px;
+  margin-left:260px;
+  background-color:#e5dddd;
+  color:#736666;
+  border-bottom:1px solid #d7d3d3;
+}
+body #en_tete p {
+  float:left;
+  font-size:1.1em;
+  padding:20px 0 0 15px;
+}
+body #en_tete ul {
+  margin:0;
+  padding-top:17px;
+  text-align:right;
+  font-size:.9em;
+}
+body #en_tete ul li {
+  list-style-type:none;
+  display:inline;
+  margin-right:30px;
+}
+body #en_tete ul li a { color:#736666; }
+body #en_tete ul li a:hover { color:#b71414; }
+body #en_tete ul li a img {
+  margin-right:5px;
+  vertical-align:-10px;
+}
+body #contenu {
+  clear:top;
+  font-size:.9em;
+  padding:50px;
+  margin-left:250px;
+}
+body #contenu h2 {
+  font-size:1.6em;
+  font-weight:bold;
+  margin-bottom:40px;
+}
+body #contenu #bloc_etape {
+  margin-bottom:30px;
+  padding:15px;
+  background:url('../../themes/glovz/img/drapeau.png') no-repeat #f8f4f4 30px 20px;
+  border:1px solid #e1dede;
+  border-radius:10px;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+}
+body #contenu #bloc_etape p {
+  line-height:2em;
+  margin-left:100px;
+}
+body #contenu a {
+  color:#b71414;
+  font-weight:bold;
+}
+body #contenu a:hover { border-bottom:1px dashed #b71414; }
+body #contenu table {
+  width:100%;
+  margin-bottom:30px;
+  border:1px solid #aaaaaa;
+}
+body #contenu table caption {
+  padding:5px;
+  color:#555555;
+  font-size:1.4em;
+  font-weight:bold;
+}
+body #contenu table th {
+  padding:7px;
+  background-color:#cccccc;
+  border-bottom:1px solid #aaaaaa;
+}
+body #contenu table tr { background-color:#f8f4f4; }
+body #contenu table .alterne { background-color:#e8e2e2; }
+body #contenu table td { padding:7px; }
+body #contenu .btnNouveau {
+  margin-bottom:10px;
+  float:right;
+}
+body #contenu .btnNouveau:hover { border:none; }
+body #progressbar {
+  margin:10px 0 0 0;
+  float:right;
+  height:20px;
+  width:400px;
+  text-align:center;
+  font-size:0.5em;
+}
+body #progressbar .ui-progressbar-value {
+  background-image:url('../../themes/glovz/img/pbar-ani-red.gif');
+  margin:0;
+}
+body .ui-widget-overlay {
+  opacity:0.5;
+  background:#000000;
+}
+body .ui-widget-header {
+  border:none;
+  background-image:none;
+  background-color:#cccccc;
+}
+body .ui-dialog-titlebar { background-color:#cccccc; }
+body .ui-dialog .ui-dialog-content { background-color:#f6f3f3; }
+body .ui-widget-content { border:none; }
+body .ui-dialog .ui-dialog-titlebar { background-color:#cccccc; }
+body .ui-dialog {
+  padding:0;
+  background-color:#f6f3f3;
+  border:0;
+}
+body .buttonRight { float:right; }
+body .buttonRight p { line-height:1em; }
+body #buttonHistorique {
+  float:right;
+  margin-bottom:-20px;
+}
+body #dialogFormNouvelleTache p { margin-bottom:10px; }
+body #dialFormNewTask { background-color:#f6f3f3; }
+body #slider { border:1px solid #dddddd; }
+body .niceform fieldset {
+  background-image:none;
+  background-color:#f6f3f3;
+  border:0;
+}
