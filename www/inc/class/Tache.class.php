@@ -56,7 +56,7 @@
                      ->find(
                  array(
                       "collection" => (string)$this->_collection,
-                      'utilisateur' => $this->_userInfo['uid'],
+                      'utilisateur' => (string)$this->_userInfo['uid'],
                       'valide' => $valiadtion
                  )
              );
