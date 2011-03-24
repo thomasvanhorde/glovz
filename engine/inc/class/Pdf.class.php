@@ -19,10 +19,10 @@ else
 
 
 class Pdf extends HTML2PDF{
-    public function simplePDF($template, $fileName = 'exemple.pdf'){
+    public function simplePDF($template, $fileName = 'exemple.pdf', $output = 'D'){
         $content = Base::Load(CLASS_COMPONENT)->_view->addBlock('pdf_generate',$template);
         $this->WriteHTML($content);
-        $this->Output($fileName);
+        $this->Output($fileName, $output);
         exit();
     }
 }
