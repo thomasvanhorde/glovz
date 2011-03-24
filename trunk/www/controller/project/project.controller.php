@@ -102,8 +102,10 @@
 			else {
                 if($this->_userClass->isDT())
 				    $allProjects = $this->_projectClass->getAll();
-                else
-                    $allProjects = $this->_userClass->getProject($this->_userInfo['uid']);
+                else {
+                    foreach($this->_userClass->getProject($this->_userInfo['uid']) as $i => $a)
+                    $allProjects[$i] = (array)$a;
+                }
 
 				$this->_view->assign('projects', $allProjects);
 				$this->_view->addBlock('content','defaut.tpl');
