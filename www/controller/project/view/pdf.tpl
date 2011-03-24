@@ -4,7 +4,7 @@
     {$project->nom}
 </h2>
 
-<img src="http://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=Projet%20{$project->nom}%20{$project->myURL}&choe=UTF-8" />
+<img src="http://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=Projet%20{$project->nom|urlencode}%20{$project->myURL}&choe=UTF-8" />
 
 <!-- Informations du projet -->
 <ul>
