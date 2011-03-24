@@ -7,9 +7,12 @@
 
  class Timesheet extends SimpleContentManager {
 
-    public function __construct(){
-        parent::__construct();
-    }
+     const COLLECTION = 6;
+
+     public function __construct(){
+         $this->_collection = self::COLLECTION;
+         parent::__construct();
+     }
 
 
  }

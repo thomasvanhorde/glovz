@@ -22,6 +22,55 @@
 
     }
 
+    public function myByDate($date){
+        if(isset($this->_userInfo['uid'])){
+
+            $tmp = $this->_bdd
+                    ->find(
+                array(
+                     "collection" => (string)$this->_collection,
+                     'utilisateur' => $this->_userInfo['uid'],
+                     'date' => $date
+                )
+            );
+
+            $return = array();
+            foreach($tmp as $i => $data){
+                $data['projet'] = (object)Base::Load(CLASS_PROJECT)->get($data['projet']);
+                $return[$i] = (object)$data;
+            }
+            return (object)$return;
+
+        } else return false;
+    }
+
+     public function noValid(){
+         return $this->Valid(null);
+     }
+
+
+     public function Valid($valiadtion = 'true'){
+         if(isset($this->_userInfo['uid'])){
+
+             $tmp = $this->_bdd
+                     ->find(
+                 array(
+                      "collection" => (string)$this->_collection,
+                      'utilisateur' => $this->_userInfo['uid'],
+                      'valide' => $valiadtion
+                 )
+             );
+
+             $return = array();
+             foreach($tmp as $i => $data){
+                 $data['projet'] = (object)Base::Load(CLASS_PROJECT)->get($data['projet']);
+                 $return[$i] = (object)$data;
+             }
+             return (object)$return;
+
+         } else return false;
+     }
+
     public function myLast($limit = 1){
         if(isset($this->_userInfo['uid'])){
 
