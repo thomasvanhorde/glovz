@@ -5,7 +5,11 @@
         <select name="member">
         {foreach from=$allUsers key=id item=user}
 
-            {if !in_array($id, $listIdMembres)}
+            {if is_array($listIdMembres)}
+                {if !in_array($id, $listIdMembres)}
+                    <option value="{$id}">{$user.nom} {$user.prenom}</option>
+                {/if}
+            {else}
                 <option value="{$id}">{$user.nom} {$user.prenom}</option>
             {/if}
         {/foreach}
