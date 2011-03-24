@@ -3,7 +3,7 @@
     <thead>
         <tr>
             <th>Nom</th>
-            <th>Prénom</th>
+            <th>PrÃ©nom</th>
             <th>Email</th>
             <th>Action</th>
         </tr>
@@ -34,8 +34,3 @@
     });
     {/literal}
 </script>
-
-
-
-
-<a href="pdf/">PDF</a>

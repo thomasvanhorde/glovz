@@ -1,9 +1,6 @@
+<p><input type="text" name="inputSlider" id="inputSlider" value="" /></p>
 
-<p>
-    <input type="text" name="inputSlider" id="inputSlider" value="" />
-</p>
 <div id="slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"></div>
-
 
 <script type="text/javascript">
     {literal}
@@ -58,6 +55,5 @@
         }
         $( "#inputSlider" ).val(  inputStartTexte  );
     });
-        {/literal}
-
+    {/literal}
 </script>

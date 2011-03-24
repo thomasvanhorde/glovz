@@ -3,6 +3,7 @@
   -webkit-border-radius:5px;
   -moz-border-radius:5px;
 }
+.display-none { display:none; }
 body {
   background:url('../../themes/glovz/img/fond.png') repeat-y #eae5e5;
   font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;

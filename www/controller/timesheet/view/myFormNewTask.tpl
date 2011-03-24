@@ -1,6 +1,7 @@
 {if $formCompteur == 1}
 <script type="text/javascript" src="{$BASE_URL}/js/admin/datepicker/datepicker.packed.js"></script>
 {/if}
+
 <form method="post" class="validity niceform" id="form_{$formUID}">
     <fieldset>
         {assign var="strucId" value=$structure.id}
@@ -164,11 +165,7 @@
     </fieldset>
 
     <input type="submit" name="submit" id="submit" value="enregistrer" />
-
-
-
 </form>
-
 
 
 {if $formCompteur == 1}
@@ -189,4 +186,3 @@
         });
     </script>
 {/literal}
-
