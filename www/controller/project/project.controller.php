@@ -267,6 +267,18 @@
 		}
 
 		/**
+		 *	Suppression d'une tâche
+		 *
+		 *	@author Fabien Nouaillat
+		 *	@version 1.0
+		 */
+		public function deleteTask() {
+			if (isset($_GET['param'][0]) && isset($_GET['param'][1])) {
+				$this->_taskClass->remove($_GET['param'][1]);
+				header('location: '.$_SERVER['REDIRECT_URL']);
+			}
+		}
+		/**
 		 *	Enregistrement d'une tâche
 		 *
 		 *	@author Fabien Nouaillat
