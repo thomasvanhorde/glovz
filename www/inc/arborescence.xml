@@ -1,23 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <arborescence>
     <index>
-        <title>glovZ</title>
+        <title>glovz</title>
         <controller>home</controller>
         <layout>home.tpl</layout>
     </index>
-    <allBlocks>
-        <title>Ensemble des blocks</title>
-        <controller>allBlocks</controller>
-        <layout>other.tpl</layout>
-        <blocks>
-            <block>
-                <controller>userbar</controller>
-            </block>
-            <block>
-                <controller>menu</controller>
-            </block>
-        </blocks>
-    </allBlocks>
     <connect>
         <title>Connexion</title>
         <controller>user</controller>
@@ -25,7 +12,7 @@
         <layout>home.tpl</layout>
     </connect>
     <disconnect>
-        <title>Connexion</title>
+        <title>Déconnexion</title>
         <controller>user</controller>
         <method>disconnect</method>
         <layout>other.tpl</layout>
@@ -327,7 +314,7 @@
             </blocks>
         </new>
         <edit>
-            <title>Editer un membre</title>
+            <title>Modifier un membre</title>
             <controller>user</controller>
             <method>edit</method>
             <layout>other.tpl</layout>
@@ -345,7 +332,7 @@
             </blocks>
         </edit>
         <delete>
-            <title>Editer un membre</title>
+            <title>Supprimer un membre</title>
             <controller>user</controller>
             <method>delete</method>
             <layout>other.tpl</layout>
@@ -386,7 +373,7 @@
             </block>
         </blocks>
         <history>
-            <title>Feuille de temps</title>
+            <title>Historique</title>
             <controller>timesheet</controller>
             <method>history</method>
             <layout>other.tpl</layout>
@@ -405,13 +392,13 @@
         </history>
     </timesheet>
     <!-- Export du rapport PDF -->
-        <report>
-            <title>Editer un rapport en PDF</title>
-            <controller>report</controller>
-            <layout>other.tpl</layout>
-            <accessControl>
-                <controller>user</controller>
-                <method>needCP</method>
-            </accessControl>
-        </report>
+	<report>
+		<title>Éditer un rapport en PDF</title>
+		<controller>report</controller>
+		<layout>other.tpl</layout>
+		<accessControl>
+			<controller>user</controller>
+			<method>needCP</method>
+		</accessControl>
+	</report>
 </arborescence>
