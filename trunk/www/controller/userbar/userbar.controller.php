@@ -1,9 +1,9 @@
 <?php
 	/**
-	 *	Contrôleur de la barre utilisateur
+	 *	ContrÃ´leur de la barre utilisateur
 	 *
 	 *	@author Fabien Nouaillat
-	 *	@version: 1.0
+	 *	@version 1.0
 	 */
 
 	class userbar_controller {
@@ -14,12 +14,12 @@
 		
 		/**
 		 *	Constructeur :
-		 		- Récupération de la bonne instance de Smarty
-		 		- Déclaration du dossier contenant les vues de ce contrôleur
-		 		- Récupération des classes MongoDB nécessaires
+		 		- RÃ©cupÃ©ration de la bonne instance de Smarty
+		 		- DÃ©claration du dossier contenant les vues de ce contrÃ´leur
+		 		- RÃ©cupÃ©ration de la classe MongoDB nÃ©cessaire
 		 *
 		 *	@author Fabien Nouaillat
-		 *	@version: 1.0
+		 *	@version 1.0
 		 *	@see: CLASS_COMPONENT
 		 *	@see: CLASS_USER
 		 */
@@ -28,9 +28,12 @@
 			$this->_userClass	= Base::Load(CLASS_USER);
 		}
 
-        /***
-         * @return void
-         */
+ 		/**
+		 *	Affichage des informations de l'utilisateur
+		 *
+		 *	@author Thomas Van Horde
+		 *	@version 1.0
+		 */
         public function myProfil() {
             $param = array(
               'field' => array(
@@ -48,7 +51,7 @@
 
 
 		/**
-		 *	Récupération et envoi des données de l'utilisateur à la vue
+		 *	RÃ©cupÃ©ration et envoi des donnÃ©es de l'utilisateur Ã  la vue
 		 *
 		 *	@author Fabien Nouaillat
 		 *	@version: 1.0

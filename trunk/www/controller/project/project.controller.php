@@ -46,7 +46,7 @@
 		 *	Choix de la vue à afficher selon l'URL
 		 *
 		 *	@author Thomas Van Horde
-		 *	@version 1.1
+		 *	@version 1.0
 		 */
 		public function defaut() {
             $this->_view->assign('isDT',$this->_userClass->isDT());
