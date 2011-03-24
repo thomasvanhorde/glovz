@@ -1,7 +1,7 @@
 <h2>Liste des projets</h2>
 
 {if $isDT}
-<a class="btnNouveau" href="create-project/"><input type="button" value="Créer un nouveau projet" /></a>
+	<a class="btnNouveau" href="create-project/"><button type="button">Créer un nouveau projet</button></a>
 {/if}
 
 <table>
