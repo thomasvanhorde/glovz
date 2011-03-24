@@ -148,10 +148,8 @@
 		 */
 		public function POST_ProjectData($data) {
 			if (empty($data['id'])) { // Création
-				var_dump($this->_projectClass->save($data));
-
-				// Ajout du CP automatiquement
-				$this->POST_addMember($data);
+				$return = $this->_projectClass->save($data);
+                $this->_projectClass->addMember($return['id'], $return['cdp']);
 				header('location: '.Base::getUrl(3));
 			}
 			else { // Édition

@@ -84,7 +84,7 @@ class ContentManager {
             if(!$id){ // new
                 $save = $this->insert($data);
                 if($save)
-                    return $data;
+                    return $save;
             }
             else {// update
                 if($this->update($data, $id))
@@ -100,8 +100,10 @@ class ContentManager {
      */
     private function insert($data){
         $data['date_create'] = time();
-        if($this->_collection->insert($data))
-            return true;
+        if($this->_collection->insert($data)){
+            $data['id'] = (string)$data['_id'];
+            return $data;
+        }
         else
             return false;
     }

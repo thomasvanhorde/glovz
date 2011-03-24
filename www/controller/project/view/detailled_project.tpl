@@ -90,7 +90,7 @@
 
 <br />
 
-<!--T�ches du projet -->
+<!--Tâches du projet -->
 
 
 <table>
