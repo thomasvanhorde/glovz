@@ -72,20 +72,7 @@
             {if $isDT }<th>Actions</th>{/if}
         </tr>
     </thead>
-    <tbody>
-        {foreach from=$project->jalon item=jalon}
-        {assign var=date value="/"|explode:$jalon.date}
-            <tr>
-                <td>{$jalon.label|truncate:15}</td>
-                <td>{$jalon.description|truncate:20}</td>
-                <td>{$date.2}/{$date.1}/{$date.0}</td>
-                {if $isDT }<td>
-                    <a href="{$BASE_URL}project/edit-milestone/{$jalon._id}/">Modifier</a> |
-                    <a href="{$BASE_URL}project/delete-milestone/{$project->_id}/{$jalon._id}/">Supprimer</a>
-                </td>{/if}
-            </tr>
-        {/foreach}
-    </tbody>
+
     {/if}
 </table>
 
