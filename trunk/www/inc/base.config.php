@@ -23,9 +23,10 @@
 	*/
 
 	/* Configuration de Thomas */
+/*
 	define_once('MONGO_HOST','mongodb://192.168.0.23');
 	define_once('MONGO_BASE','test');
-
+*/
 	define_once('MONGO_HOST','localhost');
 	define_once('MONGO_BASE','test');
 
