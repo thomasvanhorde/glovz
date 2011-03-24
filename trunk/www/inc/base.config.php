@@ -69,7 +69,7 @@
 	}
 
 	define_once('FORCE_ENCODE_UTF8', false);
-	define_once('GZIP_COMPRESS', false);
+	define_once('GZIP_COMPRESS', true);
 	define_once('DEBUG', false);
 	define_once('DEV', true);
 
@@ -77,3 +77,4 @@
 	Fin du fichier : base.config.php
 	Chemin du fichier : /www/inc/
 */
+
