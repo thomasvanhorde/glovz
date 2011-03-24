@@ -143,7 +143,7 @@ class ContentManager {
 
         if(is_array($search)){
             foreach($search as $i => $d)
-                $content[$i] = utf8_decode($d);
+                $content[$i] = $d;
         }
         else
             $content = null;

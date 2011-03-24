@@ -378,7 +378,25 @@
             <block>
                 <controller>menu</controller>
             </block>
+        </blocks>
+        <history>
+            <title>Feuille de temps</title>
+            <controller>timesheet</controller>
+            <method>history</method>
+            <layout>other.tpl</layout>
+            <accessControl>
+                <controller>user</controller>
+                <method>needConnect</method>
+            </accessControl>
+            <blocks>
+                <block>
+                    <controller>userbar</controller>
+                </block>
+                <block>
+                    <controller>menu</controller>
+                </block>
             </blocks>
+        </history>
     </timesheet>
     <!-- Export du rapport PDF -->
         <report>

@@ -1,73 +1,81 @@
 
+<a href="history/"><input type="button" id="buttonHistorique" value="Historique" /></a>
 
 <form action="" method="post">
     <table id="tbTimeSheet">
-        <input type="button" id="buttonHistorique" value="Historique" />
+
         <caption>
-            Feuille de temps
-
-            <select name="projects">
-                {foreach from=$projects key=id item=project}
-                <option value="{$id}"{$project.nom}>{$project.nom}</option>
-                {/foreach}
-            </select>
-
-
+            Feuille de temps non valid√© - semaine {$semaine}
         </caption>
         <thead>
             <tr>
                 <th>
-                    Type de t‚che
+                    Type de t√¢che
                 </th>
                 <th>
                     label
                 </th>
                 <th>
-                    Travaux effectuÈs
+                    Travaux effectu√©s
                 </th>
                 <th>
                     Lien mantis
                 </th>
                 <th>
-                    Temps passÈ
+                    Temps pass√©
                 </th>
                 <th>
-                    T‚che terminÈe
+                    T√¢che termin√©e
                 </th>
                 <th>
                     Commentaires
                 </th>
+                {if $isDT }<th>
+                    Options
+                </th>{/if}
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                    Integration
-                </td>
-                <td>
-                    Menu latÈral qui n'est pas au centre
-                </td>
-                <td>
-                    rajouter des boutons, corriger les margin et remis en forme la pop-in
-                </td>
-                <td>
-                    http://matis.glovz.fr/napster
-                </td>
-                <td>
-                    3 heures et 45 minutes
-                </td>
-                <td>
-                    <input type="checkbox" id="" name=""/>
+            {foreach from=$MyDayTache key=tache_id item=tache}
+                <tr>
+                    <td>
+                        {if $tache->type == 0}Maquette{/if}
+                        {if $tache->type == 1}Int√©gration{/if}
+                        {if $tache->type == 2}D√©veloppement{/if}
+                        {if $tache->type == 3}Test{/if}
+                    </td>
+                    <td>
+                        <a href="{$BASE_URL}timesheet/{$tache->_id}/">{$tache->label} ({$tache->projet->nom})</a>
+                    </td>
+                    <td>
+                        {$tache->travail}
+                    </td>
+                    <td>
+                        {$tache->mantis}
+                    </td>
+                    <td>
+                        {$tache->duree}
+                    </td>
+                    <td>
+                        {if $tache->cloture}
+                            oui
+                        {else}
+                            non
+                        {/if}
+                    </td>
+                    <td>
+                        {$tache->commentaire}
+                    </td>
+                    {if $isDT }<td>
+                        <a href="{$BASE_URL}project/edit-task/{$tache->_id}/">modifier</a>
+                    </td>{/if}
+                </tr>
+            {/foreach}
 
-                </td>
-                <td>
-                    une incompatibilitÈ des float m'a fait prendre beaucoup de retard
-                </td>
-            </tr>
             <tr>
-                <td colspan="7">
+                <td colspan="8">
                     <a href="" title="">
-                        <button type="button" title="ajouter une t‚che" id="nouvelleTache">Nouvelle t‚che</button>
+                        <button type="button" title="ajouter une t√¢che" id="nouvelleTache">Nouvelle t√¢che</button>
                     </a>
                 </td>
             </tr>
@@ -75,64 +83,23 @@
     </table>
 </form>
 
-<div id="dialFormNewTask" class="ui-dialog" title="Nouvelle tache">{$formNewTache}</div>
+<div id="dialFormNewTask" class="ui-dialog" title="Nouvelle tache">{$formNewTache_classic}</div>
+
 <script type="text/javascript">
     {literal}
 
-    $( "#dialog:ui-dialog" ).dialog( "destroy" );
-    $( "#dialFormNewTask" ).dialog( "destroy" );
-    $( "#dialFormNewTask" ).dialog({
-        autoOpen: false,
-        width: 750,
-        modal: true
-    });
-    $("#nouvelleTache").click(function(){
-        $( "#dialFormNewTask" ).dialog( "open" );
-            return false;
-    });
     $(function() {
-        $( "#slider" ).slider({
-            range: "min",
-            value: 15,
-            min: 15,
-            max: 1440,
-            step: 15,
-            slide: function( event, ui ) {
-                var heures = Math.floor(ui.value/60);
-                var minutes = ui.value%60;
-                var inputTexte = "";
-                if (heures != 0) {
-                    inputTexte += heures +" heure";
-                    if (heures != 1) {
-                        inputTexte += "s";
-                    }
-                    if(minutes != 0) {
-                        inputTexte += " et "+ minutes +" minutes";
-                    }
-                } else if(minutes != 0) {
-                    inputTexte += minutes +" minutes";
-                }
-                $( "#inputSlider" ).val( inputTexte );
-            }
+        $( "#dialog:ui-dialog" ).dialog( "destroy" );
+        $( "#dialFormNewTask" ).dialog( "destroy" );
+        $( "#dialFormNewTask" ).dialog({
+            autoOpen: false,
+            width: 750,
+            modal: true
         });
-        var inputStartTexte = "";
-        var startHeures = Math.floor( $( "#slider" ).slider( "value" ) /60 );
-        var startMinutes = $( "#slider" ).slider( "value" )%60;
-
-        if (startHeures != 0 ) {
-            inputStartTexte = startHeures +" heure";
-            if (startHeures != 1) {
-                inputStartTexte += "s";
-            }
-            if(startMinutes != 0) {
-                inputStartTexte += " et "+ startMinutes +" minutes";
-            }
-        } else if(startMinutes != 0) {
-            inputStartTexte += startMinutes +" minutes";
-        }
-        $( "#inputSlider" ).val(  inputStartTexte  );
+        $("#nouvelleTache").click(function(){
+            $( "#dialFormNewTask" ).dialog( "open" );
+                return false;
+        });
     });
-        {/literal}
-    
+    {/literal}
 </script>
-

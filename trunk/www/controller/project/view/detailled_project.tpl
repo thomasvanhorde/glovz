@@ -7,16 +7,16 @@
 
 <!-- Informations du projet -->
 <ul>
-    <li>Date de création : {$project->date_create|date_format:"%d/%m/%Y"}</li>
+    <li>Date de crÃ©ation : {$project->date_create|date_format:"%d/%m/%Y"}</li>
     <li>Chef de projet : {$project->cdp->prenom} {$project->cdp->nom} &lt;{$project->cdp->mail}&gt;</li>
     <li>Client : {$project->client->prenom} {$project->client->nom} &lt;{$project->client->mail}&gt;</li>
-    <li>URL du serveur de développement : <a href="{$project->url_dev}">{$project->url_dev}</a></li>
+    <li>URL du serveur de dÃ©veloppement : <a href="{$project->url_dev}">{$project->url_dev}</a></li>
     <li>URL du serveur de production : <a href="{$project->url_prod}">{$project->url_prod}</a></li>
-    <li>Durée estimée : {$project->duree} heures</li>
-    <li>Durée passée :  {if $project->tacheTotalH <= 100} {$project->tacheTotalH} heures, soit {$project->avancement|ceil}% du projet
-                        {else} Durée estimée dépassée ({$project->tacheTotalH} heures)
+    <li>DurÃ©e estimÃ©e : {$project->duree} heures</li>
+    <li>DurÃ©e passÃ©e :  {if $project->tacheTotalH <= 100} {$project->tacheTotalH} heures, soit {$project->avancement|ceil}% du projet
+                        {else} DurÃ©e estimÃ©e dÃ©passÃ©e ({$project->tacheTotalH} heures)
                         {/if} </li>
-    <li>Clôturé :
+    <li>ClÃ´turÃ© :
 	{if $project->cloture eq 'true'}
             Oui
 	{else}
@@ -31,7 +31,7 @@
         $( "#progressbar" ).progressbar({
             value: {/literal}{$project->avancement}{literal},
             complete: function(event, ui) {
-                console.log('test');
+                // console.log('test');
             }
         });
             $( "#progressbar.ui-progressbar-value" ).html({/literal}{$project->avancement}{literal});
@@ -47,7 +47,7 @@
 <table>
     <caption>Jalons
     {if $isDT }
-        <a href="create-milestone/"><input type="button" value="Créer un nouveau jalon" id="nouveauJalon" class="buttonRight" /></a>
+        <a href="create-milestone/"><input type="button" value="CrÃ©er un nouveau jalon" id="nouveauJalon" class="buttonRight" /></a>
 
         <div style="display: none;" id="dialogFormNouveauJalon" class="dialogForm ui-dialog" title="Nouveau jalon">{$formNewJalon}</div>
         <script type="text/javascript">
@@ -90,17 +90,17 @@
 
 <br />
 
-<!--Tâches du projet -->
+<!--Tï¿½ches du projet -->
 
 
 <table>
     <caption>
-        Tâches
+        TÃ¢ches
 
         {if $isDT }
-        <a href="create-task/"><input type="button" value="Créer une nouvelle tâche" id="nouvelleTache" class="buttonRight" /></a>
+        <a href="create-task/"><input type="button" value="CrÃ©er une nouvelle tÃ¢che" id="nouvelleTache" class="buttonRight" /></a>
 
-        <div style="display: none;" id="dialogFormNouvelleTache" class="dialogForm ui-dialog" title="Nouvelle tâche">{$formNewTache}</div>
+        <div style="display: none;" id="dialogFormNouvelleTache" class="dialogForm ui-dialog" title="Nouvelle tÃ¢che">{$formNewTache}</div>
         <script type="text/javascript">
             {literal}
             $("#nouvelleTache").click(function(){
@@ -116,8 +116,8 @@
         <tr>
             <th>Label</th>
             <th>Description</th>
-            <th>Personne concernée</th>
-            <th>Durée (h)</th>
+            <th>Personne concernÃ©e</th>
+            <th>DurÃ©e (h)</th>
             {if $isDT }<th>Actions</th>{/if}
         </tr>
     </thead>
@@ -126,14 +126,14 @@
         <tr>
             <th colspan="10">
                     {if $taskType == 0}Maquette{/if}
-                    {if $taskType == 1}Intégration{/if}
-                    {if $taskType == 2}Développement{/if}
+                    {if $taskType == 1}IntÃ©gration{/if}
+                    {if $taskType == 2}DÃ©veloppement{/if}
                     {if $taskType == 3}Test{/if}
             </th>
         </tr>
             {foreach from=$task item=tache}
         <tr>
-            <td>{$tache.label}</td>
+            <td><a href="{$BASE_URL}timesheet/{$tache._id}/">{$tache.label}</a></td>
             <td>{$tache.description|truncate:20}</td>
             <td>{$tache.utilisateur->nom} {$tache.utilisateur->prenom}</td>
             <td>{$tache.duree}</td>
@@ -159,7 +159,7 @@
     <thead>
         <tr>
             <th>Nom</th>
-            <th>Prénom</th>
+            <th>PrÃ©nom</th>
             <th>Fonction</th>
             {if $isDT }<th>Action</th>{/if}
         </tr>
