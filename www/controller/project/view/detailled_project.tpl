@@ -137,7 +137,8 @@
             {if is_array($task)}
                 {foreach from=$task item=tache}
                     <tr>
-                       
+                        
+                        <td>{$tache.description|truncate:20}</td>
                         <td>{$tache.utilisateur->nom} {$tache.utilisateur->prenom}</td>
                         <td>{$tache.duree}</td>
                         {if $isDT }<td>
