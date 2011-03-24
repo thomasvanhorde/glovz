@@ -30,10 +30,10 @@ class access_control_controller {
 
             // TEST LOGIN & MDP
             if($ControllerAccessControlLogin == $data['user_name'] && selEncode($data['user_password'], ENCODE_METHOD) == $ControllerAccessControlPassword){
-                echo '<META HTTP-EQUIV="Refresh" CONTENT="1; URL='.SYS_FOLDER.substr($redirect, 1).'">';
-                $this->_view->assign('return_access', Base::Load(CLASS_CORE_MESSAGE)->Generic('MESS_ACCESS_CONTROL_ALLOW'));
+
                 unset($_SESSION[SESSION_REDIRECT]);
                 $_SESSION[SESSION_ACCESS_CONTROL][(string)$ControllerName] = true;
+                header('location: '.SYS_FOLDER.substr($redirect, 1));
             }
             else {
                 $this->_view->assign('return_access', Base::Load(CLASS_CORE_MESSAGE)->Generic('MESS_ERR_ACCESS_CONTROL_BAD_MDP'));
