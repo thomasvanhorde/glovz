@@ -124,7 +124,19 @@
             {if $isDT }<th>Actions</th>{/if}
         </tr>
     </thead>
-    {/if}
+    <tbody>
+        {foreach from=$project->tache key=taskType item=task}
+        <tr>
+            <th colspan="10">
+                    {if $taskType == 0}Maquette{/if}
+                    {if $taskType == 1}Intégration{/if}
+                    {if $taskType == 2}Développement{/if}
+                    {if $taskType == 3}Test{/if}
+            </th>
+        </tr>
+
+        {/foreach}
+    </tbody>{/if}
 </table>
 
 <br />
