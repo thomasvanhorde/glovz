@@ -401,4 +401,19 @@
 			<method>needCP</method>
 		</accessControl>
 	</report>
+
+    <!-- recette pour Emma -->
+    <recette>
+        <title>Recette - Emma</title>
+        <controller>recette</controller>
+        <layout>other.tpl</layout>
+        <blocks>
+            <block>
+                <controller>userbar</controller>
+            </block>
+            <block>
+                <controller>menu</controller>
+            </block>
+        </blocks>
+    </recette>
 </arborescence>
