@@ -1,11 +1,11 @@
 <h2>Liste des Clients</h2>
 
-<a class="btnNouveau" href="create-client/"><input type="button" value="CrÈer un nouveau client" /></a></p>
+<a class="btnNouveau" href="create-client/"><button type="button">Cr√©er un nouveau client</button/></a>
 <table>
     <thead>
         <tr>
             <th>Nom</th>
-            <th>PrÈnom</th>
+            <th>Pr√©nom</th>
             <th>Courriel</th>
             <th>Actions</th>
         </tr>

@@ -1,4 +1,4 @@
-<form method="post" action="">
+<form action="">
     <p>
         <label for="user_email">Courriel</label>
         <input class="saisie" name="user_email" id="user_email" type="text" value="" size="35" />
@@ -9,10 +9,10 @@
     </p>
     <p id="bouton">
     	<input type="hidden" name="todo" value="user[connect]" />
-    	<input type="submit" value="Connexion" />
+    	<button type="submit">Connexion</button>
     </p>
 </form>
 
 {if $erreur == "true" }
-<p id="erreur">La connexion a échouée.</p>
+<p id="erreur">La connexion a Ã©chouÃ©e.</p>
 {/if}

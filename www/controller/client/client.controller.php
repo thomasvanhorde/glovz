@@ -4,7 +4,7 @@
 	 *	Contrôleur des clients
 	 *
 	 *	@author Fabien Nouaillat
-	 *	@version: 1.0
+	 *	@version 1.0
 	 */
 	class client_controller {
 		
@@ -19,7 +19,8 @@
 		 		- Récupération de la classe MongoDB nécessaire
 		 *
 		 *	@author Fabien Nouaillat
-		 *	@version: 1.0
+		 *	@version 1.0
+		 *	@see: CLASS_COMPONENT
 		 *	@see: CLASS_CLIENT
 		 */
 	    public function __construct() {
@@ -28,10 +29,10 @@
 	    }
 		
 		/**
-		 *	Choix de la vue à afficher selon l'URL
+		 *	Envoi des données à la vue
 		 *
 		 *	@author Fabien Nouaillat
-		 *	@version: 1.0
+		 *	@version 1.0
 		 */
 	    public function defaut() {
 	    	$allClients = $this->_clientClass->getAll();
@@ -43,7 +44,7 @@
 		 *	Création d'un nouveau client
 		 *
 		 *	@author Fabien Nouaillat
-		 *	@version: 1.0
+		 *	@version 1.0
 		 */
 		public function createClient() {
 			$this->_clientClass->addForm('content', 'ClientData');
@@ -53,7 +54,7 @@
 		 *	Modification d'un client
 		 *
 		 *	@author Fabien Nouaillat
-		 *	@version: 1.0
+		 *	@version 1.0
 		 */
 		public function editClient() {
 			$this->_clientClass->editForm('content', $_GET['param'][0], 'ClientData');
@@ -63,7 +64,7 @@
 		 *	Suppression d'un client
 		 *
 		 *	@author Fabien Nouaillat
-		 *	@version: 1.0
+		 *	@version 1.0
 		 */
 		public function deleteClient() {
 			$this->_clientClass->remove($_GET['param'][0]);
@@ -74,7 +75,7 @@
 		 *	Enregistrement d'un client
 		 *
 		 *	@author Fabien Nouaillat
-		 *	@version: 1.0
+		 *	@version 1.0
 		 */
 		public function POST_ClientData($data) {
 			if (empty($data['id'])) { // Création

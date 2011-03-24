@@ -12,7 +12,6 @@
     <script type="text/javascript" src="{$BASE_URL}js/glovz/jquery-1.5.1.min.js"></script>
     <script type="text/javascript" src="{$BASE_URL}js/glovz/jquery-ui.min.js"></script>
     <script type="text/javascript">
-    var BASE_URL = '{$BASE_URL}';
-    </script>
-    
+		var BASE_URL = '{$BASE_URL}';
+    </script>   
 </head>
