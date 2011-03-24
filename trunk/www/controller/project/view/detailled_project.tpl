@@ -124,7 +124,7 @@
             {if $isDT }<th>Actions</th>{/if}
         </tr>
     </thead>
-   
+    {/if}
 </table>
 
 <br />
