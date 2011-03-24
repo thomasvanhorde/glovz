@@ -72,7 +72,20 @@
             {if $isDT }<th>Actions</th>{/if}
         </tr>
     </thead>
-
+    <tbody>
+        {foreach from=$project->jalon item=jalon}
+        {assign var=date value="/"|explode:$jalon.date}
+            <tr>
+                <td>{$jalon.label|truncate:15}</td>
+                <td>{$jalon.description|truncate:20}</td>
+                <td>{$date.2}/{$date.1}/{$date.0}</td>
+                {if $isDT }<td>
+                    <a href="{$BASE_URL}project/edit-milestone/{$jalon._id}/">Modifier</a> |
+                    <a href="{$BASE_URL}project/delete-milestone/{$project->_id}/{$jalon._id}/">Supprimer</a>
+                </td>{/if}
+            </tr>
+        {/foreach}
+    </tbody>
     {/if}
 </table>
 
@@ -82,60 +95,6 @@
 
 <!--Tâches du projet -->
 
-
-<table>
-    <caption>
-        Tâches
-
-        {if $isDT }
-        <a href="create-task/"><input type="button" value="Créer une nouvelle tâche" id="nouvelleTache" class="buttonRight" /></a>
-
-        <div style="display: none;" id="dialogFormNouvelleTache" class="dialogForm ui-dialog" title="Nouvelle tâche">{$formNewTache}</div>
-        <script type="text/javascript">
-            {literal}
-            $("#nouvelleTache").click(function(){
-                $( "#dialogFormNouvelleTache" ).dialog( "open" );
-                return false;
-            });
-            {/literal}
-        </script>
-        {/if}
-    </caption>
-    {if !empty($project->tache)}
-    <thead>
-        <tr>
-            <th>Label</th>
-            <th>Description</th>
-            <th>Personne concernée</th>
-            <th>Durée (h)</th>
-            {if $isDT }<th>Actions</th>{/if}
-        </tr>
-    </thead>
-    <tbody>
-        {foreach from=$project->tache key=taskType item=task}
-        <tr>
-            <th colspan="10">
-                    {if $taskType == 0}Maquette{/if}
-                    {if $taskType == 1}Intégration{/if}
-                    {if $taskType == 2}Développement{/if}
-                    {if $taskType == 3}Test{/if}
-            </th>
-        </tr>
-            {foreach from=$task item=tache}
-        <tr>
-            <td><a href="{$BASE_URL}timesheet/{$tache._id}/">{$tache.label}</a></td>
-            <td>{$tache.description|truncate:20}</td>
-            <td>{$tache.utilisateur->nom} {$tache.utilisateur->prenom}</td>
-            <td>{$tache.duree}</td>
-            {if $isDT }<td>
-                <a href="{$BASE_URL}project/edit-task/{$tache._id}/">Modifier</a> |
-                <a href="{$BASE_URL}project/delete-task/{$project->_id}/{$tache._id}/">Supprimer</a>
-            </td>{/if}
-        </tr>
-            {/foreach}
-        {/foreach}
-    </tbody>{/if}
-</table>
 
 <br />
 
