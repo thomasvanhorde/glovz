@@ -78,6 +78,12 @@
                 </block>
             </blocks>
         </create-project>
+        <pdf>
+            <title>Export PDF</title>
+            <controller>project</controller>
+            <method>pdf</method>
+            <layout>other.tpl</layout>
+        </pdf>
         <edit-project>
             <title>Modifier un projet</title>
             <controller>project</controller>
