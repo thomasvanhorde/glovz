@@ -96,6 +96,37 @@
 <!--Tâches du projet -->
 
 
+<table>
+    <caption>
+        Tâches
+
+        {if $isDT }
+        <a href="create-task/"><input type="button" value="Créer une nouvelle tâche" id="nouvelleTache" class="buttonRight" /></a>
+
+        <div style="display: none;" id="dialogFormNouvelleTache" class="dialogForm ui-dialog" title="Nouvelle tâche">{$formNewTache}</div>
+        <script type="text/javascript">
+            {literal}
+            $("#nouvelleTache").click(function(){
+                $( "#dialogFormNouvelleTache" ).dialog( "open" );
+                return false;
+            });
+            {/literal}
+        </script>
+        {/if}
+    </caption>
+    {if !empty($project->tache)}
+    <thead>
+        <tr>
+            <th>Label</th>
+            <th>Description</th>
+            <th>Personne concernée</th>
+            <th>Durée (h)</th>
+            {if $isDT }<th>Actions</th>{/if}
+        </tr>
+    </thead>
+   
+</table>
+
 <br />
 
 <!-- Membres du projet -->
