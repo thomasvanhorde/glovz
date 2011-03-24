@@ -7,6 +7,9 @@ qrcode : value="Le site de html2pdf http://html2pdf.fr/" ec="L" style="width: 30
 </h2>
 
 
+<img src="http://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=Projet%20{$project->nom|urlencode}%20{$project->myURL}&choe=UTF-8" />
+
+
 <!-- Informations du projet -->
 <ul>
     <li>Date de création : {$project->date_create|date_format:"%d/%m/%Y"}</li>
@@ -27,10 +30,8 @@ qrcode : value="Le site de html2pdf http://html2pdf.fr/" ec="L" style="width: 30
     </li>
 </ul>
 
-<!--
-<img src="http://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=Projet%20{$project->nom|urlencode}%20{$project->myURL}&choe=UTF-8" />
+
 <img src="http://chart.googleapis.com/chart?cht=p3&chd=t:{$project->avancement|ceil},{$project->avancementR|ceil}&chs=250x100&chl=Fait|Restant" />
--->
 
 <!-- Jalons du projet -->
 
