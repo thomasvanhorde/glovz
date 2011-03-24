@@ -81,15 +81,16 @@
 				// Chargement du formulaire des jalons
 				$this->_milestoneClass->addForm('formNewJalon', 'MilestoneData');
 				$this->_taskClass->addForm('formNewTache', 'TaskData');
-
+                
 				$this->_view->assign('allUsers', $allUsers);
 				$this->_view->assign('project', $current_project);
 
-                if(is_array($current_project->membre)){
+                if(is_object($current_project->membre)){
                     foreach ($current_project->membre as $key) {
                         $this->_listIdMembres[] = $key->_id;
                     }
                 }
+
 				$this->_view->assign('listIdMembres', $this->_listIdMembres);
 				
 				$this->_view->addBlock('allUsersContent','list_user.tpl');
