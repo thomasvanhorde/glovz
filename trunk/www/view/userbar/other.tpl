@@ -9,8 +9,8 @@
 		</li>
 		<li>
 			<a href="{$BASE_URL}disconnect/">
-				<img src="{$BASE_URL}themes/glovz/img/deconnexion.png" alt="Déconnexion" />
-				Déconnexion
+				<img src="{$BASE_URL}themes/glovz/img/deconnexion.png" alt="DÃ©connexion" />
+				DÃ©connexion
 			</a>
 		</li>
 	</ul>

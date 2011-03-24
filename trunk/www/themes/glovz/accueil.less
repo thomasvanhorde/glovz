@@ -1,3 +1,8 @@
+/**
+ *	Thème de la page de connexion
+ *	@author Fabien Nouaillat
+ */
+
 // Mixins
 .arrondi (@radius: 5px) {
     border-radius: @radius;
@@ -5,59 +10,68 @@
     -moz-border-radius: @radius;
 }
 
-.center {
+.centrer {
     text-align: center;
 }
 
+.trebuchet {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
 
 // Style du site
 body {
-    width: 420px;
+    width: 450px;
     margin: auto;
     background: url('../../themes/glovz/img/fond_accueil.png') repeat #1f1f1f;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     color: #eae3d6;
+	.trebuchet;
 
     h1 {
-    padding: 50px;
-    .center;
+		padding: 50px;
+		.centrer;
+	}
+
+	#contenu {
+
+		p {
+			line-height: 3em;
+		}
+
+		label {
+			float: left;
+			width: 140px;
+			text-indent: 10px;
+		}
+
+		.saisie {
+			padding: 2px;
+			font-size: 1em;
+			.trebuchet;
+			.arrondi;
+		}
+
+		#bouton {
+			margin-top: 20px;
+			.centrer;
+
+			button {
+				width: 140px;
+				font-size: 1em;
+				.trebuchet;
+				.arrondi;
+			}
+		}
+
+		#erreur {
+			text-align: center;
+			color: #c32222;
+			font-size: .8em;
+			font-style: italic;
+		}
+	}
 }
 
-#contenu {
-
-    p {
-    line-height: 3em;
-}
-
-label {
-    float: left;
-    width: 140px;
-    text-indent: 10px;
-}
-
-.saisie {
-    .arrondi;
-    padding: 2px;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    font-size: 1em;
-}
-
-#bouton {
-    margin-top: 20px;
-    .center;
-
-    input {
-    width: 140px;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    font-size: 1em;
-    }
-}
-
-#erreur {
-    text-align: center;
-    color: #c32222;
-    font-size: .8em;
-    font-style: italic;
-}
-}
-}
+/*
+	Fin du fichier : accueil.less
+	Chemin du fichier : /www/theme/glovz/
+*/

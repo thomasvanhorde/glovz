@@ -3,17 +3,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 	{include file='view/inc/head.tpl'}
 	<body>
-		<!-- BARRE LATÉRALE -->
+		<!-- Barre latÃ©rale -->
         {$menu}
         
-        <!-- EN-TÊTE -->
+        <!-- En-tÃªte -->
         {$userbar}
         
-		<!-- CONTENU -->
+		<!-- Contenu -->
 		<div id="contenu">
             {$content}
 		</div>
-    {include file='view/inc/bottomJs.tpl'}
-	</body>
 
+		{include file='view/inc/bottomJs.tpl'}
+	</body>
 </html>

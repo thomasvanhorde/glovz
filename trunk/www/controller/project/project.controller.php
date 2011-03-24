@@ -4,7 +4,7 @@
 	 *	Contrôleur des projets
 	 *
 	 *	@author Fabien Nouaillat
-	 *	@version: 1.1
+	 *	@version 1.1
 	 */
 	class project_controller {
 		
@@ -14,7 +14,7 @@
 				$_milestoneClass,
 				$_taskClass,
 				$_userClass,
-                                $_listIdMembres;
+                $_listIdMembres;
 		
 		/**
 		 *	Constructeur :
@@ -23,7 +23,7 @@
 		 		- Récupération des classes MongoDB nécessaires
 		 *
 		 *	@author Fabien Nouaillat
-		 *	@version: 1.1
+		 *	@version 1.1
 		 *	@see: CLASS_COMPONENT
 		 *	@see: CLASS_PROJECT
 		 *	@see: CLASS_JALON
@@ -45,8 +45,8 @@
 		/**
 		 *	Choix de la vue à afficher selon l'URL
 		 *
-		 *	@author Fabien Nouaillat
-		 *	@version: 1.0
+		 *	@author Thomas Van Horde
+		 *	@version 1.1
 		 */
 		public function defaut() {
             $this->_view->assign('isDT',$this->_userClass->isDT());
@@ -72,31 +72,28 @@
                   )
                 );
 
-                // Load mileston form
                 $this->_view->assign('formParam', $param);
                 $this->_milestoneClass->addForm('formNewJalon', 'MilestoneData');
                 
                 $this->_view->assign('formParam', $param);
                 $this->_taskClass->addForm('formNewTache', 'TaskData');
 
-                                // Load mileston form
-                                $this->_milestoneClass->addForm('formNewJalon', 'MilestoneData');
-                                $this->_taskClass->addForm('formNewTache', 'TaskData');
+				// Chargement du formulaire des jalons
+				$this->_milestoneClass->addForm('formNewJalon', 'MilestoneData');
+				$this->_taskClass->addForm('formNewTache', 'TaskData');
 
 				$this->_view->assign('allUsers', $allUsers);
 				$this->_view->assign('project', $current_project);
-                                //echo '<pre>';
-                                //var_dump($current_project);
-                                //exit ();
-                                
-                                foreach ($current_project->membre as $key) {
-                                    $this->_listIdMembres[] = $key->_id;
-                                }
-                                $this->_view->assign('listIdMembres', $this->_listIdMembres);
+
+				foreach ($current_project->membre as $key) {
+					$this->_listIdMembres[] = $key->_id;
+				}
+				$this->_view->assign('listIdMembres', $this->_listIdMembres);
 				
 				$this->_view->addBlock('allUsersContent','list_user.tpl');
 				$this->_view->addBlock('content','detailled_project.tpl');
 			}
+
 			// Sinon on affiche la liste de tous les projets
 			else {
                 if($this->_userClass->isDT())
@@ -116,7 +113,7 @@
 		 *	Création d'un nouveau projet
 		 *
 		 *	@author Fabien Nouaillat
-		 *	@version: 1.0
+		 *	@version 1.0
 		 */
 		public function createProject() {
 			$this->_projectClass->addForm('content', 'ProjectData');
@@ -126,7 +123,7 @@
 		 *	Modification d'un projet
 		 *
 		 *	@author Fabien Nouaillat
-		 *	@version: 1.0
+		 *	@version 1.0
 		 */
 		public function editProject() {
 			$this->_projectClass->editForm('content', $_GET['param'][0], 'ProjectData');
@@ -136,7 +133,7 @@
 		 *	Suppression d'un projet
 		 *
 		 *	@author Fabien Nouaillat
-		 *	@version: 1.0
+		 *	@version 1.0
 		 */
 		public function deleteProject() {
 			$this->_projectClass->remove($_GET['param'][0]);
@@ -147,18 +144,17 @@
 		 *	Enregistrement d'un projet
 		 *
 		 *	@author Thomas Van Horde
-		 *	@version: 1.0
+		 *	@version 1.0
 		 */
 		public function POST_ProjectData($data) {
-			if (empty($data['id'])) { // Cr�ation
-                            echo "<pre>";
-                            var_dump($this->_projectClass->save($data));
-                            exit ();
-                                // ajout du CP automatiquemetn
-                                $this->POST_addMember($data);
+			if (empty($data['id'])) { // Création
+				var_dump($this->_projectClass->save($data));
 
-                                header('location: '.Base::getUrl(3));
-			} else { // �dition
+				// Ajout du CP automatiquement
+				$this->POST_addMember($data);
+				header('location: '.Base::getUrl(3));
+			}
+			else { // Édition
 				if ($this->_projectClass->update($data, $data['id']))
 				header('location: '.Base::getUrl(3));
 			}
@@ -172,7 +168,7 @@
 		 *	Création d'un nouveau jalon
 		 *
 		 *	@author Fabien Nouaillat
-		 *	@version: 1.0
+		 *	@version 1.0
 		 */
 		public function createMilestone() {
 			$this->_milestoneClass->addForm('content', 'MilestoneData');
@@ -182,7 +178,7 @@
 		 *	Modification d'un jalon
 		 *
 		 *	@author Fabien Nouaillat
-		 *	@version: 1.0
+		 *	@version 1.0
 		 */
 		public function editMilestone() {
 			$this->_milestoneClass->editForm('content', $_GET['param'][0], 'MilestoneData');
@@ -192,7 +188,7 @@
 		 *	Suppression d'un jalon
 		 *
 		 *	@author Fabien Nouaillat
-		 *	@version: 1.0
+		 *	@version 1.0
 		 */
 		public function deleteMilestone() {
 			if (isset($_GET['param'][0]) && isset($_GET['param'][1])) {
@@ -205,7 +201,7 @@
 		 *	Enregistrement d'un jalon
 		 *
 		 *	@author Fabien Nouaillat
-		 *	@version: 1.0
+		 *	@version 1.0
 		 */
 		public function POST_MilestoneData($data) {
 			if (empty($data['id'])) { // Création
@@ -226,7 +222,7 @@
 		 *	Création d'une nouvelle tâche
 		 *
 		 *	@author Fabien Nouaillat
-		 *	@version: 1.0
+		 *	@version 1.0
 		 */
 		public function createTask() {
 			$this->_taskClass->addForm('content', 'TaskData');
@@ -236,7 +232,7 @@
 		 *	Modification d'une tâche
 		 *
 		 *	@author Fabien Nouaillat
-		 *	@version: 1.0
+		 *	@version 1.0
 		 */
 		public function editTask() {
 			$this->_taskClass->editForm('content', $_GET['param'][0], 'TaskData');
@@ -246,14 +242,14 @@
 		 *	Enregistrement d'une tâche
 		 *
 		 *	@author Fabien Nouaillat
-		 *	@version: 1.0
+		 *	@version 1.0
 		 */
 		public function POST_TaskData($data) {
 			if (empty($data['id'])) { // Création
 				$this->_taskClass->save($data);
 				header('location: '.Base::getUrl(3));
 			}
-			else { // �dition
+			else { // Édition
 				if ($this->_taskClass->update($data, $data['id']))
 				header('location: '.Base::getUrl(3));
 			}
@@ -264,12 +260,11 @@
 		// OPÉRATIONS SUR LES MEMBRES
 		
 		/**
-		 *	Liaison d'un membre � un projet
+		 *	Liaison d'un membre à un projet
 		 *
 		 *	@author Thomas Van Horde
-		 *	@version: 1.0
+		 *	@version 1.0
 		 */
-		// TODO : envoi de mail & v�rifier que le membre n'est pas d�j� associ� au projet
 		public function POST_addMember($data) {
 			$this->_projectClass->addMember($data['projectID'], $data['member']);
 			header('location: '.$_SERVER['REDIRECT_URL']);
@@ -288,7 +283,6 @@
 				header('location: '.$_SERVER['REDIRECT_URL'].'../../'.$_GET['param'][0].'/');
 			}
 		}
-
 	}
 
 /*
