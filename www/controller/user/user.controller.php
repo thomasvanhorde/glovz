@@ -136,9 +136,10 @@
 		public function needConnect(){
 			if($this->_userClass->isConnect())
 				return true;
-			else
-			//    $this->notAllow('you should login');
+			else {
+              $_SESSION['REDIRECT_AFTER'] = $_SERVER['REDIRECT_URL'];
 			  header('location: '.BASE_URL);
+            }
 		}
 
 		/**

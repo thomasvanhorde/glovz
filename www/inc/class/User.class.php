@@ -22,7 +22,13 @@ class User extends SimpleContentManager {
         if(is_object($user)){
             foreach($user as $id => $dataUser){
                 if($password == $dataUser['pwd']){
-                    return $this->createSession($this->get($id,true));
+                    $this->createSession($this->get($id,true));
+                    if(isset($_SESSION['REDIRECT_AFTER'])){
+                        $redirect = $_SESSION['REDIRECT_AFTER'];
+                        unset($_SESSION['REDIRECT_AFTER']);
+                        header('location: '.$redirect);
+                        exit();
+                    }
                 }
             }
         }
