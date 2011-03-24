@@ -85,9 +85,11 @@
 				$this->_view->assign('allUsers', $allUsers);
 				$this->_view->assign('project', $current_project);
 
-				foreach ($current_project->membre as $key) {
-					$this->_listIdMembres[] = $key->_id;
-				}
+                if(is_array($current_project->membre)){
+                    foreach ($current_project->membre as $key) {
+                        $this->_listIdMembres[] = $key->_id;
+                    }
+                }
 				$this->_view->assign('listIdMembres', $this->_listIdMembres);
 				
 				$this->_view->addBlock('allUsersContent','list_user.tpl');
@@ -105,6 +107,30 @@
 				$this->_view->addBlock('content','defaut.tpl');
 			}
 		}
+
+
+        public function pdf(){
+            $this->_view->assign('isDT',$this->_userClass->isDT());
+
+			// Si l'URL contient un paramètre (l'id du projet choisi), on redirige vers le détail de ce projet
+			if (isset($_GET['param'][0])) {
+				$current_project = $this->_projectClass->get($_GET['param'][0], true);
+				$allUsers = $this->_userClass->getAll();
+
+				$this->_view->assign('allUsers', $allUsers);
+				$this->_view->assign('project', $current_project);
+
+                if(is_array($current_project->membre)){
+                    foreach ($current_project->membre as $key) {
+                        $this->_listIdMembres[] = $key->_id;
+                    }
+                }
+				$this->_view->assign('listIdMembres', $this->_listIdMembres);
+
+				$this->_view->addBlock('allUsersContent','list_user.tpl');
+                Base::Load(CLASS_PDF)->simplePDF('pdf.tpl', 'Project-'.$current_project->nom.'-'.date('Y-m-d').'.pdf');
+            }
+        }
 		
 		
 		// OPÉRATIONS SUR LES PROJETS

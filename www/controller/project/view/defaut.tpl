@@ -1,15 +1,15 @@
 <h2>Liste des projets</h2>
 
 {if $isDT}
-<a class="btnNouveau" href="create-project/"><input type="button" value="Créer un nouveau projet" /></a>
+<a class="btnNouveau" href="create-project/"><input type="button" value="CrÃ©er un nouveau projet" /></a>
 {/if}
 
 <table>
     <thead>
         <tr>
             <th>Nom</th>
-            <th>Durée (h)</th>
-            <th>Clôturé</th>
+            <th>DurÃ©e (h)</th>
+            <th>ClÃ´turÃ©</th>
             {if $isDT}<th>Actions</th>{/if}
         </tr>
     </thead>
@@ -29,7 +29,7 @@
             <td>
                 <a href="edit-project/{$project._id}/">Modifier</a> |
             	<a href="delete-project/{$project._id}/">Supprimer</a> |
-            	<a href="edit-report/{$project._id}/">Editer un Rapport</a>
+            	<a href="pdf/{$project._id}/">Ã‰diter un Rapport</a>
             </td>
             {/if}
         </tr>
