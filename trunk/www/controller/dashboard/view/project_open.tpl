@@ -14,7 +14,7 @@
 			<td><a href="{$BASE_URL}project/{$project->_id}/">{$project->nom}</a></td>
 			<td>{$project->cdp->nom} {$project->cdp->prenom }</td>
 			<td>{$project->avancement|ceil} %</td>
-			<td><a href="{$BASE_URL}report/{$project->_id}/" title="Cliquez pour éditer un rapport">Éditer</a></td>
+			<td><a href="{$BASE_URL}project/pdf/{$project->_id}/" title="Cliquez pour éditer un rapport">Éditer</a></td>
 		</tr>
 		{/foreach}
 	</tbody>
