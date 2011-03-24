@@ -104,7 +104,7 @@
 				    $allProjects = $this->_projectClass->getAll();
                 else {
                     foreach($this->_userClass->getProject($this->_userInfo['uid']) as $i => $a)
-                    $allProjects[$i] = (array)$a;
+                        $allProjects[(string)$a->_id] = (array)$a;
                 }
 
 				$this->_view->assign('projects', $allProjects);
