@@ -46,10 +46,10 @@ class Jalon extends SimpleContentManager {
 
     public function myFirst($limit = 1){
         if(isset($this->_userInfo['uid'])){
-            $projectList = $this->_userClass->getProject($this->_userInfo['uid']);
+            $projectList = $this->_userClass->getProject((string)$this->_userInfo['uid']);
 
             if(is_object($projectList)){
-                foreach($projectList as $project){ if(isset($project->_id)) $projectID[] = $project->_id;}
+                foreach($projectList as $project){ if(isset($project->_id)) $projectID[] = (string)$project->_id;}
                 $now = (string)date('y/m/d', time() - 3600 * 24);
                 $filter = array(
                     "collection" => (string)$this->_collection,
@@ -62,6 +62,7 @@ class Jalon extends SimpleContentManager {
                         ->sort( array('date' => 1 ) )
                         ->limit($limit);
 
+  
                 $return = array();
                 foreach($tmp as $i => $data){
                     $data['projet'] = (object)Base::Load(CLASS_PROJECT)->get($data['projet']);
@@ -71,7 +72,7 @@ class Jalon extends SimpleContentManager {
                     else
                         $return[$i] = $data;
                 }
-
+        
                 return (object)$return;
             }
             else return false;
