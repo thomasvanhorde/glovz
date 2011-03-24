@@ -139,9 +139,7 @@
                     <tr>
                         <td><a href="{$BASE_URL}timesheet/{$tache._id}/">{$tache.label}</a></td>
                         <td>{$tache.description|truncate:20}</td>
-
                         
-                        <td>{$tache.duree}</td>
                         {if $isDT }<td>
                             <a href="{$BASE_URL}project/edit-task/{$tache._id}/">Modifier</a> |
                             <a href="{$BASE_URL}project/delete-task/{$project->_id}/{$tache._id}/">Supprimer</a>
