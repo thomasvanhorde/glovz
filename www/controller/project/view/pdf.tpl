@@ -1,10 +1,11 @@
-<h1>Projet</h1>
 
+
+<h1>Projet</h1>
+qrcode : value="Le site de html2pdf http://html2pdf.fr/" ec="L" style="width: 30mm;"
 <h2>
     {$project->nom}
 </h2>
 
-<img src="http://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=Projet%20{$project->nom|urlencode}%20{$project->myURL}&choe=UTF-8" />
 
 <!-- Informations du projet -->
 <ul>
@@ -26,9 +27,10 @@
     </li>
 </ul>
 
-
+<!--
+<img src="http://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=Projet%20{$project->nom|urlencode}%20{$project->myURL}&choe=UTF-8" />
 <img src="http://chart.googleapis.com/chart?cht=p3&chd=t:{$project->avancement|ceil},{$project->avancementR|ceil}&chs=250x100&chl=Fait|Restant" />
-
+-->
 
 <!-- Jalons du projet -->
 

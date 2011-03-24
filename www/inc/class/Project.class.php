@@ -33,14 +33,14 @@
             }
             $data->tacheTotalH = $duree;
             if((int)$duree > 0){
-                $data->avancement = $data->duree / (int)$duree;
+                $data->avancement = (int)$duree / $data->duree * 100;
                 $data->avancementR = 100 - $data->avancement;
             }
             else {
                 $data->avancement = 0;
                 $data->avancementR = 100;
             }
-            
+
             if(is_array($taches)){
                 $tacheArray = array();
                 foreach($taches as $tID => $tache){
