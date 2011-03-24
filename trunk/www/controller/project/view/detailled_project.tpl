@@ -6,7 +6,7 @@
 </h2>
 
 <!-- Informations du projet -->
-<ul>
+<ul class="floatL">
     <li>Date de création : {$project->date_create|date_format:"%d/%m/%Y"}</li>
     <li>Chef de projet : {$project->cdp->prenom} {$project->cdp->nom} &lt;{$project->cdp->mail}&gt;</li>
     <li>Client : {$project->client->prenom} {$project->client->nom} &lt;{$project->client->mail}&gt;</li>
@@ -24,6 +24,9 @@
 	{/if}
     </li>
 </ul>
+
+<img class="qr floatR" src="http://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=Projet%20{$project->nom}%20{$project->myURL}&choe=UTF-8" />
+
 
 <script type="text/javascript">
     {literal}

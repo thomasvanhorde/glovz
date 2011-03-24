@@ -4,9 +4,12 @@
   -moz-border-radius:5px;
 }
 .display-none { display:none; }
+.floatL { float:left; }
+.floatR { float:right; }
 body {
   background:url('../../themes/glovz/img/fond.png') repeat-y #eae5e5;
   font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+  color:#111111;
 }
 body p, body li { line-height:1.6em; }
 body a { text-decoration:none; }
@@ -85,6 +88,7 @@ body #contenu {
   padding:50px;
   margin-left:250px;
 }
+body #contenu .qr { margin-top:15px; }
 body #contenu h2 {
   font-size:1.6em;
   font-weight:bold;

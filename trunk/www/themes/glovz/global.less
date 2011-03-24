@@ -24,11 +24,14 @@
 	display: none;
 }
 
+.floatL { float: left;}
+.floatR { float: right;}
+
 // Style
 body {
 	background: url('../../themes/glovz/img/fond.png') repeat-y @fondBody;
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	@couleurTexte;
+	color: @couleurTexte;
 	
 	p, li {
 		line-height: 1.6em;
@@ -135,6 +138,10 @@ body {
 		font-size: .9em;
 		padding: 50px;
 		margin-left: 250px;
+
+        .qr {
+            margin-top: 15px;
+        }
 
 		h2 {
 			font-size: 1.6em;
