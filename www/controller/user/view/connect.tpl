@@ -1,4 +1,4 @@
-<form action="">
+<form method="post" action="">
     <p>
         <label for="user_email">Courriel</label>
         <input class="saisie" name="user_email" id="user_email" type="text" value="" size="35" />
