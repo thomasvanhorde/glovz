@@ -84,9 +84,6 @@
                 
 				$this->_view->assign('allUsers', $allUsers);
 
-                echo '<pre>';
-                var_dump($current_project);
-                exit();
 				$this->_view->assign('project', $current_project);
 
                 if(is_object($current_project->membre)){
