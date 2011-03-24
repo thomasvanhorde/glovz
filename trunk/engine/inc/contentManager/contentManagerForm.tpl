@@ -62,42 +62,42 @@
                     {/if}
                     
                     <dd>
-                        <!-- Input -->
+                        {* Input *}
                         {if $refT == '10'}
                             <input {if $hidden}style="display:none;"{/if} class="{if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
                         {/if }
 
-                        <!-- Input password -->
+                        {* Input password *}
                         {if $refT == '11'}
                             <input {if $hidden}style="display:none;"{/if} class="{if $element->requis}require{/if}" type="password" name="{$uid}" value="{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
                         {/if }
 
-                        <!-- Input email-->
+                        {* Input email *}
                         {if $refT == '12'}
                             <input {if $hidden}style="display:none;"{/if} class="email {if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
                         {/if }
 
-                        <!-- Input number-->
+                        {* Input number *}
                         {if $refT == '13'}
                             <input {if $hidden}style="display:none;"{/if} class="number {if $element->requis}require{/if}" type="text" name="{$uid}" value="{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}" { if $element->limit != '' }maxlength="{$element->limit}"{/if}/>
                         {/if }
 
-                        <!-- Checkbox -->
+                        {* Checkbox *}
                         {if $refT == '15'}
                             <input {if $hidden}style="display:none;"{/if} class="{if $element->requis}require{/if}"name="{$uid}" {if $data->$uid == "true"}checked="checked"{/if} value="true" type="checkbox"/>
                         {/if }
 
-                        <!-- textarea simple -->
+                        {* textarea simple *}
                         {if $refT == '20'}
                             <textarea {if $hidden}style="display:none;"{/if} rows="5" cols="60" class="{if $element->requis}require{/if}" id="{$uid}" name="{$uid}">{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}</textarea>
                         {/if }
 
-                        <!-- textarea wysiwyg -->
+                        {* textarea wysiwyg *}
                         {if $refT == '21'}
                             <textarea {if $hidden}style="display:none;"{/if} rows="5" cols="60" class="{if $element->requis}require{/if}" id="{$uid}" name="{$uid}" id="{$uid}" class="wysiwyg">{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}</textarea>
                         {/if }
 
-                        <!-- date -->
+                        {* date *}
                         {if $refT == '30'}
 
                         <input {if $hidden}style="display:none;"{/if} type="text" class="date w16em {if $element->requis}require{/if}" name="{$uid}" id="{$uid}" value="{$data->$uid}{if $valueDefaut != false}{$valueDefaut}{/if}" />
@@ -117,12 +117,12 @@
 
                         {/if }
 
-                        <!-- media -->
+                        {* media *}
                         {if $refT == '40'}
                             // media :: not implemante
                         {/if }
 
-                        <!-- select -->
+                        {* select *}
                         {if $refT == '50'}
                             {assign var=SelectValue value=","|explode:$element->valeur}
                             <select {if $hidden}style="display:none;"{/if} size="1" class="{if $element->requis}require{/if}" name="{$uid}">
@@ -132,7 +132,7 @@
                             </select>
                         {/if }
 
-                        <!-- ContentRef -->
+                        {* ContentRef *}
                         {if $refT == '60'}
                             {assign var="ElementContentRef" value=$element->contentRef}
                             <select {if $hidden != false}style="display:none;"{/if} size="1" class="{if $hidden}hidden {/if}{if $element->requis}require{/if}" name="{$uid}">
