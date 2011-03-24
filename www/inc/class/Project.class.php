@@ -32,11 +32,14 @@
                 $duree += (int)$tache['duree'];
             }
             $data->tacheTotalH = $duree;
-            if((int)$duree > 0)
+            if((int)$duree > 0){
                 $data->avancement = $data->duree / (int)$duree;
-            else
+                $data->avancementR = 100 - $data->avancement;
+            }
+            else {
                 $data->avancement = 0;
-
+                $data->avancementR = 100;
+            }
             
             if(is_array($taches)){
                 $tacheArray = array();
@@ -45,6 +48,8 @@
                 }
                 $data->tache = $tacheArray;
             }
+
+            $data->myURL = BASE_URL.'project/'.$object_id.'/';
 
             $data->membre = $this->getMember($object_id);
         }
