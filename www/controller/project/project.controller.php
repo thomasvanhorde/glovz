@@ -275,7 +275,7 @@
 		public function deleteTask() {
 			if (isset($_GET['param'][0]) && isset($_GET['param'][1])) {
 				$this->_taskClass->remove($_GET['param'][1]);
-				header('location: '.$_SERVER['REDIRECT_URL']);
+				header('location: '.$_SERVER['REDIRECT_URL'].'../../'.$_GET['param'][0].'/');
 			}
 		}
 		/**
