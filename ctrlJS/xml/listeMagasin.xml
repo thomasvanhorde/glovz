@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<listMagasin>
+	<magasin id='1'>
+		<nom>Vidéo club</nom>
+		<adresse>55 rue de paris 95500 cergy</adresse>
+		<tel>0175893215</tel>
+	</magasin>
+	<magasin id='2'>
+		<nom>Cergy Vidéo</nom>
+		<adresse>25 rue de marseille 95500 cergy</adresse>
+		<tel>0168953214</tel>
+	</magasin>
+	<magasin id='3'>
+		<nom>Zone Vidéo</nom>
+		<adresse>12 rue de lyon 95500 cergy</adresse>
+		<tel>0112256525</tel>
+	</magasin>
+</listMagasin>
