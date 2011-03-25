@@ -102,6 +102,8 @@ a:hover, a:active {
     height:246px;
     margin-left:190px;
 	background:url(images/loading.gif) no-repeat 50% 50%;
+	margin: auto;
+	margin-bottom: 50px;
 }
 #slider img {
 	position:absolute;
@@ -167,6 +169,26 @@ a.nivo-prevNav {
 
 /* perso */
 
+body {
+	margin: auto;
+	text-align: center;
+	border: 1px solid black;
+}
+
 #menu ul li {
 	display: inline;
+}
+
+h1 {
+	margin: auto;
+	font-weight: bold;
+	text-align: center;
+	font-size: 3em;
+}
+
+h2 {
+	margin: auto;
+	font-weight: bold;
+	text-align: center;
+	font-size: 2em;
 }
