@@ -36,6 +36,11 @@ function page(ref){
 					$(xml).find('categorie').each(function(){
 						if($(this).attr('ref') == ref){
 							$('#titre').html($(this).attr('name'));
+							
+							$(this).find('video').each(function(){
+								html += "<img src='"+ $(this).find('images').text() +"' alt='"+ $(this).find('nom').text() +"' height='200px' width='200px' onclick='detail("+ $(this).attr('id') +")'/>";
+							});
+							$('#liste').html(html);
 						}
 					});
 				}
@@ -50,4 +55,8 @@ function init(){
 
 		page($(this).attr('id'));
 	});
+}
+
+function detail(id){
+	
 }
