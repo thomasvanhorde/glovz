@@ -1,7 +1,7 @@
 
 
 <h1>Projet</h1>
-qrcode : value="Le site de html2pdf http://html2pdf.fr/" ec="L" style="width: 30mm;"
+
 <h2>
     {$project->nom}
 </h2>
