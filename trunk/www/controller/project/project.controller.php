@@ -221,7 +221,7 @@
 		public function deleteMilestone() {
 			if (isset($_GET['param'][0]) && isset($_GET['param'][1])) {
 				$this->_milestoneClass->remove($_GET['param'][1]);
-				header('location: '.$_SERVER['REDIRECT_URL'].'../../'.$_GET['param'][0].'/');
+				header('location: '.$_SERVER['REDIRECT_URL'].'../../../'.$_GET['param'][0].'/');
 			}
 		}
 		
