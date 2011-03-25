@@ -138,7 +138,7 @@
                 {foreach from=$task item=tache}
                     <tr>
                         <td><a href="{$BASE_URL}timesheet/{$tache._id}/">{$tache.label}</a></td>
-                        <td>{$tache.description}</td>
+                        <td>{if !is_object($tache.description)}{$tache.description|truncate:20}{/if}</td>
                         <td>{$tache.utilisateur->nom} {$tache.utilisateur->prenom}</td>
                         <td>{$tache.duree}</td>
                         {if $isDT }<td>
