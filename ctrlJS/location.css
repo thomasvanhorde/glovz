@@ -164,3 +164,9 @@ a.nivo-prevNav {
 .clear {
 	clear:both;
 }
+
+/* perso */
+
+#menu ul li {
+	display: inline;
+}
