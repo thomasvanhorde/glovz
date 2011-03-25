@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<listCategorie>
+	<categorie ref="c1" name="horreur">
+		<video>
+			<nom>Saw 1</nom>
+			<images>images/saw1.jpg</images>
+			<resume>Horreur 1</resume>
+			<tarif>3.00</tarif>
+			<disponible>1</disponible>
+		</video>
+		<video>
+			<nom>Saw 2</nom>
+			<images>images/saw2.jpg</images>
+			<resume>Horreur 1</resume>
+			<tarif>3.00</tarif>
+			<disponible>1</disponible>
+		</video>
+		<video>
+			<nom>Saw 3</nom>
+			<images>images/saw3.jpg</images>
+			<resume>Horreur 1</resume>
+			<tarif>3.00</tarif>
+			<disponible>1</disponible>
+		</video>
+		<video>
+			<nom>Saw 4</nom>
+			<images>images/saw4.jpg</images>
+			<resume>Horreur 1</resume>
+			<tarif>3.00</tarif>
+			<disponible>1</disponible>
+		</video>
+		<video>
+			<nom>Saw 5</nom>
+			<images>images/saw5.jpg</images>
+			<resume>Horreur 1</resume>
+			<tarif>3.00</tarif>
+			<disponible>0</disponible>
+		</video>
+	</categorie>
+	<categorie ref="c2" name="action">
+		<video>
+			<nom>L'arme fatal 1</nom>
+			<images>images/arme-fatale1.jpg</images>
+			<resume>Horreur 1</resume>
+			<tarif>3.00</tarif>
+			<disponible>1</disponible>
+		</video>
+		<video>
+			<nom>L'arme fatal 2</nom>
+			<images>images/arme-fatale2.jpg</images>
+			<resume>Horreur 1</resume>
+			<tarif>3.00</tarif>
+			<disponible>1</disponible>
+		</video>
+		<video>
+			<nom>L'arme fatal 3</nom>
+			<images>images/arme-fatale3.jpg</images>
+			<resume>Horreur 1</resume>
+			<tarif>3.00</tarif>
+			<disponible>1</disponible>
+		</video>
+		<video>
+			<nom>L'arme fatal 4</nom>
+			<images>images/arme-fatale4.jpg</images>
+			<resume>Horreur 1</resume>
+			<tarif>3.00</tarif>
+			<disponible>1</disponible>
+		</video>
+		<video>
+			<nom>Die Hard 4</nom>
+			<images>images/die-hard4.jpg</images>
+			<resume>Horreur 1</resume>
+			<tarif>3.00</tarif>
+			<disponible>0</disponible>
+		</video>
+	</categorie>
+	<categorie ref="c3" name="Dessin Annimé">
+		<video>
+			<nom>Shrek 1</nom>
+			<images>images/shrek1.jpg</images>
+			<resume>Horreur 1</resume>
+			<tarif>3.00</tarif>
+			<disponible>1</disponible>
+		</video>
+		<video>
+			<nom>Shrek 2</nom>
+			<images>images/shrek2.jpg</images>
+			<resume>Horreur 1</resume>
+			<tarif>3.00</tarif>
+			<disponible>1</disponible>
+		</video>
+		<video>
+			<nom>Shrek 3</nom>
+			<images>images/shrek3.jpg</images>
+			<resume>Horreur 1</resume>
+			<tarif>3.00</tarif>
+			<disponible>1</disponible>
+		</video>
+		<video>
+			<nom>Shrek 4</nom>
+			<images>images/shrek4.jpg</images>
+			<resume>Horreur 1</resume>
+			<tarif>3.00</tarif>
+			<disponible>0</disponible>
+		</video>
+		<video>
+			<nom>Wall-E</nom>
+			<images>images/wall-E.jpg</images>
+			<resume>Horreur 1</resume>
+			<tarif>3.00</tarif>
+			<disponible>1</disponible>
+		</video>
+	</categorie>
+</listCategorie>
