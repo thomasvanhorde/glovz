@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html lang="en">
     <head>
         <title>Vidéo futur</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,72 +14,43 @@
 
     </head>
     <body>
-
-        - checker les cookies
-        <div id="menu">
-            <ul>
-                <li>
-                    <button type="button" >horreur</button>
-                </li>
-                <li>
-                    <button type="button" >action</button>
-                </li>
-                <li>
-                    <button type="button" >sexe</button>
-                </li>
-            </ul>
-        </div>
-
-        <div id="banniere">
-            <div id="slider">
-                <img src="images/saw1.jpg" alt="" />
-                <a href="http://dev7studios.com">
-                    <img src="images/saw2.jpg" alt="" title="#htmlcaption" />
-                </a>
-                <img src="images/saw3.jpg" alt="" title="This is an example of a caption" />
+        <div id="wrapper">- checker les cookies
+            <div id="menu">
+                <ul>
+                    <li>
+                        <button type="button" >horreur</button>
+                    </li>
+                    <li>
+                        <button type="button" >action</button>
+                    </li>
+                    <li>
+                        <button type="button" >sexe</button>
+                    </li>
+                </ul>
             </div>
-            <div id="htmlcaption" class="nivo-html-caption">
-                <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
+
+            <div id="slider-wrapper">
+
+                <div id="slider" class="nivoSlider">
+                    <img src="images/toystory.jpg" alt="" />
+                    <a href="http://dev7studios.com"><img src="images/up.jpg" alt="" title="This is an example of a caption" /></a>
+                    <img src="images/walle.jpg" alt="" />
+                    <img src="images/nemo.jpg" alt="" title="#htmlcaption" />
+                </div>
+                <div id="htmlcaption" class="nivo-html-caption">
+                    <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
+                </div>
+
+            </div>
+            <div id="corp">
+
             </div>
         </div>
-        <div id="corp">
-
-        </div>
-
         <script type="text/javascript">
+            
             $(window).load(function() {
                 $('#slider').nivoSlider();
             });
-            
-            $(window).load(function() {
-                $('#slider').nivoSlider({
-                    effect:'random', // Specify sets like: 'fold,fade,sliceDown'
-                    slices:15, // For slice animations
-                    boxCols: 8, // For box animations
-                    boxRows: 4, // For box animations
-                    animSpeed:500, // Slide transition speed
-                    pauseTime:3000, // How long each slide will show
-                    startSlide:0, // Set starting Slide (0 index)
-                    directionNav:true, // Next & Prev navigation
-                    directionNavHide:true, // Only show on hover
-                    controlNav:true, // 1,2,3... navigation
-                    controlNavThumbs:false, // Use thumbnails for Control Nav
-                    controlNavThumbsFromRel:false, // Use image rel for thumbs
-                    controlNavThumbsSearch: '.jpg', // Replace this with...
-                    controlNavThumbsReplace: '_thumb.jpg', // ...this in thumb Image src
-                    keyboardNav:true, // Use left & right arrows
-                    pauseOnHover:true, // Stop animation while hovering
-                    manualAdvance:false, // Force manual transitions
-                    captionOpacity:0.8, // Universal caption opacity
-                    prevText: 'Prev', // Prev directionNav text
-                    nextText: 'Next', // Next directionNav text
-                    beforeChange: function(){}, // Triggers before a slide transition
-                    afterChange: function(){}, // Triggers after a slide transition
-                    slideshowEnd: function(){}, // Triggers after all slides have been shown
-                    lastSlide: function(){}, // Triggers when last slide is shown
-                    afterLoad: function(){} // Triggers when slider has loaded
-                });
-            });
         </script>
-</body>
+    </body>
 </html>
