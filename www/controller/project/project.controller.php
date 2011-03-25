@@ -291,7 +291,7 @@
 			}
 			else { // Édition
 				if ($this->_taskClass->update($data, $data['id']))
-				header('location: '.Base::getUrl(3));
+				header('location: '.Base::getUrl(2));
 			}
 			exit();
 		}
