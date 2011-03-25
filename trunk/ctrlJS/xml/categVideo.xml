@@ -75,7 +75,7 @@
 			<disponible>0</disponible>
 		</video>
 	</categorie>
-	<categorie ref="c3" name="Dessin AnnimÃ©">
+	<categorie ref="c3" name="Dessin Annimé">
 		<video>
 			<nom>Shrek 1</nom>
 			<images>images/shrek1.jpg</images>
@@ -91,25 +91,25 @@
 			<disponible>1</disponible>
 		</video>
 		<video>
-			<nom>Shrek 3</nom>
-			<images>images/shrek3.jpg</images>
+			<nom>Nemo</nom>
+			<images>images/nemo.jpg</images>
 			<resume>Horreur 1</resume>
 			<tarif>3.00</tarif>
-			<disponible>1</disponible>
+			<disponible>0</disponible>
 		</video>
 		<video>
-			<nom>Shrek 4</nom>
-			<images>images/shrek4.jpg</images>
+			<nom>toystory</nom>
+			<images>images/toystory.jpg</images>
 			<resume>Horreur 1</resume>
 			<tarif>3.00</tarif>
 			<disponible>0</disponible>
 		</video>
 		<video>
 			<nom>Wall-E</nom>
-			<images>images/wall-E.jpg</images>
+			<images>images/walle.jpg</images>
 			<resume>Horreur 1</resume>
 			<tarif>3.00</tarif>
-			<disponible>1</disponible>
+			<disponible>0</disponible>
 		</video>
 	</categorie>
 </listCategorie>

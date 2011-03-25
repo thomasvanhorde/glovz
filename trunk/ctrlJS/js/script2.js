@@ -1,8 +1,8 @@
-$(document).ready(function(){
-	banniere();
-});
+function details(id) {
+	$.post('ajax/test.html', function(data) {
+		$('.result').html(data);
+	});
 
-function banniere(){
 	var html = '';
 	$.ajax({
 		type:"GET",
@@ -11,8 +11,9 @@ function banniere(){
 		success: function(xml){
 			html += '<ul>';
 			$(xml).find('categorie').each(function(){
-				html += '<li>';
+				html += '<li>
 			});
 		}
 	});
+
 }
