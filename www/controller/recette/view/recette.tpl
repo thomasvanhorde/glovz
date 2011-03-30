@@ -54,6 +54,10 @@
         <strong>Guide utilisateur</strong><br />
         <a target="_blank" href="/media/pdf/technique.pdf">(khelaf)</a>
     </li>
+    <li>
+        <strong>Autres</strong><br />
+        <a target="_blank" href="/media/pdf/declaration_cnil.pdf">Déclaration à la CNIL</a>
+    </li>
 </ul>
 
 
