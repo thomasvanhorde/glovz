@@ -55,8 +55,9 @@
         <a target="_blank" href="/media/pdf/technique.pdf">(khelaf)</a>
     </li>
     <li>
-        <strong>Autres</strong><br />
-        <a target="_blank" href="/media/pdf/declaration_cnil.pdf">Déclaration à la CNIL</a>
+        <strong>CNIL</strong><br />
+        <a target="_blank" href="/media/pdf/declaration_cnil.pdf">Déclaration</a>
+        <a target="_blank" href="/media/pdf/cnil_recipisse.pdf">Récipissé</a>
     </li>
 </ul>
 
