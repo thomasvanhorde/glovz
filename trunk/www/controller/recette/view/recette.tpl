@@ -56,7 +56,7 @@
     </li>
     <li>
         <strong>CNIL</strong><br />
-        <a target="_blank" href="/media/pdf/declaration_cnil.pdf">Déclaration</a>
+        <a target="_blank" href="/media/pdf/declaration_cnil.pdf">Déclaration</a> <br />
         <a target="_blank" href="/media/pdf/cnil_recipisse.pdf">Récipissé</a>
     </li>
 </ul>
