@@ -1,5 +1,5 @@
 <div id="en_tete">
-	<p>Bonjour, {$user.prenom} {$user.nom}.</p>
+	<p>Bonjour, {$user.prenom|utf8_encode} {$user.nom}.</p>
 	<ul>
 		<li>
 			<a id="editMyProfil" href="{$BASE_URL}profil/">
