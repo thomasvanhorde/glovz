@@ -50,3 +50,18 @@ Header unset Cache-Control
     AddOutputFilterByType DEFLATE application/javascript
     AddOutputFilterByType DEFLATE application/x-javascript
 </IfModule>
+
+
+<Location /mod_pagespeed_statistics>
+    Order allow,deny
+    # One may insert other "Allow from" lines to add hosts that are
+    # allowed to look at generated statistics.  Another possibility is
+    # to comment out the "Order" and "Allow" options from the config
+    # file, to allow any client that can reach the server to examine
+    # statistics.  This might be appropriate in an experimental setup or
+    # if the Apache server is protected by a reverse proxy that will
+    # filter URLs to avoid exposing these statistics, which may
+    # reveal site metrics that should not be shared otherwise.
+    Allow from localhost
+    SetHandler mod_pagespeed_statistics
+</Location>
