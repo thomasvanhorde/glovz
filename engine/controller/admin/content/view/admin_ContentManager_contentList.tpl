@@ -14,9 +14,11 @@
             {foreach from=$type.data key=k2 item=dataL}
             <tr>
                 {foreach from=$dataL key=k3 item=dataLI}
+                    <td>
                     {if in_array($k3, $type.index)}
-                        <td>{$dataLI|truncate:100:'..':true:true}</td>
+                        {$dataLI|truncate:100:'..':true:true}
                     {/if}
+                    </td>
                 {/foreach}
                 <td>
                     <a href="{$k2}/">Editer</a>
