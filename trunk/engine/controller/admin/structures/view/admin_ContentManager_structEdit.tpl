@@ -59,7 +59,7 @@
                 </td>
                 <td>
                     <input class="valeur" type="text" name="data[{$k}][valeur]" value="{ $element.type.valeur }"/>
-                    <div>{if $element.structId == 50 }séparé par ","{/if}</div>
+                    <div>{if $element.structId == 50 }sÃ©parÃ© par ","{/if}</div>
                 </td>
                 <td>
                     <input class="limit" type="text" name="data[{$k}][limit]" value="{ $element.type.limit }" maxlength="3" size="3"/>
@@ -166,7 +166,7 @@
                         eLimit.val('').attr('disabled', 'disabled');
 
                    if(val == 50)
-                        eValueDescr.html('séparé par ","');
+                        eValueDescr.html('sÃ©parÃ© par ","');
                     else
                         eValueDescr.html('');
 
@@ -184,7 +184,7 @@
                         eTypeDetailSelect.find('option').removeAttr('selected');
                         eTypeDetailSelect.val('');
                         eIndex.removeAttr('disabled');
-                    }
+                    } 
 
 
                  });
