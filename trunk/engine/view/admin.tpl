@@ -7,7 +7,7 @@
 	http://ponjoh.s3.amazonaws.com/HTML%20Templates/Simpla%20Admin/index.html#
 -->
 		
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 		<title>{ $title }</title>
 

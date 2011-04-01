@@ -32,8 +32,8 @@ class content_controller {
 
         foreach($struct as $idS => $strData){
             $data[$idS]['locked'] = (string)$strData[@locked];
-            $data[$idS]['name'] = utf8_decode((string)$strData->name);
-            $data[$idS]['description'] = utf8_decode((string)$strData->description);
+            $data[$idS]['name'] = (string)$strData->name;
+            $data[$idS]['description'] = (string)$strData->description;
 
             foreach($dataCM as $d){
                 if(isset($d['collection']) && $d['collection'] == $idS){
