@@ -16,49 +16,5 @@
 					</ul>
 				</li>
 
-				<li>
-					<a href="#" class="nav-top-item">
-						Pages
-					</a>
-					<ul style="display: none;">
-						<li><a href="#">Create a new Page</a></li>
-						<li><a href="#">Manage Pages</a></li>
-					</ul>
-				</li>
-
-				<li>
-					<a href="#" class="nav-top-item">
-						Image Gallery
-					</a>
-					<ul style="display: none;">
-						<li><a href="#">Upload Images</a></li>
-						<li><a href="#">Manage Galleries</a></li>
-						<li><a href="#">Manage Albums</a></li>
-						<li><a href="#">Gallery Settings</a></li>
-					</ul>
-				</li>
-
-				<li>
-					<a href="#" class="nav-top-item">
-						Events Calendar
-					</a>
-					<ul style="display: none;">
-						<li><a href="#">Calendar Overview</a></li>
-						<li><a href="#">Add a new Event</a></li>
-						<li><a href="#">Calendar Settings</a></li>
-					</ul>
-				</li>
-
-				<li>
-					<a href="#" class="nav-top-item">
-						Settings
-					</a>
-					<ul style="display: none;">
-						<li><a href="#">General</a></li>
-						<li><a href="#">Design</a></li>
-						<li><a href="#">Your Profile</a></li>
-						<li><a href="#">Users and Permissions</a></li>
-					</ul>
-				</li>
 
 			</ul> <!-- End #main-nav -->
