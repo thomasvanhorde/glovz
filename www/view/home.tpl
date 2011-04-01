@@ -9,7 +9,6 @@
 	    <title>{ $title }</title>
 	    
 	    {* Feuilles de style *}
-	    <link rel="stylesheet" media="screen" href="{$BASE_URL}themes/glovz/soft-reset.css" />
 	    <link rel="stylesheet" media="screen" href="{$BASE_URL}themes/package/accueil.css" />
 	
 	</head>
