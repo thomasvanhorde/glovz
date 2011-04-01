@@ -9,12 +9,11 @@
 	    <title>{ $title }</title>
 	    
 	    {* Feuilles de style *}
-
 	    <link rel="stylesheet" media="screen" href="{$BASE_URL}themes/package/accueil.css" />
-	
+	    <link rel="stylesheet" media="screen" href="{$BASE_URL}themes/glovz/soft-reset.css" />
+        
 	</head>
 	<body>
-        <link rel="stylesheet" media="screen" href="{$BASE_URL}themes/glovz/soft-reset.css" />
 		{* Titre *}
 		<h1><img src="{$BASE_URL}themes/glovz/img/titre_accueil.png" alt="glovz - Suivi de projets" /></h1>
 		
