@@ -48,7 +48,8 @@
     </li>
     <li>
         <strong>Technique</strong><br />
-        <a target="_blank" href="/media/pdf/technique.pdf">Introduction au Framework</a>
+        <a target="_blank" href="/media/pdf/technique.pdf">Introduction au Framework</a> <br />
+        <a target="_blank" href="/media/pdf/GTmetrix_repport_performance.pdf">Rapport de performance</a>
     </li>
     <li>
         <strong>Guide utilisateur</strong><br />
