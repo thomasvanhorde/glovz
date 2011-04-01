@@ -31,6 +31,7 @@ class View extends Smarty{
 		$this->debugging = false;
        	$this->left_delimiter = '{';
        	$this->right_delimiter = '}';
+        $this->compressed = true;
 	}
 
     /**
