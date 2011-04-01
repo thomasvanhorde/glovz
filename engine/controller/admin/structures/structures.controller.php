@@ -27,8 +27,8 @@ class structures_controller {
 
             foreach($struct as $idS => $strData){
                 $data[$idS]['locked'] = (string)$strData[@locked];
-                $data[$idS]['name'] = utf8_decode((string)$strData->name);
-                $data[$idS]['description'] = utf8_decode((string)$strData->description);
+                $data[$idS]['name'] = (string)$strData->name;
+                $data[$idS]['description'] = (string)$strData->description;
             }
 
             $this->_view->assign('struct',$data);
@@ -49,8 +49,8 @@ class structures_controller {
 
         foreach($structAll as $idS => $strData){
             $dataStruct[$idS]['locked'] = (string)$strData[@locked];
-            $dataStruct[$idS]['name'] = utf8_decode((string)$strData->name);
-            $dataStruct[$idS]['description'] = utf8_decode((string)$strData->description);
+            $dataStruct[$idS]['name'] = (string)$strData->name;
+            $dataStruct[$idS]['description'] = (string)$strData->description;
         }
         $this->_view->assign('typeList',$type);
         $this->_view->assign('strucList',$dataStruct);
@@ -66,9 +66,9 @@ class structures_controller {
         $struct = $this->_contentManager->getStructAll($structID);
 
         if(isset($struct->name))
-            $data['name'] = utf8_decode((string)$struct->name);
+            $data['name'] = (string)$struct->name;
         if(isset($struct->description))
-        $data['description'] = utf8_decode((string)$struct->description);
+        $data['description'] = (string)$struct->description;
 
         if(count($struct->types) > 0){
             foreach($struct->types->type as $id => $d){

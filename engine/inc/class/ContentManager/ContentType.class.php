@@ -9,7 +9,7 @@ class ContentType {
 
     public  function load(){
         foreach($this->loadXml()->children() as $k => $e)
-            $this->_data[(string)$e['id']] = utf8_decode($e);
+            $this->_data[(string)$e['id']] = $e;
     }
 
     public  function loadXml(){
