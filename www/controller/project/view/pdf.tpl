@@ -84,7 +84,7 @@
             {foreach from=$task item=tache}
         <tr>
             <td><a href="{$BASE_URL}timesheet/{$tache._id}/">{$tache.label}</a></td>
-            <td>{$tache.description}</td>
+            <td></td>
             <td>{$tache.utilisateur->nom} {$tache.utilisateur->prenom}</td>
             <td>{$tache.duree}</td>
         </tr>
