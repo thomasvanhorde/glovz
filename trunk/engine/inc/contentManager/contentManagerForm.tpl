@@ -1,3 +1,4 @@
+{strip}
 {if $formCompteur == 1}
 <script type="text/javascript" src="{$BASE_URL}/js/admin/datepicker/datepicker.packed.js"></script>
 {/if}
@@ -193,3 +194,4 @@
     </script>
 {/literal}
 
+{/strip}
