@@ -15,6 +15,11 @@ class admin_controller {
 	
     public  function defaut(){}
 
+    public function phpinfo(){
+        phpinfo();
+        exit();
+    }
+
 }
 
 
