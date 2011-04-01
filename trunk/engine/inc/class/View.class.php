@@ -31,7 +31,6 @@ class View extends Smarty{
 		$this->debugging = false;
        	$this->left_delimiter = '{';
        	$this->right_delimiter = '}';
-        $this->register_outputfilter('strip_output');
 
 	}
 
@@ -86,23 +85,5 @@ class View extends Smarty{
         }
 	}
 	
-}
-
-
-function strip_output($output, &$smarty) {
-    $options = array(
-        'compress_css' => true,
-        'strip_comments' => true,
-        'keep_conditional_comments' => true,
-        'compress_horizontal' => true,
-        'compress_vertical' => true,
-        'compress_scripts' => false,
-        'line_break' => PHP_EOL,
-        'preserved_tags' => array('textarea', 'pre', 'script', 'style', 'code'),
-        'script_compression_callback' => false,
-        'script_compression_callback_args' => array(),
-    );
-    $compactor = new Compactor($options);
-    return $compactor->squeeze($output);
 }
 
