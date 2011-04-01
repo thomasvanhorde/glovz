@@ -45,5 +45,10 @@
                 <layout>admin.tpl</layout>
             </contenus>
         </content-manager>
-    </admin>    
+    </admin>
+    <phpinfo>
+        <title>Php Info</title>
+        <controller>admin</controller>
+        <method>phpinfo</method>
+    </phpinfo>
 </arborescence>
