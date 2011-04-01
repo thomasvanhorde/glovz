@@ -19,6 +19,11 @@ RewriteRule ^(.*)$ index.php [L,QSA]
 </Files>
 
 
+<FilesMatch "\.(ico|flv|jpg|jpeg|png|gif|swf)$">
+Header set Cache-Control "public"
+Header set Expires "Thu, 15 Apr 2010 20:00:00 GMT"
+</FilesMatch>
+
 # BEGIN Cache-Control Headers
 <IfModule mod_headers.c>
  <FilesMatch "\\.(ico|jpe?g|png|gif|swf|css|gz)$">
