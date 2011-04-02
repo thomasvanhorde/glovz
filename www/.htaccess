@@ -50,9 +50,3 @@ Header unset Cache-Control
     AddOutputFilterByType DEFLATE application/javascript
     AddOutputFilterByType DEFLATE application/x-javascript
 </IfModule>
-
-<Location /mod_pagespeed_statistics>
-    Order allow,deny
-    Allow from localhost
-    SetHandler mod_pagespeed_statistics
-</Location>
