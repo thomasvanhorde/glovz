@@ -53,6 +53,6 @@ Header unset Cache-Control
 
 <Location /mod_pagespeed_statistics>
     Order allow,deny
-    Allow from glovz.thomas-vanhorde.fr
+    Allow from localhost
     SetHandler mod_pagespeed_statistics
 </Location>
