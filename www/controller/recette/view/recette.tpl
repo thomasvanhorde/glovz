@@ -65,6 +65,7 @@
         <strong>Autres</strong><br />
         <a target="_blank" href="/media/pdf/CDC_user.pdf">CDC utilisateur</a> <br />
         <a target="_blank" href="/media/pdf/presentation.pdf">Présentation</a> <br />
+        <a target="_blank" href="/media/pdf/contrat_vente.pdf">Contrat de vente</a> <br />
     </li>
 </ul>
 
