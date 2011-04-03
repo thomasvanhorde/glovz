@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Untitled Gantt Project" company="" webLink="http://" view-date="2011-02-14" view-index="0" gantt-divider-location="796" resource-divider-location="302" version="2.0">
+<project name="Untitled Gantt Project" company="" webLink="http://" view-date="2011-02-14" view-index="0" gantt-divider-location="476" resource-divider-location="302" version="2.0">
     <description/>
-    <view zooming-state="default:4" id="gantt-chart"/>
+    <view zooming-state="default:2" id="gantt-chart"/>
     <view id="resource-table">
-        <field id="0" name="Nom" width="55" order="0"/>
-        <field id="1" name="Rôle par défaut" width="44" order="0"/>
+        <field id="0" name="Nom" width="54" order="0"/>
+        <field id="1" name="Rôle par défaut" width="45" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -18,7 +18,7 @@
             </calendar>
         </day-types>
     </calendars>
-    <tasks>
+    <tasks color="#8cb6ce">
         <taskproperties>
             <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
             <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
@@ -68,7 +68,7 @@
                 <customproperty taskproperty-id="tpc0" value="Graphisme"/>
             </task>
         </task>
-        <task id="4" name="Documentation" color="#8cb6ce" meeting="false" start="2011-02-21" duration="30" complete="0" priority="1" expand="false">
+        <task id="4" name="Documentation" color="#8cb6ce" meeting="false" start="2011-02-21" duration="30" complete="0" priority="1" expand="true">
             <customproperty taskproperty-id="tpc0" value="Documentation"/>
             <task id="8" name="Specifications fonctionnelles" color="#8cb6ce" meeting="false" start="2011-02-21" duration="1" complete="0" priority="1" expand="true">
                 <customproperty taskproperty-id="tpc0" value="Documentation"/>
@@ -87,7 +87,7 @@
                 <customproperty taskproperty-id="tpc0" value="Documentation"/>
             </task>
         </task>
-        <task id="5" name="Developpement" color="#8cb6ce" meeting="false" start="2011-02-21" duration="17" complete="0" priority="1" expand="false">
+        <task id="5" name="Developpement" color="#8cb6ce" meeting="false" start="2011-02-21" duration="17" complete="0" priority="1" expand="true">
             <depend id="6" type="2" difference="0" hardness="Strong"/>
             <customproperty taskproperty-id="tpc0" value="Developpement"/>
             <task id="31" name="Fin du developpement du back-office du CMS" color="#8cb6ce" meeting="false" start="2011-02-21" duration="15" complete="0" priority="1" expand="true">
@@ -286,9 +286,6 @@
         <task id="11" name="Utilisation du site" color="#8cb6ce" meeting="false" start="2011-02-07" duration="1" complete="0" priority="1" expand="true">
             <customproperty taskproperty-id="tpc0" value="Formation"/>
         </task>
-        <task id="76" name="Creation de bug, histoire de niquer une soirée" color="#ff0000" shape="1,0,0,0,1,0,0,0,1,0,0,0,1,1,1,1" meeting="false" start="2011-02-14" duration="21" complete="0" priority="1" expand="true">
-            <customproperty taskproperty-id="tpc0" value="Develloppement"/>
-        </task>
     </tasks>
     <resources>
         <resource id="0" name="Fabien Nouaillat" function="Default:1" contacts="" phone=""/>
@@ -355,15 +352,14 @@
         <allocation task-id="6" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
         <allocation task-id="64" resource-id="0" function="Default:1" responsible="false" load="100.0"/>
         <allocation task-id="64" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
-        <allocation task-id="76" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
     </allocations>
     <vacations/>
     <taskdisplaycolumns>
-        <displaycolumn property-id="tpd3" order="1" width="277"/>
-        <displaycolumn property-id="tpd4" order="2" width="27"/>
-        <displaycolumn property-id="tpd5" order="3" width="25"/>
-        <displaycolumn property-id="tpd8" order="4" width="24"/>
         <displaycolumn property-id="tpc0" order="0" width="101"/>
+        <displaycolumn property-id="tpd3" order="1" width="348"/>
+        <displaycolumn property-id="tpd4" order="2" width="16"/>
+        <displaycolumn property-id="tpd5" order="3" width="15"/>
+        <displaycolumn property-id="tpd8" order="4" width="15"/>
     </taskdisplaycolumns>
     <previous/>
     <roles roleset-name="Default"/>
