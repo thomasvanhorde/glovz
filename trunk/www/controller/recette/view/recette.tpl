@@ -38,37 +38,26 @@
 <h3>Documentation</h3>
 <ul>
     <li>
-        <strong>Réflexion</strong><br />
-        <a target="_blank" href="/media/pdf/gantt.pdf">Gantt</a><br />
-        <a target="_blank" href="https://docs.google.com/document/pub?id=1q-2ERNHdYoN61G3dZZBzv6ntq799LneoYVH9c3tFIS8">Arbo</a><br />
-        <a target="_blank" href="https://docs.google.com/drawings/edit?id=1QegiXd-q_vLNwtY8sY1DjrVTbcuK6ZampB4x6z2BpAM&hl=fr">Navigation</a><br />
-        <a target="_blank" href="https://docs.google.com/document/pub?id=1oiC55srRsCoLLPlcrbJY6SdHZipiHW70OagS-3BzBhU">Questions</a><br />
-        <a target="_blank" href="/media/pdf/zoning.pdf">Zoning</a>
-
-    </li>
-    <li>
-        <strong>Technique</strong><br />
-        <a target="_blank" href="/media/pdf/technique.pdf">Introduction au Framework</a> <br />
-        <a target="_blank" href="/media/pdf/GTmetrix_repport_performance.pdf">Rapport de performance</a> <br />
-        <a target="_blank" href="http://validator.w3.org/check?uri=http%3A%2F%2Fglovz.thomas-vanhorde.fr%2F">Validation W3C</a>
+        <strong>Cahier des charges</strong><br />
+        <a target="_blank" href="/media/pdf/technique.pdf">CDC Technique</a> <br />
+        <a target="_blank" href="/media/pdf/CDC_user.pdf">CDC utilisateur</a> <br />
     </li>
     <li>
         <strong>Guide utilisateur</strong><br />
         <a target="_blank" href="/media/pdf/technique.pdf">(khelaf)</a>
     </li>
     <li>
-        <strong>CNIL</strong><br />
-        <a target="_blank" href="/media/pdf/declaration_cnil.pdf">Déclaration</a> <br />
-        <a target="_blank" href="/media/pdf/cnil_recipisse.pdf">Récipissé</a>
+        <strong>Législation</strong><br />
+        <a target="_blank" href="/media/pdf/declaration_cnil.pdf">CNIL - Déclaration</a> <br />
+        <a target="_blank" href="/media/pdf/cnil_recipisse.pdf">CNIL - Récipissé</a>
+        <a target="_blank" href="/media/pdf/contrat_vente.pdf">Contrat de vente</a> <br />
     </li>
     <li>
         <strong>Autres</strong><br />
-        <a target="_blank" href="/media/pdf/CDC_user.pdf">CDC utilisateur</a> <br />
+        <a target="_blank" href="/media/pdf/GTmetrix_repport_performance.pdf">Rapport de performance</a> <br />
+        <a target="_blank" href="http://validator.w3.org/check?uri=http%3A%2F%2Fglovz.thomas-vanhorde.fr%2F">Validation W3C</a>
         <a target="_blank" href="/media/pdf/presentation.pdf">Présentation</a> <br />
-        <a target="_blank" href="/media/pdf/contrat_vente.pdf">Contrat de vente</a> <br />
+        <a target="_blank" href="/media/pdf/gantt.pdf">Gantt</a><br />
+        <a target="_blank" href="/media/pdf/zoning.pdf">Zoning</a>
     </li>
 </ul>
-
-
-
-
