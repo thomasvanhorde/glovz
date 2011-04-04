@@ -55,7 +55,7 @@
     <li>
         <strong>Autres</strong><br />
         <a target="_blank" href="/media/pdf/GTmetrix_repport_performance.pdf">Rapport de performance</a> <br />
-        <a target="_blank" href="http://validator.w3.org/check?uri=http%3A%2F%2Fglovz.thomas-vanhorde.fr%2F">Validation W3C</a>
+        <a target="_blank" href="http://validator.w3.org/check?uri=http%3A%2F%2Fglovz.thomas-vanhorde.fr%2F">Validation W3C</a> <br />
         <a target="_blank" href="/media/pdf/presentation.pdf">Présentation</a> <br />
         <a target="_blank" href="/media/pdf/gantt.pdf">Gantt</a><br />
         <a target="_blank" href="/media/pdf/zoning.pdf">Zoning</a>
