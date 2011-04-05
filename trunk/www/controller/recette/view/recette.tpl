@@ -49,7 +49,7 @@
     <li>
         <strong>Législation</strong><br />
         <a target="_blank" href="/media/pdf/declaration_cnil.pdf">CNIL - Déclaration</a> <br />
-        <a target="_blank" href="/media/pdf/cnil_recipisse.pdf">CNIL - Récipissé</a>
+        <a target="_blank" href="/media/pdf/cnil_recipisse.pdf">CNIL - Récipissé</a> <br />
         <a target="_blank" href="/media/pdf/contrat_vente.pdf">Contrat de vente</a> <br />
     </li>
     <li>
